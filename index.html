@@ -299,34 +299,38 @@
             </div>
             <div class="services-grid">
                 <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
-                    <div
-                        style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-cyan); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;">
-                        150+
+                    <div class="count-number"
+                        style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-cyan); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;"
+                        data-target="150" data-suffix="+">
+                        0
                     </div>
                     <h3>Projects Delivered</h3>
                     <p style="color: var(--text-secondary);">Successfully completed projects across various industries
                     </p>
                 </div>
                 <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
-                    <div
-                        style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-magenta); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;">
-                        98%
+                    <div class="count-number"
+                        style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-magenta); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;"
+                        data-target="98" data-suffix="%">
+                        0
                     </div>
                     <h3>Client Satisfaction</h3>
                     <p style="color: var(--text-secondary);">Clients who would recommend us to others</p>
                 </div>
                 <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
-                    <div
-                        style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-green); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;">
-                        50+
+                    <div class="count-number"
+                        style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-green); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;"
+                        data-target="50" data-suffix="+">
+                        0
                     </div>
                     <h3>Happy Clients</h3>
                     <p style="color: var(--text-secondary);">Long-term partnerships built on trust and results</p>
                 </div>
                 <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
-                    <div
-                        style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-blue); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;">
-                        5+
+                    <div class="count-number"
+                        style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-blue); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;"
+                        data-target="5" data-suffix="+">
+                        0
                     </div>
                     <h3>Years Experience</h3>
                     <p style="color: var(--text-secondary);">Delivering excellence in digital innovation</p>
@@ -337,12 +341,41 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
+        <!-- Top Curved Divider -->
+        <div class="portal-divider portal-divider-top">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="topGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:var(--bg-secondary);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:var(--bg-secondary);stop-opacity:0" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,120 Q360,0 720,60 T1440,120 L1440,0 L0,0 Z" fill="url(#topGradient)" />
+            </svg>
+        </div>
+
+        <!-- Portal Glow Effect -->
+        <div class="portal-glow"></div>
+
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to Transform Your Digital Presence?</h2>
                 <p>Let's collaborate on your next big idea</p>
                 <a href="contact.html" class="btn btn-primary btn-large">Get In Touch</a>
             </div>
+        </div>
+
+        <!-- Bottom Curved Divider -->
+        <div class="portal-divider portal-divider-bottom">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bottomGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:var(--bg-secondary);stop-opacity:0" />
+                        <stop offset="100%" style="stop-color:var(--bg-secondary);stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,0 Q360,120 720,60 T1440,0 L1440,120 L0,120 Z" fill="url(#bottomGradient)" />
+            </svg>
         </div>
     </section>
 

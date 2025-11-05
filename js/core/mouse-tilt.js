@@ -26,7 +26,12 @@ export function initMouseTilt() {
             // Check if element has specific hover transform classes
             if (element.classList.contains('service-card')) {
                 element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) translateZ(20px)`;
-            } else if (element.classList.contains('project-card') || element.classList.contains('project-card-large')) {
+            } else if (element.classList.contains('project-card-large')) {
+                // Reduced tilt intensity for project-card-large (higher divisor = less tilt)
+                const reducedRotateX = (y - centerY) / 25;
+                const reducedRotateY = (centerX - x) / 25;
+                element.style.transform = `perspective(1000px) rotateX(${reducedRotateX}deg) rotateY(${reducedRotateY}deg) translateY(-5px) translateZ(15px)`;
+            } else if (element.classList.contains('project-card')) {
                 element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) translateZ(15px)`;
             } else {
                 element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;

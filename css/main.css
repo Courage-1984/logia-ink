@@ -34,6 +34,7 @@
 @import url('./utils/cursor.css');
 @import url('./utils/3d-effects.css');
 @import url('./utils/fluid-effects.css');
+@import url('./utils/easter-egg.css');
 
 /* 6. Responsive Styles - Must come last */
 @import url('./utils/responsive.css');

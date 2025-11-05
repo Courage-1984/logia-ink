@@ -184,18 +184,56 @@
                         <li style="margin-bottom: 0.5rem;">• Performance Optimization</li>
                     </ul>
                 </div>
+                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d">
+                    <div class="service-icon">
+                        <div class="icon-glow"></div>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" />
+                            <rect x="9" y="14" width="6" height="4" rx="1" />
+                        </svg>
+                    </div>
+                    <h3>E-commerce Solutions</h3>
+                    <p>Complete e-commerce platforms that drive sales and enhance customer experience. From store setup
+                        to payment integration, we build powerful online stores.</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem; color: var(--text-secondary);">
+                        <li style="margin-bottom: 0.5rem;">• Online Store Setup</li>
+                        <li style="margin-bottom: 0.5rem;">• Payment Gateway Integration</li>
+                        <li style="margin-bottom: 0.5rem;">• Inventory Management</li>
+                        <li style="margin-bottom: 0.5rem;">• Order Processing Systems</li>
+                    </ul>
+                </div>
+                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d">
+                    <div class="service-icon">
+                        <div class="icon-glow"></div>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
+                    </div>
+                    <h3>Consulting & Strategy</h3>
+                    <p>Expert guidance to help you make informed decisions about your digital transformation. We provide
+                        strategic insights and roadmap planning for your business.</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem; color: var(--text-secondary);">
+                        <li style="margin-bottom: 0.5rem;">• Digital Strategy</li>
+                        <li style="margin-bottom: 0.5rem;">• Technology Consulting</li>
+                        <li style="margin-bottom: 0.5rem;">• Roadmap Planning</li>
+                        <li style="margin-bottom: 0.5rem;">• Performance Audits</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
-    <section class="featured-projects">
+    <section class="featured-projects parallax-section process-parallax">
+        <div class="parallax-background"></div>
+        <div class="parallax-overlay"></div>
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Our Process</h2>
                 <p class="section-subtitle">A streamlined approach to delivering exceptional results</p>
             </div>
-            <div style="max-width: 1000px; margin: 0 auto;">
+            <div style="max-width: 1000px; margin: 0 auto; position: relative; z-index: 2;">
                 <div class="services-grid">
                     <div class="service-card" style="text-align: center;">
                         <div
@@ -225,6 +263,22 @@
                             4</div>
                         <h4>Launch & Support</h4>
                         <p>Seamless deployment followed by ongoing support and optimization.</p>
+                    </div>
+                    <div class="service-card" style="text-align: center;">
+                        <div
+                            style="font-size: 3rem; color: var(--accent-pink); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">
+                            5</div>
+                        <h4>Testing & QA</h4>
+                        <p>Comprehensive testing and quality assurance to ensure flawless performance and user
+                            experience.</p>
+                    </div>
+                    <div class="service-card" style="text-align: center;">
+                        <div
+                            style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">
+                            6</div>
+                        <h4>Iteration & Growth</h4>
+                        <p>Continuous improvement based on data insights and user feedback to drive ongoing growth and
+                            success.</p>
                     </div>
                 </div>
             </div>
@@ -338,9 +392,9 @@
             <div class="services-grid">
                 <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d">
                     <div style="margin-bottom: 1.5rem;">
-                        <div
+                        <div class="count-number" data-target="300" data-suffix="%"
                             style="font-size: 3rem; color: var(--accent-cyan); font-family: 'Orbitron', sans-serif; font-weight: 900;">
-                            300%</div>
+                            0%</div>
                         <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Increase in Online
                             Sales</p>
                     </div>
@@ -350,9 +404,9 @@
                 </div>
                 <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d">
                     <div style="margin-bottom: 1.5rem;">
-                        <div
+                        <div class="count-number" data-target="50" data-suffix="%"
                             style="font-size: 3rem; color: var(--accent-magenta); font-family: 'Orbitron', sans-serif; font-weight: 900;">
-                            50%</div>
+                            0%</div>
                         <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Reduction in Load
                             Time</p>
                     </div>
@@ -362,9 +416,9 @@
                 </div>
                 <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d">
                     <div style="margin-bottom: 1.5rem;">
-                        <div
+                        <div class="count-number" data-target="2" data-suffix="M+"
                             style="font-size: 3rem; color: var(--accent-green); font-family: 'Orbitron', sans-serif; font-weight: 900;">
-                            2M+</div>
+                            0M+</div>
                         <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Monthly Active Users
                         </p>
                     </div>
@@ -378,12 +432,41 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
+        <!-- Top Curved Divider -->
+        <div class="portal-divider portal-divider-top">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="topGradientServices" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:var(--bg-secondary);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:var(--bg-secondary);stop-opacity:0" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,120 Q360,0 720,60 T1440,120 L1440,0 L0,0 Z" fill="url(#topGradientServices)" />
+            </svg>
+        </div>
+
+        <!-- Portal Glow Effect -->
+        <div class="portal-glow"></div>
+
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to Get Started?</h2>
                 <p>Let's discuss how we can help transform your digital presence</p>
                 <a href="contact.html" class="btn btn-primary btn-large">Contact Us</a>
             </div>
+        </div>
+
+        <!-- Bottom Curved Divider -->
+        <div class="portal-divider portal-divider-bottom">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bottomGradientServices" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:var(--bg-secondary);stop-opacity:0" />
+                        <stop offset="100%" style="stop-color:var(--bg-secondary);stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,0 Q360,120 720,60 T1440,0 L1440,120 L0,120 Z" fill="url(#bottomGradientServices)" />
+            </svg>
         </div>
     </section>
 

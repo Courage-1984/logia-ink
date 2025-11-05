@@ -73,4 +73,69 @@ export function initAnimations() {
     window.addEventListener('load', () => {
         document.body.style.opacity = '1';
     });
+
+    // Counting Animation for Stats Numbers
+    initCountAnimation();
+}
+
+/**
+ * Counting Animation
+ * Animated numbers count up from 0 to target value when element comes into view
+ */
+function initCountAnimation() {
+    const countElements = document.querySelectorAll('.count-number');
+    
+    if (countElements.length === 0) return;
+
+    const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                entry.target.classList.add('counted');
+                animateCount(entry.target);
+                countObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    countElements.forEach(element => {
+        // Store original target and suffix
+        const target = parseInt(element.getAttribute('data-target')) || 0;
+        const suffix = element.getAttribute('data-suffix') || '';
+        element.textContent = '0' + suffix;
+        countObserver.observe(element);
+    });
+}
+
+function animateCount(element) {
+    const target = parseInt(element.getAttribute('data-target')) || 0;
+    const suffix = element.getAttribute('data-suffix') || '';
+    const duration = 2000; // 2 seconds
+    const startTime = performance.now();
+    const startValue = 0;
+    
+    // Easing function for smooth animation (ease-out)
+    function easeOutQuart(t) {
+        return 1 - Math.pow(1 - t, 4);
+    }
+
+    function updateCount(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutQuart(progress);
+        const currentValue = Math.floor(startValue + (target - startValue) * easedProgress);
+        
+        element.textContent = currentValue + suffix;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateCount);
+        } else {
+            // Ensure final value is exact
+            element.textContent = target + suffix;
+        }
+    }
+
+    requestAnimationFrame(updateCount);
 }

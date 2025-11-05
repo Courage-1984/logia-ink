@@ -28,20 +28,29 @@ h1, h2, h3, h4, h5, h6 {
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 12px;
+    transition: width 0.3s ease;
+}
+
+/* Expand scrollbar when mouse is near the right edge */
+.scrollbar-expanded::-webkit-scrollbar {
+    width: 24px;
 }
 
 ::-webkit-scrollbar-track {
     background: var(--bg-primary);
+    transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #00ffff;
     border-radius: 6px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Enhanced thumb when hovering over it */
 ::-webkit-scrollbar-thumb:hover {
     background: #00cccc;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
 }
 
 /* Text Selection */

@@ -38,6 +38,7 @@ body {
 
 /* Hide system cursor on hover-capable devices where custom cursor is shown */
 @media (hover: hover) and (pointer: fine) {
+
     html,
     body,
     * {
@@ -367,11 +368,18 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: var(--accent-cyan);
-    transition: left 0.3s ease;
+    background: linear-gradient(90deg,
+            var(--accent-cyan),
+            var(--accent-blue),
+            var(--accent-magenta),
+            var(--accent-cyan));
+    background-size: 300% 100%;
+    background-position: 0% 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     z-index: -1;
 }
 
@@ -381,11 +389,22 @@ body {
 }
 
 .btn-primary:hover::before {
-    left: 0;
+    opacity: 1;
+    animation: gradientMove 3s ease infinite;
 }
 
-.btn-primary:not(:hover)::before {
-    left: -100%;
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .btn-secondary {
@@ -671,6 +690,8 @@ section {
     overflow: hidden;
     border: 1px solid rgba(0, 255, 255, 0.1);
     transition: all 0.3s ease;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .project-card-large:hover {
@@ -687,6 +708,12 @@ section {
     overflow: hidden;
 }
 
+.project-card-large .project-image {
+    height: 320px;
+    box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.2), inset 0 0 40px rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+}
+
 .project-image img {
     width: 100%;
     height: 100%;
@@ -695,20 +722,30 @@ section {
     top: 0;
     left: 0;
     border-radius: 0;
+    z-index: 0;
 }
 
 .project-overlay {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 1;
 }
 
-.project-card-large:hover .project-overlay {
-    opacity: 1;
+.project-card-large .project-image .project-overlay {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.25), rgba(10, 10, 10, 0.45));
+    opacity: 0.6 !important;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    pointer-events: none;
+    backdrop-filter: blur(1px);
 }
+
 
 .project-tag {
     position: absolute;
@@ -723,10 +760,11 @@ section {
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 0 20px var(--glow-cyan);
+    z-index: 2;
 }
 
-.project-content {
-    padding: 2.5rem;
+.project-card-large .project-content {
+    padding: 2rem;
 }
 
 .project-category {
@@ -761,9 +799,74 @@ section {
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-align: center;
-    border-top: 1px solid rgba(0, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
     overflow: hidden;
+    padding: 8rem 0;
+}
+
+/* Portal dividers - curved edges */
+.portal-divider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.portal-divider-top {
+    top: 0;
+}
+
+.portal-divider-bottom {
+    bottom: 0;
+}
+
+.portal-divider svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.portal-divider svg path {
+    filter: drop-shadow(0 -10px 30px rgba(0, 255, 255, 0.3));
+}
+
+.portal-divider-bottom svg path {
+    filter: drop-shadow(0 10px 30px rgba(255, 0, 255, 0.3));
+}
+
+/* Portal glow effect - animated border */
+.portal-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent),
+        linear-gradient(180deg, transparent, rgba(255, 0, 255, 0.1), transparent);
+    background-size: 200% 200%;
+    animation: portalGlow 8s ease infinite;
+    z-index: 1;
+    pointer-events: none;
+    border-top: 2px solid rgba(0, 255, 255, 0.3);
+    border-bottom: 2px solid rgba(255, 0, 255, 0.3);
+    box-shadow:
+        inset 0 0 60px rgba(0, 255, 255, 0.15),
+        inset 0 0 120px rgba(255, 0, 255, 0.1),
+        0 0 100px rgba(0, 255, 255, 0.2);
+}
+
+@keyframes portalGlow {
+
+    0%,
+    100% {
+        background-position: 0% 50%, 50% 0%;
+    }
+
+    50% {
+        background-position: 100% 50%, 50% 100%;
+    }
 }
 
 /* Dark overlay for text readability */
@@ -774,10 +877,10 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(10, 10, 10, 0.85) 0%, 
-        rgba(26, 26, 46, 0.8) 50%, 
-        rgba(22, 33, 62, 0.85) 100%);
+    background: linear-gradient(135deg,
+            rgba(10, 10, 10, 0.85) 0%,
+            rgba(26, 26, 46, 0.8) 50%,
+            rgba(22, 33, 62, 0.85) 100%);
     z-index: 0;
     pointer-events: none;
 }
@@ -790,10 +893,10 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(0, 255, 255, 0.05) 0%, 
-        rgba(255, 0, 255, 0.05) 50%, 
-        rgba(0, 255, 255, 0.05) 100%);
+    background: linear-gradient(135deg,
+            rgba(0, 255, 255, 0.05) 0%,
+            rgba(255, 0, 255, 0.05) 50%,
+            rgba(0, 255, 255, 0.05) 100%);
     background-size: 400% 400%;
     animation: fluidGradient 15s ease infinite;
     z-index: 1;
@@ -802,6 +905,61 @@ section {
 
 /* Ensure content is above overlays */
 .cta-content {
+    position: relative;
+    z-index: 4;
+}
+
+/* Parallax Sections */
+.parallax-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+/* Mission Parallax Section */
+.mission-parallax .parallax-background {
+    background-image: url('../assets/images/backgrounds/mission-parallax-bg.webp');
+}
+
+/* Process Parallax Section */
+.process-parallax .parallax-background {
+    background-image: url('../assets/images/backgrounds/process-parallax-bg.webp');
+}
+
+/* Testimonials Parallax Section */
+.testimonials-parallax .parallax-background {
+    background-image: url('../assets/images/backgrounds/testimonials-parallax-bg.webp');
+}
+
+/* Dark overlay for text readability */
+.parallax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(10, 10, 10, 0.85) 0%,
+            rgba(26, 26, 46, 0.8) 50%,
+            rgba(22, 33, 62, 0.85) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Ensure content is above background and overlay */
+.parallax-section .container {
     position: relative;
     z-index: 2;
 }
@@ -1375,7 +1533,14 @@ section {
 
     /* CTA Section - Mobile Background Fix */
     .cta-section {
-        background-attachment: scroll; /* Change from fixed to scroll on mobile */
+        background-attachment: scroll;
+        /* Change from fixed to scroll on mobile */
+    }
+
+    /* Parallax Sections - Mobile Background Fix */
+    .parallax-background {
+        background-attachment: scroll;
+        /* Change from fixed to scroll on mobile */
     }
 
     /* Footer */
@@ -1675,7 +1840,14 @@ section {
 
     /* CTA Section - Small Mobile Background Fix */
     .cta-section {
-        background-attachment: scroll; /* Ensure scroll on small mobile */
+        background-attachment: scroll;
+        /* Ensure scroll on small mobile */
+    }
+
+    /* Parallax Sections - Small Mobile Background Fix */
+    .parallax-background {
+        background-attachment: scroll;
+        /* Ensure scroll on small mobile */
     }
 
     /* Contact Page - Small Mobile */
@@ -3657,10 +3829,13 @@ hr {
 }
 
 @keyframes ripple-wave {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1) rotate(0deg);
         opacity: 0.3;
     }
+
     50% {
         transform: scale(1.2) rotate(180deg);
         opacity: 0.1;
@@ -3713,3 +3888,6 @@ hr {
         text-decoration: underline;
     }
 }
+
+/* Easter Egg Styles */
+@import url('./css/utils/easter-egg.css');

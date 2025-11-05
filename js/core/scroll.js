@@ -62,4 +62,33 @@ export function initScroll() {
             });
         });
     }
+
+    // Scrollbar Expansion on Hover Near Right Edge
+    // Expands scrollbar when mouse is within 30px of the right edge for easier grabbing
+    let scrollbarExpandTimeout;
+    const edgeThreshold = 30; // Distance from right edge in pixels
+
+    document.addEventListener('mousemove', (e) => {
+        const windowWidth = window.innerWidth;
+        const mouseX = e.clientX;
+        const distanceFromRight = windowWidth - mouseX;
+
+        // Clear any existing timeout
+        clearTimeout(scrollbarExpandTimeout);
+
+        if (distanceFromRight <= edgeThreshold) {
+            // Mouse is near the right edge - expand scrollbar
+            document.documentElement.classList.add('scrollbar-expanded');
+        } else {
+            // Mouse is away from the edge - collapse scrollbar after a short delay
+            scrollbarExpandTimeout = setTimeout(() => {
+                document.documentElement.classList.remove('scrollbar-expanded');
+            }, 150); // Small delay to prevent flickering when moving mouse quickly
+        }
+    });
+
+    // Remove expanded class when mouse leaves the window
+    document.addEventListener('mouseleave', () => {
+        document.documentElement.classList.remove('scrollbar-expanded');
+    });
 }
