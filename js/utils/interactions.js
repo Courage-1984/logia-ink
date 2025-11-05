@@ -16,7 +16,11 @@ export function initInteractions() {
     });
 
     // Service Card Hover Effects
-    document.querySelectorAll('.service-card').forEach(card => {
+    // Apply to all service cards - mouse-tilt will override for mouse-tilt-container
+    // Note: All cards should have mouse-tilt-container class for consistent mouse-following tilt effect
+    document.querySelectorAll('.service-card:not(.mouse-tilt-container)').forEach(card => {
+        // Only apply fallback transform if card doesn't have mouse-tilt
+        // (Most cards should have mouse-tilt-container for mouse-following tilt)
         card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-10px) scale(1.02)';
         });

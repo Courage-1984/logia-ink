@@ -1,0 +1,428 @@
+# Build and Deploy Guide
+
+This guide covers how to build and deploy the Logi-Ink website.
+
+---
+
+## 📋 Prerequisites
+
+- Node.js 18+ installed
+- npm or yarn package manager
+- Git (for version control)
+
+---
+
+## 🚀 Quick Start
+
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+This will install:
+- Vite (build tool)
+- Sharp (image optimization)
+
+### 2. Development Server
+
+Start the development server with hot module replacement:
+
+```bash
+npm run dev
+```
+
+The site will be available at `http://localhost:3000`
+
+### 3. Build for Production
+
+Build optimized production files:
+
+```bash
+npm run build
+```
+
+This creates a `dist/` directory with:
+- Minified and optimized CSS/JS
+- Optimized images
+- Production-ready HTML files
+
+### 4. Preview Production Build
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+The preview will be available at `http://localhost:4173`
+
+---
+
+## 🖼️ Image Optimization
+
+### Option 1: Optimize Existing Images
+
+Optimize all WebP images in the project:
+
+```bash
+npm run optimize-images
+```
+
+This will:
+- Compress images to 80% quality
+- Resize large images (max 1920x1080)
+- Create optimized versions with `-optimized` suffix
+- Show size savings for each image
+
+**Output:** Optimized images saved in the same directories with `-optimized` suffix.
+
+**After optimization:**
+1. Review the optimized images
+2. Replace originals if quality is acceptable
+3. Update HTML to use optimized images (or remove `-optimized` suffix)
+
+### Option 2: Generate Responsive Images
+
+Generate multiple sizes for responsive `srcset`:
+
+```bash
+node scripts/generate-responsive-images.js
+```
+
+This will:
+- Generate multiple sizes (480w, 768w, 1024w, 1280w, 1920w)
+- Create WebP versions
+- Generate HTML examples for each image
+
+**Output:** Images saved in `assets/images/responsive/` with HTML examples.
+
+**After generation:**
+1. Review generated sizes
+2. Update HTML to use responsive images (see examples below)
+
+---
+
+## 📝 Using Responsive Images
+
+### Example 1: Background Image
+
+```html
+<picture>
+  <source 
+    type="image/webp" 
+    srcset="
+      assets/images/responsive/mission-parallax-bg-480w.webp 480w,
+      assets/images/responsive/mission-parallax-bg-768w.webp 768w,
+      assets/images/responsive/mission-parallax-bg-1024w.webp 1024w,
+      assets/images/responsive/mission-parallax-bg-1920w.webp 1920w
+    "
+    sizes="(max-width: 768px) 768px, (max-width: 1024px) 1024px, 1920px"
+  >
+  <img 
+    src="assets/images/backgrounds/mission-parallax-bg.webp" 
+    alt="Mission background" 
+    loading="lazy"
+  >
+</picture>
+```
+
+### Example 2: Hero Banner
+
+```html
+<picture>
+  <source 
+    type="image/webp" 
+    srcset="
+      assets/images/responsive/banner_home-480w.webp 480w,
+      assets/images/responsive/banner_home-768w.webp 768w,
+      assets/images/responsive/banner_home-1024w.webp 1024w,
+      assets/images/responsive/banner_home-1920w.webp 1920w
+    "
+    sizes="100vw"
+  >
+  <img 
+    src="assets/images/banners/banner_home.webp" 
+    alt="Hero banner" 
+    loading="eager"
+  >
+</picture>
+```
+
+### Example 3: CSS Background Image
+
+For CSS background images, use media queries:
+
+```css
+.hero-background {
+  background-image: url('assets/images/responsive/banner_home-1920w.webp');
+}
+
+@media (max-width: 1024px) {
+  .hero-background {
+    background-image: url('assets/images/responsive/banner_home-1024w.webp');
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-background {
+    background-image: url('assets/images/responsive/banner_home-768w.webp');
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-background {
+    background-image: url('assets/images/responsive/banner_home-480w.webp');
+  }
+}
+```
+
+---
+
+## 🏗️ Build Process
+
+### What Happens During Build
+
+1. **CSS Processing:**
+   - All `@import` statements are resolved
+   - CSS is minified and optimized
+   - Unused CSS can be removed (if configured)
+
+2. **JavaScript Processing:**
+   - ES6 modules are bundled
+   - Code is minified and tree-shaken
+   - Console.log statements are removed
+   - Source maps are generated (optional)
+
+3. **HTML Processing:**
+   - Asset paths are updated to hashed filenames
+   - CSS and JS are injected
+   - Images are optimized
+
+4. **Asset Optimization:**
+   - Images are optimized
+   - Fonts are copied
+   - Favicons are copied
+
+### Build Output Structure
+
+```
+dist/
+├── assets/
+│   ├── css/
+│   │   └── main-[hash].css
+│   ├── js/
+│   │   ├── main-[hash].js
+│   │   └── about-[hash].js (page-specific)
+│   └── images/
+│       └── [optimized images]
+├── index.html
+├── about.html
+├── services.html
+├── projects.html
+├── contact.html
+└── [other static files]
+```
+
+---
+
+## 🚢 Deployment
+
+### Option 1: Static Hosting (Netlify, Vercel, GitHub Pages)
+
+#### Netlify
+
+1. **Install Netlify CLI:**
+   ```bash
+   npm install -g netlify-cli
+   ```
+
+2. **Build command:**
+   ```bash
+   npm run build
+   ```
+
+3. **Publish directory:**
+   ```
+   dist
+   ```
+
+4. **Deploy:**
+   ```bash
+   netlify deploy --prod
+   ```
+
+   Or connect your Git repository in Netlify dashboard.
+
+#### Vercel
+
+1. **Install Vercel CLI:**
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Deploy:**
+   ```bash
+   vercel --prod
+   ```
+
+   Or connect your Git repository in Vercel dashboard.
+
+#### GitHub Pages
+
+1. **Install gh-pages:**
+   ```bash
+   npm install --save-dev gh-pages
+   ```
+
+2. **Add deploy script to package.json:**
+   ```json
+   "scripts": {
+     "deploy": "npm run build && gh-pages -d dist"
+   }
+   ```
+
+3. **Deploy:**
+   ```bash
+   npm run deploy
+   ```
+
+### Option 2: Traditional Web Hosting (FTP)
+
+1. **Build the project:**
+   ```bash
+   npm run build
+   ```
+
+2. **Upload `dist/` contents:**
+   - Upload all files from `dist/` to your web server
+   - Ensure `index.html` is in the root directory
+   - Maintain directory structure
+
+3. **Configure server:**
+   - Set up redirects for clean URLs (if needed)
+   - Configure HTTPS
+   - Set up caching headers
+
+### Option 3: Docker (Advanced)
+
+Create a `Dockerfile`:
+
+```dockerfile
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+Build and run:
+```bash
+docker build -t logia-ink .
+docker run -p 80:80 logia-ink
+```
+
+---
+
+## ⚙️ Environment-Specific Configuration
+
+### Development vs Production
+
+Vite automatically handles environment differences:
+
+- **Development:** Source maps, unminified code, HMR
+- **Production:** Minified, optimized, no source maps (unless configured)
+
+### Custom Build Configuration
+
+Edit `vite.config.js` to customize:
+
+```javascript
+export default defineConfig({
+  build: {
+    // Production-specific settings
+    minify: 'terser',
+    sourcemap: false, // Set to true for production debugging
+    // ...
+  },
+});
+```
+
+---
+
+## 📊 Performance Checklist
+
+Before deploying, verify:
+
+- [ ] All images are optimized
+- [ ] CSS is minified
+- [ ] JavaScript is minified
+- [ ] Unused code is removed
+- [ ] Gzip/Brotli compression is enabled (server-side)
+- [ ] Caching headers are configured
+- [ ] HTTPS is enabled
+- [ ] Lighthouse score is > 90
+
+### Run Lighthouse Audit
+
+1. Open Chrome DevTools
+2. Go to Lighthouse tab
+3. Run audit for:
+   - Performance
+   - Accessibility
+   - Best Practices
+   - SEO
+
+---
+
+## 🔧 Troubleshooting
+
+### Build Fails
+
+**Issue:** Build errors or warnings
+
+**Solution:**
+- Check Node.js version (requires 18+)
+- Clear `node_modules` and reinstall: `rm -rf node_modules package-lock.json && npm install`
+- Check for syntax errors in source files
+- Review Vite build output for specific errors
+
+### Images Not Loading
+
+**Issue:** Images return 404 after build
+
+**Solution:**
+- Ensure images are in `assets/images/` directory
+- Check that image paths are relative (not absolute)
+- Verify Vite asset handling configuration
+
+### CSS Not Applying
+
+**Issue:** Styles not working in production
+
+**Solution:**
+- Check that CSS imports are correct
+- Verify `css/main.css` is imported in HTML
+- Check browser console for CSS loading errors
+- Ensure CSS file paths are correct in built HTML
+
+---
+
+## 📚 Additional Resources
+
+- [Vite Documentation](https://vitejs.dev/)
+- [Sharp Documentation](https://sharp.pixelplumbing.com/)
+- [WebP Guide](https://developers.google.com/speed/webp)
+- [Responsive Images Guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
+
+---
+
+**Last Updated:** 2024-12-19
+

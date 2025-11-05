@@ -53,6 +53,71 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
 }
 
+/* Scrollbar Color Variants */
+.magenta-scrollbar::-webkit-scrollbar-thumb,
+.variant-magenta-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--accent-magenta);
+}
+
+.magenta-scrollbar::-webkit-scrollbar-thumb:hover,
+.variant-magenta-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #cc00cc;
+    box-shadow: 0 0 10px var(--glow-magenta);
+}
+
+.magenta-scrollbar,
+.variant-magenta-scrollbar {
+    scrollbar-color: var(--accent-magenta) var(--bg-primary);
+}
+
+.green-scrollbar::-webkit-scrollbar-thumb,
+.variant-green-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--accent-green);
+}
+
+.green-scrollbar::-webkit-scrollbar-thumb:hover,
+.variant-green-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #00cc00;
+    box-shadow: 0 0 10px var(--glow-green);
+}
+
+.green-scrollbar,
+.variant-green-scrollbar {
+    scrollbar-color: var(--accent-green) var(--bg-primary);
+}
+
+.blue-scrollbar::-webkit-scrollbar-thumb,
+.variant-blue-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--accent-blue);
+}
+
+.blue-scrollbar::-webkit-scrollbar-thumb:hover,
+.variant-blue-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #0052cc;
+    box-shadow: 0 0 10px var(--glow-blue);
+}
+
+.blue-scrollbar,
+.variant-blue-scrollbar {
+    scrollbar-color: var(--accent-blue) var(--bg-primary);
+}
+
+.pink-scrollbar::-webkit-scrollbar-thumb,
+.variant-pink-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--accent-pink);
+}
+
+.pink-scrollbar::-webkit-scrollbar-thumb:hover,
+.variant-pink-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #cc0066;
+    box-shadow: 0 0 10px var(--glow-pink);
+}
+
+.pink-scrollbar,
+.variant-pink-scrollbar {
+    scrollbar-color: var(--accent-pink) var(--bg-primary);
+}
+
 /* Text Selection */
 ::selection {
     background: rgba(0, 255, 255, 0.3);

@@ -103,6 +103,13 @@ body.easter-egg-active.milky-way-ready > *:not(.easter-egg-vortex):not(.milky-wa
     pointer-events: none !important;
 }
 
+/* Hide vortex when Milky Way is ready so it doesn't block interaction */
+body.easter-egg-active.milky-way-ready .easter-egg-vortex {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+}
+
 @keyframes galaxyVortexDelete {
     0% {
         transform: scale(1) rotate(0deg);
@@ -136,7 +143,7 @@ body.easter-egg-active.milky-way-ready > *:not(.easter-egg-vortex):not(.milky-wa
     z-index: 99998 !important;
     opacity: 0;
     pointer-events: none;
-    background: #000;
+    background: transparent !important; /* Transparent background, not black */
     transition: opacity 1s ease-in 1.5s;
     margin: 0 !important;
     padding: 0 !important;
@@ -144,9 +151,11 @@ body.easter-egg-active.milky-way-ready > *:not(.easter-egg-vortex):not(.milky-wa
 }
 
 .milky-way-scene.active {
-    opacity: 1;
-    pointer-events: all;
+    opacity: 1 !important;
+    pointer-events: all !important;
     display: block !important;
+    z-index: 99999 !important; /* Higher than vortex to ensure it's on top */
+    background: transparent !important; /* Remove dark background */
 }
 
 .milky-way-scene canvas {
@@ -256,22 +265,10 @@ body.easter-egg-active.milky-way-ready * {
     animation: galaxySpin 1s linear infinite !important;
     box-shadow: 0 0 40px var(--glow-cyan), 0 0 40px var(--glow-magenta), inset 0 0 20px rgba(0, 255, 255, 0.1) !important;
     position: relative !important;
-    transform: none !important;
+    /* Remove transform: none to allow animation to work */
 }
 
-.milky-way-loading-spinner::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    height: 60%;
-    border: 3px solid rgba(255, 0, 255, 0.2);
-    border-top: 3px solid var(--accent-magenta);
-    border-radius: 50%;
-    animation: galaxySpin 0.7s linear infinite reverse;
-}
+/* Removed ::before spinner - was creating extra non-spinning spinner */
 
 .milky-way-loading-text {
     color: var(--accent-cyan) !important;

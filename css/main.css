@@ -18,12 +18,19 @@
 @import url('./components/cards.css');
 @import url('./components/footer.css');
 @import url('./components/forms.css');
+@import url('./components/cta.css');
+@import url('./components/parallax.css');
+@import url('./components/back-to-top.css');
 @import url('./components/modals.css');
 @import url('./components/alerts.css');
 @import url('./components/badges.css');
 @import url('./components/tables.css');
 @import url('./components/tabs.css');
 @import url('./components/accordions.css');
+@import url('./components/tooltips.css');
+@import url('./components/typography.css');
+@import url('./components/breadcrumbs.css');
+@import url('./components/toast.css');
 
 /* 4. Page-Specific Styles */
 @import url('./pages/contact.css');
@@ -35,6 +42,10 @@
 @import url('./utils/3d-effects.css');
 @import url('./utils/fluid-effects.css');
 @import url('./utils/easter-egg.css');
+@import url('./utils/loading.css');
+@import url('./utils/empty-state.css');
+@import url('./utils/dividers.css');
+@import url('./utils/skip-link.css');
 
 /* 6. Responsive Styles - Must come last */
 @import url('./utils/responsive.css');

@@ -1,0 +1,266 @@
+/**
+ * Cards Component
+ * Service cards, project cards, icons, and all card-related styles
+ * 
+ * Extracted from styles.css (lines: 558-792)
+ */
+
+/* Services Section */
+.services-preview {
+    background: var(--bg-secondary);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Service Card */
+.service-card {
+    background: rgba(22, 33, 62, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Simple hover effect - only apply if NOT using mouse-tilt (mouse-tilt will override) */
+.service-card:not(.mouse-tilt-container):hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+}
+
+/* Visual hover effects for mouse-tilt cards (no transform - mouse-tilt handles that) */
+.service-card.mouse-tilt-container:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* Service Icon */
+.service-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.service-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: var(--accent-cyan);
+    stroke-width: 2;
+    filter: drop-shadow(0 0 10px var(--glow-cyan));
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon svg {
+    stroke: var(--accent-magenta);
+    filter: drop-shadow(0 0 15px var(--glow-magenta));
+}
+
+/* Icon Glow Effect */
+.icon-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--glow-cyan), transparent);
+    opacity: 0.3;
+    animation: pulse 2s infinite;
+}
+
+/* Icon Pulse Animation */
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+/* Service Card Content */
+.service-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.service-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* Service Link */
+.service-link {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.service-link:hover {
+    color: var(--accent-magenta);
+    text-shadow: 0 0 10px var(--glow-magenta);
+    gap: 1rem;
+}
+
+/* Projects Section */
+.featured-projects {
+    background: var(--bg-primary);
+}
+
+.projects-preview {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Project Card Large */
+.project-card-large {
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Simple hover effect - only apply if NOT using mouse-tilt (mouse-tilt will override) */
+.project-card-large:not(.mouse-tilt-container):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 255, 255, 0.2);
+    border-color: var(--accent-cyan);
+}
+
+/* Visual hover effects for mouse-tilt cards (no transform - mouse-tilt handles that) */
+.project-card-large.mouse-tilt-container:hover,
+.project-card.mouse-tilt-container:hover {
+    box-shadow: 0 20px 60px rgba(0, 255, 255, 0.2);
+    border-color: var(--accent-cyan);
+}
+
+/* Project Image */
+.project-image {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card-large .project-image {
+    height: 320px;
+    box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.2), inset 0 0 40px rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    z-index: 0;
+}
+
+/* Project Overlay */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.project-card-large .project-image .project-overlay {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.25), rgba(10, 10, 10, 0.45));
+    opacity: 0.6 !important;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    pointer-events: none;
+    backdrop-filter: blur(1px);
+}
+
+/* Project Tag */
+.project-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--accent-cyan);
+    color: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px var(--glow-cyan);
+    z-index: 2;
+}
+
+/* Project Content */
+.project-card-large .project-content {
+    padding: 2rem;
+}
+
+.project-category {
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.project-content h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.project-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logi-Ink - Digital Innovation & Creative Solutions</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -152,8 +152,17 @@
             <div class="projects-preview">
                 <div class="project-card-large mouse-tilt-container">
                     <div class="project-image">
-                        <img src="./assets/images/banners/banner_home.webp"
-                            alt="Web Development Transforming Digital Experiences" />
+                        <picture>
+                            <source type="image/webp" srcset="
+                                    ./assets/images/responsive/banners/banner_home-480w.webp 480w,
+                                    ./assets/images/responsive/banners/banner_home-768w.webp 768w,
+                                    ./assets/images/responsive/banners/banner_home-1024w.webp 1024w,
+                                    ./assets/images/responsive/banners/banner_home-1280w.webp 1280w
+                                "
+                                sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1280px">
+                            <img src="./assets/images/banners/banner_home.webp"
+                                alt="Web Development Transforming Digital Experiences" loading="lazy" />
+                        </picture>
                         <div class="project-overlay"></div>
                         <div class="project-tag">Latest</div>
                     </div>
@@ -176,7 +185,7 @@
                 <p class="section-subtitle">Cutting-edge tools and frameworks for modern development</p>
             </div>
             <div class="services-grid">
-                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
+                <div class="service-card mouse-tilt-container card-3d" style="text-align: center;">
                     <div class="service-icon">
                         <div class="icon-glow"></div>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -186,7 +195,7 @@
                     <h3>Frontend</h3>
                     <p>React, Vue.js, Angular, Next.js, TypeScript, Tailwind CSS</p>
                 </div>
-                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
+                <div class="service-card mouse-tilt-container card-3d" style="text-align: center;">
                     <div class="service-icon">
                         <div class="icon-glow"></div>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -197,7 +206,7 @@
                     <h3>Backend</h3>
                     <p>Node.js, Python, PHP, Java, .NET, REST APIs, GraphQL</p>
                 </div>
-                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
+                <div class="service-card mouse-tilt-container card-3d" style="text-align: center;">
                     <div class="service-icon">
                         <div class="icon-glow"></div>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -209,7 +218,7 @@
                     <h3>Mobile</h3>
                     <p>React Native, Flutter, Swift, Kotlin, iOS, Android</p>
                 </div>
-                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
+                <div class="service-card mouse-tilt-container card-3d" style="text-align: center;">
                     <div class="service-icon">
                         <div class="icon-glow"></div>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -234,7 +243,7 @@
                 <p class="section-subtitle">What our clients say about working with us</p>
             </div>
             <div class="services-grid">
-                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d">
+                <div class="service-card mouse-tilt-container card-3d">
                     <div style="margin-bottom: 1.5rem;">
                         <svg viewBox="0 0 24 24" fill="var(--accent-cyan)" width="40" height="40" style="opacity: 0.5;">
                             <path
@@ -251,7 +260,7 @@
                         <p style="color: var(--text-muted); font-size: 0.9rem;">CEO, TechStart Inc.</p>
                     </div>
                 </div>
-                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d">
+                <div class="service-card mouse-tilt-container card-3d">
                     <div style="margin-bottom: 1.5rem;">
                         <svg viewBox="0 0 24 24" fill="var(--accent-magenta)" width="40" height="40"
                             style="opacity: 0.5;">
@@ -269,7 +278,7 @@
                         <p style="color: var(--text-muted); font-size: 0.9rem;">Founder, Digital Ventures</p>
                     </div>
                 </div>
-                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d">
+                <div class="service-card mouse-tilt-container card-3d">
                     <div style="margin-bottom: 1.5rem;">
                         <svg viewBox="0 0 24 24" fill="var(--accent-green)" width="40" height="40"
                             style="opacity: 0.5;">
@@ -298,7 +307,7 @@
                 <p class="section-subtitle">Numbers that speak for themselves</p>
             </div>
             <div class="services-grid">
-                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
+                <div class="service-card mouse-tilt-container card-3d" style="text-align: center;">
                     <div class="count-number"
                         style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-cyan); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;"
                         data-target="150" data-suffix="+">
@@ -308,7 +317,7 @@
                     <p style="color: var(--text-secondary);">Successfully completed projects across various industries
                     </p>
                 </div>
-                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
+                <div class="service-card mouse-tilt-container card-3d" style="text-align: center;">
                     <div class="count-number"
                         style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-magenta); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;"
                         data-target="98" data-suffix="%">
@@ -317,7 +326,7 @@
                     <h3>Client Satisfaction</h3>
                     <p style="color: var(--text-secondary);">Clients who would recommend us to others</p>
                 </div>
-                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
+                <div class="service-card mouse-tilt-container card-3d" style="text-align: center;">
                     <div class="count-number"
                         style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-green); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;"
                         data-target="50" data-suffix="+">
@@ -326,7 +335,7 @@
                     <h3>Happy Clients</h3>
                     <p style="color: var(--text-secondary);">Long-term partnerships built on trust and results</p>
                 </div>
-                <div class="service-card mouse-tilt-container card-3d scroll-reveal-3d" style="text-align: center;">
+                <div class="service-card mouse-tilt-container card-3d" style="text-align: center;">
                     <div class="count-number"
                         style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-blue); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif; font-weight: 900;"
                         data-target="5" data-suffix="+">
@@ -416,7 +425,7 @@
 
     <!-- Three.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

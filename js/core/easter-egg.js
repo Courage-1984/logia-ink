@@ -410,7 +410,9 @@ function initMilkyWay() {
     canvas.style.width = '100%';
     canvas.style.height = '100%';
     canvas.style.display = 'block';
-    canvas.style.zIndex = '99998';
+    canvas.style.zIndex = '99999'; /* Higher z-index to ensure it's above everything */
+    canvas.style.pointerEvents = 'all'; /* Ensure canvas receives pointer events */
+    canvas.style.background = 'transparent'; /* Transparent background */
     
     container.appendChild(canvas);
 

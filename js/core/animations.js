@@ -19,13 +19,25 @@ export function initAnimations() {
     }, observerOptions);
 
     // Observe all elements with fade-in-up class
-    document.addEventListener('DOMContentLoaded', () => {
-        const animatedElements = document.querySelectorAll('.service-card, .project-card-large, .fade-in-up');
+    const observeFadeInElements = () => {
+        const animatedElements = document.querySelectorAll('.fade-in-up');
         animatedElements.forEach(el => {
-            el.classList.add('fade-in-up');
+            // Check if already visible (above viewport) and add visible class immediately
+            const rect = el.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isVisible) {
+                el.classList.add('visible');
+            }
             observer.observe(el);
         });
-    });
+    };
+
+    // Run immediately if DOM is ready, otherwise wait
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', observeFadeInElements);
+    } else {
+        observeFadeInElements();
+    }
 
     // Text Reveal Animation on Scroll
     const textRevealObserver = new IntersectionObserver((entries) => {
@@ -46,18 +58,27 @@ export function initAnimations() {
     });
 
     // 3D Scroll Reveal
-    const scrollRevealElements = document.querySelectorAll('.scroll-reveal-3d');
-    const scrollRevealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
+    const observeScrollReveal = () => {
+        const scrollRevealElements = document.querySelectorAll('.scroll-reveal-3d');
+        const scrollRevealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-    scrollRevealElements.forEach(el => {
-        scrollRevealObserver.observe(el);
-    });
+        scrollRevealElements.forEach(el => {
+            scrollRevealObserver.observe(el);
+        });
+    };
+
+    // Run immediately if DOM is ready, otherwise wait
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', observeScrollReveal);
+    } else {
+        observeScrollReveal();
+    }
 
     // Stagger animation for service cards
     const staggerCards = () => {

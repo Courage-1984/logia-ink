@@ -1,0 +1,74 @@
+/**
+ * Contact Page Styles
+ * Page-specific styles for the contact page including section, container, info, and items
+ * 
+ * Extracted from styles.css (lines: 1043-1103)
+ * 
+ * Note: Form styles (.form-group, .form-submit, etc.) are in components/forms.css
+ */
+
+/* Contact Section */
+.contact-section {
+    padding: 6rem 0;
+    background: var(--bg-secondary);
+}
+
+/* Contact Container */
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Contact Item */
+.contact-item {
+    background: rgba(22, 33, 62, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.contact-item h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.contact-item p,
+.contact-item a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    line-height: 1.8;
+}
+
+.contact-item a:hover {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px var(--glow-cyan);
+}
+
+/* Contact Form Container */
+.contact-form {
+    background: rgba(22, 33, 62, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 15px;
+}
+

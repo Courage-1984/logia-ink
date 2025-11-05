@@ -14,10 +14,30 @@ This project uses a **modular architecture** for better organization and maintai
 
 ## 🚀 Quick Start
 
+### Option 1: Development (Recommended)
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Start development server:**
+   ```bash
+   npm run dev
+   ```
+   Opens at `http://localhost:3000` with hot module replacement
+
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
+   Creates optimized `dist/` folder
+
+### Option 2: Simple Preview
+
 1. Open `index.html` in a web browser to view the site
 2. All pages are linked and functional
-3. Customize colors, text, and content as needed
-4. Add your actual images and logo once obtained
+3. Note: Some features may require a local server (use Option 1 for full functionality)
 
 ## 📁 Directory Structure
 
@@ -27,17 +47,28 @@ logia-ink/
 │   ├── main.css         # Main entry point (imports all modules)
 │   ├── variables.css    # CSS custom properties
 │   ├── base.css         # Base/reset styles
-│   ├── components/      # Reusable UI components
+│   ├── components/      # Reusable UI components (19 components)
 │   ├── pages/           # Page-specific styles
 │   └── utils/           # Utilities (animations, responsive, etc.)
 ├── js/                  # Modular JavaScript (ES6 modules)
 │   ├── main.js          # Main entry point
-│   ├── core/            # Core functionality
-│   ├── utils/           # Utilities
+│   ├── core/            # Core functionality modules
+│   ├── utils/           # Utility modules
 │   └── pages/           # Page-specific scripts
+├── docs/                # Documentation files
+│   ├── BUILD_AND_DEPLOY.md
+│   ├── MIGRATION_GUIDE.md
+│   ├── STYLE_GUIDE.md
+│   └── ...              # Other documentation
+├── scripts/             # Build and optimization scripts
+│   ├── optimize-images.js
+│   └── generate-responsive-images.js
 ├── partials/            # Reusable HTML components
 ├── assets/              # Static assets (images, videos)
-└── *.html               # Page files
+├── dist/                # Production build output (generated)
+├── package.json         # Node.js dependencies and scripts
+├── vite.config.js       # Vite build configuration
+└── *.html               # Page files (entry points)
 ```
 
 ## 🎨 Website Structure
@@ -185,30 +216,46 @@ To replace placeholder images:
 
 ## 🛠️ Development
 
+### Build System
+
+This project uses **Vite** for development and production builds:
+
+- **Development:** `npm run dev` - Fast dev server with HMR
+- **Production:** `npm run build` - Optimized, minified build to `dist/`
+- **Preview:** `npm run preview` - Preview production build locally
+
 ### CSS Changes
 - All CSS is modular - edit component files in `css/components/`
 - Colors are in `css/variables.css` - change them there
 - Import order matters in `css/main.css` - don't change unless you know what you're doing
+- CSS is automatically minified during production build
 
 ### JavaScript Changes
 - All JS is modular ES6 - edit modules in `js/core/` or `js/utils/`
 - Main entry point is `js/main.js`
 - Use `export function initModuleName()` pattern for new modules
+- JavaScript is automatically bundled and minified during production build
+
+### Image Optimization
+- Optimize images: `npm run optimize-images`
+- Generate responsive images: `npm run responsive-images`
 
 ### Adding New Components
 1. Create CSS file in `css/components/component-name.css`
 2. Import it in `css/main.css`
 3. If it needs JS, create module in `js/core/` or `js/utils/`
 4. Export init function and import in `js/main.js`
-5. **Update `.cursorrules`** file with the new component
+5. **Update `.cursor/rules/cursorrules.mdc`** file with the new component
 
-See [.cursorrules](.cursorrules) for detailed guidelines.
+See [.cursor/rules/cursorrules.mdc](.cursor/rules/cursorrules.mdc) for detailed guidelines.
 
 ## 📖 Documentation
 
-- **[.cursorrules](.cursorrules)** - Complete project structure and conventions guide
-- **[STYLE_GUIDE.md](STYLE_GUIDE.md)** - Design system and component library
-- **[MIGRATION_GUIDE.md](MIGRATION_GUIDE.md)** - Guide for migrating from old structure
+- **[.cursor/rules/cursorrules.mdc](.cursor/rules/cursorrules.mdc)** - Complete project structure and conventions guide
+- **[docs/STYLE_GUIDE.md](docs/STYLE_GUIDE.md)** - Design system and component library
+- **[docs/BUILD_AND_DEPLOY.md](docs/BUILD_AND_DEPLOY.md)** - Build and deployment guide
+- **[docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md)** - Migration guide (completed)
+- **[docs/QUICK_START.md](docs/QUICK_START.md)** - Quick reference guide
 
 ## 🌐 Browser Support
 
@@ -222,5 +269,15 @@ See [.cursorrules](.cursorrules) for detailed guidelines.
 - The contact form currently shows an alert on submission. You'll need to integrate it with a backend service (e.g., Formspree, Netlify Forms, or custom API)
 - All animations are CSS-based for optimal performance
 - The site is fully responsive and mobile-friendly
-- Uses ES6 modules - modern browsers only (or use a bundler for older browsers)
+- Uses ES6 modules with Vite bundler for optimal performance
+- Legacy files are in `css/legacy/` and `js/legacy/` for reference
+
+## 🚀 Deployment
+
+See **[docs/BUILD_AND_DEPLOY.md](docs/BUILD_AND_DEPLOY.md)** for detailed deployment instructions.
+
+**Quick deploy:**
+1. Build: `npm run build`
+2. Upload `dist/` folder to your web server
+3. Or use Netlify/Vercel with auto-deploy from Git
 
