@@ -35,6 +35,7 @@
 /* 4. Page-Specific Styles */
 @import url('./pages/contact.css');
 @import url('./pages/projects.css');
+@import url('./pages/about.css');
 
 /* 5. Animations & Effects */
 @import url('./utils/animations.css');

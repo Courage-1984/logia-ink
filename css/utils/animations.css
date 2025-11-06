@@ -48,6 +48,16 @@
     }
 }
 
+/* Star Fade In/Out Animation (for values section stars) */
+@keyframes starFade {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
 /* Text Reveal Animation */
 @keyframes textReveal {
     to {

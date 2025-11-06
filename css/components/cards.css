@@ -16,6 +16,23 @@
     gap: 2rem;
 }
 
+/* Square Service Cards Grid */
+.services-grid-square {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@media (min-width: 768px) {
+    .services-grid-square {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid-square {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 /* Service Card */
 .service-card {
     background: rgba(22, 33, 62, 0.5);
@@ -25,6 +42,109 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+}
+
+/* Square Service Card */
+.service-card-square {
+    background: rgba(22, 33, 62, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    aspect-ratio: 1;
+    text-align: center;
+}
+
+.service-card-square .service-icon {
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Smooth infinite gradient animation for square card icons on hover */
+.service-card-square:hover .service-icon svg {
+    animation: iconGradientShift 4s ease-in-out infinite;
+}
+
+/* Animate stroke color through project colors with smooth transitions */
+@keyframes iconGradientShift {
+    0% {
+        stroke: var(--accent-cyan);
+        filter: drop-shadow(0 0 15px var(--glow-cyan));
+    }
+
+    20% {
+        stroke: var(--accent-magenta);
+        filter: drop-shadow(0 0 15px var(--glow-magenta));
+    }
+
+    40% {
+        stroke: var(--accent-green);
+        filter: drop-shadow(0 0 15px var(--glow-green));
+    }
+
+    60% {
+        stroke: var(--accent-blue);
+        filter: drop-shadow(0 0 15px var(--glow-blue));
+    }
+
+    80% {
+        stroke: var(--accent-pink);
+        filter: drop-shadow(0 0 15px var(--glow-pink));
+    }
+
+    100% {
+        stroke: var(--accent-cyan);
+        filter: drop-shadow(0 0 15px var(--glow-cyan));
+    }
+}
+
+.service-card-square h3 {
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+/* Title grow effect on hover */
+.service-card-square:hover h3 {
+    transform: scale(1.2);
+}
+
+.service-card-square .service-modal-btn {
+    margin-top: auto;
+    width: 100%;
+    max-width: 200px;
+}
+
+/* Square card hover effects */
+.service-card-square.mouse-tilt-container:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+}
+
+.service-card-square::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-card-square:hover::before {
+    opacity: 1;
 }
 
 .service-card::before {
@@ -89,6 +209,69 @@
     box-shadow: 0 10px 40px var(--glow-green);
 }
 
+/* FAQ section - custom hover colors matching each card's heading color */
+.service-card.mouse-tilt-container.faq-card-cyan:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 40px var(--glow-cyan);
+}
+
+.service-card.mouse-tilt-container.faq-card-magenta:hover {
+    border-color: var(--accent-magenta);
+    box-shadow: 0 10px 40px var(--glow-magenta);
+}
+
+.service-card.mouse-tilt-container.faq-card-green:hover {
+    border-color: var(--accent-green);
+    box-shadow: 0 10px 40px var(--glow-green);
+}
+
+.service-card.mouse-tilt-container.faq-card-blue:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 40px var(--glow-blue);
+}
+
+/* Project Impact section - custom hover colors matching each card's number color */
+.service-card.mouse-tilt-container.project-impact-cyan:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 40px var(--glow-cyan);
+}
+
+.service-card.mouse-tilt-container.project-impact-magenta:hover {
+    border-color: var(--accent-magenta);
+    box-shadow: 0 10px 40px var(--glow-magenta);
+}
+
+.service-card.mouse-tilt-container.project-impact-green:hover {
+    border-color: var(--accent-green);
+    box-shadow: 0 10px 40px var(--glow-green);
+}
+
+.service-card.mouse-tilt-container.project-impact-blue:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 40px var(--glow-blue);
+}
+
+/* Our Achievements section - custom hover colors matching each card's number color */
+.service-card.mouse-tilt-container.achievement-card-cyan:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 40px var(--glow-cyan);
+}
+
+.service-card.mouse-tilt-container.achievement-card-magenta:hover {
+    border-color: var(--accent-magenta);
+    box-shadow: 0 10px 40px var(--glow-magenta);
+}
+
+.service-card.mouse-tilt-container.achievement-card-green:hover {
+    border-color: var(--accent-green);
+    box-shadow: 0 10px 40px var(--glow-green);
+}
+
+.service-card.mouse-tilt-container.achievement-card-blue:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 40px var(--glow-blue);
+}
+
 .service-card:hover::before {
     opacity: 1;
 }
@@ -110,6 +293,11 @@
     transition: all 0.3s ease;
 }
 
+/* Square card icon default state - no animation */
+.service-card-square .service-icon svg {
+    animation: none;
+}
+
 .service-card:hover .service-icon svg {
     stroke: var(--accent-magenta);
     filter: drop-shadow(0 0 15px var(--glow-magenta));
@@ -128,6 +316,7 @@
 
 /* Icon Pulse Animation */
 @keyframes pulse {
+
     0%,
     100% {
         transform: scale(1);
@@ -176,6 +365,278 @@
 /* Projects Section */
 .featured-projects {
     background: var(--bg-primary);
+}
+
+/* Values Section - Star Particles */
+.values-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.values-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.values-section .section-header {
+    position: relative;
+    z-index: 2;
+}
+
+.values-section .service-card {
+    position: relative;
+    z-index: 2;
+}
+
+.values-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Create multiple star layers using pseudo-elements */
+.values-stars::before,
+.values-stars::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    box-shadow:
+        /* Cyan stars - distributed across full height */
+        50px 100px 0 0 var(--accent-cyan),
+        150px 200px 0 0 var(--accent-cyan),
+        250px 50px 0 0 var(--accent-cyan),
+        350px 400px 0 0 var(--accent-cyan),
+        450px 150px 0 0 var(--accent-cyan),
+        550px 500px 0 0 var(--accent-cyan),
+        650px 80px 0 0 var(--accent-cyan),
+        750px 600px 0 0 var(--accent-cyan),
+        850px 120px 0 0 var(--accent-cyan),
+        950px 700px 0 0 var(--accent-cyan),
+        1050px 60px 0 0 var(--accent-cyan),
+        1150px 300px 0 0 var(--accent-cyan),
+        1250px 800px 0 0 var(--accent-cyan),
+        1350px 90px 0 0 var(--accent-cyan),
+        200px 450px 0 0 var(--accent-cyan),
+        400px 550px 0 0 var(--accent-cyan),
+        600px 650px 0 0 var(--accent-cyan),
+        800px 350px 0 0 var(--accent-cyan),
+        1000px 750px 0 0 var(--accent-cyan),
+        1200px 250px 0 0 var(--accent-cyan),
+        1400px 850px 0 0 var(--accent-cyan),
+        /* Magenta stars - distributed across full height */
+        80px 180px 0 0 var(--accent-magenta),
+        180px 30px 0 0 var(--accent-magenta),
+        280px 480px 0 0 var(--accent-magenta),
+        380px 130px 0 0 var(--accent-magenta),
+        480px 580px 0 0 var(--accent-magenta),
+        580px 40px 0 0 var(--accent-magenta),
+        680px 680px 0 0 var(--accent-magenta),
+        780px 110px 0 0 var(--accent-magenta),
+        880px 780px 0 0 var(--accent-magenta),
+        980px 20px 0 0 var(--accent-magenta),
+        1080px 240px 0 0 var(--accent-magenta),
+        1180px 140px 0 0 var(--accent-magenta),
+        1280px 880px 0 0 var(--accent-magenta),
+        1380px 70px 0 0 var(--accent-magenta),
+        220px 380px 0 0 var(--accent-magenta),
+        420px 480px 0 0 var(--accent-magenta),
+        620px 580px 0 0 var(--accent-magenta),
+        820px 280px 0 0 var(--accent-magenta),
+        1020px 680px 0 0 var(--accent-magenta),
+        1220px 180px 0 0 var(--accent-magenta),
+        1420px 780px 0 0 var(--accent-magenta),
+        /* Green stars - distributed across full height */
+        30px 250px 0 0 var(--accent-green),
+        130px 80px 0 0 var(--accent-green),
+        230px 450px 0 0 var(--accent-green),
+        330px 40px 0 0 var(--accent-green),
+        430px 550px 0 0 var(--accent-green),
+        530px 120px 0 0 var(--accent-green),
+        630px 650px 0 0 var(--accent-green),
+        730px 50px 0 0 var(--accent-green),
+        830px 750px 0 0 var(--accent-green),
+        930px 160px 0 0 var(--accent-green),
+        1030px 850px 0 0 var(--accent-green),
+        1130px 100px 0 0 var(--accent-green),
+        1230px 280px 0 0 var(--accent-green),
+        1330px 30px 0 0 var(--accent-green),
+        180px 350px 0 0 var(--accent-green),
+        380px 450px 0 0 var(--accent-green),
+        580px 550px 0 0 var(--accent-green),
+        780px 250px 0 0 var(--accent-green),
+        980px 650px 0 0 var(--accent-green),
+        1180px 150px 0 0 var(--accent-green),
+        1380px 750px 0 0 var(--accent-green),
+        /* Blue stars - distributed across full height */
+        70px 140px 0 0 var(--accent-blue),
+        170px 440px 0 0 var(--accent-blue),
+        270px 60px 0 0 var(--accent-blue),
+        370px 540px 0 0 var(--accent-blue),
+        470px 330px 0 0 var(--accent-blue),
+        570px 640px 0 0 var(--accent-blue),
+        670px 250px 0 0 var(--accent-blue),
+        770px 40px 0 0 var(--accent-blue),
+        870px 740px 0 0 var(--accent-blue),
+        970px 310px 0 0 var(--accent-blue),
+        1070px 90px 0 0 var(--accent-blue),
+        1170px 840px 0 0 var(--accent-blue),
+        1270px 10px 0 0 var(--accent-blue),
+        1370px 270px 0 0 var(--accent-blue),
+        240px 340px 0 0 var(--accent-blue),
+        440px 440px 0 0 var(--accent-blue),
+        640px 540px 0 0 var(--accent-blue),
+        840px 240px 0 0 var(--accent-blue),
+        1040px 640px 0 0 var(--accent-blue),
+        1240px 140px 0 0 var(--accent-blue),
+        1440px 840px 0 0 var(--accent-blue),
+        /* Pink stars - distributed across full height */
+        20px 60px 0 0 var(--accent-pink),
+        120px 360px 0 0 var(--accent-pink),
+        220px 120px 0 0 var(--accent-pink),
+        320px 460px 0 0 var(--accent-pink),
+        420px 80px 0 0 var(--accent-pink),
+        520px 560px 0 0 var(--accent-pink),
+        620px 40px 0 0 var(--accent-pink),
+        720px 660px 0 0 var(--accent-pink),
+        820px 320px 0 0 var(--accent-pink),
+        920px 100px 0 0 var(--accent-pink),
+        1020px 760px 0 0 var(--accent-pink),
+        1120px 20px 0 0 var(--accent-pink),
+        1220px 200px 0 0 var(--accent-pink),
+        1320px 860px 0 0 var(--accent-pink),
+        160px 260px 0 0 var(--accent-pink),
+        360px 360px 0 0 var(--accent-pink),
+        560px 460px 0 0 var(--accent-pink),
+        760px 160px 0 0 var(--accent-pink),
+        960px 560px 0 0 var(--accent-pink),
+        1160px 60px 0 0 var(--accent-pink),
+        1360px 760px 0 0 var(--accent-pink);
+    filter: drop-shadow(0 0 3px currentColor);
+    animation: starFade 4s ease-in-out infinite;
+}
+
+.values-stars::after {
+    animation-delay: 2s;
+    box-shadow:
+        /* Cyan stars - different positions, distributed across full height */
+        100px 50px 0 0 var(--accent-cyan),
+        200px 350px 0 0 var(--accent-cyan),
+        300px 250px 0 0 var(--accent-cyan),
+        400px 450px 0 0 var(--accent-cyan),
+        500px 200px 0 0 var(--accent-cyan),
+        600px 550px 0 0 var(--accent-cyan),
+        700px 180px 0 0 var(--accent-cyan),
+        800px 650px 0 0 var(--accent-cyan),
+        900px 120px 0 0 var(--accent-cyan),
+        1000px 750px 0 0 var(--accent-cyan),
+        1100px 60px 0 0 var(--accent-cyan),
+        1200px 190px 0 0 var(--accent-cyan),
+        1300px 850px 0 0 var(--accent-cyan),
+        1400px 100px 0 0 var(--accent-cyan),
+        250px 300px 0 0 var(--accent-cyan),
+        450px 500px 0 0 var(--accent-cyan),
+        650px 600px 0 0 var(--accent-cyan),
+        850px 400px 0 0 var(--accent-cyan),
+        1050px 700px 0 0 var(--accent-cyan),
+        1250px 200px 0 0 var(--accent-cyan),
+        1450px 800px 0 0 var(--accent-cyan),
+        /* Magenta stars - different positions, distributed across full height */
+        60px 420px 0 0 var(--accent-magenta),
+        160px 70px 0 0 var(--accent-magenta),
+        260px 520px 0 0 var(--accent-magenta),
+        360px 320px 0 0 var(--accent-magenta),
+        460px 620px 0 0 var(--accent-magenta),
+        560px 210px 0 0 var(--accent-magenta),
+        660px 720px 0 0 var(--accent-magenta),
+        760px 290px 0 0 var(--accent-magenta),
+        860px 40px 0 0 var(--accent-magenta),
+        960px 820px 0 0 var(--accent-magenta),
+        1060px 260px 0 0 var(--accent-magenta),
+        1160px 110px 0 0 var(--accent-magenta),
+        1260px 240px 0 0 var(--accent-magenta),
+        1360px 20px 0 0 var(--accent-magenta),
+        270px 370px 0 0 var(--accent-magenta),
+        470px 470px 0 0 var(--accent-magenta),
+        670px 570px 0 0 var(--accent-magenta),
+        870px 270px 0 0 var(--accent-magenta),
+        1070px 670px 0 0 var(--accent-magenta),
+        1270px 170px 0 0 var(--accent-magenta),
+        1470px 870px 0 0 var(--accent-magenta),
+        /* Green stars - different positions, distributed across full height */
+        40px 330px 0 0 var(--accent-green),
+        140px 430px 0 0 var(--accent-green),
+        240px 90px 0 0 var(--accent-green),
+        340px 530px 0 0 var(--accent-green),
+        440px 350px 0 0 var(--accent-green),
+        540px 630px 0 0 var(--accent-green),
+        640px 200px 0 0 var(--accent-green),
+        740px 730px 0 0 var(--accent-green),
+        840px 300px 0 0 var(--accent-green),
+        940px 80px 0 0 var(--accent-green),
+        1040px 830px 0 0 var(--accent-green),
+        1140px 40px 0 0 var(--accent-green),
+        1240px 180px 0 0 var(--accent-green),
+        1340px 320px 0 0 var(--accent-green),
+        150px 230px 0 0 var(--accent-green),
+        350px 330px 0 0 var(--accent-green),
+        550px 430px 0 0 var(--accent-green),
+        750px 130px 0 0 var(--accent-green),
+        950px 530px 0 0 var(--accent-green),
+        1150px 30px 0 0 var(--accent-green),
+        1350px 730px 0 0 var(--accent-green),
+        /* Blue stars - different positions, distributed across full height */
+        90px 240px 0 0 var(--accent-blue),
+        190px 440px 0 0 var(--accent-blue),
+        290px 160px 0 0 var(--accent-blue),
+        390px 540px 0 0 var(--accent-blue),
+        490px 120px 0 0 var(--accent-blue),
+        590px 640px 0 0 var(--accent-blue),
+        690px 70px 0 0 var(--accent-blue),
+        790px 740px 0 0 var(--accent-blue),
+        890px 330px 0 0 var(--accent-blue),
+        990px 50px 0 0 var(--accent-blue),
+        1090px 840px 0 0 var(--accent-blue),
+        1190px 140px 0 0 var(--accent-blue),
+        1290px 270px 0 0 var(--accent-blue),
+        1390px 30px 0 0 var(--accent-blue),
+        280px 340px 0 0 var(--accent-blue),
+        480px 440px 0 0 var(--accent-blue),
+        680px 540px 0 0 var(--accent-blue),
+        880px 240px 0 0 var(--accent-blue),
+        1080px 640px 0 0 var(--accent-blue),
+        1280px 140px 0 0 var(--accent-blue),
+        1480px 840px 0 0 var(--accent-blue),
+        /* Pink stars - different positions, distributed across full height */
+        10px 310px 0 0 var(--accent-pink),
+        110px 410px 0 0 var(--accent-pink),
+        210px 80px 0 0 var(--accent-pink),
+        310px 510px 0 0 var(--accent-pink),
+        410px 340px 0 0 var(--accent-pink),
+        510px 610px 0 0 var(--accent-pink),
+        610px 220px 0 0 var(--accent-pink),
+        710px 710px 0 0 var(--accent-pink),
+        810px 290px 0 0 var(--accent-pink),
+        910px 40px 0 0 var(--accent-pink),
+        1010px 810px 0 0 var(--accent-pink),
+        1110px 240px 0 0 var(--accent-pink),
+        1210px 100px 0 0 var(--accent-pink),
+        1310px 920px 0 0 var(--accent-pink),
+        170px 210px 0 0 var(--accent-pink),
+        370px 310px 0 0 var(--accent-pink),
+        570px 410px 0 0 var(--accent-pink),
+        770px 110px 0 0 var(--accent-pink),
+        970px 510px 0 0 var(--accent-pink),
+        1170px 10px 0 0 var(--accent-pink),
+        1370px 710px 0 0 var(--accent-pink);
+    filter: drop-shadow(0 0 3px currentColor);
 }
 
 .projects-preview {
@@ -314,9 +775,12 @@
 }
 
 @keyframes cardScaleGrow {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.03);
     }
@@ -329,14 +793,14 @@
 }
 
 /* Quotation SVG container - apply gradient to parent div */
-.testimonials-section .service-card > div:first-child {
+.testimonials-section .service-card>div:first-child {
     position: relative;
     display: inline-block;
     overflow: visible;
 }
 
 /* Gradient overlay for SVG on hover - using pseudo-element */
-.testimonials-section .service-card:hover > div:first-child::after {
+.testimonials-section .service-card:hover>div:first-child::after {
     content: '';
     position: absolute;
     top: 0;
@@ -403,15 +867,13 @@
     inset: -3px !important;
     border-radius: 13px !important;
     padding: 3px !important;
-    background: conic-gradient(
-        from var(--angle),
-        var(--accent-cyan),
-        var(--accent-magenta),
-        var(--accent-green),
-        var(--accent-blue),
-        var(--accent-pink),
-        var(--accent-cyan)
-    ) !important;
+    background: conic-gradient(from var(--angle),
+            var(--accent-cyan),
+            var(--accent-magenta),
+            var(--accent-green),
+            var(--accent-blue),
+            var(--accent-pink),
+            var(--accent-cyan)) !important;
     -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0) !important;
@@ -441,7 +903,7 @@
 }
 
 /* Ensure card content stays above the glow */
-.expertise-section .service-card > * {
+.expertise-section .service-card>* {
     position: relative;
     z-index: 10001;
 }
@@ -459,3 +921,72 @@
     }
 }
 
+/* Specialized Services Section - Clockwise Rotating Gradient Glow */
+/* Target specialized services cards ONLY in the Our Specialized Services section */
+.specialized-services-section .service-card {
+    position: relative;
+    overflow: visible !important;
+    transition: transform 0.35s ease;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+/* Override default ::before for specialized services cards - The animated border layer - HIGH Z-INDEX */
+.specialized-services-section .service-card::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: -3px !important;
+    border-radius: 13px !important;
+    padding: 3px !important;
+    background: conic-gradient(from var(--angle),
+            var(--accent-cyan),
+            var(--accent-magenta),
+            var(--accent-green),
+            var(--accent-blue),
+            var(--accent-pink),
+            var(--accent-cyan)) !important;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0) !important;
+    -webkit-mask-composite: xor !important;
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0) !important;
+    mask-composite: exclude !important;
+    opacity: 0 !important;
+    transition: opacity 0.35s ease !important;
+    z-index: 9999 !important;
+    pointer-events: none !important;
+    animation: rotateGradient 3.5s linear infinite !important;
+    animation-play-state: paused !important;
+}
+
+/* Hover Animation */
+.specialized-services-section .service-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.25), 0 0 50px rgba(255, 0, 255, 0.15);
+    border-color: transparent;
+}
+
+.specialized-services-section .service-card:hover::before {
+    opacity: 1 !important;
+    animation-play-state: running !important;
+}
+
+/* Ensure card content stays above the glow */
+.specialized-services-section .service-card>* {
+    position: relative;
+    z-index: 10001;
+}
+
+/* Disable heavy hover effects on touch devices */
+@media (hover: none) {
+    .specialized-services-section .service-card:hover::before {
+        animation: none;
+        opacity: 0;
+    }
+
+    .specialized-services-section .service-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}

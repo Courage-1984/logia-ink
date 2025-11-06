@@ -10,6 +10,7 @@ import { initCursor } from './core/cursor.js';
 import { initMouseTilt } from './core/mouse-tilt.js';
 import { initInteractions } from './utils/interactions.js';
 import { initContactForm } from './pages/contact.js';
+import { initServiceModals } from './pages/services.js';
 import { initEasterEgg } from './core/easter-egg.js';
 import { initPageTransitions } from './core/page-transitions.js';
 
@@ -27,5 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize page-specific modules
     if (window.location.pathname.includes('contact.html')) {
         initContactForm();
+    }
+    
+    if (window.location.pathname.includes('services.html')) {
+        initServiceModals();
     }
 });
