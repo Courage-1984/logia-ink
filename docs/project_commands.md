@@ -13,7 +13,7 @@ npm run build
 
 # Preview production build
 npm run preview
-# Note: Access at http://localhost:4173/logia-ink/ (not just http://localhost:4173/)
+# Note: Access at http://localhost:4173/ (base path configured in vite.config.js)
 ```
 
 ## 🛠️ Optimization Scripts
@@ -101,10 +101,6 @@ npm run validate
 ## 📚 Documentation
 
 - **Project Rules:** `.cursor/rules/cursorrules.mdc` (MUST READ FIRST)
-- **Style Guide:** `docs/STYLE_GUIDE.md`
 - **Build Guide:** `docs/BUILD_AND_DEPLOY.md`
 - **Quick Start:** `docs/QUICK_START.md`
-- **Codebase Improvements:** `docs/CODEBASE_IMPROVEMENTS.md`
-- **SEO & Security:** `docs/SEO_AND_SECURITY_IMPLEMENTATION.md`
-- **Server Headers:** `docs/SERVER_SECURITY_HEADERS.md`
 

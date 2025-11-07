@@ -64,4 +64,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     easterEggModule = easterEggImport;
     easterEggImport.initEasterEgg();
   }
+
+  // Initialize Three.js hero backgrounds (different animations per page)
+  const { initThreeHero } = await import('./core/three-hero.js');
+  initThreeHero();
 });

@@ -44,7 +44,15 @@ export function initNavigation() {
     });
 
     navLinks.forEach(link => {
-      link.addEventListener('click', () => {
+      link.addEventListener('click', (e) => {
+        // Don't close menu if clicking on dropdown parent link
+        const parentDropdown = link.closest('.nav-item-dropdown');
+        if (parentDropdown && !link.classList.contains('dropdown-link')) {
+          e.preventDefault();
+          parentDropdown.classList.toggle('active');
+          return;
+        }
+
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
         // Update ARIA attributes
@@ -54,6 +62,32 @@ export function initNavigation() {
       });
     });
   }
+
+  // Dropdown Menu Toggle (Desktop & Mobile)
+  const dropdownItems = document.querySelectorAll('.nav-item-dropdown');
+  dropdownItems.forEach(item => {
+    const dropdownLink = item.querySelector('.nav-link:not(.dropdown-link)');
+    const dropdownMenu = item.querySelector('.dropdown-menu');
+
+    if (dropdownLink && dropdownMenu) {
+      // Desktop: hover behavior is handled by CSS
+      // Mobile: click to toggle
+      dropdownLink.addEventListener('click', (e) => {
+        // Only handle click on mobile
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const isActive = item.classList.toggle('active');
+
+          // Close other dropdowns
+          dropdownItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+        }
+      });
+    }
+  });
 
   // Set active nav link based on current page
   const setActiveNavLinkByPage = () => {

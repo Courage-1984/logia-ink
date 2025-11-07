@@ -31,8 +31,8 @@ This project uses a **modular architecture** for better organization and maintai
 
 2. **Configure environment variables (optional):**
    - Copy `.env.example` to `.env` (if it exists)
-   - Set `VITE_BASE_PATH` for your deployment (default: `/logia-ink/`)
-   - For root domain deployment, set `VITE_BASE_PATH=/`
+   - Set `VITE_BASE_PATH` for your deployment (default: `/`)
+   - For subdirectory deployment, set `VITE_BASE_PATH=/your-path/`
 
 3. **Start development server:**
 
@@ -52,7 +52,7 @@ This project uses a **modular architecture** for better organization and maintai
    ```bash
    npm run preview
    ```
-   Opens at `http://localhost:4173/logia-ink/` (note the base path)
+   Opens at `http://localhost:4173/` (base path configured in vite.config.js)
 
 ### Option 2: Simple Preview
 
@@ -69,14 +69,9 @@ logia-ink/
 │       └── cursorrules.mdc # Project rules and structure guide
 ├── docs/                 # Documentation files
 │   ├── BUILD_AND_DEPLOY.md
-│   ├── PERFORMANCE_OPTIMIZATION.md
 │   ├── QUICK_START.md
-│   ├── README_BUILD.md
-│   ├── STYLE_GUIDE.md
 │   ├── project_commands.md # Quick command reference
-│   ├── SEO_AND_SECURITY_IMPLEMENTATION.md # SEO and security guide
-│   ├── SERVER_SECURITY_HEADERS.md # Server security headers guide
-│   └── analysis/         # Analysis and research files
+│   └── research/         # Research and analysis files (optional)
 ├── tests/                # Test files
 │   ├── test-fonts.html
 │   └── test-service-worker.html
@@ -120,8 +115,9 @@ logia-ink/
 │   └── utils/            # Utility styles (10 files)
 ├── js/                   # Modular JavaScript (ES6 modules)
 │   ├── main.js           # Main entry point
-│   ├── core/             # Core functionality modules (9 modules)
-│   ├── utils/            # Utility modules (2 files)
+│   ├── core/             # Core functionality modules (10 modules)
+│   │   └── three-hero.js  # Three.js hero background animations (different per page)
+│   ├── utils/            # Utility modules (6 files)
 │   └── pages/            # Page-specific scripts (2 files)
 ├── assets/               # Static assets
 │   ├── fonts/            # Self-hosted fonts (WOFF2, subsetted)
@@ -198,8 +194,8 @@ This project uses **Vite** for development and production builds:
 **Environment Variables:**
 
 - Base path can be configured via `VITE_BASE_PATH` environment variable
-- Create `.env` file with `VITE_BASE_PATH=/` for root domain deployment
-- Default: `/logia-ink/` (for GitHub Pages)
+- Create `.env` file with `VITE_BASE_PATH=/your-path/` for subdirectory deployment
+- Default: `/` (for root domain deployment)
 
 ### Available Scripts
 
@@ -264,7 +260,7 @@ This project uses **Vite** for development and production builds:
 - **CSS Components:** 19 files in `css/components/`
 - **CSS Utils:** 10 files in `css/utils/`
 - **CSS Pages:** 3 files in `css/pages/`
-- **JS Core Modules:** 9 files in `js/core/` (navigation, scroll, animations, cursor, mouse-tilt, easter-egg, page-transitions, scroll-manager, service-worker)
+- **JS Core Modules:** 10 files in `js/core/` (navigation, scroll, animations, cursor, mouse-tilt, easter-egg, page-transitions, scroll-manager, service-worker, three-hero)
 - **JS Utils:** 6 files in `js/utils/` (interactions, toast, accessibility, error-handler, performance, three-loader)
 - **JS Pages:** 2 files in `js/pages/` (contact, services)
 
@@ -284,10 +280,8 @@ This project uses **Vite** for development and production builds:
 
 **Guides:**
 
-- **[docs/STYLE_GUIDE.md](docs/STYLE_GUIDE.md)** - Design system and component library
 - **[docs/BUILD_AND_DEPLOY.md](docs/BUILD_AND_DEPLOY.md)** - Build and deployment guide
 - **[docs/QUICK_START.md](docs/QUICK_START.md)** - Quick reference guide
-- **[docs/CODEBASE_IMPROVEMENTS.md](docs/CODEBASE_IMPROVEMENTS.md)** - Codebase improvements and optimizations
 - **[docs/project_commands.md](docs/project_commands.md)** - Quick command reference
 
 ## 🌐 Browser Support
@@ -304,7 +298,6 @@ This project uses **Vite** for development and production builds:
 - ✅ **Content Security Policy** - CSP meta tags on all pages
 - ✅ **Server Configuration** - `.htaccess` (Apache), `_headers` (Netlify/Vercel), `nginx.conf.example` (Nginx)
 - ✅ **Subresource Integrity** - SRI infrastructure ready for CDN resources
-- ✅ **Documentation** - See `docs/SERVER_SECURITY_HEADERS.md` for configuration
 
 ### SEO Optimization
 - ✅ **Meta Tags** - Open Graph, Twitter Cards, descriptions on all pages
@@ -312,7 +305,6 @@ This project uses **Vite** for development and production builds:
 - ✅ **Canonical URLs** - Added to all pages for SEO
 - ✅ **Sitemap** - Auto-generated `sitemap.xml` (run `npm run generate-sitemap`)
 - ✅ **Robots.txt** - Search engine crawling rules
-- ✅ **Documentation** - See `docs/SEO_AND_SECURITY_IMPLEMENTATION.md` for details
 
 ### Accessibility
 - ✅ **Skip Links** - Keyboard navigation skip to content

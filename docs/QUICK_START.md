@@ -98,9 +98,9 @@ npm run build
 
 ## 📚 More Information
 
-- **Detailed Build Guide:** See `BUILD_AND_DEPLOY.md`
+- **Detailed Build Guide:** See `docs/BUILD_AND_DEPLOY.md`
 - **Project Structure:** See `README.md`
-- **Migration Guide:** See `MIGRATION_GUIDE.md`
+- **Project Rules:** See `.cursor/rules/cursorrules.mdc` (MUST READ FIRST)
 
 ---
 

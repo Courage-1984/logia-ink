@@ -1,9 +1,9 @@
 /**
  * Fluid Effects Utility
  * Fluid shapes, morphing effects, and fluid gradient animations
- * 
+ *
  * Extracted from styles.css (lines: 3518-3623)
- * 
+ *
  * Note: Keyframes are also defined in animations.css for consistency,
  * but are included here for completeness of the fluid effects utility.
  */
@@ -84,6 +84,9 @@
   animation: fluidWave 20s ease-in-out infinite;
   filter: blur(40px);
   pointer-events: none;
+  z-index: 3;
+  will-change: transform, border-radius;
+  visibility: visible;
 }
 
 /* Fluid Shape Variants */

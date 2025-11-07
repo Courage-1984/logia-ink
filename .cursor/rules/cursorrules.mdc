@@ -45,12 +45,9 @@ logia-ink/
 │       └── cursorrules.mdc # This file - Project rules and structure guide
 ├── docs/                 # Documentation files
 │   ├── BUILD_AND_DEPLOY.md
-│   ├── CODEBASE_IMPROVEMENTS.md
 │   ├── QUICK_START.md
-│   ├── STYLE_GUIDE.md
 │   ├── project_commands.md # Quick command reference
-│   ├── SEO_AND_SECURITY_IMPLEMENTATION.md # SEO and security guide
-│   └── SERVER_SECURITY_HEADERS.md # Server security headers guide
+│   └── research/         # Research and analysis files (optional)
 ├── tests/                # Test files
 │   ├── test-fonts.html
 │   └── test-service-worker.html
@@ -101,7 +98,7 @@ logia-ink/
 │   └── styles.css        # Original monolithic CSS
 ├── js/                   # Modular JavaScript files
 │   ├── main.js           # Main entry point
-│   ├── core/             # Core functionality modules (9 modules)
+│   ├── core/             # Core functionality modules (10 modules)
 │   │   ├── navigation.js
 │   │   ├── scroll.js
 │   │   ├── scroll-manager.js
@@ -250,7 +247,7 @@ css/
 ```
 js/
 ├── main.js               # ✅ EXISTS - Main entry point (imports and initializes all modules)
-├── core/                 # ✅ EXISTS - Core functionality modules (9 modules)
+├── core/                 # ✅ EXISTS - Core functionality modules (10 modules)
 │   ├── navigation.js     # ✅ EXISTS - Navbar scroll effects, mobile menu toggle
 │   ├── scroll.js         # ✅ EXISTS - Scroll progress, parallax, smooth scroll, back-to-top
 │   ├── scroll-manager.js # ✅ EXISTS - Centralized scroll event handler
@@ -259,7 +256,8 @@ js/
 │   ├── mouse-tilt.js      # ✅ EXISTS - 3D tilt effects on cards (desktop only)
 │   ├── easter-egg.js     # ✅ EXISTS - Galaxy easter egg interactive feature
 │   ├── page-transitions.js # ✅ EXISTS - Page transition animations
-│   └── service-worker.js # ✅ EXISTS - Service worker registration and updates
+│   ├── service-worker.js # ✅ EXISTS - Service worker registration and updates
+│   └── three-hero.js     # ✅ EXISTS - Three.js hero background animations (different per page)
 ├── utils/                # ✅ EXISTS - Utility modules (6 files)
 │   ├── interactions.js   # ✅ EXISTS - Button hover effects, card interactions
 │   ├── toast.js          # ✅ EXISTS - Toast notification system
@@ -272,7 +270,7 @@ js/
     └── services.js        # ✅ EXISTS - Service modals handling
 ```
 
-**Note:** All JavaScript modules are fully implemented and functional. The modular ES6 architecture is complete.
+**Note:** All JavaScript modules are fully implemented and functional. The modular ES6 architecture is complete. Three.js hero backgrounds are initialized automatically based on page (particles for index, geometric shapes for services, torus grid for projects).
 
 ### JavaScript Patterns
 - Each module exports an initialization function: `export function initModuleName()`
@@ -729,13 +727,9 @@ Currently, HTML files should manually include the partial content.
 
 ### Documentation Files
 - **`README.md`** - Project overview, quick start guide, and setup instructions
-- **`docs/STYLE_GUIDE.md`** - Design system and component library documentation
 - **`docs/BUILD_AND_DEPLOY.md`** - Build and deployment guide
-- **`docs/CODEBASE_IMPROVEMENTS.md`** - Codebase improvements and optimization recommendations
 - **`docs/QUICK_START.md`** - Quick reference guide
 - **`docs/project_commands.md`** - Common commands and tasks reference
-- **`docs/SEO_AND_SECURITY_IMPLEMENTATION.md`** - SEO and security implementation guide
-- **`docs/SERVER_SECURITY_HEADERS.md`** - Server-level security headers configuration
 - **This file (`.cursor/rules/cursorrules.mdc`)** - Project structure and conventions (MUST READ FIRST)
 
 ### When Stuck
@@ -743,7 +737,7 @@ Currently, HTML files should manually include the partial content.
 2. Look at existing similar components for examples
 3. Check browser console for errors
 4. Verify file paths and imports are correct
-5. Review `MIGRATION_GUIDE.md` if working on CSS/JS migration
+5. Review `.cursor/rules/cursorrules.mdc` for project structure and conventions
 
 ---
 
@@ -783,9 +777,9 @@ Currently, HTML files should manually include the partial content.
 
 ---
 
-**Last Updated:** 2024-12-19 (Updated to reflect current codebase state)
+**Last Updated:** 2024-12-19 (Updated with Three.js hero backgrounds - different animations per page)
 **Migration Status:** ✅ Complete - All CSS/JS migrated, build system configured
-**Component Count:** 19 CSS components, 9 core JS modules, 6 JS utils, 2 JS pages, 3 CSS pages, 10 utility CSS files
+**Component Count:** 19 CSS components, 10 core JS modules (including three-hero), 6 JS utils, 2 JS pages, 3 CSS pages, 10 utility CSS files
 **Performance:** ✅ Service Worker, Self-Hosted Fonts, Critical CSS, Image Optimization, Code Splitting, CSS Purging, Compression, Web Vitals Tracking, Dynamic Three.js Loading, Error Handling, Mobile Performance
 **Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact), Canonical URLs, Accessibility Features, Sitemap, Robots.txt
 **Configuration Files:** ✅ ESLint v9 (flat config), Prettier, EditorConfig, Git Attributes, VS Code Settings
