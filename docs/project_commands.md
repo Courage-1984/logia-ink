@@ -59,6 +59,12 @@ After building, check bundle analysis:
 
 # Test fonts
 # Open http://localhost:3000/tests/test-fonts.html
+
+# Run Playwright smoke tests (builds production output first)
+npm run test:e2e
+
+# Install Playwright browsers (first run only)
+npx playwright install
 ```
 
 ## 🔒 Security & SEO

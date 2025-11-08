@@ -6,4 +6,3 @@
 - Plausible stores the data; your Web Vitals reporting piggybacks there, so there’s no separate monitoring UI—just the events table/charts once traffic flows.
 
 
-

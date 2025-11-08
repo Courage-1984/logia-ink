@@ -18,9 +18,11 @@
     "responsive-images": "node scripts/generate-responsive-images.js",
     "subset-fonts": "node scripts/subset-fonts.js",
     "inline-critical-css": "node scripts/inline-critical-css.js",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "test:e2e": "npm run build && playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "^1.49.0",
     "@eslint/js": "^9.39.1",
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "eslint": "^9.39.1",
