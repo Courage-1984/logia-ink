@@ -11,6 +11,14 @@ let registration = null;
  * Register service worker
  */
 export function registerServiceWorker() {
+  // Skip service worker registration during development to avoid caching issues
+  if (isDevelopmentEnv()) {
+    if (typeof window !== 'undefined') {
+      console.info('[Service Worker] Skipping registration in development mode');
+    }
+    return;
+  }
+
   if (!('serviceWorker' in navigator)) {
     // Service Worker not supported - gracefully degrade
     return;
