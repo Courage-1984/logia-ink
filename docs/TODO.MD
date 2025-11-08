@@ -5,4 +5,3 @@
 - If you’re still staging, run the site locally, visit pages, and fake events with DevTools → Console → `window.plausible?.('Web Vital - LCP',{props:{value:'1800',rating:'good'}});` (only works if Plausible script loads).  
 - Plausible stores the data; your Web Vitals reporting piggybacks there, so there’s no separate monitoring UI—just the events table/charts once traffic flows.
 
-

@@ -1,15 +1,15 @@
 # Dependencies
 node_modules/
 # package-lock.json
-yarn.lock
-pnpm-lock.yaml
+# yarn.lock
+# pnpm-lock.yaml
 
 # Build output (dist/ is committed for faster GitHub Pages deployment)
 # dist/
-build/
+# build/
 
 # Generated files
-sitemap.xml
+# sitemap.xml
 
 # Environment variables
 .env
