@@ -38,7 +38,7 @@ export default defineConfig({
     },
 
     // CSS minification (kept enabled for production builds)
-    cssMinify: true,
+    cssMinify: false,
 
     // Rollup options
     rollupOptions: {
@@ -111,7 +111,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 500,
 
     // CSS code splitting per page (kept enabled; components are modularised)
-    cssCodeSplit: true,
+    cssCodeSplit: false,
   },
 
   // Server configuration for development
