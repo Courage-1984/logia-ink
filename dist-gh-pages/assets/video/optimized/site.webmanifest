@@ -1,0 +1,124 @@
+{
+    "id": "/",
+    "lang": "en",
+    "name": "Logi-Ink – Digital Innovation & Creative Solutions",
+    "short_name": "Logi-Ink",
+    "description": "Logi-Ink builds cyberpunk-inspired digital experiences with bold motion design and high-performance tooling.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "display_override": [
+        "standalone",
+        "browser"
+    ],
+    "background_color": "#0a0a0a",
+    "theme_color": "#00ffff",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        }
+    ],
+    "categories": [
+        "business",
+        "productivity",
+        "marketing"
+    ],
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "About",
+            "short_name": "About",
+            "description": "Learn about Logi-Ink",
+            "url": "/about.html",
+            "icons": [
+                {
+                    "src": "/android-chrome-192x192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Services",
+            "short_name": "Services",
+            "description": "Explore our services",
+            "url": "/services.html",
+            "icons": [
+                {
+                    "src": "/android-chrome-192x192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "SEO Services",
+            "short_name": "SEO",
+            "description": "Deep dive into SEO service plans",
+            "url": "/seo-services.html",
+            "icons": [
+                {
+                    "src": "/android-chrome-192x192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Pricing",
+            "short_name": "Pricing",
+            "description": "Review project-ready pricing tiers",
+            "url": "/pricing.html",
+            "icons": [
+                {
+                    "src": "/android-chrome-192x192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Contact",
+            "short_name": "Contact",
+            "description": "Start a project discussion",
+            "url": "/contact.html",
+            "icons": [
+                {
+                    "src": "/android-chrome-192x192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ]
+}

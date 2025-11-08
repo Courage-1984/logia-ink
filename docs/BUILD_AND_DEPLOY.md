@@ -307,22 +307,24 @@ Run the smoke suite prior to shipping major content or interaction changes.
 
 #### GitHub Pages
 
-1. **Install gh-pages:**
+1. **Install gh-pages (optional but recommended for CLI deploys):**
    ```bash
    npm install --save-dev gh-pages
    ```
 
-2. **Add deploy script to package.json:**
-   ```json
-   "scripts": {
-     "deploy": "npm run build && gh-pages -d dist"
-   }
+2. **Build for GitHub Pages (ensures correct base path):**
+   ```bash
+   npm run build:gh-pages
    ```
 
-3. **Deploy:**
+   > Need builds for both regular hosting and GitHub Pages? Use `npm run build:dual` to produce a standard `dist/` bundle and a GitHub Pages-ready `dist-gh-pages/` folder in one go.
+
+3. **Deploy (if using gh-pages CLI):**
    ```bash
-   npm run deploy
+   gh-pages -d dist
    ```
+
+   > If you trigger deployments via GitHub Actions, run the `build:gh-pages` script (or set `VITE_BASE_PATH=/logia-ink/`) before publishing the `dist/` folder.
 
 ### Option 2: Traditional Web Hosting (FTP)
 

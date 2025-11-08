@@ -5,6 +5,8 @@ import viteImagemin from 'vite-plugin-imagemin';
 import viteCompression from 'vite-plugin-compression';
 import { copyFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'fs';
 
+let resolvedOutDir = resolve(process.cwd(), 'dist');
+
 export default defineConfig({
   // Base path for deployment
   // Can be overridden with VITE_BASE_PATH environment variable
@@ -148,6 +150,10 @@ export default defineConfig({
     // Custom plugin to copy root favicon files to dist root
     {
       name: 'copy-favicons',
+      apply: 'build',
+      configResolved(config) {
+        resolvedOutDir = resolve(config.root, config.build.outDir);
+      },
       writeBundle() {
         const faviconFiles = [
           'apple-touch-icon.png',
@@ -161,10 +167,10 @@ export default defineConfig({
 
         faviconFiles.forEach(file => {
           const src = resolve(__dirname, file);
-          const dest = resolve(__dirname, 'dist', file);
+          const dest = resolve(resolvedOutDir, file);
           if (existsSync(src)) {
             copyFileSync(src, dest);
-            console.log(`✅ Copied ${file} to dist/`);
+            console.log(`✅ Copied ${file} to ${resolvedOutDir}`);
           }
         });
       },
@@ -172,9 +178,13 @@ export default defineConfig({
     // Custom plugin to copy optimized video files
     {
       name: 'copy-videos',
+      apply: 'build',
+      configResolved(config) {
+        resolvedOutDir = resolve(config.root, config.build.outDir);
+      },
       writeBundle() {
         const videoDir = resolve(__dirname, 'assets/video/optimized');
-        const distVideoDir = resolve(__dirname, 'dist/assets/video/optimized');
+        const distVideoDir = resolve(resolvedOutDir, 'assets/video/optimized');
 
         // Create dist video directory if it doesn't exist
         if (!existsSync(distVideoDir)) {
@@ -193,7 +203,7 @@ export default defineConfig({
             if (stats.isFile()) {
               copyFileSync(src, dest);
               const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
-              console.log(`✅ Copied ${file} to dist/assets/video/optimized/ (${sizeMB} MB)`);
+              console.log(`✅ Copied ${file} to ${distVideoDir} (${sizeMB} MB)`);
             }
           });
         } else {
