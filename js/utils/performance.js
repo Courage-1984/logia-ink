@@ -1,117 +1,81 @@
 /**
  * Performance Monitoring Utilities
- * Tracks Web Vitals and performance metrics
+ * Tracks Core Web Vitals and page load performance, reporting to Plausible
  */
 
+import { onCLS, onINP, onLCP } from 'web-vitals';
 import { isDevelopmentEnv } from './env.js';
 
+const METRIC_PRECISION = {
+  CLS: 4,
+  INP: 0,
+  LCP: 0,
+};
+
+const METRIC_LABELS = {
+  CLS: 'CLS (Cumulative Layout Shift)',
+  INP: 'INP (Interaction to Next Paint)',
+  LCP: 'LCP (Largest Contentful Paint)',
+};
+
+function canAccessWindow() {
+  return typeof window !== 'undefined';
+}
+
+function isPlausibleAvailable() {
+  return canAccessWindow() && typeof window.plausible === 'function';
+}
+
+function toStringProps(props) {
+  return Object.fromEntries(
+    Object.entries(props).map(([key, value]) => [key, value == null ? '' : String(value)])
+  );
+}
+
+function formatMetricValue(metric) {
+  const precision = METRIC_PRECISION[metric.name] ?? 2;
+  return metric.value.toFixed(precision);
+}
+
+function reportMetric(metric) {
+  const formattedValue = formatMetricValue(metric);
+  const label = METRIC_LABELS[metric.name] ?? metric.name;
+
+  if (isDevelopmentEnv()) {
+    console.log(`📊 ${label}: ${formattedValue}${metric.name === 'CLS' ? '' : ' ms'}`);
+  }
+
+  if (!isDevelopmentEnv() && isPlausibleAvailable()) {
+    window.plausible(`Web Vital - ${metric.name}`, {
+      props: toStringProps({
+        value: formattedValue,
+        rating: metric.rating,
+        navigationType: metric.navigationType ?? 'unknown',
+        id: metric.id,
+        path: window.location.pathname,
+      }),
+    });
+  }
+}
+
 /**
- * Track Web Vitals (LCP, FID, CLS)
- * These are Core Web Vitals metrics that Google uses for search rankings
+ * Track Core Web Vitals (LCP, CLS, INP)
  */
 export function trackWebVitals() {
-  if (typeof window === 'undefined' || !window.PerformanceObserver) {
+  if (!canAccessWindow()) {
     return;
   }
 
-  // Track Largest Contentful Paint (LCP)
-  try {
-    const lcpObserver = new PerformanceObserver((list) => {
-      const entries = list.getEntries();
-      const lastEntry = entries[entries.length - 1];
-      const lcpValue = lastEntry.renderTime || lastEntry.loadTime;
-
-      // Log LCP (you can send to analytics here)
-      if (isDevelopmentEnv()) {
-        console.log('📊 LCP (Largest Contentful Paint):', lcpValue.toFixed(2), 'ms');
-      }
-
-      // Send to analytics (uncomment and configure)
-      // if (window.gtag) {
-      //   window.gtag('event', 'web_vitals', {
-      //     event_category: 'Web Vitals',
-      //     event_label: 'LCP',
-      //     value: Math.round(lcpValue),
-      //   });
-      // }
-    });
-
-    lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
-  } catch (error) {
-    // PerformanceObserver not supported or error
-    if (isDevelopmentEnv()) {
-      console.warn('LCP tracking not available:', error);
-    }
-  }
-
-  // Track Cumulative Layout Shift (CLS)
-  try {
-    let clsValue = 0;
-    const clsObserver = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
-        // Only count layout shifts that didn't happen due to user input
-        if (!entry.hadRecentInput) {
-          clsValue += entry.value;
-        }
-      }
-
-      // Log CLS (you can send to analytics here)
-      if (isDevelopmentEnv()) {
-        console.log('📊 CLS (Cumulative Layout Shift):', clsValue.toFixed(4));
-      }
-
-      // Send to analytics (uncomment and configure)
-      // if (window.gtag) {
-      //   window.gtag('event', 'web_vitals', {
-      //     event_category: 'Web Vitals',
-      //     event_label: 'CLS',
-      //     value: Math.round(clsValue * 1000),
-      //   });
-      // }
-    });
-
-    clsObserver.observe({ entryTypes: ['layout-shift'] });
-  } catch (error) {
-    if (isDevelopmentEnv()) {
-      console.warn('CLS tracking not available:', error);
-    }
-  }
-
-  // Track First Input Delay (FID)
-  try {
-    const fidObserver = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
-        const fid = entry.processingStart - entry.startTime;
-
-        // Log FID (you can send to analytics here)
-        if (isDevelopmentEnv()) {
-          console.log('📊 FID (First Input Delay):', fid.toFixed(2), 'ms');
-        }
-
-        // Send to analytics (uncomment and configure)
-        // if (window.gtag) {
-        //   window.gtag('event', 'web_vitals', {
-        //     event_category: 'Web Vitals',
-        //     event_label: 'FID',
-        //     value: Math.round(fid),
-        //   });
-        // }
-      }
-    });
-
-    fidObserver.observe({ entryTypes: ['first-input'] });
-  } catch (error) {
-    if (isDevelopmentEnv()) {
-      console.warn('FID tracking not available:', error);
-    }
-  }
+  onLCP(reportMetric);
+  onCLS(reportMetric);
+  onINP(reportMetric);
 }
 
 /**
  * Track page load performance
  */
 export function trackPageLoad() {
-  if (typeof window === 'undefined' || !window.performance) {
+  if (!canAccessWindow() || !window.performance) {
     return;
   }
 
@@ -119,34 +83,36 @@ export function trackPageLoad() {
     // Wait a bit for all metrics to be available
     setTimeout(() => {
       const navigation = performance.getEntriesByType('navigation')[0];
-      if (navigation) {
-        const metrics = {
-          // DNS lookup time
-          dns: navigation.domainLookupEnd - navigation.domainLookupStart,
-          // TCP connection time
-          tcp: navigation.connectEnd - navigation.connectStart,
-          // Request time
-          request: navigation.responseStart - navigation.requestStart,
-          // Response time
-          response: navigation.responseEnd - navigation.responseStart,
-          // DOM processing time
-          domProcessing: navigation.domComplete - navigation.domInteractive,
-          // Total page load time
-          loadTime: navigation.loadEventEnd - navigation.fetchStart,
-        };
 
-        if (isDevelopmentEnv()) {
-          console.log('📊 Page Load Metrics:', metrics);
-        }
+      if (!navigation) {
+        return;
+      }
 
-        // Send to analytics (uncomment and configure)
-        // if (window.gtag) {
-        //   window.gtag('event', 'page_load', {
-        //     event_category: 'Performance',
-        //     event_label: window.location.pathname,
-        //     value: Math.round(metrics.loadTime),
-        //   });
-        // }
+      const metrics = {
+        dns: navigation.domainLookupEnd - navigation.domainLookupStart,
+        tcp: navigation.connectEnd - navigation.connectStart,
+        request: navigation.responseStart - navigation.requestStart,
+        response: navigation.responseEnd - navigation.responseStart,
+        domProcessing: navigation.domComplete - navigation.domInteractive,
+        loadTime: navigation.loadEventEnd - navigation.fetchStart,
+      };
+
+      if (isDevelopmentEnv()) {
+        console.log('📊 Page Load Metrics:', metrics);
+      }
+
+      if (!isDevelopmentEnv() && isPlausibleAvailable()) {
+        window.plausible('Page Load Metrics', {
+          props: toStringProps({
+            path: window.location.pathname,
+            dns: Math.round(metrics.dns),
+            tcp: Math.round(metrics.tcp),
+            request: Math.round(metrics.request),
+            response: Math.round(metrics.response),
+            domProcessing: Math.round(metrics.domProcessing),
+            loadTime: Math.round(metrics.loadTime),
+          }),
+        });
       }
     }, 1000);
   });

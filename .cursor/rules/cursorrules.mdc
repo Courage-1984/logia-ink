@@ -709,6 +709,7 @@ Currently, HTML files should manually include the partial content.
 - ✅ **Canonical URLs** - Added to all pages for SEO
 - ✅ **Sitemap** - Auto-generated `sitemap.xml` (run `npm run generate-sitemap`)
 - ✅ **Robots.txt** - Search engine crawling rules
+- ✅ **Plausible Analytics** - Privacy-first analytics script on all pages
 - ✅ **Documentation** - See `docs/SEO_AND_SECURITY_IMPLEMENTATION.md` for details
 
 ### Accessibility
@@ -785,7 +786,7 @@ Currently, HTML files should manually include the partial content.
 **Last Updated:** 2024-12-19 (Updated with Three.js hero backgrounds - different animations per page)
 **Migration Status:** ✅ Complete - All CSS/JS migrated, build system configured
 **Component Count:** 19 CSS components, 10 core JS modules (including three-hero), 6 JS utils, 2 JS pages, 3 CSS pages, 10 utility CSS files
-**Performance:** ✅ Service Worker, Self-Hosted Fonts, Critical CSS, Image Optimization, Code Splitting, CSS Purging, Compression, Web Vitals Tracking, Dynamic Three.js Loading, Error Handling, Mobile Performance
+**Performance:** ✅ Service Worker, Self-Hosted Fonts, Critical CSS, Image Optimization, Code Splitting, CSS Purging, Compression, Web Vitals Tracking (via `web-vitals` → Plausible), Dynamic Three.js Loading, Error Handling, Mobile Performance
 **Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact), Canonical URLs, Accessibility Features, Sitemap, Robots.txt
 **Configuration Files:** ✅ ESLint v9 (flat config), Prettier, EditorConfig, Git Attributes, VS Code Settings
 **Recent Updates:** ✅ Error handling, performance tracking, Three.js optimization, CSP, SRI, accessibility enhancements, mobile performance

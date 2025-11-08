@@ -14,7 +14,7 @@
     <!-- Content Security Policy (basic - enhance via server headers) -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-src https://www.google.com;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io; frame-src https://www.google.com;"
     />
 
     <!-- SEO Meta Tags -->
@@ -87,10 +87,10 @@
     <!-- Stylesheet (includes self-hosted fonts via @font-face) -->
 
     <!-- Prefetch likely next pages -->
-    <link rel="prefetch" href="/assets/about-CCXSFdCQ.html" />
-    <link rel="prefetch" href="/assets/services-BgUWBeG4.html" />
-    <link rel="prefetch" href="/assets/projects-CwKoAhFd.html" />
-    <link rel="prefetch" href="/assets/contact-Cqe_P0su.html" />
+    <link rel="prefetch" href="/assets/about-CNhpe7yj.html" />
+    <link rel="prefetch" href="/assets/services-jddiGA29.html" />
+    <link rel="prefetch" href="/assets/projects-C0r0QUDj.html" />
+    <link rel="prefetch" href="/assets/contact-xvoiDvqW.html" />
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -166,9 +166,12 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://logi-ink.com/" />
 
+    <!-- Analytics -->
+    <script defer data-domain="logi-ink.com" src="https://plausible.io/js/script.js"></script>
+
     <!-- Main CSS -->
-    <script type="module" crossorigin src="/assets/js/main-jgW9YQ_4.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-DMvQnf9Q.css">
+    <script type="module" crossorigin src="/assets/js/main-BpgT15R7.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-C8vIW2YB.css">
   </head>
 
   <body>
@@ -343,8 +346,7 @@
                   <!-- Original format (final fallback) -->
                   <img
                     src="/assets/images/banner_home-Cph91jo0.webp"
-                    fetchpriority="high"
-                    loading="eager"
+                    loading="lazy"
                     decoding="async"
                     alt="Web Development Transforming Digital Experiences"
                     width="1280"

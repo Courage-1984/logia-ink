@@ -78,6 +78,9 @@ export function initContactForm() {
   // Initialize progress bar
   updateProgress();
 
+  // Initialize interactive map toggle
+  initMapInteractionToggle();
+
   // Initialize typing animations for testimonials
   initTestimonialTyping();
 }
@@ -501,4 +504,131 @@ function typeText(element, text) {
   }
 
   type();
+}
+
+/**
+ * Enable click-to-activate map interaction to suppress Google Maps overlay
+ */
+function initMapInteractionToggle() {
+  const mapContainers = document.querySelectorAll('[data-map-interaction]');
+  if (mapContainers.length === 0) {
+    return;
+  }
+
+  mapContainers.forEach(container => {
+    const toggleButton = container.querySelector('[data-map-toggle]');
+
+    if (!toggleButton) {
+      return;
+    }
+
+    const defaultLabel = toggleButton.textContent.trim() || 'Enable map controls';
+    const activeLabel = toggleButton.getAttribute('data-active-label') || 'Disable map controls';
+
+    const nudgeMapForOverlay = () => {
+      if (typeof window === 'undefined') {
+        return;
+      }
+
+      const rect = container.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const navOffset = 90;
+      const desiredTop = window.scrollY + rect.top - navOffset;
+      const isCentered =
+        rect.top >= navOffset && rect.bottom <= viewportHeight - navOffset;
+
+      if (!isCentered) {
+        window.scrollTo({
+          top: Math.max(desiredTop, 0),
+          behavior: 'smooth',
+        });
+
+        setTimeout(() => {
+          window.scrollBy({
+            top: -24,
+            behavior: 'smooth',
+          });
+        }, 450);
+      } else {
+        window.scrollBy({
+          top: 2,
+          behavior: 'smooth',
+        });
+
+        setTimeout(() => {
+          window.scrollBy({
+            top: -2,
+            behavior: 'smooth',
+          });
+        }, 220);
+      }
+    };
+
+    const enableMap = ({ focusToggle = false } = {}) => {
+      if (container.classList.contains('is-active')) {
+        return;
+      }
+
+      container.classList.add('is-active');
+      toggleButton.classList.add('is-active');
+      toggleButton.setAttribute('aria-pressed', 'true');
+      toggleButton.textContent = activeLabel;
+
+      if (focusToggle) {
+        requestAnimationFrame(() => toggleButton.focus());
+      }
+
+      setTimeout(nudgeMapForOverlay, 180);
+    };
+
+    const disableMap = ({ focusToggle = false } = {}) => {
+      if (!container.classList.contains('is-active')) {
+        return;
+      }
+
+      container.classList.remove('is-active');
+      toggleButton.classList.remove('is-active');
+      toggleButton.setAttribute('aria-pressed', 'false');
+      toggleButton.textContent = defaultLabel;
+
+      if (focusToggle) {
+        requestAnimationFrame(() => toggleButton.focus());
+      }
+    };
+
+    toggleButton.addEventListener('click', event => {
+      event.preventDefault();
+
+      if (container.classList.contains('is-active')) {
+        disableMap();
+      } else {
+        enableMap();
+      }
+    });
+
+    toggleButton.addEventListener(
+      'keydown',
+      event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          if (container.classList.contains('is-active')) {
+            disableMap();
+          } else {
+            enableMap();
+          }
+        }
+      },
+      { passive: false }
+    );
+
+    container.addEventListener(
+      'keydown',
+      event => {
+        if (event.key === 'Escape') {
+          disableMap({ focusToggle: true });
+        }
+      },
+      { passive: true }
+    );
+  });
 }

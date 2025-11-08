@@ -417,9 +417,47 @@
 }
 
 .achievements-section::before {
-  background: url('../../assets/images/backgrounds/green-hexagon-grid.webp') center / cover no-repeat;
+  background-image: image-set(
+    url('../../assets/images/responsive/backgrounds/green-hexagon-grid-1920w.avif') type('image/avif'),
+    url('../../assets/images/responsive/backgrounds/green-hexagon-grid-1920w.webp') type('image/webp')
+  );
+  /* Fallback for browsers without image-set support */
+  background-image: url('../../assets/images/responsive/backgrounds/green-hexagon-grid-1920w.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   opacity: 0.45;
   z-index: 0;
+}
+
+@media (max-width: 1024px) {
+  .achievements-section::before {
+    background-image: image-set(
+      url('../../assets/images/responsive/backgrounds/green-hexagon-grid-1024w.avif') type('image/avif'),
+      url('../../assets/images/responsive/backgrounds/green-hexagon-grid-1024w.webp') type('image/webp')
+    );
+    background-image: url('../../assets/images/responsive/backgrounds/green-hexagon-grid-1024w.webp');
+  }
+}
+
+@media (max-width: 768px) {
+  .achievements-section::before {
+    background-image: image-set(
+      url('../../assets/images/responsive/backgrounds/green-hexagon-grid-768w.avif') type('image/avif'),
+      url('../../assets/images/responsive/backgrounds/green-hexagon-grid-768w.webp') type('image/webp')
+    );
+    background-image: url('../../assets/images/responsive/backgrounds/green-hexagon-grid-768w.webp');
+  }
+}
+
+@media (max-width: 480px) {
+  .achievements-section::before {
+    background-image: image-set(
+      url('../../assets/images/responsive/backgrounds/green-hexagon-grid-480w.avif') type('image/avif'),
+      url('../../assets/images/responsive/backgrounds/green-hexagon-grid-480w.webp') type('image/webp')
+    );
+    background-image: url('../../assets/images/responsive/backgrounds/green-hexagon-grid-480w.webp');
+  }
 }
 
 .achievements-section::after {

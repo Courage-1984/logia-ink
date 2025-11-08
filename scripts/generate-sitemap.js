@@ -7,7 +7,7 @@ import { writeFileSync } from 'fs';
 import { resolve } from 'path';
 
 const baseUrl = process.env.VITE_BASE_URL || 'https://logi-ink.com';
-const basePath = process.env.VITE_BASE_PATH || '/logia-ink/';
+const basePath = process.env.VITE_BASE_PATH || '/';
 
 // Normalize basePath - remove trailing slash and ensure leading slash
 const normalizedBasePath = basePath === '/' ? '' : basePath.replace(/\/$/, '');
