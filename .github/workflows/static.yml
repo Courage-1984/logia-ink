@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build (GitHub Pages bundle)
-        run: npm run build:gh-pages -- --outDir dist-gh-pages
+        run: npm run build:gh-pages:ci
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

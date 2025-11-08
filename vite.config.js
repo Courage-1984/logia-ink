@@ -48,6 +48,8 @@ export default defineConfig({
         services: resolve(__dirname, 'services.html'),
         projects: resolve(__dirname, 'projects.html'),
         contact: resolve(__dirname, 'contact.html'),
+        pricing: resolve(__dirname, 'pricing.html'),
+        seoServices: resolve(__dirname, 'seo-services.html'),
         sw: resolve(__dirname, 'sw.js'), // Include service worker in build
         // Note: robots.txt and sitemap.xml are copied as static assets
       },
