@@ -19,8 +19,7 @@ export const seoConfig = {
     title: 'About Us - Logi-Ink',
     description:
       'Learn about Logi-Ink, our mission, values, and approach to digital innovation. We are passionate about creating exceptional digital experiences that drive business growth.',
-    keywords:
-      'about logi-ink, digital agency team, company mission, digital innovation team',
+    keywords: 'about logi-ink, digital agency team, company mission, digital innovation team',
     ogType: 'website',
     ogImage: '/assets/images/banners/banner_home.webp',
   },
@@ -53,7 +52,7 @@ export const seoConfig = {
 
 // Base URL configuration
 export const baseUrl = process.env.VITE_BASE_URL || 'https://logi-ink.com';
-export const basePath = process.env.VITE_BASE_PATH || '/logia-ink/';
+export const basePath = process.env.VITE_BASE_PATH || '/logi-ink/';
 
 // Generate meta tags HTML
 export function generateMetaTags(pageKey) {
@@ -92,4 +91,3 @@ export function generateMetaTags(pageKey) {
     <meta name="twitter:creator" content="@logiink" />
   `;
 }
-

@@ -8,11 +8,11 @@
  * - Stale-while-revalidate for API calls (if any)
  */
 
-const CACHE_NAME = 'logia-ink-v1';
-const STATIC_CACHE_NAME = 'logia-ink-static-v3'; // Increment version to force cache update (updated logo path and added 48x48 favicon)
-const RUNTIME_CACHE_NAME = 'logia-ink-runtime-v2';
+const CACHE_NAME = 'logi-ink-v1';
+const STATIC_CACHE_NAME = 'logi-ink-static-v3'; // Increment version to force cache update (updated logo path and added 48x48 favicon)
+const RUNTIME_CACHE_NAME = 'logi-ink-runtime-v2';
 
-// Get base path from self.location (handles /logia-ink/ base path)
+// Get base path from self.location (handles /logi-ink/ base path)
 const BASE_PATH = self.location.pathname.replace(/\/sw\.js$/, '').replace(/\/$/, '') || '/';
 
 // Assets to cache immediately on install

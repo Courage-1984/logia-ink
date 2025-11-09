@@ -5,7 +5,7 @@
 
 // Base URL configuration
 const baseUrl = process.env.VITE_BASE_URL || 'https://logi-ink.com';
-const basePath = process.env.VITE_BASE_PATH || '/logia-ink/';
+const basePath = process.env.VITE_BASE_PATH || '/logi-ink/';
 
 const fullUrl = `${baseUrl}${basePath === '/' ? '' : basePath.replace(/\/$/, '')}`;
 
@@ -159,4 +159,3 @@ export function generateStructuredDataScripts(pageType, breadcrumbs = null) {
 
   return scripts.join('\n    ');
 }
-

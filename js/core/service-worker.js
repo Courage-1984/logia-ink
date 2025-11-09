@@ -28,7 +28,9 @@ export function registerServiceWorker() {
 
           return Promise.all(unregisterPromises).then(() => {
             const shouldReload =
-              hadActiveWorker && typeof window !== 'undefined' && !sessionStorage.getItem(sessionFlagKey);
+              hadActiveWorker &&
+              typeof window !== 'undefined' &&
+              !sessionStorage.getItem(sessionFlagKey);
 
             if (shouldReload) {
               sessionStorage.setItem(sessionFlagKey, 'true');
@@ -64,7 +66,7 @@ export function registerServiceWorker() {
 
   try {
     window.addEventListener('load', () => {
-      // Get base path from current location (handles /logia-ink/ base path)
+      // Get base path from current location (handles /logi-ink/ base path)
       const basePath =
         window.location.pathname.replace(/\/[^/]*\.html?$/, '').replace(/\/$/, '') || '';
       const swPath = `${basePath}/sw.js`;

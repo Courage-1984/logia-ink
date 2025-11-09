@@ -9,11 +9,13 @@ A cyberpunk-inspired marketing site for the Logi-Ink digital agency. The site sh
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - **Node.js 20.x** (see `.nvmrc`; run `nvm use` if you have nvm installed)
 - **npm 10+** (bundled with Node 20)
 - Optional: `npx playwright install` (one-time) to run the smoke e2e tests
 
 ### Setup
+
 ```bash
 npm install             # install dependencies
 npm run dev             # dev server with HMR at http://localhost:3000
@@ -30,8 +32,9 @@ For a static preview without the toolchain you can open `index.html` directly in
 ---
 
 ## 📁 Directory Overview
+
 ```
-logia-ink/
+logi-ink/
 ├── .cursor/
 │   └── rules/cursorrules.mdc     # Project rules & architecture guide (authoritative)
 ├── assets/
@@ -104,22 +107,22 @@ Additional tooling/config: `.editorconfig`, `.prettierrc`, `.npmrc`, `.gitattrib
 
 ## 🧰 npm Scripts & Tooling
 
-| Category | Script | Description |
-| --- | --- | --- |
-| Development | `npm run dev` | Vite dev server with HMR |
-|  | `npm run build` | Production build (terser minification, hashed assets) |
-|  | `npm run preview` | Serve `dist/` locally |
-| Quality | `npm run format` / `format:check` | Prettier formatting |
-|  | `npm run lint` / `lint:fix` | ESLint (flat config) over `js/**/*.js` |
-|  | `npm run validate` | Combines `format:check` + `lint` |
-| Testing | `npm run test:e2e` | Build then run Playwright smoke suite |
-| Optimisation | `npm run optimize-images` | Lossy image optimisation with Sharp |
-|  | `npm run optimize-video` | Transcodes hero videos + poster frames |
-|  | `npm run responsive-images` | Generate AVIF/WebP responsive sets + snippets |
-|  | `npm run inline-critical-css` | Extract & inline critical CSS (post-build) |
-|  | `npm run subset-fonts` | Inspect usage and prep font subsetting |
-|  | `npm run generate-sitemap` | Regenerate `sitemap.xml` |
-| Maintenance | `npm run clean` | Remove `dist/` and Vite cache |
+| Category     | Script                            | Description                                           |
+| ------------ | --------------------------------- | ----------------------------------------------------- |
+| Development  | `npm run dev`                     | Vite dev server with HMR                              |
+|              | `npm run build`                   | Production build (terser minification, hashed assets) |
+|              | `npm run preview`                 | Serve `dist/` locally                                 |
+| Quality      | `npm run format` / `format:check` | Prettier formatting                                   |
+|              | `npm run lint` / `lint:fix`       | ESLint (flat config) over `js/**/*.js`                |
+|              | `npm run validate`                | Combines `format:check` + `lint`                      |
+| Testing      | `npm run test:e2e`                | Build then run Playwright smoke suite                 |
+| Optimisation | `npm run optimize-images`         | Lossy image optimisation with Sharp                   |
+|              | `npm run optimize-video`          | Transcodes hero videos + poster frames                |
+|              | `npm run responsive-images`       | Generate AVIF/WebP responsive sets + snippets         |
+|              | `npm run inline-critical-css`     | Extract & inline critical CSS (post-build)            |
+|              | `npm run subset-fonts`            | Inspect usage and prep font subsetting                |
+|              | `npm run generate-sitemap`        | Regenerate `sitemap.xml`                              |
+| Maintenance  | `npm run clean`                   | Remove `dist/` and Vite cache                         |
 
 Manual utilities in `scripts/` (run via `node scripts/<name>.js`) help with SEO metadata, structured data, and automated HTML updates.
 
@@ -151,16 +154,16 @@ Manual utilities in `scripts/` (run via `node scripts/<name>.js`) help with SEO 
 
 ## ⚙️ Config Reference
 
-| File | Purpose |
-| --- | --- |
-| `vite.config.js` | Multi-page build, asset copy plugins, terser settings, gzip/brotli, bundle visualiser |
-| `postcss.config.cjs` | PurgeCSS scaffold (currently disabled; keep safelist updated before re-enabling) |
-| `eslint.config.js` | ESLint v9 flat config (extends `@eslint/js`) |
-| `.prettierrc` | Prettier formatting rules |
-| `.editorconfig` | Editor defaults (spacing, line endings) |
-| `.npmrc`, `.gitattributes` | Registry + line ending consistency |
-| `playwright.config.js` | Browser/device matrix for smoke suite |
-| `site.webmanifest` | PWA metadata and shortcuts |
+| File                       | Purpose                                                                               |
+| -------------------------- | ------------------------------------------------------------------------------------- |
+| `vite.config.js`           | Multi-page build, asset copy plugins, terser settings, gzip/brotli, bundle visualiser |
+| `postcss.config.cjs`       | PurgeCSS scaffold (currently disabled; keep safelist updated before re-enabling)      |
+| `eslint.config.js`         | ESLint v9 flat config (extends `@eslint/js`)                                          |
+| `.prettierrc`              | Prettier formatting rules                                                             |
+| `.editorconfig`            | Editor defaults (spacing, line endings)                                               |
+| `.npmrc`, `.gitattributes` | Registry + line ending consistency                                                    |
+| `playwright.config.js`     | Browser/device matrix for smoke suite                                                 |
+| `site.webmanifest`         | PWA metadata and shortcuts                                                            |
 
 ---
 

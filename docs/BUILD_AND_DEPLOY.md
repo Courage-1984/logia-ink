@@ -317,7 +317,7 @@ Run the smoke suite prior to shipping major content or interaction changes.
    npm run build:gh-pages
    ```
 
-   The script sets `VITE_BASE_PATH=./`, so every asset is referenced relatively (`./assets/...`). It also exports `VITE_DISABLE_SW=true`, which skips service-worker caching on GitHub Pages (preventing stale styles or assets). That keeps the build working on both `https://<user>.github.io/logia-ink/` and any custom domain you wire up later.
+   The script sets `VITE_BASE_PATH=./`, so every asset is referenced relatively (`./assets/...`). It also exports `VITE_DISABLE_SW=true`, which skips service-worker caching on GitHub Pages (preventing stale styles or assets). That keeps the build working on both `https://<user>.github.io/logi-ink/` and any custom domain you wire up later.
 
    > Need builds for both regular hosting and GitHub Pages? Use `npm run build:dual` to produce a standard `dist/` bundle and a GitHub Pages-ready `dist-gh-pages/` folder in one go.
 
@@ -326,7 +326,7 @@ Run the smoke suite prior to shipping major content or interaction changes.
    gh-pages -d dist
    ```
 
-   > If you trigger deployments via GitHub Actions, run the `build:gh-pages` script (or set `VITE_BASE_PATH=/logia-ink/`) before publishing the `dist/` folder.
+   > If you trigger deployments via GitHub Actions, run the `build:gh-pages` script (or set `VITE_BASE_PATH=/logi-ink/`) before publishing the `dist/` folder.
 
 ### Option 2: Traditional Web Hosting (FTP)
 
@@ -366,8 +366,8 @@ CMD ["nginx", "-g", "daemon off;"]
 
 Build and run:
 ```bash
-docker build -t logia-ink .
-docker run -p 80:80 logia-ink
+docker build -t logi-ink .
+docker run -p 80:80 logi-ink
 ```
 
 ---

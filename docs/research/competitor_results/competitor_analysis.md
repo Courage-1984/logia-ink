@@ -1,7 +1,7 @@
 # Competitor Content Gap Analysis
 
 **Analysis Date:** 2025-11-06  
-**Target Site:** https://courage-1984.github.io/logia-ink/  
+**Target Site:** https://courage-1984.github.io/logi-ink/  
 **Competitors Analyzed:** 15 domains
 
 ---
