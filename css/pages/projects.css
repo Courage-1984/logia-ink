@@ -160,6 +160,51 @@
   text-transform: none;
 }
 
+/* Testimonials Section - Match Project Impact Styling */
+.projects-page .testimonials-section {
+  background: transparent;
+}
+
+.projects-page .testimonials-section::before,
+.projects-page .testimonials-section::after {
+  display: none;
+}
+
+.projects-page .testimonials-section .services-grid {
+  align-items: stretch;
+}
+
+.projects-page .testimonials-section .service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.projects-page .testimonials-section .service-card > p {
+  margin-bottom: 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.projects-page .testimonials-section .service-card > div:last-child {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.projects-page .testimonials-section .service-card h4 {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+}
+
+.projects-page .testimonials-section .service-card > div:last-child p {
+  margin: 0;
+}
+
 /* Project Modal */
 .project-modal .modal-content {
   width: 80vw;

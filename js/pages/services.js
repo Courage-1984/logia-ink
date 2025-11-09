@@ -4,6 +4,26 @@
  */
 
 export function initServiceModals() {
+  const offerPanels = document.querySelectorAll('.offer-panel');
+  const introObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        introObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+    rootMargin: '0px 0px -10% 0px'
+  }
+  );
+
+  offerPanels.forEach(panel => {
+    introObserver.observe(panel);
+  });
+
   // Get all service modal buttons
   const modalButtons = document.querySelectorAll('.service-modal-btn');
   const modals = document.querySelectorAll('.modal');
@@ -13,7 +33,7 @@ export function initServiceModals() {
   modalButtons.forEach(button => {
     button.addEventListener('click', e => {
       e.stopPropagation();
-      const card = button.closest('.service-card-square');
+      const card = button.closest('[data-modal]');
       if (card) {
         const modalId = card.getAttribute('data-modal');
         const modal = document.getElementById(modalId);

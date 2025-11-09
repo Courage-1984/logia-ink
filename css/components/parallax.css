@@ -1,7 +1,7 @@
 /**
  * Parallax Section Component
  * Parallax background sections with overlays
- * 
+ *
  * Extracted from styles.css (lines: 912-965)
  */
 
@@ -188,6 +188,15 @@
   );
   z-index: 1;
   pointer-events: none;
+}
+
+.parallax-overlay--neutral {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.68) 0%,
+    rgba(10, 10, 10, 0.62) 50%,
+    rgba(10, 10, 10, 0.68) 100%
+  );
 }
 
 /* Ensure Content is Above Background and Overlay */

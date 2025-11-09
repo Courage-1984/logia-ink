@@ -42,9 +42,11 @@ test.describe('Logi-Ink Smoke Suite', () => {
 
   test('service modals open and close via the services grid', async ({ page }) => {
     await page.goto('/services.html');
+    await page.waitForLoadState('networkidle');
 
-    const firstServiceCard = page.locator('.service-card-square').first();
-    await firstServiceCard.getByRole('button', { name: 'Learn More' }).click();
+    const firstOfferPanel = page.locator('.offer-panel[data-modal="modal-web-dev"]').first();
+    const learnMoreButton = firstOfferPanel.getByRole('button', { name: 'See Capabilities' });
+    await learnMoreButton.click();
 
     const modal = page.locator('#modal-web-dev');
     await expect(modal).toHaveClass(/active/);
@@ -53,7 +55,7 @@ test.describe('Logi-Ink Smoke Suite', () => {
     await page.keyboard.press('Escape');
     await expect(modal).not.toHaveClass(/active/);
 
-    await firstServiceCard.getByRole('button', { name: 'Learn More' }).click();
+    await learnMoreButton.click();
     await expect(modal).toHaveClass(/active/);
 
     await modal.locator('.modal-close').click();

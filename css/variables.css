@@ -8,6 +8,7 @@
   --accent-green: #00ff00;
   --accent-blue: #0066ff;
   --accent-pink: #ff0080;
+  --accent-gold: #ffb347;
   --text-primary: #ffffff;
   --text-secondary: #b0b0b0;
   --text-muted: #666666;
@@ -16,4 +17,5 @@
   --glow-green: rgba(0, 255, 0, 0.5);
   --glow-blue: rgba(0, 102, 255, 0.5);
   --glow-pink: rgba(255, 0, 128, 0.5);
+  --glow-gold: rgba(255, 179, 71, 0.45);
 }

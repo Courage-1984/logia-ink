@@ -450,6 +450,7 @@ Paste this snippet immediately after the CSP meta tag (or before SEO meta) in ea
 - `--accent-green: #00ff00` - Electric Green (success states)
 - `--accent-blue: #0066ff` - Electric Blue (info states)
 - `--accent-pink: #ff0080` - Hot Pink (error states)
+- `--accent-gold: #ffb347` - Neon Gold (iteration highlights)
 
 ### Text Colors
 - `--text-primary: #ffffff` - White (primary text)
@@ -804,7 +805,7 @@ Paste this snippet immediately after the CSP meta tag (or before SEO meta) in ea
 - **Color variables:** `css/variables.css`
 - **Responsive styles:** `css/utils/responsive.css`
 - **Button styles:** `css/components/buttons.css`
-- **Card styles:** `css/components/cards.css`
+- **Card styles:** `css/components/cards.css` (includes `offer-panel` layout for services page)
 
 ### Common Classes
 - `.container` - Main content container (max-width: 1400px)
