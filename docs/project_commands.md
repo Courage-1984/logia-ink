@@ -14,6 +14,9 @@ npm run build
 # Build for GitHub Pages (relative assets + SW disabled)
 npm run build:gh-pages
 
+# Build GitHub Pages bundle in dist-gh-pages/ (CI artefact)
+npm run build:gh-pages:ci
+
 # Produce both standard and GitHub Pages bundles
 npm run build:dual
 
@@ -24,6 +27,7 @@ npm run preview
 npm run clean
 ```
 
+> `npm run clean` uses `rm -rf`; on Windows run via Git Bash, WSL, or substitute with `rimraf`.
 ## 🛠️ Optimisation & Utilities
 
 ```bash
@@ -125,5 +129,5 @@ Coverage: multi-page navigation (desktop + mobile drawer), scroll progress/back-
 - `docs/BUILD_AND_DEPLOY.md` – detailed build/deploy workflows
 - `docs/QUICK_START.md` – three-step onboarding checklist
 - `docs/STYLE_GUIDE.md` – design system and interaction patterns
-- `docs/documentation-audit-progress.md` – current status of documentation maintenance
+- `docs/TODO.MD` – outstanding documentation and analytics follow-ups
 

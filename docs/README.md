@@ -8,12 +8,13 @@ This directory contains documentation for the Logi-Ink project.
 - **[BUILD_AND_DEPLOY.md](./BUILD_AND_DEPLOY.md)** – Complete build & deploy workflow (Netlify/Vercel/Docker)
 - **[QUICK_START.md](./QUICK_START.md)** – Fast onboarding checklist
 - **[STYLE_GUIDE.md](./STYLE_GUIDE.md)** – Design system, components, and accessibility patterns
-- **[documentation-audit-progress.md](./documentation-audit-progress.md)** – Live status of the current documentation refresh
+- **[TODO.MD](./TODO.MD)** – Active backlog for analytics setup and documentation follow-ups
 
 ### Reference Guides
 - **[project_commands.md](./project_commands.md)** – Common npm scripts and usage notes
 - **[IMAGE_GENERATION_PROMPTS.md](./IMAGE_GENERATION_PROMPTS.md)** – Creative prompts for generating on-brand imagery
 - **[VIDEO_BACKGROUND_GUIDE.md](./VIDEO_BACKGROUND_GUIDE.md)** – Workflow for producing and optimising hero/background video loops
+- **[documentation-audit-progress.md](./documentation-audit-progress.md)** – Snapshot of outstanding documentation follow-ups
 - **`research/`** – Competitive analyses and supporting research artefacts
 
 ## 🚀 Quick Links
@@ -25,4 +26,5 @@ This directory contains documentation for the Logi-Ink project.
 ---
 
 **Reminder:** `.cursor/rules/cursorrules.mdc` is the authoritative source for structure, naming, and workflow requirements. Update it whenever architecture changes.
+
 

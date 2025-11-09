@@ -54,8 +54,9 @@ logi-ink/
 │   ├── project_commands.md # Quick command reference
 │   ├── IMAGE_GENERATION_PROMPTS.md
 │   ├── VIDEO_BACKGROUND_GUIDE.md
-│   ├── documentation-audit-progress.md # Live documentation refresh tracker
-│   └── research/         # Research and analysis files (optional)
+│   ├── README.md          # Documentation index
+│   ├── TODO.md            # Pending analytics/documentation follow-ups
+│   └── research/          # Research and analysis files (optional)
 ├── tests/                # Test files
 │   ├── e2e/
 │   │   └── smoke.spec.js
@@ -108,7 +109,7 @@ logi-ink/
 │   ├── base.css          # Base/reset styles
 │   ├── fonts.css         # Self-hosted font declarations
 │   ├── critical.css      # Critical CSS (above-the-fold)
-│   ├── components/       # 19 component CSS files
+│   ├── components/       # 20 component CSS files
 │   ├── pages/            # Page-specific styles (3 files)
 │   └── utils/            # Utility styles (10 files)
 ├── css/legacy/           # Legacy CSS files (backup)
@@ -125,14 +126,15 @@ logi-ink/
 │   │   ├── easter-egg.js
 │   │   ├── page-transitions.js
 │   │   └── service-worker.js
-│   ├── utils/            # Utility modules (7 files)
-│   │   ├── interactions.js
-│   │   ├── toast.js
+│   ├── utils/            # Utility modules (8 files)
 │   │   ├── accessibility.js
+│   │   ├── env.js
 │   │   ├── error-handler.js
+│   │   ├── interactions.js
 │   │   ├── performance.js
+│   │   ├── ripples-lazyload.js
 │   │   ├── three-loader.js
-│   │   └── env.js
+│   │   └── toast.js
 │   └── pages/            # Page-specific scripts (2 files)
 │       ├── contact.js
 │       └── services.js
@@ -179,7 +181,7 @@ logi-ink/
 ### Current Status
 
 - **Variables & Base:** ✅ Complete (`variables.css`, `base.css`)
-- **Components:** ✅ Complete (19 component files)
+- **Components:** ✅ Complete (20 component files)
 - **Pages:** ✅ Complete (`about.css`, `contact.css`, `projects.css`)
 - **Utils:** ✅ Complete (10 utility files)
 - **Legacy:** ✅ Migrated - Files moved to `css/legacy/` for reference
@@ -200,7 +202,7 @@ css/
 ├── main.css              # ✅ Main entry point (imports all modules)
 ├── variables.css         # ✅ CSS custom properties (colors, spacing, etc.)
 ├── base.css              # ✅ Reset, typography, foundational styles
-├── components/           # ✅ 19 Reusable UI components
+├── components/           # ✅ 20 Reusable UI components
 │   ├── navigation.css    # ✅ Navbar and navigation styles
 │   ├── hero.css          # ✅ Hero section styles
 │   ├── buttons.css       # ✅ Button styles and variants
@@ -290,14 +292,15 @@ js/
 │   ├── page-transitions.js # ✅ EXISTS - Page transition animations
 │   ├── service-worker.js # ✅ EXISTS - Service worker registration and updates
 │   └── three-hero.js     # ✅ EXISTS - Three.js hero background animations (different per page)
-├── utils/                # ✅ EXISTS - Utility modules (7 files)
-│   ├── interactions.js   # ✅ EXISTS - Button hover effects, card interactions
-│   ├── toast.js          # ✅ EXISTS - Toast notification system
+├── utils/                # ✅ EXISTS - Utility modules (8 files)
 │   ├── accessibility.js  # ✅ EXISTS - Accessibility utilities (focus management, ARIA announcements)
+│   ├── env.js            # ✅ EXISTS - Environment detection helpers (browser-safe)
 │   ├── error-handler.js  # ✅ EXISTS - Centralized error handling and logging
+│   ├── interactions.js   # ✅ EXISTS - Button hover effects, card interactions
 │   ├── performance.js    # ✅ EXISTS - Web Vitals tracking and performance monitoring
+│   ├── ripples-lazyload.js # ✅ EXISTS - Background video lazy loader
 │   ├── three-loader.js   # ✅ EXISTS - Dynamic Three.js loader with SRI support
-│   └── env.js            # ✅ EXISTS - Environment detection helpers (browser-safe)
+│   └── toast.js          # ✅ EXISTS - Toast notification system
 └── pages/                # ✅ EXISTS - Page-specific modules (3 files)
     ├── contact.js        # ✅ EXISTS - Contact form handling
     ├── services.js        # ✅ EXISTS - Service modals handling
@@ -783,6 +786,7 @@ Paste this snippet immediately after the CSP meta tag (or before SEO meta) in ea
 - ✅ **Bundle Analysis** - Visual bundle analysis (`dist/stats.html`)
 - ✅ **Web Vitals Tracking** - Performance monitoring (LCP, FID, CLS)
 - ✅ **Dynamic Three.js Loading** - Loads only when needed (easter egg)
+- ✅ **Hero Video Lazy-Load** - `ripples-lazyload.js` selects the optimal background video source per device/connection
 - ✅ **Error Handling** - Centralized error handling with graceful degradation
 - ✅ **Mobile Performance** - Optimized animations and effects for mobile devices
 
@@ -846,7 +850,8 @@ Paste this snippet immediately after the CSP meta tag (or before SEO meta) in ea
 - **`docs/QUICK_START.md`** - Quick reference guide
 - **`docs/project_commands.md`** - Common commands and tasks reference
 - **`docs/STYLE_GUIDE.md`** - Design system, component markup, and accessibility notes
-- **`docs/documentation-audit-progress.md`** - Live status of documentation refresh tasks
+- **`docs/README.md`** - Documentation index + navigation
+- **`docs/TODO.md`** - Outstanding analytics/documentation follow-ups
 - **`docs/IMAGE_GENERATION_PROMPTS.md`** - Creative direction prompts for imagery
 - **`docs/VIDEO_BACKGROUND_GUIDE.md`** - Workflow for sourcing and optimising hero videos
 - **This file (`.cursor/rules/cursorrules.mdc`)** - Project structure and conventions (MUST READ FIRST)
@@ -901,9 +906,9 @@ Paste this snippet immediately after the CSP meta tag (or before SEO meta) in ea
 
 ---
 
-**Last Updated:** 2025-11-08 (Added sessionStorage-backed page transitions + preload snippet requirements)
+**Last Updated:** 2025-11-09 (Documented background video lazy-load module + documentation index refresh)
 **Migration Status:** ✅ Complete - All CSS/JS migrated, build system configured
-**Component Count:** 19 CSS components, 10 core JS modules (including three-hero), 6 JS utils, 3 JS pages, 3 CSS pages, 10 utility CSS files
+**Component Count:** 20 CSS components, 10 core JS modules (including three-hero), 8 JS utils, 3 JS pages, 3 CSS pages, 10 utility CSS files
 **Performance:** ✅ Service Worker, Self-Hosted Fonts, Critical CSS, Image Optimization, Code Splitting, CSS Purging, Compression, Web Vitals Tracking (via `web-vitals` → Plausible), Dynamic Three.js Loading, Error Handling, Mobile Performance
 **Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact), Canonical URLs, Accessibility Features, Sitemap, Robots.txt
 **Configuration Files:** ✅ ESLint v9 (flat config), Prettier, EditorConfig, Git Attributes, VS Code Settings

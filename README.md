@@ -44,7 +44,7 @@ logi-ink/
 ├── css/
 │   ├── main.css                  # Imports variables → base → components → pages → utils
 │   ├── variables.css             # Color tokens, spacing, shadows, breakpoints
-│   ├── components/               # 19 component styles (buttons, cards, toast, etc.)
+│   ├── components/               # 20 component styles (buttons, cards, toast, etc.)
 │   ├── pages/                    # Page-specific overrides (about, contact, projects)
 │   └── utils/                    # 10 utility/animation bundles (responsive last)
 ├── docs/
@@ -52,13 +52,14 @@ logi-ink/
 │   ├── QUICK_START.md
 │   ├── STYLE_GUIDE.md
 │   ├── project_commands.md
-│   ├── documentation-audit-progress.md
+│   ├── README.md
+│   ├── TODO.MD
 │   ├── IMAGE_GENERATION_PROMPTS.md
 │   └── VIDEO_BACKGROUND_GUIDE.md
 ├── js/
 │   ├── main.js                   # Boots core modules and page-specific logic
 │   ├── core/                     # 10 core modules (navigation, scroll, three-hero, etc.)
-│   ├── utils/                    # 7 utilities (interactions, toast, performance, env, …)
+│   ├── utils/                    # 8 utilities (accessibility, interactions, toast, performance, env, error handler, three-loader, ripples lazy-load)
 │   └── pages/                    # Page hooks (contact form, services modals)
 ├── scripts/
 │   ├── optimize-images.js
@@ -109,8 +110,11 @@ Additional tooling/config: `.editorconfig`, `.prettierrc`, `.npmrc`, `.gitattrib
 
 | Category     | Script                            | Description                                           |
 | ------------ | --------------------------------- | ----------------------------------------------------- |
-| Development  | `npm run dev`                     | Vite dev server with HMR                              |
+| Development  | `npm run dev`                     | Vite dev server with HMR (opens on port 3000)         |
 |              | `npm run build`                   | Production build (terser minification, hashed assets) |
+|              | `npm run build:gh-pages`          | Production build for GitHub Pages (relative paths, SW off) |
+|              | `npm run build:gh-pages:ci`       | GitHub Pages build to `dist-gh-pages/` (CI-friendly artefact) |
+|              | `npm run build:dual`              | Run standard build + GitHub Pages build sequentially  |
 |              | `npm run preview`                 | Serve `dist/` locally                                 |
 | Quality      | `npm run format` / `format:check` | Prettier formatting                                   |
 |              | `npm run lint` / `lint:fix`       | ESLint (flat config) over `js/**/*.js`                |
@@ -132,7 +136,8 @@ Manual utilities in `scripts/` (run via `node scripts/<name>.js`) help with SEO 
 
 - **Static HTML pages:** `index`, `about`, `services`, `projects`, `pricing`, `seo-services`, `contact` (all include security headers, SEO meta, JSON-LD, accessibility scaffolding, and service worker hook).
 - **CSS:** Modular imports from `main.css` with strict ordering (variables → base → components → pages → utilities). Animations/utilities live under `css/utils/` with `responsive.css` last for overrides.
-- **JavaScript:** `js/main.js` wires 10 core modules (navigation, scroll manager, animations, cursor, mouse tilt, easter egg, page transitions, service worker, three.js hero, performance) and conditionally boots page modules (`contact`, `services`). Utilities include accessibility helpers, toast system, interaction effects, performance + web vitals tracking, and environment detection.
+- **JavaScript:** `js/main.js` wires 10 core modules (navigation, scroll manager, animations, cursor, mouse tilt, easter egg, page transitions, service worker, three.js hero, performance) and conditionally boots page modules (`contact`, `services`, `projects`). Utilities now cover accessibility helpers, toast system, interaction effects, performance + web vitals tracking, environment detection, lazy background video loading, and error handling.
+- **Background video lazy-load:** `js/utils/ripples-lazyload.js` swaps hero/background video sources based on connection speed, viewport width, and codec support, only loading media once the container enters the viewport.
 - **Page transitions:** A sessionStorage-backed preload flow (`js/core/page-transitions.js`) coordinates the new blur/fade animation and relies on a small inline script in each HTML head to avoid flashes on navigation.
 - **Assets:** Self-hosted fonts (WOFF2 subsets), optimised images (WebP/AVIF) with responsive variants, and pre-optimised hero videos.
 - **PWA:** `sw.js` handles caching and update prompts; `site.webmanifest` defines install metadata; favicons and manifest icons copied directly in the Vite build via a custom plugin.
@@ -176,6 +181,7 @@ Manual utilities in `scripts/` (run via `node scripts/<name>.js`) help with SEO 
 - ✅ Manual chunking for vendor bundles (with special-case handling for Three.js)
 - ✅ Web Vitals + navigation timing sent to Plausible (see `js/utils/performance.js`)
 - ✅ Dynamic Three.js loader with SRI support (`js/utils/three-loader.js`)
+- ✅ Connection-aware background video lazy-loading (`js/utils/ripples-lazyload.js`)
 - ✅ Service worker update toast (`css/components/service-worker.css`)
 
 See `docs/BUILD_AND_DEPLOY.md` for deployment performance checklist (cache headers, Lighthouse targets, etc.).
@@ -184,7 +190,7 @@ See `docs/BUILD_AND_DEPLOY.md` for deployment performance checklist (cache heade
 
 ## 📚 Documentation
 
-- `docs/documentation-audit-progress.md` – live tracker for the ongoing documentation refresh
+- `docs/TODO.md` – running backlog for analytics onboarding and outstanding documentation tasks
 - `docs/BUILD_AND_DEPLOY.md` – detailed build → deploy workflow (including Netlify, Vercel, Docker options)
 - `docs/QUICK_START.md` – fast onboarding cheatsheet
 - `docs/project_commands.md` – single-page command reference

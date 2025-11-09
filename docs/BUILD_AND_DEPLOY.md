@@ -319,7 +319,15 @@ Run the smoke suite prior to shipping major content or interaction changes.
 
    The script sets `VITE_BASE_PATH=./`, so every asset is referenced relatively (`./assets/...`). It also exports `VITE_DISABLE_SW=true`, which skips service-worker caching on GitHub Pages (preventing stale styles or assets). That keeps the build working on both `https://<user>.github.io/logi-ink/` and any custom domain you wire up later.
 
-   > Need builds for both regular hosting and GitHub Pages? Use `npm run build:dual` to produce a standard `dist/` bundle and a GitHub Pages-ready `dist-gh-pages/` folder in one go.
+   ```bash
+   # Produce a GitHub Pages artefact in dist-gh-pages/ for CI workflows
+   npm run build:gh-pages:ci
+
+   # Need both bundles locally? Run both jobs sequentially
+   npm run build:dual
+   ```
+
+   `build:gh-pages:ci` writes to `dist-gh-pages/`, which works well for GitHub Actions artefact uploads.
 
 3. **Deploy (if using gh-pages CLI):**
    ```bash
@@ -434,6 +442,7 @@ Before deploying, verify:
 - Clear `node_modules` and reinstall: `rm -rf node_modules package-lock.json && npm install`
 - Check for syntax errors in source files
 - Review Vite build output for specific errors
+- On Windows, run the clean command via Git Bash/WSL or install `rimraf` (`npm run clean` relies on `rm -rf`)
 
 ### Images Not Loading
 
@@ -465,5 +474,5 @@ Before deploying, verify:
 
 ---
 
-**Last Updated:** 2025-11-08 (sessionStorage-backed page transitions + documentation refresh)
+**Last Updated:** 2025-11-09 (GitHub Pages CI build guidance + clean command notes)
 

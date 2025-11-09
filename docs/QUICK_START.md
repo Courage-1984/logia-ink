@@ -40,6 +40,9 @@ npm run preview           # Preview the production build locally
 
 # Production
 npm run build             # Build for production
+npm run build:gh-pages    # Build with relative paths + SW disabled (GitHub Pages)
+npm run build:gh-pages:ci # CI-friendly GitHub Pages build to dist-gh-pages/
+npm run build:dual        # Build both standard + GitHub Pages bundles
 npm run clean             # Clear dist/ and Vite cache
 
 # Quality Gates
@@ -59,6 +62,7 @@ npm run responsive-images     # Generate responsive AVIF/WebP sets
 npm run optimize-video        # Optimise hero/background videos
 npm run inline-critical-css   # Extract + inline above-the-fold CSS
 npm run generate-sitemap      # Rebuild sitemap.xml
+npm run subset-fonts          # Analyse glyph usage ahead of subsetting
 ```
 
 ---
@@ -137,7 +141,7 @@ npm run build
 - **Detailed Build Guide:** See `docs/BUILD_AND_DEPLOY.md`
 - **Project Structure:** See `README.md`
 - **Project Rules:** See `.cursor/rules/cursorrules.mdc` (MUST READ FIRST)
-- **Documentation Audit Status:** See `docs/documentation-audit-progress.md`
+- **Documentation Backlog:** See `docs/TODO.MD`
 
 ---
 
