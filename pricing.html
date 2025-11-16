@@ -83,16 +83,15 @@
       crossorigin="anonymous"
     />
 
+    <!-- Modulepreload for critical ES modules -->
+    <link rel="modulepreload" href="./js/main.js" />
+    <link rel="modulepreload" href="./js/core/navigation.js" />
+
+    <!-- Preconnect for third-party resources -->
+    <link rel="preconnect" href="https://plausible.io" crossorigin />
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://logi-ink.com/pricing.html" />
-
-    <!-- Analytics -->
-    <script defer data-domain="logi-ink.com" src="https://plausible.io/js/script.js"></script>
-
-    <!-- Prefetch likely next pages -->
-    <link rel="prefetch" href="index.html" />
-    <link rel="prefetch" href="services.html" />
-    <link rel="prefetch" href="contact.html" />
 
     <!-- Favicons -->
     <!-- SVG favicon (modern browsers) -->
@@ -457,6 +456,17 @@
     <a href="#" class="back-to-top" aria-label="Back to top"></a>
 
     <script type="module" src="js/main.js"></script>
+
+    <!-- Load analytics after page load to reduce impact on Core Web Vitals -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = 'https://plausible.io/js/script.js';
+        script.setAttribute('data-domain', 'logi-ink.com');
+        document.head.appendChild(script);
+      });
+    </script>
   </body>
 </html>
 

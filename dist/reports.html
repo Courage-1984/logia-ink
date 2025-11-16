@@ -74,16 +74,14 @@
       crossorigin="anonymous"
     />
 
+    <!-- Modulepreload for critical ES modules -->
+    <link rel="modulepreload" href="data:text/javascript;base64,LyoqCiAqIE1haW4gRW50cnkgUG9pbnQKICogSW1wb3J0cyBhbmQgaW5pdGlhbGl6ZXMgYWxsIG1vZHVsZXMKICovCgovLyBDb3JlIG1vZHVsZXMgKGxvYWQgaW1tZWRpYXRlbHkpCmltcG9ydCB7IGluaXRTY3JvbGxNYW5hZ2VyIH0gZnJvbSAnLi9jb3JlL3Njcm9sbC1tYW5hZ2VyLmpzJzsKaW1wb3J0IHsgaW5pdE5hdmlnYXRpb24gfSBmcm9tICcuL2NvcmUvbmF2aWdhdGlvbi5qcyc7CmltcG9ydCB7IGluaXRTY3JvbGwgfSBmcm9tICcuL2NvcmUvc2Nyb2xsLmpzJzsKaW1wb3J0IHsgaW5pdEFuaW1hdGlvbnMgfSBmcm9tICcuL2NvcmUvYW5pbWF0aW9ucy5qcyc7CmltcG9ydCB7IGluaXRDdXJzb3IgfSBmcm9tICcuL2NvcmUvY3Vyc29yLmpzJzsKaW1wb3J0IHsgaW5pdE1vdXNlVGlsdCB9IGZyb20gJy4vY29yZS9tb3VzZS10aWx0LmpzJzsKaW1wb3J0IHsgaW5pdEludGVyYWN0aW9ucyB9IGZyb20gJy4vdXRpbHMvaW50ZXJhY3Rpb25zLmpzJzsKaW1wb3J0IHsgaW5pdEJhY2tncm91bmRWaWRlb0xhenlMb2FkIH0gZnJvbSAnLi91dGlscy9yaXBwbGVzLWxhenlsb2FkLmpzJzsKaW1wb3J0IHsgaW5pdFBhZ2VUcmFuc2l0aW9ucyB9IGZyb20gJy4vY29yZS9wYWdlLXRyYW5zaXRpb25zLmpzJzsKaW1wb3J0IHsgcmVnaXN0ZXJTZXJ2aWNlV29ya2VyIH0gZnJvbSAnLi9jb3JlL3NlcnZpY2Utd29ya2VyLmpzJzsKaW1wb3J0IHsgaW5pdEFjY2Vzc2liaWxpdHkgfSBmcm9tICcuL3V0aWxzL2FjY2Vzc2liaWxpdHkuanMnOwppbXBvcnQgeyBpbml0RXJyb3JIYW5kbGVyIH0gZnJvbSAnLi91dGlscy9lcnJvci1oYW5kbGVyLmpzJzsKaW1wb3J0IHsgaW5pdER5bmFtaWNQcmVmZXRjaCB9IGZyb20gJy4vdXRpbHMvZHluYW1pYy1wcmVmZXRjaC5qcyc7CgovLyBMYXp5IGxvYWQgZWFzdGVyIGVnZyBtb2R1bGUgKGxpZ2h0d2VpZ2h0IGluaXRpYWxpemF0aW9uIC0gaGVhdnkgM0QgbG9hZHMgb24gYWN0aXZhdGlvbikKbGV0IGVhc3RlckVnZ01vZHVsZSA9IG51bGw7CgovLyBJbml0aWFsaXplIGFsbCBtb2R1bGVzIHdoZW4gRE9NIGlzIHJlYWR5CmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ0RPTUNvbnRlbnRMb2FkZWQnLCBhc3luYyAoKSA9PiB7CiAgLy8gSW5pdGlhbGl6ZSBlcnJvciBoYW5kbGluZyBmaXJzdCAoY2F0Y2hlcyBlcnJvcnMgZnJvbSBvdGhlciBtb2R1bGVzKQogIGluaXRFcnJvckhhbmRsZXIoKTsKCiAgLy8gSW5pdGlhbGl6ZSBwZXJmb3JtYW5jZSB0cmFja2luZyAobm9uLWJsb2NraW5nKQogIGNvbnN0IHsgaW5pdFBlcmZvcm1hbmNlVHJhY2tpbmcgfSA9IGF3YWl0IGltcG9ydCgnLi91dGlscy9wZXJmb3JtYW5jZS5qcycpOwogIGluaXRQZXJmb3JtYW5jZVRyYWNraW5nKCk7CgogIC8vIFJlZ2lzdGVyIHNlcnZpY2Ugd29ya2VyIChmb3Igb2ZmbGluZSBzdXBwb3J0IGFuZCBjYWNoaW5nKQogIHJlZ2lzdGVyU2VydmljZVdvcmtlcigpOwoKICAvLyBJbml0aWFsaXplIHNjcm9sbCBtYW5hZ2VyIGZpcnN0IChyZXF1aXJlZCBieSBvdGhlciBtb2R1bGVzKQogIGluaXRTY3JvbGxNYW5hZ2VyKCk7CgogIC8vIEluaXRpYWxpemUgYWNjZXNzaWJpbGl0eSBmZWF0dXJlcyBmaXJzdAogIGluaXRBY2Nlc3NpYmlsaXR5KCk7CgogIC8vIEluaXRpYWxpemUgY29yZSBtb2R1bGVzCiAgaW5pdFBhZ2VUcmFuc2l0aW9ucygpOwogIGluaXROYXZpZ2F0aW9uKCk7CiAgaW5pdFNjcm9sbCgpOwogIGluaXRBbmltYXRpb25zKCk7CiAgaW5pdEN1cnNvcigpOwogIGluaXRNb3VzZVRpbHQoKTsKICBpbml0SW50ZXJhY3Rpb25zKCk7CiAgaW5pdEJhY2tncm91bmRWaWRlb0xhenlMb2FkKCk7CiAgaW5pdER5bmFtaWNQcmVmZXRjaCgpOwoKICAvLyBMYXp5IGxvYWQgcGFnZS1zcGVjaWZpYyBtb2R1bGVzCiAgaWYgKHdpbmRvdy5sb2NhdGlvbi5wYXRobmFtZS5pbmNsdWRlcygnY29udGFjdC5odG1sJykpIHsKICAgIGNvbnN0IHsgaW5pdENvbnRhY3RGb3JtIH0gPSBhd2FpdCBpbXBvcnQoJy4vcGFnZXMvY29udGFjdC5qcycpOwogICAgaW5pdENvbnRhY3RGb3JtKCk7CiAgfQoKICBpZiAod2luZG93LmxvY2F0aW9uLnBhdGhuYW1lLmluY2x1ZGVzKCdzZXJ2aWNlcy5odG1sJykpIHsKICAgIGNvbnN0IHsgaW5pdFNlcnZpY2VNb2RhbHMgfSA9IGF3YWl0IGltcG9ydCgnLi9wYWdlcy9zZXJ2aWNlcy5qcycpOwogICAgaW5pdFNlcnZpY2VNb2RhbHMoKTsKICB9CgogIGlmICh3aW5kb3cubG9jYXRpb24ucGF0aG5hbWUuaW5jbHVkZXMoJ3Byb2plY3RzLmh0bWwnKSkgewogICAgY29uc3QgeyBpbml0UHJvamVjdHNQYWdlIH0gPSBhd2FpdCBpbXBvcnQoJy4vcGFnZXMvcHJvamVjdHMuanMnKTsKICAgIGluaXRQcm9qZWN0c1BhZ2UoKTsKICB9CgogIGlmICh3aW5kb3cubG9jYXRpb24ucGF0aG5hbWUuaW5jbHVkZXMoJ3JlcG9ydHMuaHRtbCcpKSB7CiAgICBjb25zdCB7IGluaXRSZXBvcnRzUGFnZSB9ID0gYXdhaXQgaW1wb3J0KCcuL3BhZ2VzL3JlcG9ydHMuanMnKTsKICAgIGluaXRSZXBvcnRzUGFnZSgpOwogIH0KCiAgLy8gSW5pdGlhbGl6ZSBlYXN0ZXIgZWdnIG1vZHVsZSAoc2V0cyB1cCB0cmlnZ2VycyAtIGhlYXZ5IDNEIGxvYWRzIG9uIGFjdGl2YXRpb24pCiAgLy8gVGhpcyBuZWVkcyB0byBydW4gZWFybHkgc28gaXQgY2FuIGFkZCB0aGUgZm9vdGVyIHRyaWdnZXIgdGV4dAogIGlmICghZWFzdGVyRWdnTW9kdWxlKSB7CiAgICBjb25zdCBlYXN0ZXJFZ2dJbXBvcnQgPSBhd2FpdCBpbXBvcnQoJy4vZWFzdGVyLWVnZy9lYXN0ZXItZWdnLmpzJyk7CiAgICBlYXN0ZXJFZ2dNb2R1bGUgPSBlYXN0ZXJFZ2dJbXBvcnQ7CiAgICBlYXN0ZXJFZ2dJbXBvcnQuaW5pdEVhc3RlckVnZygpOwogIH0KCiAgLy8gSW5pdGlhbGl6ZSBUaHJlZS5qcyBoZXJvIGJhY2tncm91bmRzIChkaWZmZXJlbnQgYW5pbWF0aW9ucyBwZXIgcGFnZSkKICBjb25zdCB7IGluaXRUaHJlZUhlcm8gfSA9IGF3YWl0IGltcG9ydCgnLi9jb3JlL3RocmVlLWhlcm8uanMnKTsKICBpbml0VGhyZWVIZXJvKCk7Cn0pOwo=" />
+    <link rel="modulepreload" href="/assets/navigation-DdWtLabl.js" />
+
+    <!-- Preconnect for third-party resources -->
+    <link rel="preconnect" href="https://plausible.io" crossorigin />
+
     <link rel="canonical" href="https://logi-ink.com/reports.html" />
-
-    <!-- Analytics -->
-    <script defer data-domain="logi-ink.com" src="https://plausible.io/js/script.js"></script>
-
-    <!-- Prefetch Likely Next Pages -->
-    <link rel="prefetch" href="/assets/index-y6lc-980.html" />
-    <link rel="prefetch" href="/assets/services-sZbLJVqK.html" />
-    <link rel="prefetch" href="/assets/projects-D66thEHg.html" />
-    <link rel="prefetch" href="/assets/contact-DMw5WitN.html" />
 
     <!-- Favicons -->
     <!-- SVG favicon (modern browsers) -->
@@ -134,8 +132,8 @@
       }
     </script>
 
-    <script type="module" crossorigin src="/assets/js/main-Cbx1rv2v.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/style-ClCRzPJ3.css">
+    <script type="module" crossorigin src="/assets/js/main-BjgtAq0c.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/style-C2YTKOKO.css">
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -595,5 +593,16 @@
 
     <a href="#" class="back-to-top" aria-label="Back to top"></a>
 
+
+    <!-- Load analytics after page load to reduce impact on Core Web Vitals -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = 'https://plausible.io/js/script.js';
+        script.setAttribute('data-domain', 'logi-ink.com');
+        document.head.appendChild(script);
+      });
+    </script>
   </body>
 </html>

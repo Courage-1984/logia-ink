@@ -91,13 +91,14 @@
       crossorigin="anonymous"
     />
 
-    <!-- Stylesheet (includes self-hosted fonts via @font-face) -->
+    <!-- Modulepreload for critical ES modules -->
+    <link rel="modulepreload" href="./js/main.js" />
+    <link rel="modulepreload" href="./js/core/navigation.js" />
 
-    <!-- Prefetch likely next pages -->
-    <link rel="prefetch" href="about.html" />
-    <link rel="prefetch" href="services.html" />
-    <link rel="prefetch" href="projects.html" />
-    <link rel="prefetch" href="contact.html" />
+    <!-- Preconnect for third-party resources -->
+    <link rel="preconnect" href="https://plausible.io" crossorigin />
+
+    <!-- Stylesheet (includes self-hosted fonts via @font-face) -->
 
     <!-- Favicons -->
     <!-- SVG favicon (modern browsers) -->
@@ -186,9 +187,6 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://logi-ink.com/" />
-
-    <!-- Analytics -->
-    <script defer data-domain="logi-ink.com" src="https://plausible.io/js/script.js"></script>
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/main.css" />
@@ -343,6 +341,7 @@
                   <img
                     src="./assets/images/banners/banner_home.webp"
                     loading="lazy"
+                    fetchpriority="low"
                     decoding="async"
                     alt="Web Development Transforming Digital Experiences"
                     width="1280"
@@ -755,5 +754,16 @@
 
     <!-- Three.js will be loaded dynamically when needed via js/utils/three-loader.js -->
     <script type="module" src="js/main.js"></script>
+
+    <!-- Load analytics after page load to reduce impact on Core Web Vitals -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = 'https://plausible.io/js/script.js';
+        script.setAttribute('data-domain', 'logi-ink.com');
+        document.head.appendChild(script);
+      });
+    </script>
   </body>
 </html>

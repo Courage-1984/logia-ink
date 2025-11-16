@@ -59,7 +59,9 @@ logi-ink/
 │   ├── README.md                 # Documentation index
 │   ├── TODO.MD
 │   ├── IMAGE_GENERATION_PROMPTS.md
-│   └── VIDEO_BACKGROUND_GUIDE.md
+│   ├── VIDEO_BACKGROUND_GUIDE.md
+│   ├── PERFORMANCE_OPTIMIZATION_ANALYSIS.md # Performance optimization recommendations
+│   └── AUDIO_CDN_RECOMMENDATIONS.md
 ├── js/
 │   ├── main.js                   # Boots core modules and page-specific logic
 │   ├── core/                     # 9 core modules (navigation, scroll, three-hero, etc.)
@@ -77,7 +79,7 @@ logi-ink/
 │   │   ├── nebula-clouds.js      # Nebula and interstellar medium effects
 │   │   ├── particle-effects.js   # Asteroid belts, comets, solar wind, space dust
 │   │   └── post-processing.js   # Post-processing effects (bloom, depth of field)
-│   ├── utils/                    # 8 utilities (accessibility, interactions, toast, performance, env, error handler, three-loader, ripples lazy-load)
+│   ├── utils/                    # 10 utilities (accessibility, interactions, toast, performance, env, error handler, three-loader, ripples lazy-load, dynamic-prefetch, web-worker-helper)
 │   └── pages/                    # Page hooks (contact form, services modals, projects, reports dashboard)
 ├── partials/                     # HTML partials (included at build time via Vite plugin)
 │   ├── navbar.html               # Navigation component (used across all pages)
@@ -189,10 +191,13 @@ Additional tooling/config: `.editorconfig`, `.prettierrc`, `.npmrc`, `.gitattrib
 - **CSS:** Modular imports from `main.css` with strict ordering (variables → base → components → pages → utilities). Animations/utilities live under `css/utils/` with `responsive.css` last for overrides.
 - **JavaScript:** `js/main.js` wires 9 core modules (navigation, scroll manager, animations, cursor, mouse tilt, page transitions, service worker, three.js hero, performance) and conditionally boots page modules (`contact`, `services`, `projects`, `reports`). Navigation active states are handled dynamically by `js/core/navigation.js`.
 - **Galaxy easter egg:** Interactive 3D galaxy feature organized in dedicated `js/easter-egg/` folder. Includes trigger/initialization (`easter-egg.js`), runtime (`runtime.js`), and modular texture system (`celestial-textures.js`, `texture-wrapping.js`, `procedural-noise.js`). Features realistic orbital mechanics (inclined orbits), optimized loading (reduced texture resolution, pre-loading Three.js, optimized particle generation), improved seamless texture wrapping for sphere mapping, and pole-aware feature scaling to correct equirectangular projection distortion.
-- **Background video lazy-load:** `js/utils/ripples-lazyload.js` swaps hero/background video sources based on connection speed, viewport width, and codec support, only loading media once the container enters the viewport.
+- **Background video lazy-load:** `js/utils/ripples-lazyload.js` swaps hero/background video sources based on connection speed, viewport width, and codec support, only loading media once the container enters the viewport. Videos use `loading="lazy"` for below-the-fold content.
+- **Dynamic resource hints:** `js/utils/dynamic-prefetch.js` prefetches pages on link hover/focus instead of static prefetch, improving resource loading efficiency based on user intent.
+- **Web Worker utilities:** `js/utils/web-worker-helper.js` provides utilities for offloading heavy computations to Web Workers, improving INP by preventing main thread blocking.
 - **Page transitions:** A sessionStorage-backed preload flow (`js/core/page-transitions.js`) coordinates the blur/fade animation and relies on a small inline script in each HTML head to avoid flashes on navigation.
-- **Assets:** Self-hosted fonts (WOFF2 subsets), optimised images (WebP/AVIF) with responsive variants, pre-optimised hero videos, and audio assets for the easter egg feature.
-- **PWA:** `sw.js` handles caching and update prompts; `site.webmanifest` defines install metadata; comprehensive favicon implementation (SVG, multiple PNG sizes, ICO fallback, Apple Touch Icon, Windows Tiles, Safari Pinned Tab) ensures proper branding across all platforms and devices.
+- **Assets:** Self-hosted fonts (WOFF2 subsets with optimized `font-display` strategy), optimised images (WebP/AVIF) with responsive variants and `fetchpriority`/`decoding` attributes, pre-optimised hero videos, and audio assets for the easter egg feature.
+- **PWA:** `sw.js` handles caching with optimized strategies (stale-while-revalidate for hashed assets, cache-first for static assets); `site.webmanifest` defines install metadata; comprehensive favicon implementation (SVG, multiple PNG sizes, ICO fallback, Apple Touch Icon, Windows Tiles, Safari Pinned Tab) ensures proper branding across all platforms and devices.
+- **Performance optimizations:** Modulepreload for critical ES modules, preconnect for third-party resources, analytics loaded after page load, optimized font-display (swap for critical, optional for non-critical), image fetchpriority and decoding attributes, CSS purge disabled.
 - **Reports dashboard:** `reports.html` surfaces bundle treemap/raw stats, synthetic coverage, Lighthouse, PWA audit, accessibility audit, media inventory, and legacy `stats.html` in a tabbed iframe interface.
 
 ---
@@ -264,7 +269,7 @@ npm run preview
 - **SEO:** Canonical URLs, Open Graph/Twitter meta tags, and JSON-LD (Organization, WebSite, Service, Breadcrumbs, FAQ, Contact) across core pages; sitemap/robots managed via `npm run generate-sitemap`.
 - **Favicons:** Complete favicon implementation with SVG (modern browsers), multiple PNG sizes (16x16, 32x32, 48x48, 64x64), ICO fallback (legacy browsers), Apple Touch Icon (iOS), Windows Tiles (browserconfig.xml), Safari Pinned Tab, and Web App Manifest integration for optimal branding across all platforms.
 - **Accessibility:** Skip links, ARIA live region, focus management, keyboard navigation, `prefers-reduced-motion` support, and an `accessibility.js` helper module.
-- **Analytics & Performance:** Plausible is wired in, with additional Web Vitals reporting from `js/utils/performance.js`.
+- **Analytics & Performance:** Plausible is loaded after page load to reduce impact on Core Web Vitals, with preconnect for early connection establishment. Additional Web Vitals reporting from `js/utils/performance.js` tracks LCP, CLS, and INP metrics.
 
 ---
 
@@ -276,6 +281,8 @@ npm run preview
 - `docs/STYLE_GUIDE.md` – Design system, component markup, and animation patterns
 - `docs/IMAGE_GENERATION_PROMPTS.md` – Prompts for on-brand imagery
 - `docs/VIDEO_BACKGROUND_GUIDE.md` – Workflow for sourcing and optimising hero videos
+- `docs/PERFORMANCE_OPTIMIZATION_ANALYSIS.md` – Performance optimization recommendations and analysis
+- `docs/AUDIO_CDN_RECOMMENDATIONS.md` – Audio asset optimization and CDN recommendations
 - `docs/TODO.MD` – Outstanding documentation/analytics follow-ups
 
 `CHANGELOG.md` tracks release history; update it alongside notable feature, tooling, or pipeline changes.

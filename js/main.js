@@ -16,6 +16,7 @@ import { initPageTransitions } from './core/page-transitions.js';
 import { registerServiceWorker } from './core/service-worker.js';
 import { initAccessibility } from './utils/accessibility.js';
 import { initErrorHandler } from './utils/error-handler.js';
+import { initDynamicPrefetch } from './utils/dynamic-prefetch.js';
 
 // Lazy load easter egg module (lightweight initialization - heavy 3D loads on activation)
 let easterEggModule = null;
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initMouseTilt();
   initInteractions();
   initBackgroundVideoLazyLoad();
+  initDynamicPrefetch();
 
   // Lazy load page-specific modules
   if (window.location.pathname.includes('contact.html')) {

@@ -87,19 +87,17 @@
       crossorigin="anonymous"
     />
 
+    <!-- Modulepreload for critical ES modules -->
+    <link rel="modulepreload" href="./js/main.js" />
+    <link rel="modulepreload" href="./js/core/navigation.js" />
+
+    <!-- Preconnect for third-party resources -->
+    <link rel="preconnect" href="https://plausible.io" crossorigin />
+
     <!-- Stylesheet (includes self-hosted fonts via @font-face) -->
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://logi-ink.com/projects.html" />
-
-    <!-- Analytics -->
-    <script defer data-domain="logi-ink.com" src="https://plausible.io/js/script.js"></script>
-
-    <!-- Prefetch likely next pages -->
-    <link rel="prefetch" href="index.html" />
-    <link rel="prefetch" href="about.html" />
-    <link rel="prefetch" href="services.html" />
-    <link rel="prefetch" href="contact.html" />
 
     <!-- Favicons -->
     <!-- SVG favicon (modern browsers) -->
@@ -233,6 +231,7 @@
                   src="./assets/images/portfolio/example_placeholder_001.png"
                   data-base="example_placeholder_001"
                   loading="lazy"
+                  fetchpriority="low"
                   decoding="async"
                   alt="E-commerce platform interface mockup"
                 />
@@ -289,6 +288,7 @@
                   src="./assets/images/portfolio/example_placeholder_002.png"
                   data-base="example_placeholder_002"
                   loading="lazy"
+                  fetchpriority="low"
                   decoding="async"
                   alt="FinTech mobile app user interface"
                 />
@@ -345,6 +345,7 @@
                   src="./assets/images/portfolio/example_placeholder_003.png"
                   data-base="example_placeholder_003"
                   loading="lazy"
+                  fetchpriority="low"
                   decoding="async"
                   alt="Brand strategy presentation boards"
                 />
@@ -401,6 +402,7 @@
                   src="./assets/images/portfolio/example_placeholder_004.png"
                   data-base="example_placeholder_004"
                   loading="lazy"
+                  fetchpriority="low"
                   decoding="async"
                   alt="Corporate website desktop layout"
                 />
@@ -457,6 +459,7 @@
                   src="./assets/images/portfolio/example_placeholder_005.png"
                   data-base="example_placeholder_005"
                   loading="lazy"
+                  fetchpriority="low"
                   decoding="async"
                   alt="Fitness tracking app dashboard screens"
                 />
@@ -513,6 +516,7 @@
                   src="./assets/images/portfolio/example_placeholder_006.png"
                   data-base="example_placeholder_006"
                   loading="lazy"
+                  fetchpriority="low"
                   decoding="async"
                   alt="Analytics dashboard marketing campaign overview"
                 />
@@ -927,7 +931,7 @@
             <picture id="project-modal-picture">
               <source id="project-modal-source-avif" type="image/avif" />
               <source id="project-modal-source-webp" type="image/webp" />
-              <img class="project-modal__image" src="" alt="" loading="lazy" decoding="async" />
+              <img class="project-modal__image" src="" alt="" loading="lazy" fetchpriority="low" decoding="async" />
             </picture>
             <div class="project-modal__magnifier" aria-hidden="true"></div>
           </figure>
@@ -967,5 +971,16 @@
     <!-- Three.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script type="module" src="js/main.js"></script>
+
+    <!-- Load analytics after page load to reduce impact on Core Web Vitals -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = 'https://plausible.io/js/script.js';
+        script.setAttribute('data-domain', 'logi-ink.com');
+        document.head.appendChild(script);
+      });
+    </script>
   </body>
 </html>

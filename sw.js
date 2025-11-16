@@ -3,9 +3,10 @@
  * Provides offline support and faster repeat visits through asset caching
  *
  * Caching Strategy:
- * - Cache-first for static assets (fonts, images, CSS, JS)
+ * - Stale-while-revalidate for hashed assets (CSS/JS with content hashes) - ensures users get cached content immediately while updating in background
+ * - Cache-first for truly static assets (images, fonts) - these don't change, so cache-first is optimal
  * - Network-first for HTML pages (always get fresh content)
- * - Stale-while-revalidate for API calls (if any)
+ * - Stale-while-revalidate for other resources
  */
 
 const CACHE_NAME = 'logi-ink-v1';
@@ -147,9 +148,13 @@ self.addEventListener('fetch', event => {
   }
 
   // Handle different resource types
-  if (isStaticAsset(request.url)) {
-    // Static assets: Cache-first strategy (CSS, JS, fonts, images)
-    // This ensures all styles and assets are cached for offline use
+  if (isHashedAsset(request.url)) {
+    // Hashed assets (CSS/JS with content hashes): Stale-while-revalidate
+    // Ensures users get cached content immediately while updating in background
+    event.respondWith(staleWhileRevalidate(request));
+  } else if (isStaticAsset(request.url)) {
+    // Truly static assets (images, fonts): Cache-first strategy
+    // These don't change, so cache-first is optimal
     event.respondWith(cacheFirst(request));
   } else if (isHTML(request.url)) {
     // HTML pages: Network-first strategy (always get fresh content)
@@ -264,30 +269,36 @@ async function staleWhileRevalidate(request) {
 }
 
 /**
- * Check if URL is a static asset
- * Includes CSS, JS, fonts, images, and all assets
+ * Check if URL is a hashed asset (CSS/JS with content hashes)
+ * These should use stale-while-revalidate for better freshness
+ */
+function isHashedAsset(url) {
+  // Match Vite build assets with content hashes (CSS/JS only)
+  // Pattern: /assets/[name]-[hash].(css|js|mjs)
+  if (url.match(/\/assets\/[^/]+-[a-f0-9]+\.(css|js|mjs)$/i)) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Check if URL is a static asset (images, fonts)
+ * These are truly static and should use cache-first
  */
 function isStaticAsset(url) {
-  // Match file extensions
+  // Match file extensions for truly static assets
   if (
-    url.match(/\.(css|js|mjs|woff2?|ttf|eot|otf|png|jpg|jpeg|gif|webp|svg|ico|avif|woff|woff2)$/i)
+    url.match(/\.(woff2?|ttf|eot|otf|png|jpg|jpeg|gif|webp|svg|ico|avif|woff|woff2)$/i)
   ) {
     return true;
   }
 
-  // Match asset directories
+  // Match asset directories for images and fonts
   if (
-    url.includes('/assets/') ||
-    url.includes('/css/') ||
-    url.includes('/js/') ||
-    url.includes('/fonts/') ||
-    url.includes('/images/')
+    url.includes('/assets/images/') ||
+    url.includes('/assets/fonts/') ||
+    url.includes('/fonts/')
   ) {
-    return true;
-  }
-
-  // Match Vite build assets (hashed filenames)
-  if (url.match(/\/assets\/[^/]+-[a-f0-9]+\.(css|js|woff2?|png|jpg|jpeg|gif|webp|svg|avif)$/i)) {
     return true;
   }
 

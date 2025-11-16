@@ -212,10 +212,23 @@ Textures use equirectangular projection (2:1 aspect ratio) for optimal sphere ma
 ## 🔧 Build Configuration
 
 - `vite.config.js` – multipage build pipeline, plugins, compression, manual chunks, report copying.
-- `postcss.config.cjs` – PurgeCSS scaffold (disabled by default; review safelist first).
+- `postcss.config.cjs` – PurgeCSS scaffold (currently disabled; CSS purge is disabled).
 - `package.json` – scripts and dependency manifest.
 - `eslint.config.js` – ESLint v9 flat config.
 - `playwright.config.js` – Playwright webServer + device matrix.
+
+## ⚡ Performance Optimizations
+
+The project includes several performance optimizations:
+
+- **Font Loading:** Critical fonts (Orbitron Regular, Rajdhani Regular) use `font-display: swap`, non-critical variants use `font-display: optional` to prevent layout shift.
+- **Image Optimization:** Images use `fetchpriority="high"` for LCP candidates, `fetchpriority="low"` for below-the-fold, and `decoding="async"` to prevent main thread blocking.
+- **Service Worker:** Optimized cache strategy with `stale-while-revalidate` for hashed assets (CSS/JS) and `cache-first` for truly static assets (images, fonts).
+- **Resource Hints:** Dynamic prefetching on link hover/focus, modulepreload for critical ES modules, preconnect for third-party resources.
+- **Analytics:** Plausible analytics loads after page load event to reduce impact on Core Web Vitals.
+- **Video Lazy Loading:** Background videos use `loading="lazy"` attribute.
+
+See `docs/PERFORMANCE_OPTIMIZATION_ANALYSIS.md` for detailed recommendations.
 
 ---
 

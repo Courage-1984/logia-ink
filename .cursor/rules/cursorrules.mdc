@@ -344,15 +344,17 @@ js/
 │   ├── nebula-clouds.js  # ✅ EXISTS - Nebula, star-forming regions, and interstellar medium
 │   ├── particle-effects.js # ✅ EXISTS - Asteroid belts, comets, solar wind, space dust, space stations
 │   └── post-processing.js # ✅ EXISTS - Post-processing effects (bloom, depth of field, motion blur)
-├── utils/                # ✅ EXISTS - Utility modules (8 files)
+├── utils/                # ✅ EXISTS - Utility modules (10 files)
 │   ├── accessibility.js  # ✅ EXISTS - Accessibility utilities (focus management, ARIA announcements)
 │   ├── env.js            # ✅ EXISTS - Environment detection helpers (browser-safe)
 │   ├── error-handler.js  # ✅ EXISTS - Centralized error handling and logging
 │   ├── interactions.js   # ✅ EXISTS - Button hover effects, card interactions
 │   ├── performance.js    # ✅ EXISTS - Web Vitals tracking and performance monitoring
-│   ├── ripples-lazyload.js # ✅ EXISTS - Background video lazy loader
+│   ├── ripples-lazyload.js # ✅ EXISTS - Background video lazy loader (with loading="lazy" for videos)
 │   ├── three-loader.js   # ✅ EXISTS - Dynamic Three.js loader with SRI support
-│   └── toast.js          # ✅ EXISTS - Toast notification system
+│   ├── toast.js          # ✅ EXISTS - Toast notification system
+│   ├── dynamic-prefetch.js # ✅ EXISTS - Dynamic resource hints (prefetch on link hover/focus)
+│   └── web-worker-helper.js # ✅ EXISTS - Web Worker utilities for offloading heavy computations
 └── pages/                # ✅ EXISTS - Page-specific modules (4 files)
     ├── contact.js        # ✅ EXISTS - Contact form handling
     ├── services.js        # ✅ EXISTS - Service modals handling
@@ -399,6 +401,8 @@ export function initModuleName() {
   - **Security Headers** - Meta tags for X-Frame-Options, CSP, etc.
   - **SEO Meta Tags** - Open Graph, Twitter Cards, descriptions
   - **Structured Data** - JSON-LD schemas (Organization, WebSite, etc.)
+  - **Resource Hints** - Modulepreload for critical ES modules (`main.js`, `core/navigation.js`), preconnect for third-party resources (Plausible analytics)
+  - **Font Preload** - Preload critical fonts (Orbitron Regular, Rajdhani Regular) with `crossorigin="anonymous"`
   - **Favicons** - Complete favicon block with SVG, PNG sizes, ICO fallback, Apple Touch Icon, Windows Tiles, Safari Pinned Tab, and Web App Manifest (see template below)
   - **Accessibility** - Skip link, ARIA live region
   - **Main Content ID** - `<main id="main-content">` wrapper
@@ -406,6 +410,7 @@ export function initModuleName() {
   - Cursor effects (scroll progress, custom cursor)
   - Footer - Use `<!-- include partials/footer.html -->` (processed at build time)
   - Script tag pointing to `js/main.js` with `type="module"`
+  - **Analytics Loading** - Plausible analytics script loaded after page load event (reduces impact on Core Web Vitals)
   - **Inline page-transition preload script** – inserted near the top of `<head>` so blur/fade animations don't flash when navigating between pages. Use the snippet below on every entry point.
 
 ### HTML Partials (Reusable Components)
@@ -475,6 +480,27 @@ assets/
       }
     </script>
 
+    <!-- Preload critical fonts (self-hosted WOFF2 - Subsetted) -->
+    <link
+      rel="preload"
+      href="./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+
+    <!-- Modulepreload for critical ES modules -->
+    <link rel="modulepreload" href="./js/main.js" />
+    <link rel="modulepreload" href="./js/core/navigation.js" />
+
+    <!-- Preconnect for third-party resources -->
+    <link rel="preconnect" href="https://plausible.io" crossorigin />
+
     <!-- Favicons -->
     <!-- SVG favicon (modern browsers) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -519,6 +545,17 @@ assets/
     <a href="#" class="back-to-top" aria-label="Back to top"></a>
 
     <script type="module" src="js/main.js"></script>
+
+    <!-- Load analytics after page load to reduce impact on Core Web Vitals -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = 'https://plausible.io/js/script.js';
+        script.setAttribute('data-domain', 'logi-ink.com');
+        document.head.appendChild(script);
+      });
+    </script>
   </body>
 </html>
 ```
@@ -578,6 +615,13 @@ Paste this snippet immediately after the CSP meta tag (or before SEO meta) in ea
 
 - **Headings & Display:** `'Orbitron', sans-serif`
 - **Body Text & UI:** `'Rajdhani', sans-serif`
+
+### Font Loading Strategy
+
+- **Critical fonts** (Orbitron Regular, Rajdhani Regular): Use `font-display: swap` for faster display
+- **Non-critical variants** (Bold, Black, Light, SemiBold): Use `font-display: optional` to prevent layout shift
+- Fonts are preloaded in HTML head with `crossorigin="anonymous"`
+- Defined in `css/fonts.css` with appropriate `font-display` values
 
 ### Font Sizes
 
@@ -823,8 +867,12 @@ If new code introduces a new pattern, update the documentation and architecture 
 ### Assets
 
 - Optimize images before adding to `assets/`
-- Use appropriate formats (WebP with fallbacks)
-- Lazy load images below the fold
+- Use appropriate formats (WebP/AVIF with fallbacks)
+- Lazy load images below the fold with `loading="lazy"`
+- Add `fetchpriority="high"` to LCP candidates (hero images, above-the-fold)
+- Add `fetchpriority="low"` to below-the-fold images
+- Use `decoding="async"` for non-critical images, `decoding="sync"` for LCP candidates
+- Videos should use `loading="lazy"` for below-the-fold content
 
 ---
 
@@ -929,12 +977,22 @@ If new code introduces a new pattern, update the documentation and architecture 
 - ✅ **Critical CSS** - Inlined above-the-fold styles
 - ✅ **Image Optimization** - Manual optimization via `npm run optimize-images` and `npm run responsive-images` scripts (Sharp-based)
 - ✅ **Code Splitting** - Manual chunks for better caching
-- ✅ **CSS Purging** - Removes unused CSS in production (PurgeCSS, currently disabled)
+- ✅ **CSS Purging** - PurgeCSS is disabled (no CSS purging)
+- ✅ **CSS Minification** - Disabled in Vite config (`cssMinify: false`)
+- ✅ **CSS Code Splitting** - Disabled in Vite config (`cssCodeSplit: false`)
 - ✅ **Compression** - Gzip and Brotli compression
 - ✅ **Bundle Analysis** - Visual bundle analysis (`dist/stats.html`)
-- ✅ **Web Vitals Tracking** - Performance monitoring (LCP, FID, CLS)
+- ✅ **Web Vitals Tracking** - Performance monitoring (LCP, CLS, INP) via `web-vitals` → Plausible
 - ✅ **Dynamic Three.js Loading** - Loads only when needed (easter egg, pre-loaded for faster activation)
-- ✅ **Hero Video Lazy-Load** - `ripples-lazyload.js` selects the optimal background video source per device/connection
+- ✅ **Hero Video Lazy-Load** - `ripples-lazyload.js` selects the optimal background video source per device/connection, with `loading="lazy"` for below-the-fold videos
+- ✅ **Dynamic Resource Hints** - `dynamic-prefetch.js` prefetches pages on link hover/focus instead of static prefetch
+- ✅ **Web Worker Utilities** - `web-worker-helper.js` provides utilities for offloading heavy computations
+- ✅ **Optimized Font Loading** - `font-display: swap` for critical fonts, `font-display: optional` for non-critical variants
+- ✅ **Image Fetch Priority** - `fetchpriority` attributes for LCP optimization
+- ✅ **Image Decoding** - `decoding` attributes to prevent main thread blocking
+- ✅ **Service Worker Cache Strategy** - Stale-while-revalidate for hashed assets, cache-first for static assets
+- ✅ **Modulepreload** - Critical ES modules preloaded for faster parsing
+- ✅ **Analytics Optimization** - Plausible loads after page load to reduce Core Web Vitals impact
 - ✅ **Error Handling** - Centralized error handling with graceful degradation
 - ✅ **Mobile Performance** - Optimized animations and effects for mobile devices
 - ✅ **Texture Loading Optimization** - Lower initial resolution (0.5x) for faster galaxy loading, texture caching
@@ -964,7 +1022,7 @@ If new code introduces a new pattern, update the documentation and architecture 
 - ✅ **Canonical URLs** - Added to all pages for SEO
 - ✅ **Sitemap** - Auto-generated `sitemap.xml` (run `npm run generate-sitemap`)
 - ✅ **Robots.txt** - Search engine crawling rules
-- ✅ **Plausible Analytics** - Privacy-first analytics script on all pages
+- ✅ **Plausible Analytics** - Privacy-first analytics script loaded after page load event (reduces Core Web Vitals impact), with preconnect for early connection
 - ✅ **Favicons** - Comprehensive favicon implementation with SVG, multiple PNG sizes (16x16, 32x32, 48x48, 64x64), ICO fallback, Apple Touch Icon, Windows Tiles (browserconfig.xml), Safari Pinned Tab, and Web App Manifest integration
 - ✅ **Documentation** - See `docs/SEO_AND_SECURITY_IMPLEMENTATION.md` for details
 
@@ -1031,6 +1089,8 @@ If new code introduces a new pattern, update the documentation and architecture 
 - **`docs/TODO.md`** - Outstanding analytics/documentation follow-ups
 - **`docs/IMAGE_GENERATION_PROMPTS.md`** - Creative direction prompts for imagery
 - **`docs/VIDEO_BACKGROUND_GUIDE.md`** - Workflow for sourcing and optimising hero videos
+- **`docs/PERFORMANCE_OPTIMIZATION_ANALYSIS.md`** - Performance optimization recommendations and analysis
+- **`docs/AUDIO_CDN_RECOMMENDATIONS.md`** - Audio asset optimization and CDN recommendations
 - **This file (`.cursor/rules/cursorrules.mdc`)** - Project structure and conventions (MUST READ FIRST)
 
 ### When Stuck
@@ -1083,11 +1143,11 @@ If new code introduces a new pattern, update the documentation and architecture 
 
 ---
 
-**Last Updated:** 2025-01-XX (Audio assets support, easter egg module documentation update)
+**Last Updated:** 2025-01-XX (Performance optimizations: font-display, fetchpriority, service worker cache strategy, dynamic prefetch, analytics optimization)
 **Migration Status:** ✅ Complete - All CSS/JS migrated, build system configured, HTML includes implemented
-**Component Count:** 20 CSS components, 9 core JS modules (including three-hero), 8 JS utils, 1 JS easter-egg folder (13 modules: easter-egg.js, runtime.js, celestial-textures.js, texture-wrapping.js, procedural-noise.js, celestial-mechanics.js, camera-controls.js, galaxy-generator.js, star-field.js, lighting-atmosphere.js, nebula-clouds.js, particle-effects.js, post-processing.js), 4 JS pages, 4 CSS pages, 9 utility CSS files, 1 CSS easter-egg folder, 2 HTML partials (navbar, footer)
-**Performance:** ✅ Service Worker, Self-Hosted Fonts, Critical CSS, Image Optimization, Code Splitting, CSS Purging, Compression, Web Vitals Tracking (via `web-vitals` → Plausible), Dynamic Three.js Loading (pre-loaded), Error Handling, Mobile Performance, Texture Loading Optimization, Optimized Particle Generation
+**Component Count:** 20 CSS components, 9 core JS modules (including three-hero), 10 JS utils (added dynamic-prefetch.js, web-worker-helper.js), 1 JS easter-egg folder (13 modules: easter-egg.js, runtime.js, celestial-textures.js, texture-wrapping.js, procedural-noise.js, celestial-mechanics.js, camera-controls.js, galaxy-generator.js, star-field.js, lighting-atmosphere.js, nebula-clouds.js, particle-effects.js, post-processing.js), 4 JS pages, 4 CSS pages, 9 utility CSS files, 1 CSS easter-egg folder, 2 HTML partials (navbar, footer)
+**Performance:** ✅ Service Worker (optimized cache strategy: stale-while-revalidate for hashed assets, cache-first for static), Self-Hosted Fonts (optimized font-display: swap for critical, optional for non-critical), Critical CSS, Image Optimization (fetchpriority, decoding attributes), Code Splitting, CSS Purging (disabled), CSS Minification (disabled), CSS Code Splitting (disabled), Compression (Gzip/Brotli), Web Vitals Tracking (LCP, CLS, INP via `web-vitals` → Plausible), Dynamic Three.js Loading (pre-loaded), Error Handling, Mobile Performance, Texture Loading Optimization, Optimized Particle Generation, Dynamic Resource Hints (prefetch on hover/focus), Modulepreload for critical ES modules, Analytics loaded after page load, Video lazy loading
 **Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact), Canonical URLs, Accessibility Features, Sitemap, Robots.txt, Comprehensive Favicon Implementation (SVG, PNG sizes, ICO, Apple Touch, Windows Tiles, Safari Pinned Tab)
 **Configuration Files:** ✅ ESLint v9 (flat config), Prettier, EditorConfig, Git Attributes, VS Code Settings, browserconfig.xml
-**Recent Updates:** ✅ HTML include system (Vite plugin for processing `<!-- include partials/... -->` comments at build time), modularized navbar and footer partials, comprehensive favicon implementation (SVG, 64x64/48x48/32x32/16x16 PNG, ICO fallback, Apple Touch Icon, Windows Tiles with browserconfig.xml, Safari Pinned Tab), sessionStorage-backed page transitions with preload snippet, error handling, performance tracking, Three.js optimization, CSP, SRI, accessibility enhancements, mobile performance, **texture modularization** (texture-wrapping.js, procedural-noise.js), **galaxy loading optimizations** (reduced texture resolution, pre-loading, optimized particle generation), **orbital inclinations** (realistic planet orbits), **improved seamless texture wrapping** (multi-pixel blending, pole-aware feature placement), **easter egg organization** (moved to dedicated `js/easter-egg/` and `css/easter-egg/` folders), **celestial texture improvements** (pole-aware radius scaling for equirectangular distortion correction, seamless noise for path generation, quadratic feature count scaling for consistent density, advanced blending modes, removed unused size parameter from createPlanetTexture), **audio assets support** (Vite plugin for copying audio files during build, space ambience audio file for easter egg feature)
+**Recent Updates:** ✅ HTML include system (Vite plugin for processing `<!-- include partials/... -->` comments at build time), modularized navbar and footer partials, comprehensive favicon implementation (SVG, 64x64/48x48/32x32/16x16 PNG, ICO fallback, Apple Touch Icon, Windows Tiles with browserconfig.xml, Safari Pinned Tab), sessionStorage-backed page transitions with preload snippet, error handling, performance tracking, Three.js optimization, CSP, SRI, accessibility enhancements, mobile performance, **texture modularization** (texture-wrapping.js, procedural-noise.js), **galaxy loading optimizations** (reduced texture resolution, pre-loading, optimized particle generation), **orbital inclinations** (realistic planet orbits), **improved seamless texture wrapping** (multi-pixel blending, pole-aware feature placement), **easter egg organization** (moved to dedicated `js/easter-egg/` and `css/easter-egg/` folders), **celestial texture improvements** (pole-aware radius scaling for equirectangular distortion correction, seamless noise for path generation, quadratic feature count scaling for consistent density, advanced blending modes, removed unused size parameter from createPlanetTexture), **audio assets support** (Vite plugin for copying audio files during build, space ambience audio file for easter egg feature), **performance optimizations** (font-display strategy optimization, image fetchpriority/decoding attributes, service worker cache strategy optimization, dynamic resource hints, modulepreload, analytics loading after page load, video lazy loading, Web Worker utilities)
 **Remember:** Always update this file when making structural changes to the project!

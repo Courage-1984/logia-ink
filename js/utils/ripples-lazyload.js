@@ -38,6 +38,7 @@ export function initBackgroundVideoLazyLoad() {
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
+    video.loading = 'lazy'; // Lazy load below-the-fold videos
     video.poster = `${basePath}/${posterName}`;
     video.className = 'background-video';
     video.setAttribute('aria-hidden', 'true');
