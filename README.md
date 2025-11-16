@@ -1,8 +1,8 @@
 # Logi-Ink Website
 
-A cyberpunk-inspired marketing site for the Logi-Ink digital agency. The site ships as static HTML, modular CSS, and ES6 modules bundled with Vite, featuring rich motion design, PWA support, and automated optimisation tooling.
+A cyberpunk-inspired marketing site for the Logi-Ink digital agency. The site ships as static HTML, modular CSS, and ES6 modules bundled with Vite, featuring rich motion design, PWA support, and an operational reports dashboard.
 
-> **Must read first:** [.cursor/rules/cursorrules.mdc](.cursor/rules/cursorrules.mdc) is the canonical source for architecture, naming, and workflow rules. Keep it updated whenever structure changes.
+> **Must read first:** `.cursor/rules/cursorrules.mdc` is the canonical source for architecture, naming, and workflow rules. Keep it updated whenever structure or tooling changes.
 
 ---
 
@@ -10,7 +10,7 @@ A cyberpunk-inspired marketing site for the Logi-Ink digital agency. The site sh
 
 ### Prerequisites
 
-- **Node.js 20.x** (see `.nvmrc`; run `nvm use` if you have nvm installed)
+- **Node.js 20.x** (see `.nvmrc`; run `nvm use` if you use nvm)
 - **npm 10+** (bundled with Node 20)
 - Optional: `npx playwright install` (one-time) to run the smoke e2e tests
 
@@ -24,16 +24,16 @@ npm run dev             # dev server with HMR at http://localhost:3000
 echo "VITE_BASE_PATH=/your-path/" > .env
 
 npm run build           # production build (outputs to dist/)
-npm run preview         # serve built files at http://localhost:4173
+npm run preview         # serve built files at http://127.0.0.1:4173
 ```
 
-For a static preview without the toolchain you can open `index.html` directly in a browser, but service worker behaviour, module loading, and routing previews require the dev server.
+For a static preview without the toolchain you can open `index.html` directly in a browser, but service worker behaviour, ES modules, and page transitions require the dev/preview server.
 
 ---
 
 ## 📁 Directory Overview
 
-```
+```text
 logi-ink/
 ├── .cursor/
 │   └── rules/cursorrules.mdc     # Project rules & architecture guide (authoritative)
@@ -44,15 +44,18 @@ logi-ink/
 ├── css/
 │   ├── main.css                  # Imports variables → base → components → pages → utils
 │   ├── variables.css             # Color tokens, spacing, shadows, breakpoints
+│   ├── base.css                  # Reset + typography
+│   ├── fonts.css                 # @font-face declarations for self-hosted fonts
+│   ├── critical.css              # Above-the-fold styles (used by build tooling)
 │   ├── components/               # 20 component styles (buttons, cards, toast, etc.)
-│   ├── pages/                    # Page-specific overrides (about, contact, projects)
+│   ├── pages/                    # Page-specific overrides (about, contact, projects, reports)
 │   └── utils/                    # 10 utility/animation bundles (responsive last)
 ├── docs/
 │   ├── BUILD_AND_DEPLOY.md
 │   ├── QUICK_START.md
 │   ├── STYLE_GUIDE.md
 │   ├── project_commands.md
-│   ├── README.md
+│   ├── README.md                 # Documentation index
 │   ├── TODO.MD
 │   ├── IMAGE_GENERATION_PROMPTS.md
 │   └── VIDEO_BACKGROUND_GUIDE.md
@@ -60,7 +63,11 @@ logi-ink/
 │   ├── main.js                   # Boots core modules and page-specific logic
 │   ├── core/                     # 10 core modules (navigation, scroll, three-hero, etc.)
 │   ├── utils/                    # 8 utilities (accessibility, interactions, toast, performance, env, error handler, three-loader, ripples lazy-load)
-│   └── pages/                    # Page hooks (contact form, services modals)
+│   ├── modules/                  # Lazily-loaded bundles (e.g. easter-egg runtime)
+│   └── pages/                    # Page hooks (contact form, services modals, projects, reports dashboard)
+├── partials/                     # HTML partials (included at build time via Vite plugin)
+│   ├── navbar.html               # Navigation component (used across all pages)
+│   └── footer.html               # Footer component (used across all pages)
 ├── scripts/
 │   ├── optimize-images.js
 │   ├── optimize-video.js
@@ -70,9 +77,27 @@ logi-ink/
 │   ├── generate-seo-meta.js
 │   ├── generate-structured-data.js
 │   ├── subset-fonts.js
-│   ├── test-fonts.ps1
 │   ├── subset-fonts-with-glyphhanger.{sh,ps1}
-│   └── update-html-seo.js
+│   ├── test-fonts.ps1
+│   ├── generate-media-inventory.js
+│   ├── generate-dashboard-reports.js
+│   ├── generate-coverage-report.js
+│   ├── generate-performance-timeline.js
+│   ├── generate-pwmetrics-report.js
+│   └── run-pa11y-report.js
+├── reports/                      # Source reports (copied to dist/reports/ on build)
+│   ├── bundle-report.html        # Rollup visualizer treemap (from Vite build)
+│   ├── bundle-stats.json         # Raw Rollup bundle stats
+│   ├── coverage/
+│   │   └── index.html            # Route coverage snapshot (from smoke.spec.js)
+│   ├── lighthouse-report.html    # Latest full Lighthouse HTML report
+│   ├── pwa-audit.html            # PWA-only Lighthouse HTML report
+│   ├── performance-timeline.html # (Currently unused; superseded by Lighthouse embed)
+│   ├── seo-pa11y.html            # Pa11y HTML output
+│   ├── seo-audit.html            # Wrapper embedding Pa11y report
+│   ├── media-inventory.html      # Asset inventory dashboard
+│   ├── media-inventory.json      # Asset inventory data
+│   └── stats.html                # Legacy stats view (copied from dist/stats.html)
 ├── tests/
 │   ├── e2e/smoke.spec.js         # Playwright smoke suite
 │   ├── test-fonts.html
@@ -84,14 +109,15 @@ logi-ink/
 ├── projects.html
 ├── seo-services.html
 ├── services.html
+├── reports.html                  # Reports dashboard (not linked from nav; direct URL only)
 ├── sw.js
 ├── CHANGELOG.md
-├── README.md
 ├── package.json
 ├── package-lock.json
 ├── postcss.config.cjs
 ├── site.webmanifest
 ├── vite.config.js
+├── vite-plugin-html-include.js  # Custom Vite plugin for HTML includes
 ├── eslint.config.js
 ├── playwright.config.js
 ├── robots.txt
@@ -108,39 +134,76 @@ Additional tooling/config: `.editorconfig`, `.prettierrc`, `.npmrc`, `.gitattrib
 
 ## 🧰 npm Scripts & Tooling
 
-| Category     | Script                            | Description                                           |
-| ------------ | --------------------------------- | ----------------------------------------------------- |
-| Development  | `npm run dev`                     | Vite dev server with HMR (opens on port 3000)         |
-|              | `npm run build`                   | Production build (terser minification, hashed assets) |
-|              | `npm run build:gh-pages`          | Production build for GitHub Pages (relative paths, SW off) |
-|              | `npm run build:gh-pages:ci`       | GitHub Pages build to `dist-gh-pages/` (CI-friendly artefact) |
-|              | `npm run build:dual`              | Run standard build + GitHub Pages build sequentially  |
-|              | `npm run preview`                 | Serve `dist/` locally                                 |
-| Quality      | `npm run format` / `format:check` | Prettier formatting                                   |
-|              | `npm run lint` / `lint:fix`       | ESLint (flat config) over `js/**/*.js`                |
-|              | `npm run validate`                | Combines `format:check` + `lint`                      |
-| Testing      | `npm run test:e2e`                | Build then run Playwright smoke suite                 |
-| Optimisation | `npm run optimize-images`         | Lossy image optimisation with Sharp                   |
-|              | `npm run optimize-video`          | Transcodes hero videos + poster frames                |
-|              | `npm run responsive-images`       | Generate AVIF/WebP responsive sets + snippets         |
-|              | `npm run inline-critical-css`     | Extract & inline critical CSS (post-build)            |
-|              | `npm run subset-fonts`            | Inspect usage and prep font subsetting                |
-|              | `npm run generate-sitemap`        | Regenerate `sitemap.xml`                              |
-| Maintenance  | `npm run clean`                   | Remove `dist/` and Vite cache                         |
+| **Category**   | **Script**                    | **Description**                                                                 |
+| -------------- | ----------------------------- | ------------------------------------------------------------------------------- |
+| **Dev**        | `npm run dev`                 | Vite dev server with HMR (port 3000)                                           |
+|                | `npm run build`               | Production build (terser minification, hashed assets)                          |
+|                | `npm run build:gh-pages`      | Build for GitHub Pages (relative paths, SW disabled)                           |
+|                | `npm run build:gh-pages:ci`   | GitHub Pages build to `dist-gh-pages/` (CI artefact)                           |
+|                | `npm run build:dual`          | Run standard build + GitHub Pages build sequentially                           |
+|                | `npm run preview`             | Serve `dist/` locally (http://127.0.0.1:4173)                                  |
+| **Quality**    | `npm run format`              | Format with Prettier                                                           |
+|                | `npm run format:check`        | Check formatting only                                                          |
+|                | `npm run lint` / `lint:fix`   | ESLint (flat config) over `js/**/*.js`                                         |
+|                | `npm run validate`            | `format:check` + `lint`                                                        |
+| **Testing**    | `npm run test:e2e`            | Build, then run Playwright smoke suite                                         |
+|                | `npm run test:e2e:only`       | Run Playwright against an existing build (re-uses `npm run preview` webServer) |
+| **Optimisation** | `npm run optimize-images`   | Lossy image optimisation with Sharp                                            |
+|                | `npm run optimize-video`      | Transcode hero videos + poster frames                                          |
+|                | `npm run responsive-images`   | Generate AVIF/WebP responsive sets + HTML snippets                             |
+|                | `npm run subset-fonts`        | Analyse font usage prior to subsetting                                         |
+|                | `npm run inline-critical-css` | Extract & inline critical CSS (post-build)                                     |
+|                | `npm run generate-sitemap`    | Regenerate `sitemap.xml`                                                       |
+| **Reports**    | `npm run reports:lighthouse`  | Run Lighthouse CI using `lighthouserc.json` (HTML + JSON into `.lighthouseci`) |
+|                | `npm run reports:pa11y`       | Run Pa11y and emit `reports/seo-pa11y.html`                                    |
+|                | `npm run reports:coverage`    | Regenerate synthetic route coverage snapshot at `reports/coverage/index.html`  |
+|                | `npm run reports:performance` | Build `reports/performance-timeline.html` from latest Lighthouse JSON          |
+|                | `npm run reports:media`       | Rebuild media inventory HTML/JSON under `reports/`                             |
+|                | `npm run reports:dashboard`   | Orchestrate preview, Lighthouse (main + PWA) and Pa11y, then sync HTML reports |
+|                | `npm run reports:all`         | Build → dashboard → media → e2e tests → coverage/perf → final build           |
+| **Optional**   | `npm run reports:pwmetrics`   | Run PWMetrics and emit `reports/pwmetrics.{json,html}` (not wired into UI)     |
+| **Maintenance** | `npm run clean`             | Remove `dist/` and Vite cache (`node_modules/.vite`)                           |
 
-Manual utilities in `scripts/` (run via `node scripts/<name>.js`) help with SEO metadata, structured data, and automated HTML updates.
+> The **reports dashboard** lives at `reports.html` (built to `dist/reports.html`). It is **not linked from the main nav** and is intended as an internal health/QA hub.
 
 ---
 
 ## 🧱 Architecture Highlights
 
-- **Static HTML pages:** `index`, `about`, `services`, `projects`, `pricing`, `seo-services`, `contact` (all include security headers, SEO meta, JSON-LD, accessibility scaffolding, and service worker hook).
+- **Static HTML pages:** `index`, `about`, `services`, `projects`, `pricing`, `seo-services`, `contact`, plus a dedicated `reports.html` dashboard.
+- **HTML Includes:** Navigation and footer are modularized via `partials/navbar.html` and `partials/footer.html`, included at build time using a custom Vite plugin (`vite-plugin-html-include.js`). Pages use `<!-- include partials/navbar.html -->` comments which are processed during the build.
 - **CSS:** Modular imports from `main.css` with strict ordering (variables → base → components → pages → utilities). Animations/utilities live under `css/utils/` with `responsive.css` last for overrides.
-- **JavaScript:** `js/main.js` wires 10 core modules (navigation, scroll manager, animations, cursor, mouse tilt, easter egg, page transitions, service worker, three.js hero, performance) and conditionally boots page modules (`contact`, `services`, `projects`). Utilities now cover accessibility helpers, toast system, interaction effects, performance + web vitals tracking, environment detection, lazy background video loading, and error handling.
+- **JavaScript:** `js/main.js` wires 10 core modules (navigation, scroll manager, animations, cursor, mouse tilt, easter egg, page transitions, service worker, three.js hero, performance) and conditionally boots page modules (`contact`, `services`, `projects`, `reports`). Navigation active states are handled dynamically by `js/core/navigation.js`.
 - **Background video lazy-load:** `js/utils/ripples-lazyload.js` swaps hero/background video sources based on connection speed, viewport width, and codec support, only loading media once the container enters the viewport.
-- **Page transitions:** A sessionStorage-backed preload flow (`js/core/page-transitions.js`) coordinates the new blur/fade animation and relies on a small inline script in each HTML head to avoid flashes on navigation.
+- **Page transitions:** A sessionStorage-backed preload flow (`js/core/page-transitions.js`) coordinates the blur/fade animation and relies on a small inline script in each HTML head to avoid flashes on navigation.
 - **Assets:** Self-hosted fonts (WOFF2 subsets), optimised images (WebP/AVIF) with responsive variants, and pre-optimised hero videos.
-- **PWA:** `sw.js` handles caching and update prompts; `site.webmanifest` defines install metadata; favicons and manifest icons copied directly in the Vite build via a custom plugin.
+- **PWA:** `sw.js` handles caching and update prompts; `site.webmanifest` defines install metadata; comprehensive favicon implementation (SVG, multiple PNG sizes, ICO fallback, Apple Touch Icon, Windows Tiles, Safari Pinned Tab) ensures proper branding across all platforms and devices.
+- **Reports dashboard:** `reports.html` surfaces bundle treemap/raw stats, synthetic coverage, Lighthouse, PWA audit, accessibility audit, media inventory, and legacy `stats.html` in a tabbed iframe interface.
+
+---
+
+## 📊 Reports Dashboard Overview
+
+The reports hub (`reports.html`) is designed to be opened after running the reporting scripts. Tabs are **lazy-loaded** and show a placeholder until their backing artefact is present:
+
+- **Bundle Treemap** → `dist/reports/bundle-report.html` (from `npm run build` via rollup-plugin-visualizer).
+- **Bundle Raw Stats** → `dist/reports/bundle-stats.json` (also from `npm run build`).
+- **Coverage** → `dist/reports/coverage/index.html` generated by `npm run reports:coverage`.
+  - This is a *route coverage snapshot* derived from URLs hit inside `tests/e2e/smoke.spec.js`.
+- **Lighthouse** → `dist/reports/lighthouse-report.html` from the main Lighthouse CI run inside `npm run reports:dashboard`.
+- **Performance Timeline** → currently points at `dist/reports/lighthouse-report.html` as a convenient performance-focused view of the main Lighthouse report.
+- **PWA Audit** → `dist/reports/pwa-audit.html`, produced by a PWA-only Lighthouse run (`lighthouserc.pwa.json`) inside `npm run reports:dashboard`.
+- **Accessibility Audit** → `dist/reports/seo-audit.html`, which embeds Pa11y output from `reports/seo-pa11y.html` generated by `npm run reports:pa11y` (called by `reports:dashboard`).
+- **Media Inventory** → `dist/reports/media-inventory.html` from `npm run reports:media`.
+- **/stats.html** → `dist/reports/stats.html`, a mirrored copy of `dist/stats.html` for legacy bundle analysis.
+
+Recommended one-shot refresh:
+
+```bash
+npm run reports:all
+npm run preview
+# then open http://127.0.0.1:4173/reports.html
+```
 
 ---
 
@@ -152,72 +215,64 @@ Manual utilities in `scripts/` (run via `node scripts/<name>.js`) help with SEO 
   - Services modal open/close (button + keyboard/Escape)
   - Contact form validation (happy path + error states)
   - Service worker registration flow
-- **Manual utilities:** `tests/test-fonts.html` and `tests/test-service-worker.html` help verify font loading and service worker behaviour during development.
+- **Manual utilities:**
+  - `http://localhost:3000/tests/test-service-worker.html`
+  - `http://localhost:3000/tests/test-fonts.html`
 - **Setup:** Run `npx playwright install` once before using `npm run test:e2e`.
 
 ---
 
 ## ⚙️ Config Reference
 
-| File                       | Purpose                                                                               |
-| -------------------------- | ------------------------------------------------------------------------------------- |
-| `vite.config.js`           | Multi-page build, asset copy plugins, terser settings, gzip/brotli, bundle visualiser |
-| `postcss.config.cjs`       | PurgeCSS scaffold (currently disabled; keep safelist updated before re-enabling)      |
-| `eslint.config.js`         | ESLint v9 flat config (extends `@eslint/js`)                                          |
-| `.prettierrc`              | Prettier formatting rules                                                             |
-| `.editorconfig`            | Editor defaults (spacing, line endings)                                               |
-| `.npmrc`, `.gitattributes` | Registry + line ending consistency                                                    |
-| `playwright.config.js`     | Browser/device matrix for smoke suite                                                 |
-| `site.webmanifest`         | PWA metadata and shortcuts                                                            |
-
----
-
-## 📊 Performance & Features Checklist
-
-- ✅ Critical CSS extraction script (`npm run inline-critical-css`)
-- ✅ Gzip + Brotli assets (via `vite-plugin-compression`)
-- ✅ Image optimisation & responsive sources (`vite-plugin-imagemin` + Sharp scripts)
-- ✅ Console stripping via terser in production
-- ✅ Manual chunking for vendor bundles (with special-case handling for Three.js)
-- ✅ Web Vitals + navigation timing sent to Plausible (see `js/utils/performance.js`)
-- ✅ Dynamic Three.js loader with SRI support (`js/utils/three-loader.js`)
-- ✅ Connection-aware background video lazy-loading (`js/utils/ripples-lazyload.js`)
-- ✅ Service worker update toast (`css/components/service-worker.css`)
-
-See `docs/BUILD_AND_DEPLOY.md` for deployment performance checklist (cache headers, Lighthouse targets, etc.).
-
----
-
-## 📚 Documentation
-
-- `docs/TODO.md` – running backlog for analytics onboarding and outstanding documentation tasks
-- `docs/BUILD_AND_DEPLOY.md` – detailed build → deploy workflow (including Netlify, Vercel, Docker options)
-- `docs/QUICK_START.md` – fast onboarding cheatsheet
-- `docs/project_commands.md` – single-page command reference
-- `docs/STYLE_GUIDE.md` – design system, component markup, animation patterns
-- `docs/IMAGE_GENERATION_PROMPTS.md` – Midjourney/DALL·E prompts for art direction
-- `docs/VIDEO_BACKGROUND_GUIDE.md` – workflow for creating and optimising hero videos
-
-`CHANGELOG.md` tracks release history; update alongside major feature or tooling shifts.
+| **File**                   | **Purpose**                                                                              |
+| -------------------------- | ---------------------------------------------------------------------------------------- |
+| `vite.config.js`           | Multi-page build, asset copy plugins, compression (Gzip/Brotli), bundle visualiser, HTML includes plugin                    |
+| `vite-plugin-html-include.js` | Custom Vite plugin that processes `<!-- include partials/... -->` comments at build time |
+| `postcss.config.cjs`       | PurgeCSS scaffold (currently disabled; update safelist before re-enabling)              |
+| `eslint.config.js`         | ESLint v9 flat config (extends `@eslint/js`)                                             |
+| `playwright.config.js`     | Playwright config; webServer points at `npm run preview` on port 4173                   |
+| `lighthouserc.json`        | Main Lighthouse CI configuration (full categories, HTML + JSON into `.lighthouseci`)    |
+| `lighthouserc.pwa.json`    | PWA-only Lighthouse CI configuration (for `reports/pwa-audit.html`)                     |
+| `pwmetrics.config.cjs`     | PWMetrics config (used only by `reports:pwmetrics`, not wired into dashboard UI)        |
+| `pa11y.config.json`        | Pa11y configuration (used by `reports:pa11y` / `reports:dashboard`)                     |
+| `.editorconfig`            | Editor defaults (spacing, line endings)                                                  |
+| `.prettierrc`              | Prettier formatting rules                                                                |
+| `.npmrc`, `.gitattributes` | Registry + line ending consistency                                                       |
+| `site.webmanifest`         | PWA metadata and shortcuts                                                               |
+| `browserconfig.xml`        | Windows tile configuration (mstile icons)                                                |
 
 ---
 
 ## 🛡️ Security, SEO & Accessibility
 
-- Security headers mirrored in HTML plus server configs (`.htaccess`, `_headers`, `nginx.conf.example`)
-- CSP tuned for self-hosted assets; ready for SRI if external resources are introduced
-- SEO: canonical URLs, Open Graph/Twitter meta, JSON-LD (Organization, Service, FAQ, Breadcrumbs, Contact)
-- Accessibility: skip links, ARIA live region, focus management, reduced motion support, semantic markup
-- Analytics: Plausible script embedded; Web Vitals + navigation metrics auto-published as custom events
+- **Security:** HTML security meta tags plus server-side configs (`.htaccess`, `_headers`, `nginx.conf.example`). CSP is tuned for self-hosted assets and Plausible.
+- **SEO:** Canonical URLs, Open Graph/Twitter meta tags, and JSON-LD (Organization, WebSite, Service, Breadcrumbs, FAQ, Contact) across core pages; sitemap/robots managed via `npm run generate-sitemap`.
+- **Favicons:** Complete favicon implementation with SVG (modern browsers), multiple PNG sizes (16x16, 32x32, 48x48, 64x64), ICO fallback (legacy browsers), Apple Touch Icon (iOS), Windows Tiles (browserconfig.xml), Safari Pinned Tab, and Web App Manifest integration for optimal branding across all platforms.
+- **Accessibility:** Skip links, ARIA live region, focus management, keyboard navigation, `prefers-reduced-motion` support, and an `accessibility.js` helper module.
+- **Analytics & Performance:** Plausible is wired in, with additional Web Vitals reporting from `js/utils/performance.js`.
 
 ---
 
-## 📌 Additional Notes
+## 📚 Documentation
 
-- Contact form currently surfaces a success toast; integrate with your preferred backend (e.g., Formspree, Netlify Forms, custom API) for production.
-- Animations prefer `transform`/`opacity` for GPU acceleration; test new effects against `prefers-reduced-motion`.
-- When adding or relocating files, update `.cursor/rules/cursorrules.mdc` and relevant docs to keep the architecture guide authoritative.
+- `docs/BUILD_AND_DEPLOY.md` – Build/deploy workflow and environment notes
+- `docs/QUICK_START.md` – Fast onboarding checklist
+- `docs/project_commands.md` – Single-page command reference
+- `docs/STYLE_GUIDE.md` – Design system, component markup, and animation patterns
+- `docs/IMAGE_GENERATION_PROMPTS.md` – Prompts for on-brand imagery
+- `docs/VIDEO_BACKGROUND_GUIDE.md` – Workflow for sourcing and optimising hero videos
+- `docs/TODO.MD` – Outstanding documentation/analytics follow-ups
+
+`CHANGELOG.md` tracks release history; update it alongside notable feature, tooling, or pipeline changes.
+
+---
+
+## 📌 Notes
+
+- The **Reports** dashboard is intentionally treated as an internal tool: it's not in the main navigation and is expected to be driven by CI/local scripts.
+- When adding or relocating files, update `.cursor/rules/cursorrules.mdc` and relevant docs so they stay in sync with the actual codebase.
 - New pages must include the inline page-transition preload snippet in `<head>` (see `.cursor/rules/cursorrules.mdc`) so the blur/fade effect stays seamless.
+- **HTML Includes:** Navigation and footer are managed via `partials/navbar.html` and `partials/footer.html`. Use `<!-- include partials/navbar.html -->` and `<!-- include partials/footer.html -->` in HTML files. Active navigation states are handled dynamically by JavaScript, so no page-specific variants are needed.
 
 ---
 

@@ -116,3 +116,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Mobile:** Reduced animation complexity and disabled 3D effects on mobile
 - **Three.js:** Dynamic loading reduces initial bundle size by ~500KB
 - **Error Handling:** Graceful degradation ensures site works even if features fail
+
+## [2.1.0] - 2025-11-16
+
+### Changed
+
+- **Dependencies:** Upgraded Vite from 5.0.0 to 7.2.2 (security and performance improvements)
+- **Dependencies:** Upgraded Pa11y from 6.2.3 to 9.0.1 (security fixes, improved accessibility auditing)
+- **Build System:** Removed `vite-plugin-imagemin` (replaced with manual optimization via `npm run optimize-images` and `npm run responsive-images` scripts)
+- **Image Optimization:** Image optimization now handled via dedicated Sharp-based scripts instead of build-time plugin
+
+### Security
+
+- **Vulnerabilities:** Reduced npm audit vulnerabilities from 75 to 45 (all remaining are dev-only dependencies)
+- **Production Security:** Production dependencies have 0 vulnerabilities
+- **Dev Dependencies:** Upgraded critical dev tools to secure versions
+
+### Documentation
+
+- Updated all documentation to reflect dependency changes and new build process
+- Clarified image optimization workflow in build documentation

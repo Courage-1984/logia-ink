@@ -45,7 +45,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^9.39.1",
     "glob": "^11.0.3",
-    "pa11y": "^6.2.3",
+    "pa11y": "^9.0.1",
     "pa11y-reporter-html": "^2.0.0",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
@@ -53,9 +53,8 @@
     "rollup-plugin-visualizer": "^6.0.5",
     "sharp": "^0.32.6",
     "terser": "^5.44.1",
-    "vite": "^5.0.0",
-    "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-imagemin": "^0.6.1"
+    "vite": "^7.2.2",
+    "vite-plugin-compression": "^0.5.1"
   },
   "dependencies": {
     "web-vitals": "^5.1.0"

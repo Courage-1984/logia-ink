@@ -84,11 +84,9 @@ logi-ink/
 │   ├── test-fonts.ps1
 │   ├── update-html-seo.js
 │   └── inline-critical-css.js
-├── partials/             # Reusable HTML components
-│   ├── seo-meta.html
-│   ├── security-headers.html
-│   ├── structured-data.html
-│   └── accessibility.html
+├── partials/             # Reusable HTML components (included at build time)
+│   ├── navbar.html       # Navigation component
+│   └── footer.html       # Footer component
 ├── reports/              # CI artefact placeholders (copied into dist/reports)
 │   ├── bundle-report.html
 │   ├── bundle-stats.json
@@ -116,17 +114,27 @@ logi-ink/
 ├── README.md             # Project documentation
 ├── package.json          # Node.js dependencies and scripts
 ├── vite.config.js        # Vite build configuration
+├── vite-plugin-html-include.js # Custom Vite plugin for HTML includes
 ├── .gitignore            # Git ignore rules
 ├── logo.png              # Main logo file
-├── favicon.ico           # Favicon
-├── favicon-16x16.png     # 16x16 favicon
+├── favicon.ico           # Favicon (ICO fallback for legacy browsers)
+├── favicon.svg           # SVG favicon (modern browsers, scalable)
+├── favicon-64x64.png     # 64x64 favicon (high-DPI displays)
+├── favicon-48x48.png     # 48x48 favicon
 ├── favicon-32x32.png     # 32x32 favicon
-├── apple-touch-icon.png  # Apple touch icon
+├── favicon-16x16.png     # 16x16 favicon
+├── apple-touch-icon.png  # Apple touch icon (180x180)
 ├── android-chrome-192x192.png # Android Chrome icon (192x192)
 ├── android-chrome-512x512.png # Android Chrome icon (512x512)
-├── lighthouserc.json     # Lighthouse CI configuration
-├── pwmetrics.config.cjs  # PWMetrics configuration
-├── .hintrc               # Webhint configuration
+├── safari-pinned-tab.svg # Safari pinned tab icon
+├── mstile-70x70.png      # Windows tile (small)
+├── mstile-150x150.png    # Windows tile (medium)
+├── mstile-310x150.png    # Windows tile (wide)
+├── mstile-310x310.png    # Windows tile (large)
+├── browserconfig.xml     # Windows tile configuration
+├── lighthouserc.json     # Lighthouse CI configuration (main, full categories)
+├── lighthouserc.pwa.json # Lighthouse CI configuration (PWA-only category)
+├── pwmetrics.config.cjs  # PWMetrics configuration (optional tooling)
 ├── pa11y.config.json     # Pa11y configuration
 ├── css/                  # Modular CSS files
 │   ├── main.css          # Main entry point
@@ -375,11 +383,12 @@ export function initModuleName() {
   - **Security Headers** - Meta tags for X-Frame-Options, CSP, etc.
   - **SEO Meta Tags** - Open Graph, Twitter Cards, descriptions
   - **Structured Data** - JSON-LD schemas (Organization, WebSite, etc.)
+  - **Favicons** - Complete favicon block with SVG, PNG sizes, ICO fallback, Apple Touch Icon, Windows Tiles, Safari Pinned Tab, and Web App Manifest (see template below)
   - **Accessibility** - Skip link, ARIA live region
   - **Main Content ID** - `<main id="main-content">` wrapper
-  - Navigation (via partial or direct include)
+  - Navigation - Use `<!-- include partials/navbar.html -->` (processed at build time)
   - Cursor effects (scroll progress, custom cursor)
-  - Footer (via partial or direct include)
+  - Footer - Use `<!-- include partials/footer.html -->` (processed at build time)
   - Script tag pointing to `js/main.js` with `type="module"`
   - **Inline page-transition preload script** – inserted near the top of `<head>` so blur/fade animations don't flash when navigating between pages. Use the snippet below on every entry point.
 
@@ -387,13 +396,17 @@ export function initModuleName() {
 
 ```
 partials/
-├── seo-meta.html         # ✅ EXISTS - SEO meta tags template
-├── security-headers.html # ✅ EXISTS - Security headers template
-├── structured-data.html  # ✅ EXISTS - Structured data (JSON-LD) template
-└── accessibility.html    # ✅ EXISTS - Accessibility features template
+├── navbar.html           # ✅ EXISTS - Navigation component (included at build time)
+└── footer.html           # ✅ EXISTS - Footer component (included at build time)
 ```
 
-**Note:** These partials are templates/reference files. HTML files should include the actual content directly.
+**Note:** Navigation and footer are modularized and included via the HTML include system. Use `<!-- include partials/navbar.html -->` and `<!-- include partials/footer.html -->` in HTML files. The Vite plugin (`vite-plugin-html-include.js`) processes these includes at build time. Active navigation states are handled dynamically by `js/core/navigation.js`, so no page-specific variants are needed.
+
+**Legacy template files (deprecated, can be deleted):**
+- `seo-meta.html` - SEO meta tags are hardcoded in HTML files
+- `security-headers.html` - Security headers are hardcoded in HTML files
+- `structured-data.html` - Structured data is hardcoded in HTML files
+- `accessibility.html` - Accessibility features are hardcoded in HTML files and handled by `js/utils/accessibility.js`
 
 ### Assets Structure
 
@@ -409,8 +422,7 @@ assets/
         └── logo.png
 ```
 
-**Note:** Partials are included directly in HTML files (copy/paste) until a build system is implemented.
-Currently, HTML files should manually include the partial content.
+**Note:** Navigation and footer are included via the HTML include system. Use `<!-- include partials/navbar.html -->` and `<!-- include partials/footer.html -->` in HTML files. The custom Vite plugin (`vite-plugin-html-include.js`) processes these includes at build time, replacing the comments with the actual file contents. This ensures consistent navigation and footer across all pages while maintaining a single source of truth.
 
 ### HTML Template Structure
 
@@ -441,6 +453,27 @@ Currently, HTML files should manually include the partial content.
       }
     </script>
 
+    <!-- Favicons -->
+    <!-- SVG favicon (modern browsers) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- PNG favicons (ordered from largest to smallest) -->
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <!-- ICO fallback (legacy browsers) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <!-- Windows Tiles -->
+    <meta name="msapplication-TileColor" content="#00ffff" />
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <!-- Safari Pinned Tab -->
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00ffff" />
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+
     <link rel="stylesheet" href="css/main.css" />
     <!-- ... -->
   </head>
@@ -451,16 +484,14 @@ Currently, HTML files should manually include the partial content.
     <!-- ARIA Live Region for announcements -->
     <div id="aria-live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>
 
-    <!-- Navigation -->
-    <!-- ... -->
+    <!-- include partials/navbar.html -->
 
     <!-- Main Content -->
     <main id="main-content">
       <!-- Page Content -->
     </main>
 
-    <!-- Footer -->
-    <!-- ... -->
+    <!-- include partials/footer.html -->
 
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" aria-label="Back to top"></a>
@@ -866,7 +897,7 @@ Before committing or submitting code:
 - ✅ **Service Worker / PWA** - Offline support and faster repeat visits
 - ✅ **Self-Hosted Fonts** - Subsetted WOFF2 fonts for faster loading
 - ✅ **Critical CSS** - Inlined above-the-fold styles
-- ✅ **Image Optimization** - Automated optimization in build (WebP/AVIF)
+- ✅ **Image Optimization** - Manual optimization via `npm run optimize-images` and `npm run responsive-images` scripts (Sharp-based)
 - ✅ **Code Splitting** - Manual chunks for better caching
 - ✅ **CSS Purging** - Removes unused CSS in production (PurgeCSS, currently disabled)
 - ✅ **Compression** - Gzip and Brotli compression
@@ -901,6 +932,7 @@ Before committing or submitting code:
 - ✅ **Sitemap** - Auto-generated `sitemap.xml` (run `npm run generate-sitemap`)
 - ✅ **Robots.txt** - Search engine crawling rules
 - ✅ **Plausible Analytics** - Privacy-first analytics script on all pages
+- ✅ **Favicons** - Comprehensive favicon implementation with SVG, multiple PNG sizes (16x16, 32x32, 48x48, 64x64), ICO fallback, Apple Touch Icon, Windows Tiles (browserconfig.xml), Safari Pinned Tab, and Web App Manifest integration
 - ✅ **Documentation** - See `docs/SEO_AND_SECURITY_IMPLEMENTATION.md` for details
 
 ### Accessibility
@@ -929,9 +961,13 @@ Before committing or submitting code:
 
 ### NPM Scripts (reporting helpers)
 
+- `npm run reports:lighthouse` – runs Lighthouse CI using `lighthouserc.json` (HTML + JSON into `.lighthouseci`).
+- `npm run reports:pa11y` – runs Pa11y and emits `reports/seo-pa11y.html`.
+- `npm run reports:coverage` – regenerates the synthetic route coverage snapshot at `reports/coverage/index.html`.
+- `npm run reports:performance` – regenerates `reports/performance-timeline.html` from the latest Lighthouse JSON.
 - `npm run reports:media` – rebuilds media inventory HTML/JSON.
-- `npm run test:e2e:only` – Playwright smoke suite without triggering a new build (requires existing bundle).
-- `npm run reports:all` – sequentially runs `build`, `reports:media`, and `test:e2e:only` to refresh dashboard artefacts.
+- `npm run reports:dashboard` – orchestrates preview, Lighthouse (main + PWA) and Pa11y, and syncs HTML reports into `reports/`.
+- `npm run reports:all` – end-to-end refresh: build → `reports:dashboard` → `reports:media` → `test:e2e:only` → `reports:coverage` → `reports:performance` → final build.
 
 ---
 
@@ -1000,11 +1036,11 @@ Before committing or submitting code:
 
 ---
 
-**Last Updated:** 2025-11-09 (Documented background video lazy-load module + documentation index refresh)
-**Migration Status:** ✅ Complete - All CSS/JS migrated, build system configured
-**Component Count:** 20 CSS components, 10 core JS modules (including three-hero), 8 JS utils, 3 JS pages, 3 CSS pages, 10 utility CSS files
+**Last Updated:** 2025-11-16 (Implemented HTML include system with Vite plugin, modularized navbar and footer)
+**Migration Status:** ✅ Complete - All CSS/JS migrated, build system configured, HTML includes implemented
+**Component Count:** 20 CSS components, 10 core JS modules (including three-hero), 8 JS utils, 4 JS pages, 4 CSS pages, 10 utility CSS files, 2 HTML partials (navbar, footer)
 **Performance:** ✅ Service Worker, Self-Hosted Fonts, Critical CSS, Image Optimization, Code Splitting, CSS Purging, Compression, Web Vitals Tracking (via `web-vitals` → Plausible), Dynamic Three.js Loading, Error Handling, Mobile Performance
-**Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact), Canonical URLs, Accessibility Features, Sitemap, Robots.txt
-**Configuration Files:** ✅ ESLint v9 (flat config), Prettier, EditorConfig, Git Attributes, VS Code Settings
-**Recent Updates:** ✅ SessionStorage-backed page transitions with preload snippet, error handling, performance tracking, Three.js optimization, CSP, SRI, accessibility enhancements, mobile performance
+**Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact), Canonical URLs, Accessibility Features, Sitemap, Robots.txt, Comprehensive Favicon Implementation (SVG, PNG sizes, ICO, Apple Touch, Windows Tiles, Safari Pinned Tab)
+**Configuration Files:** ✅ ESLint v9 (flat config), Prettier, EditorConfig, Git Attributes, VS Code Settings, browserconfig.xml
+**Recent Updates:** ✅ HTML include system (Vite plugin for processing `<!-- include partials/... -->` comments at build time), modularized navbar and footer partials, comprehensive favicon implementation (SVG, 64x64/48x48/32x32/16x16 PNG, ICO fallback, Apple Touch Icon, Windows Tiles with browserconfig.xml, Safari Pinned Tab), sessionStorage-backed page transitions with preload snippet, error handling, performance tracking, Three.js optimization, CSP, SRI, accessibility enhancements, mobile performance
 **Remember:** Always update this file when making structural changes to the project!

@@ -20,14 +20,17 @@ npm run build:gh-pages:ci
 # Produce both standard and GitHub Pages bundles
 npm run build:dual
 
-# Preview production build (http://localhost:4173/)
+# Preview production build (http://127.0.0.1:4173/)
 npm run preview
 
 # Clean dist/ and Vite cache
 npm run clean
 ```
 
-> `npm run clean` uses `rm -rf`; on Windows run via Git Bash, WSL, or substitute with `rimraf`.
+> `npm run clean` uses `rm -rf`; on Windows run via Git Bash/WSL or substitute with `rimraf` if needed.
+
+---
+
 ## 🛠️ Optimisation & Utilities
 
 ```bash
@@ -53,26 +56,68 @@ npm run generate-sitemap
 npm run reports:media
 ```
 
-### Reports Aggregation
+---
+
+## 📊 Reports & Dashboard
+
+The operational reports dashboard lives at `reports.html` (built to `dist/reports.html`). It is **not linked from the main navigation**; open it directly (e.g. `http://127.0.0.1:4173/reports.html`).
+
+### One-shot refresh
 
 ```bash
-# Build, refresh media inventory, regenerate HTML reports, and rerun Playwright suite
+# Build, run Lighthouse (main + PWA) + Pa11y, rebuild media inventory,
+# run Playwright smoke tests, regenerate coverage + performance timeline,
+# then rebuild so dist/reports/ is fully up to date.
 npm run reports:all
 ```
 
+### Individual report scripts
+
 ```bash
-# Only rebuild Lighthouse report (requires preview server on :4173 if not using reports:dashboard)
+# Run Lighthouse CI (main config) – emits HTML + JSON into .lighthouseci/
 npm run reports:lighthouse
 
-# Regenerate PWMetrics HTML summary
-npm run reports:pwmetrics
-
-# Run Pa11y accessibility audit
+# Run Pa11y accessibility audit – writes reports/seo-pa11y.html
 npm run reports:pa11y
 
-# Orchestrate Lighthouse, PWMetrics, and Pa11y (starts/stops preview automatically)
+# Generate route coverage snapshot – writes reports/coverage/index.html
+npm run reports:coverage
+
+# Generate performance timeline from the latest Lighthouse JSON – writes reports/performance-timeline.html
+npm run reports:performance
+
+# Generate media inventory dashboard + JSON – writes reports/media-inventory.{html,json}
+npm run reports:media
+
+# Orchestrate Vite preview + Lighthouse (main + PWA) + Pa11y,
+# then sync reports/lighthouse-report.html, reports/pwa-audit.html, and reports/seo-audit.html
 npm run reports:dashboard
+
+# OPTIONAL: Run PWMetrics and emit pwmetrics.{json,html} under reports/
+# (not wired into the reports dashboard UI; for ad-hoc analysis)
+npm run reports:pwmetrics
 ```
+
+Typical manual flow if `reports:all` fails or you want to see intermediate outputs:
+
+```bash
+npm run build
+npm run reports:dashboard
+npm run reports:media
+npm run reports:coverage
+npm run reports:performance
+npm run test:e2e:only
+npm run build
+```
+
+Then:
+
+```bash
+npm run preview
+# open http://127.0.0.1:4173/reports.html
+```
+
+---
 
 ## 🧹 Quality Gates
 
@@ -91,19 +136,7 @@ npm run lint:fix
 npm run validate
 ```
 
-## 📦 Dependencies
-
-```bash
-# Install dependencies
-npm install
-
-# Update dependencies (use with caution)
-npm update
-```
-
-## 🔍 Build Analysis
-
-After `npm run build`, open `dist/stats.html` to inspect bundle composition, gzip/brotli sizes, and manual chunking output. The aggregated dashboard lives at `reports.html` (built to `dist/reports.html`) and surfaces bundle, Lighthouse, coverage, and media inventory tabs. When using `npm run build:dual`, open `dist-gh-pages/stats.html` to review the GitHub Pages bundle as well.
+---
 
 ## 🧪 Testing
 
@@ -119,67 +152,58 @@ npx playwright install
 ```
 
 Manual QA helpers:
+
 - `http://localhost:3000/tests/test-service-worker.html`
 - `http://localhost:3000/tests/test-fonts.html`
 
 Coverage: multi-page navigation (desktop + mobile drawer), scroll progress/back-to-top, services modal lifecycle, contact form validation (happy + invalid), service worker registration toast.
 
+---
+
 ## 📝 Common Tasks
 
 ### Adding a New Component
-1. Create CSS in `css/components/component-name.css`
-2. Import it in `css/main.css`
-3. If JS is required, add a module in `js/core/` or `js/utils/`
-4. Export an `init...` function and wire it up in `js/main.js`
-5. Update `.cursor/rules/cursorrules.mdc` with the new structure
+
+1. Create CSS in `css/components/component-name.css`.
+2. Import it in `css/main.css`.
+3. If JS is required, add a module in `js/core/` or `js/utils/`.
+4. Export an `init...` function and wire it up in `js/main.js`.
+5. Update `.cursor/rules/cursorrules.mdc` with the new structure.
 
 ### Modifying Colors
-- Edit `css/variables.css` only (all components reference tokens)
+
+- Edit `css/variables.css` only (all components reference tokens).
 
 ### Adding a New Page
-1. Create the HTML file at the repository root
-2. Add page-specific CSS in `css/pages/` if needed
-3. Add page-specific JS in `js/pages/` if required
-4. Import the CSS in `css/main.css`
-5. Conditionally initialise the JS in `js/main.js`
+
+1. Create the HTML file at the repository root.
+2. Add page-specific CSS in `css/pages/` if needed.
+3. Add page-specific JS in `js/pages/` if required.
+4. Import the CSS in `css/main.css`.
+5. Conditionally initialise the JS in `js/main.js`.
+6. Include the page-transition preload snippet in `<head>` (see `.cursor/rules/cursorrules.mdc`).
+7. Use HTML includes for navigation and footer:
+   - Add `<!-- include partials/navbar.html -->` where navigation should appear
+   - Add `<!-- include partials/footer.html -->` where footer should appear
+   - Active navigation states are handled automatically by `js/core/navigation.js`
+
+---
 
 ## 🔧 Build Configuration
 
-- `vite.config.js` – build pipeline, plugins, compression, manual chunks
-- `postcss.config.cjs` – PurgeCSS scaffold (disabled by default; review safelist first)
-- `package.json` – scripts and dependency manifest
-- `eslint.config.js` – ESLint v9 flat config
+- `vite.config.js` – multipage build pipeline, plugins, compression, manual chunks, report copying.
+- `postcss.config.cjs` – PurgeCSS scaffold (disabled by default; review safelist first).
+- `package.json` – scripts and dependency manifest.
+- `eslint.config.js` – ESLint v9 flat config.
+- `playwright.config.js` – Playwright webServer + device matrix.
+
+---
 
 ## 📚 Documentation
 
-- `.cursor/rules/cursorrules.mdc` – MUST READ FIRST (authoritative rules)
-- `docs/BUILD_AND_DEPLOY.md` – detailed build/deploy workflows
-- `docs/QUICK_START.md` – three-step onboarding checklist
-- `docs/STYLE_GUIDE.md` – design system and interaction patterns
-- `docs/TODO.MD` – outstanding documentation and analytics follow-ups
-
-
-
-[13 tools called]
-
-Those “pending” messages mean the placeholder HTML is still in place—the generators never wrote the real reports. `npm run reports:all` should replace them, but if any of the bundled tools (Lighthouse CI, PWMetrics, Pa11y) fail you’ll still see the placeholders. Run the steps below and watch for errors:
-
-```
-npm install
-npm run build
-npm run reports:dashboard
-npm run reports:media
-npm run test:e2e:only
-```
-
-`reports:dashboard` is the critical piece—it starts a temporary `vite preview`, hits `http://127.0.0.1:4173/`, runs Lighthouse, PWMetrics, and Pa11y, then writes:
-
-- `reports/lighthouse-report.html`
-- `reports/pwa-audit.html`
-- `reports/seo-audit.html`
-- `reports/seo-pa11y.html` (embedded into `seo-audit.html`)
-- `reports/pwmetrics.json`
-
-If any of those commands log an error (common causes: Chrome not found for LHCI/PWMetrics or Pa11y), fix it and re-run that specific script (`npm run reports:lighthouse`, `npm run reports:pwmetrics`, etc.). When the HTML files in `reports/` contain real data, the dashboard tabs will load the results instead of the placeholder text.
-
-
+- `.cursor/rules/cursorrules.mdc` – MUST READ FIRST (authoritative rules and structure).
+- `docs/BUILD_AND_DEPLOY.md` – Detailed build/deploy workflows.
+- `docs/QUICK_START.md` – Three-step onboarding checklist.
+- `docs/STYLE_GUIDE.md` – Design system and interaction patterns.
+- `docs/project_commands.md` – This file.
+- `docs/TODO.MD` – Outstanding documentation and analytics follow-ups.

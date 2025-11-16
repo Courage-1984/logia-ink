@@ -1,9 +1,9 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
-import viteImagemin from 'vite-plugin-imagemin';
 import viteCompression from 'vite-plugin-compression';
 import { copyFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'fs';
+import htmlInclude from './vite-plugin-html-include.js';
 
 let resolvedOutDir = resolve(process.cwd(), 'dist');
 let reportsSourceDir = null;
@@ -175,6 +175,9 @@ export default defineConfig({
 
   // Plugins
   plugins: [
+    // HTML include plugin (processes <!-- include --> comments)
+    htmlInclude(),
+
     // Custom plugin to copy root favicon files to dist root
     {
       name: 'copy-favicons',
@@ -255,37 +258,6 @@ export default defineConfig({
         copyDirectoryIfMissing(reportsSourceDir, destinationDir);
       },
     },
-    // Image optimization plugin
-    viteImagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      optipng: {
-        optimizationLevel: 7,
-      },
-      mozjpeg: {
-        quality: 80,
-      },
-      pngquant: {
-        quality: [0.8, 0.9],
-        speed: 4,
-      },
-      svgo: {
-        plugins: [
-          {
-            name: 'removeViewBox',
-            active: false,
-          },
-          {
-            name: 'removeEmptyAttrs',
-            active: false,
-          },
-        ],
-      },
-      // Only optimize images during production build
-      disable: process.env.NODE_ENV !== 'production',
-    }),
 
     // Compression plugin (Gzip)
     viteCompression({

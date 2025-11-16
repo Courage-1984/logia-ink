@@ -20,6 +20,8 @@ async function runPa11yReport(targetUrl = 'http://127.0.0.1:4173/', outputPath =
   const results = await pa11y(targetUrl, config);
   const html = await pa11yHtmlReporter.results(results);
   await fs.writeFile(outputPath, html, 'utf8');
+
+  console.log(`✅ Pa11y report generated: ${outputPath}`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

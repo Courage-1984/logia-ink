@@ -95,10 +95,24 @@
     <link rel="prefetch" href="contact.html" />
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <!-- SVG favicon (modern browsers) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- PNG favicons (ordered from largest to smallest) -->
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <!-- ICO fallback (legacy browsers) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <!-- Windows Tiles -->
+    <meta name="msapplication-TileColor" content="#00ffff" />
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <!-- Safari Pinned Tab -->
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00ffff" />
+    <!-- Web App Manifest -->
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Structured Data (JSON-LD) -->
@@ -189,35 +203,7 @@
     <div class="cursor-follow"></div>
     <div class="cursor-dot"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <div class="logo">
-          <a href="index.html">
-            <span class="logo-text">LOG<span class="logo-accent">I</span>-INK</span>
-          </a>
-        </div>
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item-dropdown">
-            <a href="services.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Services</a>
-            <ul class="dropdown-menu">
-              <li><a href="services.html" class="dropdown-link">All Services</a></li>
-              <li><a href="pricing.html" class="dropdown-link">Pricing</a></li>
-              <li><a href="seo-services.html" class="dropdown-link">SEO Services</a></li>
-            </ul>
-          </li>
-          <li><a href="projects.html" class="nav-link">Projects</a></li>
-          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
-        </ul>
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </nav>
+    <!-- include partials/navbar.html -->
 
     <!-- Pricing Hero -->
     <main id="main-content">
@@ -465,37 +451,7 @@
     </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>LOG<span class="logo-accent">I</span>-INK</h3>
-            <p>Digital innovation and creative solutions for the future.</p>
-          </div>
-          <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="about.html">About</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Connect</h4>
-            <ul>
-              <li><a href="#" target="_blank">LinkedIn</a></li>
-              <li><a href="#" target="_blank">Twitter</a></li>
-              <li><a href="#" target="_blank">Instagram</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2024 Logi-Ink. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+    <!-- include partials/footer.html -->
 
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" aria-label="Back to top"></a>

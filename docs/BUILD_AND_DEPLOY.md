@@ -22,10 +22,11 @@ npm install
 ```
 
 This will install:
-- **Vite** (multi-page build tool)
+- **Vite 7.x** (multi-page build tool)
 - **Sharp** (image and video optimisation helpers)
 - **Playwright** (dev dependency for the smoke test suite)
-- Build-time plugins (`vite-plugin-imagemin`, `vite-plugin-compression`, `rollup-plugin-visualizer`)
+- **Pa11y 9.x** (accessibility audit tool)
+- Build-time plugins (`vite-plugin-compression`, `rollup-plugin-visualizer`, `vite-plugin-html-include` for processing HTML includes)
 
 ### 2. Development Server
 
@@ -219,12 +220,13 @@ For CSS background images, use media queries:
 3. **HTML Processing:**
    - Asset paths are updated to hashed filenames
    - CSS and JS are injected
-   - Images are optimized
+   - Images are copied (optimization handled separately via `npm run optimize-images`)
 
-4. **Asset Optimization:**
-   - Images are optimized
+4. **Asset Copying:**
+   - Images are copied (pre-optimize with `npm run optimize-images` or `npm run responsive-images`)
    - Fonts are copied
    - Favicons are copied
+   - Videos are copied from `assets/video/optimized/`
 
 ### Build Output Structure
 
@@ -474,5 +476,5 @@ Before deploying, verify:
 
 ---
 
-**Last Updated:** 2025-11-09 (GitHub Pages CI build guidance + clean command notes)
+**Last Updated:** 2025-11-16 (Removed vite-plugin-imagemin, upgraded Vite to 7.x and Pa11y to 9.x)
 
