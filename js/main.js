@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Initialize easter egg module (sets up triggers - heavy 3D loads on activation)
   // This needs to run early so it can add the footer trigger text
   if (!easterEggModule) {
-    const easterEggImport = await import('./core/easter-egg.js');
+    const easterEggImport = await import('./easter-egg/easter-egg.js');
     easterEggModule = easterEggImport;
     easterEggImport.initEasterEgg();
   }

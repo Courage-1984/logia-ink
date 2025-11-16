@@ -1,5 +1,54 @@
-import { isDevelopmentEnv } from '../../utils/env.js';
-import { createSunTexture, createMoonTexture, createPlanetTexture } from '../../utils/celestial-textures.js';
+import { isDevelopmentEnv } from '../utils/env.js';
+import { createSunTexture, createMoonTexture, createPlanetTexture } from './celestial-textures.js';
+import { generateMultiLayerGalaxy } from './galaxy-generator.js';
+import { generateMultiLayerStarField, updateStarTwinkling } from './star-field.js';
+import {
+  setupDynamicLighting,
+  updateLighting,
+  addAtmospheresToPlanets,
+  updateAtmospheres,
+} from './lighting-atmosphere.js';
+import {
+  createAsteroidBelt,
+  createComet,
+  createSolarWind,
+  createSpaceDust,
+  createSpaceStation,
+  updateAsteroidBelt,
+  updateComet,
+  updateSolarWind,
+  updateSpaceStation,
+} from './particle-effects.js';
+import {
+  createLagrangePointMarkers,
+  updateLagrangePoints,
+  updateCelestialMechanics,
+  calculateRealisticRotationSpeed,
+} from './celestial-mechanics.js';
+import {
+  setupPostProcessing,
+  updatePostProcessing,
+  resizePostProcessing,
+  setDepthOfFieldFocus,
+} from './post-processing.js';
+import {
+  initCameraControls,
+  setCameraSpeed,
+  getCameraSpeed,
+  transitionToPreset,
+  CameraPresets,
+  createOrbitalControls,
+  updateCameraVelocity,
+  stopCameraAnimation,
+} from './camera-controls.js';
+import {
+  createNebulaField,
+  createStarFormingRegion,
+  createDustCloud,
+  createInterstellarMedium,
+  updateNebula,
+  updateStarFormingRegion,
+} from './nebula-clouds.js';
 
 /**
  * Easter Egg Module
@@ -155,7 +204,7 @@ export function activateEasterEgg() {
   vortex.classList.add('active');
 
   // Start loading Three.js immediately (don't wait for vortex)
-  const threeJSPromise = import('../../utils/three-loader.js').then(module => {
+  const threeJSPromise = import('../utils/three-loader.js').then(module => {
     return module.loadThreeJS().then(THREE => {
       if (THREE) {
         window.THREE = THREE;
@@ -333,7 +382,7 @@ async function initMilkyWay() {
   let THREE = window.THREE;
   if (!THREE) {
     try {
-      const { loadThreeJS } = await import('../../utils/three-loader.js');
+      const { loadThreeJS } = await import('../utils/three-loader.js');
       THREE = await loadThreeJS();
       if (!THREE) {
         return;
@@ -357,7 +406,8 @@ async function initMilkyWay() {
     0.1,
     10000
   );
-  milkyWayCamera.position.z = 100;
+  milkyWayCamera.position.set(0, 0, 150);
+  milkyWayCamera.lookAt(0, 0, 0);
 
   // Renderer setup
   milkyWayRenderer = new THREE.WebGLRenderer({
@@ -381,11 +431,53 @@ async function initMilkyWay() {
 
   container.appendChild(canvas);
 
+  // Initialize camera controls
+  initCameraControls(THREE);
+
+  // Setup post-processing (optional - requires three/addons/postprocessing)
+  // Note: Post-processing may not be available if addons aren't loaded
+  // Disable by default to ensure standard rendering works
+  milkyWayScene.userData.postProcessing = null;
+  try {
+    const postProcessing = setupPostProcessing(THREE, milkyWayRenderer, milkyWayScene, milkyWayCamera, {
+      enableBloom: false, // Disabled by default - enable if addons are available
+      enableDepthOfField: false,
+      enableColorGrading: false,
+      enableMotionBlur: false,
+    });
+    // Only use post-processing if it was successfully created
+    if (postProcessing && postProcessing.composer) {
+      milkyWayScene.userData.postProcessing = postProcessing;
+    }
+  } catch (error) {
+    if (isDevelopmentEnv()) {
+      console.warn('[Easter Egg] Post-processing not available:', error);
+    }
+    // Ensure postProcessing is null so standard rendering is used
+    milkyWayScene.userData.postProcessing = null;
+  }
+
   // Create Milky Way galaxy
   createMilkyWayGalaxy();
 
+  // Create background star field with multiple layers
+  createStarField();
+
   // Create celestial bodies (sun, planets, moons)
   createCelestialBodies();
+
+  // Create nebula and space clouds
+  createNebulaAndClouds();
+
+  // Debug: Log scene contents
+  if (isDevelopmentEnv()) {
+    console.log('[Easter Egg] Scene initialized:', {
+      galaxyLayers: milkyWayScene.userData.galaxyLayers?.length || 0,
+      starLayers: milkyWayScene.userData.starLayers?.length || 0,
+      planets: milkyWayScene.userData.planets?.length || 0,
+      cameraPosition: milkyWayCamera.position,
+    });
+  }
 
   // Setup interactive controls
   setupInteractiveControls();
@@ -520,8 +612,8 @@ async function initMilkyWay() {
 }
 
 /**
- * Create the Milky Way galaxy with spiral arms
- * Optimized for faster generation using chunked processing
+ * Create the Milky Way galaxy with enhanced spiral arms using density wave theory
+ * Features multiple star layers rotating at different speeds
  */
 function createMilkyWayGalaxy() {
   const parameters = {
@@ -536,77 +628,46 @@ function createMilkyWayGalaxy() {
     outsideColor: '#00ffff',
   };
 
-  // Create geometry
-  const geometry = new THREE.BufferGeometry();
-  const positions = new Float32Array(parameters.count * 3);
-  const colors = new Float32Array(parameters.count * 3);
+  // Generate multiple galaxy layers with different rotation speeds
+  // THREE should be available as window.THREE at this point
+  const galaxyLayers = generateMultiLayerGalaxy(window.THREE || THREE, parameters, 3);
 
-  const colorInside = new THREE.Color(parameters.insideColor);
-  const colorOutside = new THREE.Color(parameters.outsideColor);
+  // Store galaxy layers for animation
+  milkyWayScene.userData.galaxyLayers = [];
 
-  // Optimized generation - pre-calculate random values
-  const randomValues = new Float32Array(parameters.count * 4);
-  for (let i = 0; i < randomValues.length; i++) {
-    randomValues[i] = Math.random();
-  }
+  galaxyLayers.forEach((layerData, index) => {
+    // Create material for this layer
+    const material = new THREE.PointsMaterial({
+      size: parameters.size * (1 - index * 0.1),
+      sizeAttenuation: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+      vertexColors: true,
+      opacity: 1 - index * 0.15, // Slightly more transparent for outer layers
+      transparent: true,
+    });
 
-  // Generate positions for spiral galaxy (optimized loop)
-  for (let i = 0; i < parameters.count; i++) {
-    const i3 = i * 3;
-    const rIdx = i * 4;
+    // Create points from geometry
+    const points = new THREE.Points(layerData.geometry, material);
+    milkyWayScene.add(points);
 
-    // Spiral position
-    const radius = randomValues[rIdx] * parameters.radius;
-    const spinAngle = radius * parameters.spin;
-    const branchAngle = ((i % parameters.branches) / parameters.branches) * Math.PI * 2;
-
-    // Add randomness (using pre-calculated values)
-    const randomPowerX = Math.pow(randomValues[rIdx + 1], parameters.randomnessPower);
-    const randomPowerY = Math.pow(randomValues[rIdx + 2], parameters.randomnessPower);
-    const randomPowerZ = Math.pow(randomValues[rIdx + 3], parameters.randomnessPower);
-    const randomSignX = (i % 3) === 0 ? 1 : -1;
-    const randomSignY = (i % 5) === 0 ? 1 : -1;
-    const randomSignZ = (i % 7) === 0 ? 1 : -1;
-
-    const randomX = randomPowerX * randomSignX * parameters.randomness * radius;
-    const randomY = randomPowerY * randomSignY * parameters.randomness * radius;
-    const randomZ = randomPowerZ * randomSignZ * parameters.randomness * radius;
-
-    positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
-    positions[i3 + 1] = randomY;
-    positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
-
-    // Color mixing based on distance from center
-    const colorMix = radius / parameters.radius;
-    colors[i3] = colorInside.r + (colorOutside.r - colorInside.r) * colorMix;
-    colors[i3 + 1] = colorInside.g + (colorOutside.g - colorInside.g) * colorMix;
-    colors[i3 + 2] = colorInside.b + (colorOutside.b - colorInside.b) * colorMix;
-  }
-
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-  // Create material
-  const material = new THREE.PointsMaterial({
-    size: parameters.size,
-    sizeAttenuation: true,
-    depthWrite: false,
-    blending: THREE.AdditiveBlending,
-    vertexColors: true,
+    // Store layer data for animation
+    milkyWayScene.userData.galaxyLayers.push({
+      points,
+      rotationSpeed: layerData.rotationSpeed,
+      densityWaveSpeed: layerData.densityWaveSpeed,
+    });
   });
 
-  // Create points
-  const points = new THREE.Points(geometry, material);
-  milkyWayScene.add(points);
-
-  // Add some bright stars in the center
+  // Add bright stars in the center (galactic core)
   const centerStarsGeometry = new THREE.BufferGeometry();
-  const centerStarsPositions = new Float32Array(1000 * 3);
-  const centerStarsColors = new Float32Array(1000 * 3);
+  const centerStarsPositions = new Float32Array(2000 * 3);
+  const centerStarsColors = new Float32Array(2000 * 3);
+  const centerStarsSizes = new Float32Array(2000);
 
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 2000; i++) {
     const i3 = i * 3;
-    const radius = Math.random() * 5;
+    const radius = Math.pow(Math.random(), 2) * 5; // Denser at center
     const theta = Math.random() * Math.PI * 2;
     const phi = Math.random() * Math.PI;
 
@@ -614,15 +675,19 @@ function createMilkyWayGalaxy() {
     centerStarsPositions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
     centerStarsPositions[i3 + 2] = radius * Math.cos(phi);
 
-    // Bright white/yellow for center
-    const brightness = Math.random() * 0.5 + 0.5;
+    // Bright white/yellow for center, with brightness variation
+    const brightness = Math.random() * 0.4 + 0.6;
     centerStarsColors[i3] = brightness;
     centerStarsColors[i3 + 1] = brightness;
     centerStarsColors[i3 + 2] = brightness * 0.8;
+
+    // Variable size
+    centerStarsSizes[i] = 0.08 + Math.random() * 0.12;
   }
 
   centerStarsGeometry.setAttribute('position', new THREE.BufferAttribute(centerStarsPositions, 3));
   centerStarsGeometry.setAttribute('color', new THREE.BufferAttribute(centerStarsColors, 3));
+  centerStarsGeometry.setAttribute('size', new THREE.BufferAttribute(centerStarsSizes, 1));
 
   const centerStarsMaterial = new THREE.PointsMaterial({
     size: 0.1,
@@ -636,8 +701,45 @@ function createMilkyWayGalaxy() {
   milkyWayScene.add(centerStars);
 
   // Store for animation
-  milkyWayScene.userData.galaxy = points;
   milkyWayScene.userData.centerStars = centerStars;
+}
+
+/**
+ * Create background star field with multiple layers
+ */
+function createStarField() {
+  // Generate multiple star layers (near, mid, far)
+  // THREE should be available as window.THREE at this point
+  const starLayers = generateMultiLayerStarField(window.THREE || THREE, {
+    count: 50000,
+    size: 0.05,
+  });
+
+  // Store star layers for animation
+  milkyWayScene.userData.starLayers = [];
+
+  starLayers.forEach((layerData, index) => {
+    // Create material for this layer
+    const material = new THREE.PointsMaterial({
+      size: layerData.size,
+      sizeAttenuation: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+      vertexColors: true,
+      opacity: 0.8 - index * 0.2, // More transparent for far layers
+      transparent: true,
+    });
+
+    // Create points from geometry
+    const points = new THREE.Points(layerData.geometry, material);
+    milkyWayScene.add(points);
+
+    // Store layer data for animation
+    milkyWayScene.userData.starLayers.push({
+      points,
+      name: layerData.name,
+    });
+  });
 }
 
 /**
@@ -651,7 +753,8 @@ function createCelestialBodies() {
   // Create Sun at the center with texture
   const sunGeometry = new THREE.SphereGeometry(3, 32, 32);
   const sunTexture = createSunTexture(initialTextureResolution);
-  const sunMaterial = new THREE.MeshBasicMaterial({
+  // Use MeshStandardMaterial which supports emissive
+  const sunMaterial = new THREE.MeshStandardMaterial({
     map: sunTexture,
     color: 0xffff00,
     emissive: 0xffff00,
@@ -761,7 +864,7 @@ function createCelestialBodies() {
     const planetGeometry = new THREE.SphereGeometry(config.size, 32, 32);
 
     // Generate procedural texture for planet (lower resolution for faster loading)
-    const texture = createPlanetTexture(config.name, config.color, config.size, initialTextureResolution);
+    const texture = createPlanetTexture(config.name, config.color, initialTextureResolution);
 
     const planetMaterial = new THREE.MeshPhongMaterial({
       map: texture,
@@ -831,14 +934,175 @@ function createCelestialBodies() {
     }
   });
 
-  // Add ambient light for planets
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
-  milkyWayScene.add(ambientLight);
+  // Setup dynamic lighting with shadows
+  const lights = setupDynamicLighting(THREE, milkyWayScene, sun, planets, milkyWayRenderer);
+  milkyWayScene.userData.lights = lights;
 
-  // Add point light from sun
-  const sunLight = new THREE.PointLight(0xffff00, 1, 200);
-  sunLight.position.set(0, 0, 0);
-  milkyWayScene.add(sunLight);
+  // Add atmospheric glow to planets
+  const atmosphereConfigs = {
+    Terra: { color: 0x66aaff, intensity: 0.4 },
+    Crystal: { color: 0x88ccff, intensity: 0.3 },
+    Aurora: { color: 0x66ff88, intensity: 0.35 },
+    Nebula: { color: 0xaa88ff, intensity: 0.3 },
+  };
+  addAtmospheresToPlanets(THREE, planets, atmosphereConfigs);
+
+  // Store planets for lighting updates
+  milkyWayScene.userData.planets = planets;
+  milkyWayScene.userData.sun = sun;
+
+  // Add realistic rotation speeds to planets
+  planets.forEach(planet => {
+    if (!planet.userData.rotationSpeed) {
+      planet.userData.rotationSpeed = calculateRealisticRotationSpeed(
+        planet.userData.size,
+        planet.userData.distance
+      );
+    }
+  });
+
+  // Add Lagrange point markers to larger planets
+  const largePlanets = planets.filter(p => p.userData.size >= 1.0);
+  milkyWayScene.userData.lagrangeGroups = [];
+  largePlanets.forEach(planet => {
+    const lagrangeGroup = createLagrangePointMarkers(THREE, planet, sun);
+    milkyWayScene.add(lagrangeGroup);
+    milkyWayScene.userData.lagrangeGroups.push(lagrangeGroup);
+  });
+}
+
+/**
+ * Create particle effects (asteroid belts, comets, solar wind, space dust, space stations)
+ */
+function createParticleEffects() {
+  const planets = milkyWayScene.userData.planets;
+  const sun = milkyWayScene.userData.sun;
+
+  if (!planets || !sun) {
+    return;
+  }
+
+  // Store particle effects for animation
+  milkyWayScene.userData.particleEffects = {
+    asteroidBelts: [],
+    comets: [],
+    solarWind: null,
+    spaceDust: null,
+    spaceStations: [],
+  };
+
+  // Add asteroid belt to one planet (Titan - the largest)
+  const titanPlanet = planets.find(p => p.userData.name === 'Titan');
+  if (titanPlanet) {
+    const asteroidBelt = createAsteroidBelt(THREE, titanPlanet, {
+      count: 2000,
+      innerRadius: titanPlanet.userData.size * 1.8,
+      outerRadius: titanPlanet.userData.size * 2.5,
+      size: 0.02,
+    });
+    milkyWayScene.userData.particleEffects.asteroidBelts.push(asteroidBelt);
+  }
+
+  // Create 2-3 rare comets
+  const cometCount = 2 + Math.floor(Math.random() * 2);
+  for (let i = 0; i < cometCount; i++) {
+    const comet = createComet(THREE, milkyWayScene, {
+      size: 0.15,
+      trailLength: 50,
+      color: 0x88ccff,
+      speed: 0.015 + Math.random() * 0.01,
+      orbitRadius: 80 + Math.random() * 40,
+      orbitAngle: Math.random() * Math.PI * 2,
+    });
+    milkyWayScene.userData.particleEffects.comets.push(comet);
+  }
+
+  // Create solar wind from sun
+  const solarWind = createSolarWind(THREE, sun, {
+    count: 5000,
+    size: 0.01,
+    speed: 0.05,
+    spread: 0.3,
+  });
+  milkyWayScene.userData.particleEffects.solarWind = solarWind;
+
+  // Create space dust
+  const spaceDust = createSpaceDust(THREE, milkyWayScene, {
+    count: 10000,
+    size: 0.005,
+    radius: 200,
+  });
+  milkyWayScene.userData.particleEffects.spaceDust = spaceDust;
+
+  // Add space stations to a few planets
+  const stationPlanets = planets.filter((p, i) => i % 3 === 0 && p.userData.name !== 'Pyro');
+  stationPlanets.forEach(planet => {
+    const station = createSpaceStation(THREE, planet, {
+      distance: planet.userData.size * 2.5,
+      size: 0.1,
+    });
+    milkyWayScene.userData.particleEffects.spaceStations.push(station);
+  });
+}
+
+/**
+ * Create nebula and space clouds
+ */
+function createNebulaAndClouds() {
+  // Create interstellar medium (subtle fog effect)
+  createInterstellarMedium(THREE, milkyWayScene, {
+    color: 0x000000,
+    density: 0.00005, // Very subtle
+  });
+
+  // Create nebula field (3-4 nebulas)
+  const nebulas = createNebulaField(THREE, milkyWayScene, 3);
+  milkyWayScene.userData.nebulas = nebulas;
+
+  // Create 1-2 star-forming regions
+  milkyWayScene.userData.starFormingRegions = [];
+  for (let i = 0; i < 2; i++) {
+    const angle = (i / 2) * Math.PI * 2;
+    const distance = 50 + Math.random() * 30;
+    const position = new THREE.Vector3(
+      Math.cos(angle) * distance,
+      (Math.random() - 0.5) * 20,
+      Math.sin(angle) * distance
+    );
+
+    const region = createStarFormingRegion(THREE, milkyWayScene, {
+      position: position,
+      size: 3 + Math.random() * 2,
+      color: 0xff88ff,
+      intensity: 1.5 + Math.random() * 0.5,
+    });
+    if (region.userData.core && region.userData.core.material) {
+      region.userData.baseIntensity = region.userData.core.material.emissiveIntensity;
+    }
+    milkyWayScene.userData.starFormingRegions.push(region);
+  }
+
+  // Create dust clouds
+  milkyWayScene.userData.dustClouds = [];
+  for (let i = 0; i < 2; i++) {
+    const angle = (i / 2) * Math.PI * 2 + Math.PI / 4;
+    const distance = 70 + Math.random() * 20;
+    const position = new THREE.Vector3(
+      Math.cos(angle) * distance,
+      (Math.random() - 0.5) * 25,
+      Math.sin(angle) * distance
+    );
+
+    const dustCloud = createDustCloud(THREE, milkyWayScene, {
+      count: 6000,
+      size: 0.04,
+      radius: 25 + Math.random() * 15,
+      position: position,
+      color: 0x666666,
+      density: 0.2 + Math.random() * 0.1,
+    });
+    milkyWayScene.userData.dustClouds.push(dustCloud);
+  }
 }
 
 /**
@@ -1073,27 +1337,106 @@ function centerOnPlanet(planet) {
 /**
  * Animate the Milky Way
  */
+let animationTime = 0;
+
 function animateMilkyWay() {
   if (!isEasterEggActive) {
     return;
   }
 
-  milkyWayAnimationId = requestAnimationFrame(animateMilkyWay);
-
-  // Rotate the galaxy (slower)
-  if (milkyWayScene && milkyWayScene.userData.galaxy) {
-    milkyWayScene.userData.galaxy.rotation.y += 0.0003;
+  // Ensure scene, camera, and renderer exist before proceeding
+  if (!milkyWayScene || !milkyWayCamera || !milkyWayRenderer) {
+    return;
   }
 
-  // Rotate center stars (slower)
+  milkyWayAnimationId = requestAnimationFrame(animateMilkyWay);
+
+  // Update animation time for twinkling
+  animationTime += 0.016; // Approximate frame time (60fps)
+
+  // Rotate multiple galaxy layers at different speeds (differential rotation)
+  if (milkyWayScene && milkyWayScene.userData.galaxyLayers) {
+    milkyWayScene.userData.galaxyLayers.forEach(layer => {
+      layer.points.rotation.y += layer.rotationSpeed;
+    });
+  }
+
+  // Rotate center stars (galactic core)
   if (milkyWayScene && milkyWayScene.userData.centerStars) {
     milkyWayScene.userData.centerStars.rotation.y += 0.0006;
     milkyWayScene.userData.centerStars.rotation.x += 0.0003;
   }
 
+  // Update star field twinkling
+  if (milkyWayScene && milkyWayScene.userData.starLayers) {
+    milkyWayScene.userData.starLayers.forEach(layer => {
+      updateStarTwinkling(layer.points, animationTime);
+    });
+  }
+
+  // Update lighting based on sun position
+  if (milkyWayScene && milkyWayScene.userData.lights && milkyWayScene.userData.sun) {
+    updateLighting(milkyWayScene.userData.sun, milkyWayScene.userData.lights);
+  }
+
+  // Update atmospheric glows based on camera
+  if (milkyWayScene && milkyWayCamera && milkyWayScene.userData.planets) {
+    updateAtmospheres(milkyWayCamera, milkyWayScene.userData.planets);
+  }
+
+  // Update particle effects
+  if (milkyWayScene && milkyWayScene.userData.particleEffects) {
+    const effects = milkyWayScene.userData.particleEffects;
+
+    // Update asteroid belts
+    effects.asteroidBelts.forEach(belt => {
+      updateAsteroidBelt(belt);
+    });
+
+    // Update comets
+    effects.comets.forEach(comet => {
+      updateComet(comet);
+    });
+
+    // Update solar wind
+    if (effects.solarWind) {
+      updateSolarWind(effects.solarWind);
+    }
+
+    // Update space stations
+    effects.spaceStations.forEach(station => {
+      updateSpaceStation(station);
+    });
+  }
+
+  // Update nebula and clouds
+  if (milkyWayScene && milkyWayScene.userData.nebulas) {
+    milkyWayScene.userData.nebulas.forEach(nebula => {
+      updateNebula(nebula, animationTime);
+    });
+  }
+
+  if (milkyWayScene && milkyWayScene.userData.starFormingRegions) {
+    milkyWayScene.userData.starFormingRegions.forEach(region => {
+      updateStarFormingRegion(region, animationTime);
+    });
+  }
+
   // Rotate sun (slower)
   if (sun) {
     sun.rotation.y += 0.001;
+  }
+
+  // Update celestial mechanics (realistic rotations)
+  if (milkyWayScene && milkyWayScene.userData.planets) {
+    updateCelestialMechanics(milkyWayScene.userData.planets);
+  }
+
+  // Update Lagrange points
+  if (milkyWayScene && milkyWayScene.userData.lagrangeGroups) {
+    milkyWayScene.userData.lagrangeGroups.forEach(group => {
+      updateLagrangePoints(THREE, group);
+    });
   }
 
   // Animate planets in orbit
@@ -1109,7 +1452,13 @@ function animateMilkyWay() {
     planet.position.x = flatX;
     planet.position.y = flatZ * Math.sin(inclination);
     planet.position.z = flatZ * Math.cos(inclination);
-    planet.rotation.y += 0.002; // Slower planet rotation
+
+    // Use realistic rotation speed (already set in createCelestialBodies)
+    if (planet.userData.rotationSpeed) {
+      planet.rotation.y += planet.userData.rotationSpeed;
+    } else {
+      planet.rotation.y += 0.002; // Fallback
+    }
   });
 
   // Animate moons around their planets
@@ -1125,7 +1474,16 @@ function animateMilkyWay() {
     // Don't update camera during planet animation - let the animation handle it
     if (isAnimatingToPlanet) {
       // Camera position is being animated, skip normal update but still render
-      if (milkyWayRenderer && milkyWayScene && milkyWayCamera) {
+      if (milkyWayScene && milkyWayScene.userData.postProcessing && milkyWayScene.userData.postProcessing.composer) {
+        try {
+          const focusTarget = centeredPlanet ? centeredPlanet.position : new THREE.Vector3(0, 0, 0);
+          updatePostProcessing(milkyWayCamera, updateCameraVelocity(milkyWayCamera), focusTarget);
+        } catch (error) {
+          if (milkyWayRenderer && milkyWayScene && milkyWayCamera) {
+            milkyWayRenderer.render(milkyWayScene, milkyWayCamera);
+          }
+        }
+      } else if (milkyWayRenderer && milkyWayScene && milkyWayCamera) {
         milkyWayRenderer.render(milkyWayScene, milkyWayCamera);
       }
       return;
@@ -1174,7 +1532,26 @@ function animateMilkyWay() {
     }
   }
 
-  if (milkyWayRenderer && milkyWayScene && milkyWayCamera) {
+  // Update camera velocity for motion blur
+  const cameraVelocity = updateCameraVelocity(milkyWayCamera);
+
+  // Try to use post-processing if available, otherwise use standard render
+  let rendered = false;
+  if (milkyWayScene && milkyWayScene.userData.postProcessing && milkyWayScene.userData.postProcessing.composer) {
+    try {
+      const focusTarget = centeredPlanet ? centeredPlanet.position : new THREE.Vector3(0, 0, 0);
+      updatePostProcessing(milkyWayCamera, cameraVelocity, focusTarget);
+      rendered = true;
+    } catch (error) {
+      if (isDevelopmentEnv()) {
+        console.warn('[Easter Egg] Post-processing render failed, falling back to standard render:', error);
+      }
+      // Fall through to standard render
+    }
+  }
+
+  // Standard render if post-processing not available or failed
+  if (!rendered && milkyWayRenderer && milkyWayScene && milkyWayCamera) {
     milkyWayRenderer.render(milkyWayScene, milkyWayCamera);
   }
 }
@@ -1190,6 +1567,11 @@ function onMilkyWayResize() {
   milkyWayCamera.aspect = window.innerWidth / window.innerHeight;
   milkyWayCamera.updateProjectionMatrix();
   milkyWayRenderer.setSize(window.innerWidth, window.innerHeight);
+
+  // Resize post-processing
+  if (milkyWayScene && milkyWayScene.userData.postProcessing) {
+    resizePostProcessing(window.innerWidth, window.innerHeight);
+  }
 }
 
 /**
@@ -1238,6 +1620,9 @@ function exitMilkyWay() {
   }
 
   isEasterEggActive = false;
+
+  // Reset animation time
+  animationTime = 0;
 
   // Stop animation
   if (milkyWayAnimationId) {

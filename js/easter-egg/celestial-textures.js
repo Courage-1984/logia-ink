@@ -15,13 +15,10 @@ import {
   createSphereTexture,
   shouldPlaceFeatureAtPole,
   getPoleScaleFactor,
-  equirectangularToUV
+  equirectangularToUV,
 } from './texture-wrapping.js';
 
-import {
-  fractalNoise,
-  seamlessFractalNoise
-} from './procedural-noise.js';
+import { fractalNoise, seamlessFractalNoise } from './procedural-noise.js';
 
 // Texture cache to avoid regenerating
 const textureCache = new Map();
@@ -51,26 +48,20 @@ export function createSunTexture(resolution = 1.0) {
   const height = Math.floor(baseHeight * resolution);
   const { canvas, ctx } = createEquirectangularCanvas(width, height);
 
-  // Multi-layered radial gradient for deep sun core (centered in equirectangular space)
-  const centerX = width / 2;
-  const centerY = height / 2;
-  const maxRadius = Math.min(width, height) / 2;
-
-  const coreGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius * 0.8);
-  coreGradient.addColorStop(0, '#ffffff');
-  coreGradient.addColorStop(0.1, '#ffff88');
-  coreGradient.addColorStop(0.25, '#ffcc00');
-  coreGradient.addColorStop(0.4, '#ff9900');
-  coreGradient.addColorStop(0.6, '#ff6600');
-  coreGradient.addColorStop(0.8, '#ff4400');
-  coreGradient.addColorStop(1, '#cc2200');
-
-  ctx.fillStyle = coreGradient;
+  // Base sun color - avoid radial gradients which don't work correctly in equirectangular projection
+  // The core appearance will be handled by atmospheric effects and noise
+  ctx.fillStyle = '#ff6600';
   ctx.fillRect(0, 0, width, height);
 
   // Add complex solar surface turbulence using noise (optimized for resolution)
+  // Constrain features to avoid high-distortion polar regions
+  const centerX = width / 2;
+  const centerY = height / 2;
+  const maxRadius = Math.min(width, height) / 2;
+  const equatorZone = height * 0.3; // Focus on middle 60% of height (equator region)
+  const poleExclusion = height * 0.2; // Exclude top/bottom 20%
+
   const turbulenceLayers = Math.max(6, Math.floor(10 * resolution));
-  const sampleStep = Math.max(1, Math.floor(1 / resolution)); // Sample fewer pixels at lower resolution
 
   for (let layer = 0; layer < turbulenceLayers; layer++) {
     const layerRadius = maxRadius * (0.3 + layer * 0.07);
@@ -83,25 +74,40 @@ export function createSunTexture(resolution = 1.0) {
       const angle = Math.random() * Math.PI * 2;
       const dist = Math.random() * layerRadius;
       const x = centerX + Math.cos(angle) * dist;
-      const y = centerY + Math.sin(angle) * dist;
+      // Constrain Y to avoid poles using V coordinate
+      const minV = poleExclusion / height;
+      const maxV = (height - poleExclusion) / height;
+      const v = minV + Math.random() * (maxV - minV);
+      const y = v * height;
       const dx = x - centerX;
       const dy = y - centerY;
       const distFromCenter = Math.sqrt(dx * dx + dy * dy);
 
-      if (distFromCenter < layerRadius && distFromCenter > layerRadius * 0.7) {
+      // Scale radius based on pole proximity to correct for stretching
+      const poleScale = getPoleScaleFactor(v, 0.2);
+      const radius = Math.random() * (15 - layer * 1.5) + 5;
+      const scaledRadius = radius * poleScale;
+
+      if (distFromCenter < layerRadius && distFromCenter > layerRadius * 0.7 && poleScale > 0.1) {
         // Use seamless noise for better horizontal wrapping
-        const uv = equirectangularToUV(x, y, width, height);
-        const noiseValue = seamlessFractalNoise(x * noiseScale, y * noiseScale, width, 3, 0.6, 1, layer * 1000);
+        const noiseValue = seamlessFractalNoise(
+          x * noiseScale,
+          y * noiseScale,
+          width,
+          3,
+          0.6,
+          1,
+          layer * 1000
+        );
         if (noiseValue > 0.5) {
           const brightness = 0.7 + noiseValue * 0.3;
           const alpha = layerOpacity * (1 - distFromCenter / layerRadius);
-          const radius = Math.random() * (15 - layer * 1.5) + 5;
-          const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+          const gradient = ctx.createRadialGradient(x, y, 0, x, y, scaledRadius);
           gradient.addColorStop(0, `rgba(255, ${200 * brightness}, ${50 * brightness}, ${alpha})`);
           gradient.addColorStop(1, `rgba(255, ${100 * brightness}, 0, 0)`);
           ctx.fillStyle = gradient;
           ctx.beginPath();
-          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.arc(x, y, scaledRadius, 0, Math.PI * 2);
           ctx.fill();
         }
       }
@@ -109,16 +115,22 @@ export function createSunTexture(resolution = 1.0) {
   }
 
   // Add detailed solar flares with better distribution (scaled by resolution)
+  // Constrain to equator region to avoid pole distortion
   const flareCount = Math.floor(60 * resolution);
   for (let i = 0; i < flareCount; i++) {
     const angle = (i / flareCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.2;
     const baseRadius = maxRadius - 40;
     const flareLength = Math.random() * 50 + 30;
+    // Constrain Y to equator region using V coordinate
+    const minV = poleExclusion / height;
+    const maxV = (height - poleExclusion) / height;
+    const v = minV + Math.random() * (maxV - minV);
+    const flareY = v * height;
 
     const x1 = centerX + Math.cos(angle) * baseRadius;
-    const y1 = centerY + Math.sin(angle) * baseRadius;
+    const y1 = flareY;
     const x2 = centerX + Math.cos(angle) * (baseRadius + flareLength);
-    const y2 = centerY + Math.sin(angle) * (baseRadius + flareLength);
+    const y2 = flareY;
 
     const flareGradient = ctx.createLinearGradient(x1, y1, x2, y2);
     flareGradient.addColorStop(0, `rgba(255, 255, 200, ${Math.random() * 0.5 + 0.4})`);
@@ -161,19 +173,35 @@ export function createSunTexture(resolution = 1.0) {
     ctx.strokeStyle = `rgba(255, ${200 + Math.random() * 55}, ${100 + Math.random() * 100}, ${Math.random() * 0.5 + 0.3})`;
     ctx.lineWidth = Math.random() * 4 + 2;
     ctx.beginPath();
-    ctx.arc(centerX, centerY, (startRadius + endRadius) / 2, angle - arcAngle / 2, angle + arcAngle / 2);
+    ctx.arc(
+      centerX,
+      centerY,
+      (startRadius + endRadius) / 2,
+      angle - arcAngle / 2,
+      angle + arcAngle / 2
+    );
     ctx.stroke();
   }
 
   // Add detailed sunspots with better distribution (scaled by resolution)
-  const sunspotCount = Math.floor(20 * resolution);
+  // Constrain to equator region to avoid pole distortion
+  const sunspotCount = Math.floor(20 * resolution * resolution);
   for (let i = 0; i < sunspotCount; i++) {
     const angle = Math.random() * Math.PI * 2;
     const dist = Math.random() * maxRadius * 0.4;
     const x = centerX + Math.cos(angle) * dist;
-    const y = centerY + Math.sin(angle) * dist;
-    const umbraRadius = Math.random() * 30 + 10;
+    // Constrain Y to equator region using V coordinate
+    const minV = poleExclusion / height;
+    const maxV = (height - poleExclusion) / height;
+    const v = minV + Math.random() * (maxV - minV);
+    const y = v * height;
+    // Scale radius based on pole proximity
+    const poleScale = getPoleScaleFactor(v, 0.2);
+    const umbraRadius = (Math.random() * 30 + 10) * poleScale;
     const penumbraRadius = umbraRadius * (1.9 + Math.random() * 0.5);
+
+    // Skip if too close to the pole
+    if (poleScale < 0.1) continue;
 
     // Penumbra (lighter outer ring)
     const penumbraGradient = ctx.createRadialGradient(x, y, umbraRadius, x, y, penumbraRadius);
@@ -199,7 +227,7 @@ export function createSunTexture(resolution = 1.0) {
       const spotDist = penumbraRadius + Math.random() * 15;
       const spotX = x + Math.cos(spotAngle) * spotDist;
       const spotY = y + Math.sin(spotAngle) * spotDist;
-      const spotRadius = Math.random() * 6 + 2;
+      const spotRadius = (Math.random() * 6 + 2) * poleScale;
 
       ctx.fillStyle = `rgba(150, 75, 0, ${Math.random() * 0.5 + 0.4})`;
       ctx.beginPath();
@@ -220,8 +248,11 @@ export function createSunTexture(resolution = 1.0) {
 
     if (distFromCenter < maxRadius) {
       // Use seamless noise for granulation pattern to avoid horizontal seams
+      // Apply stronger granulation in equator region, fade near poles
+      const uv = equirectangularToUV(x, y, width, height);
+      const poleScale = getPoleScaleFactor(uv.v, 0.2);
       const granuleValue = seamlessFractalNoise(x * 0.1, y * 0.1, width, 2, 0.7, 1, 5000);
-      const brightness = 1 + (granuleValue - 0.5) * 0.2;
+      const brightness = 1 + (granuleValue - 0.5) * 0.2 * poleScale;
       data[i] = Math.min(255, data[i] * brightness);
       data[i + 1] = Math.min(255, data[i + 1] * brightness * 0.9);
       data[i + 2] = Math.min(255, data[i + 2] * brightness * 0.8);
@@ -270,8 +301,9 @@ export function createMoonTexture(resolution = 1.0) {
   const { canvas, ctx } = createEquirectangularCanvas(width, height);
 
   // Base lunar surface with noise-based variation
-  const imageData = ctx.createImageData(width, height);
-  const data = imageData.data;
+  // Generate base in imageData but don't draw to canvas yet - we'll add all features first
+  const baseImageData = ctx.createImageData(width, height);
+  const baseData = baseImageData.data;
 
   // Generate base surface with seamless noise for proper wrapping
   for (let y = 0; y < height; y++) {
@@ -279,29 +311,35 @@ export function createMoonTexture(resolution = 1.0) {
       const idx = (y * width + x) * 4;
       const baseNoise = seamlessFractalNoise(x * 0.01, y * 0.01, width, 4, 0.6, 1, 1000);
       const baseGray = 120 + baseNoise * 40;
-      data[idx] = baseGray;
-      data[idx + 1] = baseGray;
-      data[idx + 2] = baseGray;
-      data[idx + 3] = 255;
+      baseData[idx] = baseGray;
+      baseData[idx + 1] = baseGray;
+      baseData[idx + 2] = baseGray;
+      baseData[idx + 3] = 255;
     }
   }
-  ctx.putImageData(imageData, 0, 0);
+  // Draw base to canvas so we can add features on top
+  ctx.putImageData(baseImageData, 0, 0);
 
   // Add maria (dark patches) with better distribution (scaled by resolution)
   // Avoid placing near poles where distortion is high
   const mariaCount = Math.floor(12 * resolution);
   for (let i = 0; i < mariaCount; i++) {
-    let x, y, v;
+    let x, y, v, poleScale;
     let attempts = 0;
     do {
       x = Math.random() * width;
       y = Math.random() * height;
       const uv = equirectangularToUV(x, y, width, height);
       v = uv.v;
+      poleScale = getPoleScaleFactor(v, 0.1);
       attempts++;
-    } while (!shouldPlaceFeatureAtPole(v, 0.1) && attempts < 10);
+    } while (shouldPlaceFeatureAtPole(v, 0.1) && attempts < 10);
 
-    const radius = Math.random() * 120 + 60;
+    // Scale radius based on pole proximity
+    const radius = (Math.random() * 120 + 60) * poleScale;
+
+    // Skip if too close to the pole or radius is too small
+    if (poleScale < 0.1) continue;
 
     const mariaGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
     mariaGradient.addColorStop(0, `rgba(60, 60, 60, ${Math.random() * 0.4 + 0.5})`);
@@ -317,9 +355,21 @@ export function createMoonTexture(resolution = 1.0) {
   // Add large craters with detailed rim and shadow (scaled by resolution)
   const largeCraterCount = Math.floor(12 * resolution);
   for (let i = 0; i < largeCraterCount; i++) {
-    const x = Math.random() * width;
-    const y = Math.random() * height;
-    const radius = Math.random() * 50 + 25;
+    let x, y, v, poleScale;
+    let attempts = 0;
+    do {
+      x = Math.random() * width;
+      y = Math.random() * height;
+      const uv = equirectangularToUV(x, y, width, height);
+      v = uv.v;
+      poleScale = getPoleScaleFactor(v, 0.1);
+      attempts++;
+    } while (shouldPlaceFeatureAtPole(v, 0.1) && attempts < 10);
+
+    // Scale radius based on pole proximity
+    const radius = (Math.random() * 50 + 25) * poleScale;
+    if (poleScale < 0.1) continue;
+
     const lightAngle = Math.random() * Math.PI * 2;
 
     // Crater rim (raised edge)
@@ -376,9 +426,15 @@ export function createMoonTexture(resolution = 1.0) {
   // Add medium craters (scaled by resolution)
   const mediumCraterCount = Math.floor(40 * resolution);
   for (let i = 0; i < mediumCraterCount; i++) {
+    // No pole check for medium/small, but still scale radius
     const x = Math.random() * width;
     const y = Math.random() * height;
-    const radius = Math.random() * 20 + 10;
+    const uv = equirectangularToUV(x, y, width, height);
+    const poleScale = getPoleScaleFactor(uv.v, 0.1);
+
+    const radius = (Math.random() * 20 + 10) * poleScale;
+    if (poleScale < 0.1) continue;
+
     const lightAngle = Math.random() * Math.PI * 2;
 
     ctx.fillStyle = `rgba(145, 145, 145, ${Math.random() * 0.4 + 0.4})`;
@@ -404,11 +460,15 @@ export function createMoonTexture(resolution = 1.0) {
   }
 
   // Add small craters (scaled by resolution)
-  const smallCraterCount = Math.floor(120 * resolution);
+  const smallCraterCount = Math.floor(120 * resolution * resolution);
   for (let i = 0; i < smallCraterCount; i++) {
     const x = Math.random() * width;
     const y = Math.random() * height;
-    const radius = Math.random() * 8 + 3;
+    const uv = equirectangularToUV(x, y, width, height);
+    const poleScale = getPoleScaleFactor(uv.v, 0.1);
+
+    const radius = (Math.random() * 8 + 3) * poleScale;
+    if (poleScale < 0.1) continue;
 
     ctx.fillStyle = `rgba(100, 100, 100, ${Math.random() * 0.5 + 0.5})`;
     ctx.beginPath();
@@ -422,11 +482,15 @@ export function createMoonTexture(resolution = 1.0) {
   }
 
   // Add tiny impact pits (scaled by resolution)
-  const impactPitCount = Math.floor(250 * resolution);
+  const impactPitCount = Math.floor(250 * resolution * resolution);
   for (let i = 0; i < impactPitCount; i++) {
     const x = Math.random() * width;
     const y = Math.random() * height;
-    const radius = Math.random() * 3 + 1;
+    const uv = equirectangularToUV(x, y, width, height);
+    const poleScale = getPoleScaleFactor(uv.v, 0.1);
+
+    const radius = (Math.random() * 3 + 1) * poleScale;
+    if (poleScale < 0.1) continue;
 
     ctx.fillStyle = `rgba(90, 90, 90, ${Math.random() * 0.6 + 0.4})`;
     ctx.beginPath();
@@ -442,8 +506,8 @@ export function createMoonTexture(resolution = 1.0) {
     const y = Math.floor(i / 4 / width);
 
     // Use noise for surface roughness
-      const roughness = seamlessFractalNoise(x * 0.05, y * 0.05, width, 3, 0.6, 1, 2000);
-      const variation = (roughness - 0.5) * 15;
+    const roughness = seamlessFractalNoise(x * 0.05, y * 0.05, width, 3, 0.6, 1, 2000);
+    const variation = (roughness - 0.5) * 15;
 
     const brightness = 1 + variation / 255;
     finalData[i] = Math.max(50, Math.min(200, finalData[i] * brightness));
@@ -451,15 +515,17 @@ export function createMoonTexture(resolution = 1.0) {
     finalData[i + 2] = Math.max(50, Math.min(200, finalData[i + 2] * brightness));
   }
 
-  // Make seamless
-  const seamlessData = makeSeamless(finalImageData, width, height);
+  // Make seamless with proper blending
+  const seamlessData = makeSeamless(finalImageData, width, height, 3);
   ctx.putImageData(seamlessData, 0, 0);
 
-  const texture = new THREE.CanvasTexture(canvas);
-  texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.ClampToEdgeWrapping;
-  texture.minFilter = THREE.LinearMipmapLinearFilter;
-  texture.magFilter = THREE.LinearFilter;
+  // Use helper function for consistent texture creation
+  const texture = createSphereTexture(canvas, {
+    wrapS: THREE.RepeatWrapping,
+    wrapT: THREE.ClampToEdgeWrapping,
+    minFilter: THREE.LinearMipmapLinearFilter,
+    magFilter: THREE.LinearFilter,
+  });
 
   // Cache the texture
   textureCache.set(cacheKey, texture);
@@ -471,17 +537,16 @@ export function createMoonTexture(resolution = 1.0) {
  * Uses equirectangular projection and noise-based generation for realistic surfaces
  * @param {string} name - Planet name
  * @param {number} color - Planet color
- * @param {number} size - Planet size
  * @param {number} resolution - Resolution multiplier (1.0 = 2048x1024, 0.5 = 1024x512, etc.)
  */
-export function createPlanetTexture(name, color, size, resolution = 1.0) {
+export function createPlanetTexture(name, color, resolution = 1.0) {
   const THREE = window.THREE;
   if (!THREE) {
     throw new Error('THREE.js must be loaded before creating textures');
   }
 
   // Check cache first
-  const cacheKey = `planet-${name}-${color}-${size}-${resolution}`;
+  const cacheKey = `planet-${name}-${resolution}`;
   if (textureCache.has(cacheKey)) {
     return textureCache.get(cacheKey).clone();
   }
@@ -499,8 +564,9 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
   const b = Math.floor(baseColor.b * 255);
 
   // Create base with noise-based variation for depth
-  const imageData = ctx.createImageData(width, height);
-  const data = imageData.data;
+  // Generate base in imageData but don't draw to canvas yet - we'll add all features first
+  const baseImageData = ctx.createImageData(width, height);
+  const baseData = baseImageData.data;
 
   // Generate base color with seamless noise variation for proper wrapping
   for (let y = 0; y < height; y++) {
@@ -508,26 +574,37 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       const idx = (y * width + x) * 4;
       const baseNoise = seamlessFractalNoise(x * 0.005, y * 0.005, width, 3, 0.6, 1, 3000);
       const brightness = 0.85 + baseNoise * 0.3;
-      data[idx] = Math.max(0, Math.min(255, r * brightness));
-      data[idx + 1] = Math.max(0, Math.min(255, g * brightness));
-      data[idx + 2] = Math.max(0, Math.min(255, b * brightness));
-      data[idx + 3] = 255;
+      baseData[idx] = Math.max(0, Math.min(255, r * brightness));
+      baseData[idx + 1] = Math.max(0, Math.min(255, g * brightness));
+      baseData[idx + 2] = Math.max(0, Math.min(255, b * brightness));
+      baseData[idx + 3] = 255;
     }
   }
-  ctx.putImageData(imageData, 0, 0);
+  // Draw base to canvas so we can add features on top
+  ctx.putImageData(baseImageData, 0, 0);
 
   // Planet-specific features (scaled by resolution)
   if (name === 'Pyro') {
     // Lava/volcanic texture with noise-based flows
-    const lavaCount = Math.floor(200 * resolution);
+    const lavaCount = Math.floor(200 * resolution * resolution);
     for (let i = 0; i < lavaCount; i++) {
       const x = Math.random() * width;
       const y = Math.random() * height;
-      const radius = Math.random() * 40 + 15;
+      const uv = equirectangularToUV(x, y, width, height);
+      const poleScale = getPoleScaleFactor(uv.v, 0.15);
+
+      const radius = (Math.random() * 40 + 15) * poleScale;
+      if (poleScale < 0.1) continue;
 
       const lavaGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-      lavaGradient.addColorStop(0, `rgba(255, ${150 + Math.random() * 60}, 0, ${Math.random() * 0.7 + 0.5})`);
-      lavaGradient.addColorStop(0.5, `rgba(255, ${100 + Math.random() * 60}, 0, ${Math.random() * 0.5 + 0.4})`);
+      lavaGradient.addColorStop(
+        0,
+        `rgba(255, ${150 + Math.random() * 60}, 0, ${Math.random() * 0.7 + 0.5})`
+      );
+      lavaGradient.addColorStop(
+        0.5,
+        `rgba(255, ${100 + Math.random() * 60}, 0, ${Math.random() * 0.5 + 0.4})`
+      );
       lavaGradient.addColorStop(1, `rgba(200, 50, 0, 0)`);
       ctx.fillStyle = lavaGradient;
       ctx.beginPath();
@@ -553,7 +630,9 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       let currentX = startX;
       let currentY = startY;
       for (let j = 0; j < 10; j++) {
-        const segmentAngle = angle + (fractalNoise(j * 0.5, i, 2, 0.7, 1, 4000) - 0.5) * 0.8;
+        // Use seamlessFractalNoise for horizontal wrapping
+        const segmentAngle =
+          angle + (seamlessFractalNoise(j * 0.5, i, width, 2, 0.7, 1, 4000) - 0.5) * 0.8;
         const segmentLength = length / 10;
         currentX += Math.cos(segmentAngle) * segmentLength;
         currentY += Math.sin(segmentAngle) * segmentLength;
@@ -563,11 +642,15 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
     }
 
     // Hot spots (glowing areas)
-    const hotSpotCount = Math.floor(60 * resolution);
+    const hotSpotCount = Math.floor(60 * resolution * resolution);
     for (let i = 0; i < hotSpotCount; i++) {
       const x = Math.random() * width;
       const y = Math.random() * height;
-      const radius = Math.random() * 20 + 8;
+      const uv = equirectangularToUV(x, y, width, height);
+      const poleScale = getPoleScaleFactor(uv.v, 0.15);
+
+      const radius = (Math.random() * 20 + 8) * poleScale;
+      if (poleScale < 0.1) continue;
 
       const hotSpotGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
       hotSpotGradient.addColorStop(0, `rgba(255, 255, 200, ${Math.random() * 0.8 + 0.4})`);
@@ -665,8 +748,14 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       const radius = Math.random() * 140 + 80;
 
       const continentGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-      continentGradient.addColorStop(0, `rgba(${Math.max(0, r - 70)}, ${Math.max(0, g - 50)}, ${Math.max(0, b - 80)}, ${Math.random() * 0.4 + 0.7})`);
-      continentGradient.addColorStop(0.7, `rgba(${Math.max(0, r - 50)}, ${Math.max(0, g - 40)}, ${Math.max(0, b - 60)}, ${Math.random() * 0.3 + 0.5})`);
+      continentGradient.addColorStop(
+        0,
+        `rgba(${Math.max(0, r - 70)}, ${Math.max(0, g - 50)}, ${Math.max(0, b - 80)}, ${Math.random() * 0.4 + 0.7})`
+      );
+      continentGradient.addColorStop(
+        0.7,
+        `rgba(${Math.max(0, r - 50)}, ${Math.max(0, g - 40)}, ${Math.max(0, b - 60)}, ${Math.random() * 0.3 + 0.5})`
+      );
       continentGradient.addColorStop(1, 'rgba(100, 100, 100, 0)');
       ctx.fillStyle = continentGradient;
       ctx.beginPath();
@@ -691,7 +780,9 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       let currentX = startX;
       let currentY = startY;
       for (let j = 0; j < 10; j++) {
-        const segmentAngle = angle + (fractalNoise(j * 0.3, i, 2, 0.7, 1, 5000) - 0.5) * 0.6;
+        // Use seamlessFractalNoise for horizontal wrapping
+        const segmentAngle =
+          angle + (seamlessFractalNoise(j * 0.3, i, width, 2, 0.7, 1, 5000) - 0.5) * 0.6;
         const segmentLength = length / 10;
         currentX += Math.cos(segmentAngle) * segmentLength;
         currentY += Math.sin(segmentAngle) * segmentLength;
@@ -701,19 +792,27 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
     }
 
     // Cloud layers
-    const cloudCount = Math.floor(150 * resolution);
+    const cloudCount = Math.floor(150 * resolution * resolution);
     for (let i = 0; i < cloudCount; i++) {
       const x = Math.random() * width;
       const y = Math.random() * height;
-      const radius = Math.random() * 45 + 20;
+      const uv = equirectangularToUV(x, y, width, height);
+      const poleScale = getPoleScaleFactor(uv.v, 0.05);
+
+      const radius = (Math.random() * 45 + 20) * poleScale;
+      if (poleScale < 0.1) continue;
 
       const cloudGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
       cloudGradient.addColorStop(0, `rgba(255, 255, 255, ${Math.random() * 0.4 + 0.3})`);
       cloudGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+      // Use globalCompositeOperation for better blending
+      ctx.globalCompositeOperation = 'lighter';
       ctx.fillStyle = cloudGradient;
       ctx.beginPath();
       ctx.arc(x, y, radius, 0, Math.PI * 2);
       ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
     }
 
     // Water bodies (oceans)
@@ -724,7 +823,10 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       const radius = Math.random() * 100 + 50;
 
       const oceanGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-      oceanGradient.addColorStop(0, `rgba(${r - 25}, ${g - 15}, ${b + 25}, ${Math.random() * 0.3 + 0.4})`);
+      oceanGradient.addColorStop(
+        0,
+        `rgba(${r - 25}, ${g - 15}, ${b + 25}, ${Math.random() * 0.3 + 0.4})`
+      );
       oceanGradient.addColorStop(1, 'rgba(100, 150, 200, 0)');
       ctx.fillStyle = oceanGradient;
       ctx.beginPath();
@@ -740,8 +842,14 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       const radius = Math.random() * 50 + 25;
 
       const cloudGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-      cloudGradient.addColorStop(0, `rgba(255, ${150 + Math.random() * 60}, ${180 + Math.random() * 60}, ${Math.random() * 0.6 + 0.5})`);
-      cloudGradient.addColorStop(0.7, `rgba(255, ${120 + Math.random() * 60}, ${150 + Math.random() * 60}, ${Math.random() * 0.4 + 0.3})`);
+      cloudGradient.addColorStop(
+        0,
+        `rgba(255, ${150 + Math.random() * 60}, ${180 + Math.random() * 60}, ${Math.random() * 0.6 + 0.5})`
+      );
+      cloudGradient.addColorStop(
+        0.7,
+        `rgba(255, ${120 + Math.random() * 60}, ${150 + Math.random() * 60}, ${Math.random() * 0.4 + 0.3})`
+      );
       cloudGradient.addColorStop(1, 'rgba(255, 100, 150, 0)');
       ctx.fillStyle = cloudGradient;
       ctx.beginPath();
@@ -783,9 +891,10 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
     let currentY = 0;
     while (currentY < height) {
       const bandHeight = Math.random() * (height / 12) + height / 20;
-      const bandColor = Math.random() > 0.5
-        ? `rgba(${r}, ${g}, ${b}, ${Math.random() * 0.4 + 0.8})`
-        : `rgba(${Math.max(0, r - 50)}, ${Math.max(0, g - 50)}, ${Math.max(0, b - 50)}, ${Math.random() * 0.4 + 0.8})`;
+      const bandColor =
+        Math.random() > 0.5
+          ? `rgba(${r}, ${g}, ${b}, ${Math.random() * 0.4 + 0.8})`
+          : `rgba(${Math.max(0, r - 50)}, ${Math.max(0, g - 50)}, ${Math.max(0, b - 50)}, ${Math.random() * 0.4 + 0.8})`;
 
       ctx.fillStyle = bandColor;
       ctx.fillRect(0, currentY, width, bandHeight);
@@ -808,7 +917,10 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       const radius = Math.random() * 100 + 60;
 
       const stormGradient = ctx.createRadialGradient(x, y, radius * 0.7, x, y, radius);
-      stormGradient.addColorStop(0, `rgba(${r + 40}, ${g + 40}, ${b + 40}, ${Math.random() * 0.5 + 0.4})`);
+      stormGradient.addColorStop(
+        0,
+        `rgba(${r + 40}, ${g + 40}, ${b + 40}, ${Math.random() * 0.5 + 0.4})`
+      );
       stormGradient.addColorStop(1, 'rgba(100, 100, 100, 0)');
       ctx.fillStyle = stormGradient;
       ctx.beginPath();
@@ -816,8 +928,14 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       ctx.fill();
 
       const centerGradient = ctx.createRadialGradient(x, y, 0, x, y, radius * 0.7);
-      centerGradient.addColorStop(0, `rgba(${r - 30}, ${g - 30}, ${b - 30}, ${Math.random() * 0.6 + 0.5})`);
-      centerGradient.addColorStop(1, `rgba(${r + 15}, ${g + 15}, ${b + 15}, ${Math.random() * 0.4 + 0.3})`);
+      centerGradient.addColorStop(
+        0,
+        `rgba(${r - 30}, ${g - 30}, ${b - 30}, ${Math.random() * 0.6 + 0.5})`
+      );
+      centerGradient.addColorStop(
+        1,
+        `rgba(${r + 15}, ${g + 15}, ${b + 15}, ${Math.random() * 0.4 + 0.3})`
+      );
       ctx.fillStyle = centerGradient;
       ctx.beginPath();
       ctx.arc(x, y, radius * 0.7, 0, Math.PI * 2);
@@ -832,7 +950,10 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       const radius = Math.random() * 30 + 12;
 
       const eddyGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-      eddyGradient.addColorStop(0, `rgba(${r + 25}, ${g + 25}, ${b + 25}, ${Math.random() * 0.4 + 0.3})`);
+      eddyGradient.addColorStop(
+        0,
+        `rgba(${r + 25}, ${g + 25}, ${b + 25}, ${Math.random() * 0.4 + 0.3})`
+      );
       eddyGradient.addColorStop(1, 'rgba(150, 150, 150, 0)');
       ctx.fillStyle = eddyGradient;
       ctx.beginPath();
@@ -848,8 +969,14 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       const radius = Math.random() * 80 + 40;
 
       const nebulaGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-      nebulaGradient.addColorStop(0, `rgba(${150 + Math.random() * 60}, ${100 + Math.random() * 60}, ${180 + Math.random() * 60}, ${Math.random() * 0.6 + 0.5})`);
-      nebulaGradient.addColorStop(0.6, `rgba(${120 + Math.random() * 50}, ${80 + Math.random() * 50}, ${150 + Math.random() * 50}, ${Math.random() * 0.4 + 0.3})`);
+      nebulaGradient.addColorStop(
+        0,
+        `rgba(${150 + Math.random() * 60}, ${100 + Math.random() * 60}, ${180 + Math.random() * 60}, ${Math.random() * 0.6 + 0.5})`
+      );
+      nebulaGradient.addColorStop(
+        0.6,
+        `rgba(${120 + Math.random() * 50}, ${80 + Math.random() * 50}, ${150 + Math.random() * 50}, ${Math.random() * 0.4 + 0.3})`
+      );
       nebulaGradient.addColorStop(1, 'rgba(100, 60, 120, 0)');
       ctx.fillStyle = nebulaGradient;
       ctx.beginPath();
@@ -904,8 +1031,14 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
 
       const auroraGradient = ctx.createLinearGradient(0, -heightAurora / 2, 0, heightAurora / 2);
       auroraGradient.addColorStop(0, `rgba(0, 255, ${150 + Math.random() * 60}, 0)`);
-      auroraGradient.addColorStop(0.3, `rgba(0, 255, ${180 + Math.random() * 60}, ${Math.random() * 0.6 + 0.5})`);
-      auroraGradient.addColorStop(0.7, `rgba(0, 255, ${150 + Math.random() * 60}, ${Math.random() * 0.6 + 0.5})`);
+      auroraGradient.addColorStop(
+        0.3,
+        `rgba(0, 255, ${180 + Math.random() * 60}, ${Math.random() * 0.6 + 0.5})`
+      );
+      auroraGradient.addColorStop(
+        0.7,
+        `rgba(0, 255, ${150 + Math.random() * 60}, ${Math.random() * 0.6 + 0.5})`
+      );
       auroraGradient.addColorStop(1, `rgba(0, 255, ${120 + Math.random() * 60}, 0)`);
 
       ctx.fillStyle = auroraGradient;
@@ -960,8 +1093,14 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       const radius = Math.random() * 60 + 25;
 
       const rockGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-      rockGradient.addColorStop(0, `rgba(${Math.max(0, r - 50)}, ${Math.max(0, g - 50)}, ${Math.max(0, b - 50)}, ${Math.random() * 0.5 + 0.7})`);
-      rockGradient.addColorStop(1, `rgba(${Math.max(0, r - 15)}, ${Math.max(0, g - 15)}, ${Math.max(0, b - 15)}, ${Math.random() * 0.4 + 0.5})`);
+      rockGradient.addColorStop(
+        0,
+        `rgba(${Math.max(0, r - 50)}, ${Math.max(0, g - 50)}, ${Math.max(0, b - 50)}, ${Math.random() * 0.5 + 0.7})`
+      );
+      rockGradient.addColorStop(
+        1,
+        `rgba(${Math.max(0, r - 15)}, ${Math.max(0, g - 15)}, ${Math.max(0, b - 15)}, ${Math.random() * 0.4 + 0.5})`
+      );
       ctx.fillStyle = rockGradient;
       ctx.beginPath();
       ctx.arc(x, y, radius, 0, Math.PI * 2);
@@ -1006,7 +1145,10 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
       const radius = Math.random() * 10 + 4;
 
       const mineralGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-      mineralGradient.addColorStop(0, `rgba(${r + 30}, ${g + 30}, ${b + 30}, ${Math.random() * 0.6 + 0.5})`);
+      mineralGradient.addColorStop(
+        0,
+        `rgba(${r + 30}, ${g + 30}, ${b + 30}, ${Math.random() * 0.6 + 0.5})`
+      );
       mineralGradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
       ctx.fillStyle = mineralGradient;
       ctx.beginPath();
@@ -1033,13 +1175,18 @@ export function createPlanetTexture(name, color, size, resolution = 1.0) {
   }
 
   // Make seamless for proper wrapping
-  const seamlessData = makeSeamless(finalImageData, width, height);
+  const seamlessData = makeSeamless(finalImageData, width, height, 3);
   ctx.putImageData(seamlessData, 0, 0);
 
-  const texture = new THREE.CanvasTexture(canvas);
-  texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.ClampToEdgeWrapping;
-  texture.minFilter = THREE.LinearMipmapLinearFilter;
-  texture.magFilter = THREE.LinearFilter;
+  // Use helper function for consistent texture creation
+  const texture = createSphereTexture(canvas, {
+    wrapS: THREE.RepeatWrapping,
+    wrapT: THREE.ClampToEdgeWrapping,
+    minFilter: THREE.LinearMipmapLinearFilter,
+    magFilter: THREE.LinearFilter,
+  });
+
+  // Cache the texture
+  textureCache.set(cacheKey, texture);
   return texture;
 }

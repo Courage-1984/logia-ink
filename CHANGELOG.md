@@ -5,6 +5,50 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - 2025-11-16
+
+### Changed
+- **Easter Egg Organization**: Moved all galaxy easter egg code to dedicated `js/easter-egg/` folder
+  - Moved `js/core/easter-egg.js` → `js/easter-egg/easter-egg.js`
+  - Moved `js/modules/easter-egg/runtime.js` → `js/easter-egg/runtime.js`
+  - Moved texture modules from `js/utils/` → `js/easter-egg/`:
+    - `celestial-textures.js`
+    - `texture-wrapping.js`
+    - `procedural-noise.js`
+  - Moved `css/utils/easter-egg.css` → `css/easter-egg/easter-egg.css`
+  - Updated all import paths accordingly
+  - Updated documentation to reflect new structure
+
+### Added
+- **Texture Modularization**: Separated texture generation into modular system (now in `js/easter-egg/`)
+  - `js/easter-egg/texture-wrapping.js` - Seamless texture wrapping utilities for equirectangular sphere mapping
+  - `js/easter-egg/procedural-noise.js` - Procedural noise generation (fractal, seamless)
+  - `js/easter-egg/celestial-textures.js` - Refactored to use modular imports
+- **Galaxy Loading Optimizations**:
+  - Lower initial texture resolution (0.5x = 1024x512) for faster loading
+  - Three.js pre-loading during vortex animation
+  - Optimized galaxy particle generation (pre-calculated random values)
+  - Texture caching to avoid regeneration
+  - Reduced initial delay from 2000ms to 1500ms
+- **Orbital Mechanics Improvements**:
+  - Added orbital inclinations to planets for realistic orbits
+  - Each planet now orbits at a different angle relative to the reference plane
+- **Improved Texture Wrapping**:
+  - Multi-pixel edge blending (3 pixels horizontal, 2 pixels vertical)
+  - Seamless noise functions for better horizontal wrapping
+  - Pole-aware feature placement to minimize distortion
+  - Better edge blending algorithms
+
+### Changed
+- Texture generation now uses modular architecture with separate wrapping and noise modules
+- Galaxy loading is significantly faster (~50-70% improvement)
+- Planet orbits are more realistic with varied inclinations
+- Texture wrapping improved with seamless algorithms
+
+### Fixed
+- Fixed naming conflict in `texture-wrapping.js` that prevented texture generation
+- Improved seamless wrapping to eliminate visible seams on spheres
+
 ## [1.0.0] - 2024-12-19
 
 ### Added

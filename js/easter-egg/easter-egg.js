@@ -5,7 +5,7 @@ let triggersInitialized = false;
 
 function loadRuntimeModule() {
   if (!runtimeModulePromise) {
-    runtimeModulePromise = import('../modules/easter-egg/runtime.js');
+    runtimeModulePromise = import('./runtime.js');
   }
   return runtimeModulePromise;
 }
@@ -121,3 +121,4 @@ function requestEasterEggActivation() {
       }
     });
 }
+

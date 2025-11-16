@@ -170,6 +170,23 @@ Coverage: multi-page navigation (desktop + mobile drawer), scroll progress/back-
 4. Export an `init...` function and wire it up in `js/main.js`.
 5. Update `.cursor/rules/cursorrules.mdc` with the new structure.
 
+### Working with the Galaxy Easter Egg
+
+The galaxy easter egg is organized in a dedicated folder for better maintainability:
+
+- **`js/easter-egg/easter-egg.js`** - Trigger/initialization (logo clicks, footer trigger)
+- **`js/easter-egg/runtime.js`** - Milky Way 3D scene runtime (Three.js scene, animation, controls)
+- **`js/easter-egg/celestial-textures.js`** - Main texture generator (sun, moon, planets)
+- **`js/easter-egg/texture-wrapping.js`** - Seamless wrapping utilities for sphere mapping
+- **`js/easter-egg/procedural-noise.js`** - Procedural noise generation (fractal, seamless)
+- **`css/easter-egg/easter-egg.css`** - Styles for vortex effect and Milky Way scene
+
+Textures use equirectangular projection (2:1 aspect ratio) for optimal sphere mapping. The system supports:
+- Lower initial resolution for faster loading (0.5x default, upgradeable)
+- Seamless horizontal wrapping with multi-pixel blending
+- Pole-aware feature placement to minimize distortion
+- Texture caching to avoid regeneration
+
 ### Modifying Colors
 
 - Edit `css/variables.css` only (all components reference tokens).

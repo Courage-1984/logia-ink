@@ -1,7 +1,7 @@
 /**
  * Main CSS Entry Point
  * Imports all CSS modules in the correct order
- * 
+ *
  * Order: Variables -> Base -> Components -> Animations -> Responsive
  */
 
@@ -47,7 +47,7 @@
 @import url('./utils/cursor.css');
 @import url('./utils/3d-effects.css');
 @import url('./utils/fluid-effects.css');
-@import url('./utils/easter-egg.css');
+@import url('./easter-egg/easter-egg.css');
 @import url('./utils/loading.css');
 @import url('./utils/empty-state.css');
 @import url('./utils/dividers.css');
