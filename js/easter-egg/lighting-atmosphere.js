@@ -10,18 +10,23 @@
  * @param {number} planetSize - Size of the planet
  * @param {number} color - Color of the atmosphere (hex)
  * @param {number} intensity - Intensity of the glow (0-1)
+ * @param {THREE.Vector3} initialCameraPosition - Initial camera position to prevent first-frame glitch
  * @returns {THREE.Mesh} Atmosphere mesh
  */
-export function createAtmosphericGlow(THREE, planet, planetSize, color, intensity = 0.3) {
+export function createAtmosphericGlow(THREE, planet, planetSize, color, intensity = 0.3, initialCameraPosition = null) {
   // Create slightly larger sphere for atmosphere
   const atmosphereGeometry = new THREE.SphereGeometry(planetSize * 1.05, 32, 32);
+
+  // Use provided initial camera position or default to a reasonable position
+  // Default position matches typical initial camera position (e.g., from CameraPresets.GALAXY_VIEW)
+  const defaultCameraPos = initialCameraPosition || new THREE.Vector3(0, 0, 150);
 
   // Create shader material for rim lighting effect
   const atmosphereMaterial = new THREE.ShaderMaterial({
     uniforms: {
       color: { value: new THREE.Color(color) },
       intensity: { value: intensity },
-      cameraPosition: { value: new THREE.Vector3(0, 0, 0) },
+      cameraPosition: { value: defaultCameraPos.clone() },
     },
     vertexShader: `
       varying vec3 vNormal;
@@ -63,6 +68,9 @@ export function createAtmosphericGlow(THREE, planet, planetSize, color, intensit
   // Store reference for updating view vector
   atmosphere.userData.isAtmosphere = true;
   atmosphere.userData.planet = planet;
+
+  // Store direct reference on planet for efficient access (avoids traversal)
+  planet.userData.atmosphereMesh = atmosphere;
 
   return atmosphere;
 }
@@ -172,12 +180,12 @@ export function updateAtmospheres(camera, planets) {
   camera.getWorldPosition(cameraWorldPos);
 
   planets.forEach(planet => {
-    planet.traverse(child => {
-      if (child.userData.isAtmosphere && child.material.uniforms) {
+    // Use direct reference instead of traversal for better performance
+    const atmosphere = planet.userData.atmosphereMesh;
+    if (atmosphere && atmosphere.material && atmosphere.material.uniforms) {
         // Update camera position uniform
-        child.material.uniforms.cameraPosition.value.copy(cameraWorldPos);
+      atmosphere.material.uniforms.cameraPosition.value.copy(cameraWorldPos);
       }
-    });
   });
 }
 
@@ -186,8 +194,9 @@ export function updateAtmospheres(camera, planets) {
  * @param {Object} THREE - Three.js library
  * @param {Array} planets - Array of planet meshes
  * @param {Object} atmosphereConfigs - Configuration for each planet's atmosphere
+ * @param {THREE.Vector3} initialCameraPosition - Initial camera position to prevent first-frame glitch
  */
-export function addAtmospheresToPlanets(THREE, planets, atmosphereConfigs = {}) {
+export function addAtmospheresToPlanets(THREE, planets, atmosphereConfigs = {}, initialCameraPosition = null) {
   const defaultAtmosphere = {
     color: 0x66aaff,
     intensity: 0.3,
@@ -195,13 +204,18 @@ export function addAtmospheresToPlanets(THREE, planets, atmosphereConfigs = {}) 
 
   planets.forEach((planet, index) => {
     const config = atmosphereConfigs[planet.userData.name] || defaultAtmosphere;
-    createAtmosphericGlow(
+    // Store the returned mesh for fast access in updateAtmospheres
+    // Pass initial camera position to prevent first-frame rendering glitch
+    const atmosphereMesh = createAtmosphericGlow(
       THREE,
       planet,
       planet.userData.size,
       config.color || defaultAtmosphere.color,
-      config.intensity || defaultAtmosphere.intensity
+      config.intensity || defaultAtmosphere.intensity,
+      initialCameraPosition
     );
+    // Ensure the mesh is stored (createAtmosphericGlow already does this, but explicit for clarity)
+    planet.userData.atmosphereMesh = atmosphereMesh;
   });
 }
 

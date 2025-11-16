@@ -44,6 +44,18 @@ const pages = [
     priority: 0.7,
     lastmod: new Date().toISOString().split('T')[0],
   },
+  {
+    url: 'pricing.html',
+    changefreq: 'monthly',
+    priority: 0.8,
+    lastmod: new Date().toISOString().split('T')[0],
+  },
+  {
+    url: 'seo-services.html',
+    changefreq: 'monthly',
+    priority: 0.9,
+    lastmod: new Date().toISOString().split('T')[0],
+  },
 ];
 
 // Generate sitemap XML

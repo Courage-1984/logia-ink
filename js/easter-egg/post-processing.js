@@ -32,12 +32,22 @@ export function setupPostProcessing(THREE, renderer, scene, camera, options = {}
     dofMaxBlur = 1.0,
   } = options;
 
-  // Import post-processing modules (assuming they're available)
-  // Note: These need to be loaded from three/addons/postprocessing/
-  // Try to access from THREE.addons or window.THREE.addons
-  const addons = THREE.addons || (window.THREE && window.THREE.addons) || {};
-  const postprocessing = addons.postprocessing || {};
+  // Post-processing modules must be available via THREE.addons.postprocessing
+  // This assumes explicit ES module imports are used elsewhere to populate THREE.addons:
+  // import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+  // import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+  // import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+  // import { BokehPass } from 'three/addons/postprocessing/BokehPass.js';
+  // import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+  // import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+  //
+  // These should be imported and attached to THREE.addons.postprocessing before calling this function.
+  if (!THREE.addons || !THREE.addons.postprocessing) {
+    // Post-processing addons not available - return null to indicate fallback to standard rendering
+    return null;
+  }
 
+  const postprocessing = THREE.addons.postprocessing;
   const EffectComposer = postprocessing.EffectComposer;
   const RenderPass = postprocessing.RenderPass;
   const UnrealBloomPass = postprocessing.UnrealBloomPass;
@@ -193,18 +203,52 @@ export function setupPostProcessing(THREE, renderer, scene, camera, options = {}
  * Update post-processing effects
  * @param {THREE.Camera} camera - Camera
  * @param {THREE.Vector3} cameraVelocity - Camera velocity for motion blur
- * @param {THREE.Vector3} focusTarget - Target to focus on for depth of field
+ * @param {THREE.Vector3|THREE.Object3D} focusTarget - Target to focus on for depth of field (Vector3 or Object3D)
+ * @param {THREE.Raycaster} raycaster - Optional raycaster for dynamic focus calculation
  */
-export function updatePostProcessing(camera, cameraVelocity = null, focusTarget = null) {
+export function updatePostProcessing(camera, cameraVelocity = null, focusTarget = null, raycaster = null) {
   if (!composer) {
     return;
   }
 
   // Update depth of field focus
   if (bokehPass && focusTarget) {
-    const distance = camera.position.distanceTo(focusTarget);
-    const normalizedDistance = distance / 200; // Normalize to 0-1 range
-    bokehPass.uniforms.focus.value = Math.max(0.1, Math.min(1.0, normalizedDistance));
+    let distance;
+
+    // If focusTarget is an Object3D, get its world position
+    if (focusTarget.isObject3D) {
+      const worldPos = new THREE.Vector3();
+      focusTarget.getWorldPosition(worldPos);
+      distance = camera.position.distanceTo(worldPos);
+    } else if (focusTarget instanceof THREE.Vector3) {
+      distance = camera.position.distanceTo(focusTarget);
+    } else {
+      // Fallback: use simple distance calculation
+      distance = camera.position.distanceTo(focusTarget);
+    }
+
+    // Use raycaster for more accurate focus if available
+    // Use recursive raycasting to check all nested children in scene hierarchy
+    if (raycaster && focusTarget.isObject3D) {
+      raycaster.setFromCamera(new THREE.Vector2(0, 0), camera);
+      // Recursive flag ensures nested groups and children are checked
+      const intersects = raycaster.intersectObject(focusTarget, true);
+      if (intersects.length > 0) {
+        distance = intersects[0].distance;
+      }
+    } else if (raycaster && focusTarget instanceof THREE.Scene) {
+      // If focusTarget is the scene itself, raycast against all scene children recursively
+      raycaster.setFromCamera(new THREE.Vector2(0, 0), camera);
+      const intersects = raycaster.intersectObjects(focusTarget.children, true);
+      if (intersects.length > 0) {
+        distance = intersects[0].distance;
+      }
+    }
+
+    // Normalize distance based on camera's far plane or a reasonable range
+    const cameraFar = camera.far || 1000;
+    const normalizedDistance = Math.max(0.1, Math.min(1.0, distance / (cameraFar * 0.2)));
+    bokehPass.uniforms.focus.value = normalizedDistance;
   }
 
   // Update motion blur based on camera velocity

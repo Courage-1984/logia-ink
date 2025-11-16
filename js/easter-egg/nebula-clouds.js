@@ -29,11 +29,14 @@ export function createNebulaCloud(THREE, scene, parameters = {}) {
   const baseColor = new THREE.Color(color);
 
   // Generate cloud particles with density falloff
+  // Use density parameter to control the exponent of the radius falloff
+  const densityExponent = 1.0 + density * 1.5; // Range: 1.0 to 2.5
   for (let i = 0; i < count; i++) {
     const i3 = i * 3;
 
-    // Spherical distribution with density falloff
-    const r = Math.pow(Math.random(), 1.5) * radius; // Denser at center
+    // Spherical distribution with density-controlled falloff
+    // Higher density = denser at center (higher exponent)
+    const r = Math.pow(Math.random(), densityExponent) * radius;
     const theta = Math.random() * Math.PI * 2;
     const phi = Math.acos(2 * Math.random() - 1);
 
@@ -88,7 +91,9 @@ export function createNebulaCloud(THREE, scene, parameters = {}) {
       varying float vOpacity;
 
       void main() {
+        // Soft, circular point rendering for volumetric cloudy appearance
         float distanceToCenter = distance(gl_PointCoord, vec2(0.5));
+        // Use smoothstep for soft, feathered edges
         float alpha = 1.0 - smoothstep(0.0, 0.5, distanceToCenter);
         alpha *= vOpacity;
 
@@ -297,24 +302,26 @@ export function createInterstellarMedium(THREE, scene, parameters = {}) {
  * Update nebula animation
  * @param {THREE.Points} nebula - Nebula to animate
  * @param {number} time - Current time
+ * @param {number} deltaTime - Time elapsed since last frame (in seconds)
  */
-export function updateNebula(nebula, time) {
+export function updateNebula(nebula, time, deltaTime = 0.016) {
   if (!nebula || !nebula.userData.isNebula || !nebula.material.uniforms) {
     return;
   }
 
   nebula.material.uniforms.time.value = time;
 
-  // Subtle rotation
-  nebula.rotation.y += 0.0001;
+  // Subtle rotation with delta time for frame-rate independence
+  nebula.rotation.y += 0.0001 * deltaTime * 60; // Normalize to 60fps
 }
 
 /**
  * Update star-forming region animation
  * @param {THREE.Group} region - Star-forming region to animate
  * @param {number} time - Current time
+ * @param {number} deltaTime - Time elapsed since last frame (in seconds)
  */
-export function updateStarFormingRegion(region, time) {
+export function updateStarFormingRegion(region, time, deltaTime = 0.016) {
   if (!region || !region.userData.isStarFormingRegion) {
     return;
   }
@@ -326,8 +333,8 @@ export function updateStarFormingRegion(region, time) {
     core.material.emissiveIntensity = region.userData.baseIntensity * pulse;
   }
 
-  // Rotate slowly
-  region.rotation.y += 0.0002;
+  // Rotate slowly with delta time for frame-rate independence
+  region.rotation.y += 0.0002 * deltaTime * 60; // Normalize to 60fps
 }
 
 /**

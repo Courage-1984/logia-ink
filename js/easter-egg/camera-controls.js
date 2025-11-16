@@ -372,11 +372,12 @@ export function animateCameraPath(camera, keyframes, onComplete = null) {
  * @returns {THREE.Vector3} Camera velocity
  */
 export function updateCameraVelocity(camera) {
-  if (!camera || !THREE) {
-    THREE = window.THREE;
-  }
   if (!camera || !THREE || !cameraVelocity || !lastCameraPosition) {
-    return new (THREE || window.THREE || {}).Vector3() || { x: 0, y: 0, z: 0 };
+    // Return zero vector if not initialized
+    if (THREE && THREE.Vector3) {
+      return new THREE.Vector3();
+    }
+    return { x: 0, y: 0, z: 0 };
   }
 
   const currentPosition = camera.position.clone();

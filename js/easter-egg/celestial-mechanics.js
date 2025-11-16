@@ -3,34 +3,46 @@
  * Handles accurate orbital mechanics, Lagrange points, and realistic planet rotation
  */
 
+// Physical constants
+// Rotation speeds are defined in radians per second for frame-rate independence
+const BASE_ROTATION_SPEED = 0.12; // radians per second (0.002 * 60)
+const BASE_ORBITAL_SPEED = 0.06; // radians per second (0.001 * 60)
+const DEFAULT_SUN_MASS = 1.0;
+const LAGRANGE_ANGLE = Math.PI / 3; // 60 degrees
+
 /**
  * Calculate Lagrange points (L4 and L5) for a planet-sun system
  * L4 and L5 are stable points 60° ahead and behind the planet
- * @param {Object} THREE - Three.js library
- * @param {THREE.Vector3} sunPosition - Position of the sun
- * @param {THREE.Vector3} planetPosition - Position of the planet
+ * Pure math function - returns plain objects, framework-agnostic
+ * @param {Object} sunPosition - Position of the sun {x, y, z}
+ * @param {Object} planetPosition - Position of the planet {x, y, z}
  * @param {number} planetDistance - Distance from sun to planet
- * @returns {Object} L4 and L5 positions
+ * @returns {Object} L4 and L5 positions as plain objects {x, y, z}
  */
-export function calculateLagrangePoints(THREE, sunPosition, planetPosition, planetDistance) {
+export function calculateLagrangePoints(sunPosition, planetPosition, planetDistance) {
+  // Extract coordinates (handles both THREE.Vector3 and plain objects)
+  const planetX = planetPosition.x || 0;
+  const planetY = planetPosition.y || 0;
+  const planetZ = planetPosition.z || 0;
+
   // Calculate angle of planet from sun
-  const angle = Math.atan2(planetPosition.z, planetPosition.x);
+  const angle = Math.atan2(planetZ, planetX);
 
   // L4 is 60° ahead (counter-clockwise)
-  const l4Angle = angle + Math.PI / 3;
-  const l4Position = new (THREE || window.THREE).Vector3(
-    Math.cos(l4Angle) * planetDistance,
-    planetPosition.y,
-    Math.sin(l4Angle) * planetDistance
-  );
+  const l4Angle = angle + LAGRANGE_ANGLE;
+  const l4Position = {
+    x: Math.cos(l4Angle) * planetDistance,
+    y: planetY,
+    z: Math.sin(l4Angle) * planetDistance,
+  };
 
   // L5 is 60° behind (clockwise)
-  const l5Angle = angle - Math.PI / 3;
-  const l5Position = new (THREE || window.THREE).Vector3(
-    Math.cos(l5Angle) * planetDistance,
-    planetPosition.y,
-    Math.sin(l5Angle) * planetDistance
-  );
+  const l5Angle = angle - LAGRANGE_ANGLE;
+  const l5Position = {
+    x: Math.cos(l5Angle) * planetDistance,
+    y: planetY,
+    z: Math.sin(l5Angle) * planetDistance,
+  };
 
   return {
     l4: l4Position,
@@ -116,15 +128,24 @@ export function updateLagrangePoints(THREE, lagrangeGroup) {
   const sun = lagrangeGroup.userData.sun;
   const planetDistance = planet.userData.distance;
 
+  // Calculate Lagrange points (returns plain objects)
   const lagrangePoints = calculateLagrangePoints(
-    THREE || window.THREE,
     sun.position,
     planet.position,
     planetDistance
   );
 
-  lagrangeGroup.userData.l4Marker.position.copy(lagrangePoints.l4);
-  lagrangeGroup.userData.l5Marker.position.copy(lagrangePoints.l5);
+  // Convert plain objects to THREE.Vector3 for Three.js
+  lagrangeGroup.userData.l4Marker.position.set(
+    lagrangePoints.l4.x,
+    lagrangePoints.l4.y,
+    lagrangePoints.l4.z
+  );
+  lagrangeGroup.userData.l5Marker.position.set(
+    lagrangePoints.l5.x,
+    lagrangePoints.l5.y,
+    lagrangePoints.l5.z
+  );
 }
 
 /**
@@ -142,29 +163,38 @@ export function calculateRealisticRotationSpeed(planetSize, distance) {
   const distanceFactor = 1 / Math.sqrt(distance);
 
   // Combined rotation speed
-  return sizeFactor * distanceFactor * 0.002;
+  return sizeFactor * distanceFactor * BASE_ROTATION_SPEED;
 }
 
 /**
- * Calculate realistic orbital speed using Kepler's laws
- * v = sqrt(GM/r) where G*M is simplified for our scale
+ * Calculate orbital speed using a simplified Keplerian approximation
+ * Uses v ∝ 1/sqrt(r) which approximates circular orbits in a simplified gravitational field
+ * Note: This is an approximation for visualization purposes, not a full numerical simulation
  * @param {number} distance - Distance from sun
- * @param {number} sunMass - Mass of the sun (relative)
- * @returns {number} Orbital speed
+ * @param {number} sunMass - Mass of the sun (relative, default 1.0)
+ * @returns {number} Orbital speed in radians per second
  */
-export function calculateOrbitalSpeed(distance, sunMass = 1) {
+export function calculateKeplerianOrbitalSpeedApproximation(distance, sunMass = DEFAULT_SUN_MASS) {
   // Simplified Kepler's law: v ∝ 1/sqrt(r)
   // For our scale, we use a simplified version
-  const baseSpeed = 0.001;
   const speedFactor = 1 / Math.sqrt(distance);
-  return baseSpeed * speedFactor * Math.sqrt(sunMass);
+  return BASE_ORBITAL_SPEED * speedFactor * Math.sqrt(sunMass);
+}
+
+/**
+ * @deprecated Use calculateKeplerianOrbitalSpeedApproximation instead
+ * Legacy alias for backward compatibility
+ */
+export function calculateOrbitalSpeed(distance, sunMass = DEFAULT_SUN_MASS) {
+  return calculateKeplerianOrbitalSpeedApproximation(distance, sunMass);
 }
 
 /**
  * Update planet rotation with realistic speeds
  * @param {THREE.Mesh} planet - Planet mesh
+ * @param {number} deltaTime - Time elapsed since last frame (in seconds)
  */
-export function updatePlanetRotation(planet) {
+export function updatePlanetRotation(planet, deltaTime = 0.016) {
   if (!planet || !planet.userData) {
     return;
   }
@@ -179,17 +209,19 @@ export function updatePlanetRotation(planet) {
     );
   }
 
-  // Apply rotation
-  planet.rotation.y += userData.rotationSpeed;
+  // Apply rotation with delta time for frame-rate independence
+  // rotationSpeed is defined in radians per second, so just multiply by deltaTime
+  planet.rotation.y += userData.rotationSpeed * deltaTime;
 }
 
 /**
  * Update all planets with realistic mechanics
  * @param {Array} planets - Array of planet meshes
+ * @param {number} deltaTime - Time elapsed since last frame (in seconds)
  */
-export function updateCelestialMechanics(planets) {
+export function updateCelestialMechanics(planets, deltaTime = 0.016) {
   planets.forEach(planet => {
-    updatePlanetRotation(planet);
+    updatePlanetRotation(planet, deltaTime);
   });
 }
 

@@ -16,22 +16,27 @@ import {
   shouldPlaceFeatureAtPole,
   getPoleScaleFactor,
   equirectangularToUV,
+  featherPoles,
 } from './texture-wrapping.js';
 
-import { fractalNoise, seamlessFractalNoise } from './procedural-noise.js';
+import { fractalNoise, seamlessFractalNoise, fractalNoise3D } from './procedural-noise.js';
 
 // Texture cache to avoid regenerating
 const textureCache = new Map();
+
+// Constants for pole-aware feature placement
+const MIN_POLE_SCALE_THRESHOLD = 0.1; // Minimum pole scale factor to place features (10% of normal size)
 
 /**
  * Create complex sun texture with detailed solar features
  * Uses equirectangular projection for better sphere mapping
  * @param {number} resolution - Resolution multiplier (1.0 = 2048x1024, 0.5 = 1024x512, etc.)
+ * @param {Object} THREE - Three.js library (required)
  */
-export function createSunTexture(resolution = 1.0) {
-  const THREE = window.THREE;
+export function createSunTexture(resolution = 1.0, THREE = null) {
+  THREE = THREE || (typeof window !== 'undefined' ? window.THREE : null);
   if (!THREE) {
-    throw new Error('THREE.js must be loaded before creating textures');
+    throw new Error('THREE.js must be loaded before creating textures. Pass THREE as second argument or ensure window.THREE is available.');
   }
 
   // Check cache first
@@ -88,7 +93,11 @@ export function createSunTexture(resolution = 1.0) {
       const radius = Math.random() * (15 - layer * 1.5) + 5;
       const scaledRadius = radius * poleScale;
 
-      if (distFromCenter < layerRadius && distFromCenter > layerRadius * 0.7 && poleScale > 0.1) {
+      if (
+        distFromCenter < layerRadius &&
+        distFromCenter > layerRadius * 0.7 &&
+        poleScale > MIN_POLE_SCALE_THRESHOLD
+      ) {
         // Use seamless noise for better horizontal wrapping
         const noiseValue = seamlessFractalNoise(
           x * noiseScale,
@@ -201,7 +210,7 @@ export function createSunTexture(resolution = 1.0) {
     const penumbraRadius = umbraRadius * (1.9 + Math.random() * 0.5);
 
     // Skip if too close to the pole
-    if (poleScale < 0.1) continue;
+    if (poleScale < MIN_POLE_SCALE_THRESHOLD) continue;
 
     // Penumbra (lighter outer ring)
     const penumbraGradient = ctx.createRadialGradient(x, y, umbraRadius, x, y, penumbraRadius);
@@ -259,8 +268,11 @@ export function createSunTexture(resolution = 1.0) {
     }
   }
 
-  // Make seamless for proper wrapping with improved blending
-  const seamlessData = makeSeamless(imageData, width, height, 3);
+  // Apply feathering to the poles for a smooth transition
+  const featheredData = featherPoles(imageData, width, height, 0.05);
+
+  // Make seamless with proper blending (horizontal only)
+  const seamlessData = makeSeamless(featheredData, width, height, 3);
   ctx.putImageData(seamlessData, 0, 0);
 
   // Create texture with proper sphere wrapping settings
@@ -280,11 +292,12 @@ export function createSunTexture(resolution = 1.0) {
  * Create detailed moon texture with complex crater details
  * Uses equirectangular projection and noise-based generation
  * @param {number} resolution - Resolution multiplier (1.0 = 2048x1024, 0.5 = 1024x512, etc.)
+ * @param {Object} THREE - Three.js library (required)
  */
-export function createMoonTexture(resolution = 1.0) {
-  const THREE = window.THREE;
+export function createMoonTexture(resolution = 1.0, THREE = null) {
+  THREE = THREE || (typeof window !== 'undefined' ? window.THREE : null);
   if (!THREE) {
-    throw new Error('THREE.js must be loaded before creating textures');
+    throw new Error('THREE.js must be loaded before creating textures. Pass THREE as second argument or ensure window.THREE is available.');
   }
 
   // Check cache first
@@ -515,8 +528,11 @@ export function createMoonTexture(resolution = 1.0) {
     finalData[i + 2] = Math.max(50, Math.min(200, finalData[i + 2] * brightness));
   }
 
-  // Make seamless with proper blending
-  const seamlessData = makeSeamless(finalImageData, width, height, 3);
+  // Apply feathering to the poles for a smooth transition
+  const featheredData = featherPoles(finalImageData, width, height, 0.05);
+
+  // Make seamless with proper blending (horizontal only)
+  const seamlessData = makeSeamless(featheredData, width, height, 3);
   ctx.putImageData(seamlessData, 0, 0);
 
   // Use helper function for consistent texture creation
@@ -538,11 +554,12 @@ export function createMoonTexture(resolution = 1.0) {
  * @param {string} name - Planet name
  * @param {number} color - Planet color
  * @param {number} resolution - Resolution multiplier (1.0 = 2048x1024, 0.5 = 1024x512, etc.)
+ * @param {Object} THREE - Three.js library (required)
  */
-export function createPlanetTexture(name, color, resolution = 1.0) {
-  const THREE = window.THREE;
+export function createPlanetTexture(name, color, resolution = 1.0, THREE = null) {
+  THREE = THREE || (typeof window !== 'undefined' ? window.THREE : null);
   if (!THREE) {
-    throw new Error('THREE.js must be loaded before creating textures');
+    throw new Error('THREE.js must be loaded before creating textures. Pass THREE as fourth argument or ensure window.THREE is available.');
   }
 
   // Check cache first
@@ -569,6 +586,9 @@ export function createPlanetTexture(name, color, resolution = 1.0) {
   const baseData = baseImageData.data;
 
   // Generate base color with seamless noise variation for proper wrapping
+  // NOTE: Currently using 2D noise (seamlessFractalNoise) for horizontal wrapping.
+  // For better quality and to eliminate pole distortion, consider using 3D noise (fractalNoise3D)
+  // by converting UV coordinates to 3D sphere coordinates: x = cos(u*2π)*sin(v*π), y = sin(u*2π)*sin(v*π), z = cos(v*π)
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       const idx = (y * width + x) * 4;
@@ -1174,8 +1194,11 @@ export function createPlanetTexture(name, color, resolution = 1.0) {
     finalData[i + 2] = Math.max(0, Math.min(255, finalData[i + 2] * brightness));
   }
 
-  // Make seamless for proper wrapping
-  const seamlessData = makeSeamless(finalImageData, width, height, 3);
+  // Apply feathering to the poles for a smooth transition
+  const featheredData = featherPoles(finalImageData, width, height, 0.05);
+
+  // Make seamless with proper blending (horizontal only)
+  const seamlessData = makeSeamless(featheredData, width, height, 3);
   ctx.putImageData(seamlessData, 0, 0);
 
   // Use helper function for consistent texture creation

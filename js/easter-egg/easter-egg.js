@@ -61,14 +61,13 @@ function setupLogoTrigger() {
       }
 
       logoClickTimer = window.setTimeout(() => {
-        const pendingClicks = logoClickCount;
-            logoClickCount = 0;
-            logo.classList.remove('easter-egg-ready');
-
-        if (pendingClicks < 3 && logoLink) {
-              window.location.href = logoLink.href;
-            }
-          }, 2000);
+        // Only reset the counter and remove the visual indicator after 2 seconds
+        logoClickCount = 0;
+        logo.classList.remove('easter-egg-ready');
+        // NOTE: If a redirect/link is desired for non-activation,
+        // it should happen unconditionally after a non-activation timeout,
+        // not only on a pending click count of 2.
+      }, 2000);
       },
       true
   );

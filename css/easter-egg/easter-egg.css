@@ -56,53 +56,34 @@ body.easter-egg-active {
   height: 100% !important;
 }
 
-/* Hide all page content when Milky Way is active - including navbar, scroll buttons, cursor effects, sections, etc */
-body.easter-egg-active .navbar,
-body.easter-egg-active .back-to-top,
-body.easter-egg-active .scroll-progress,
-body.easter-egg-active .cursor-follow,
-body.easter-egg-active .cursor-dot,
-body.easter-egg-active nav,
-body.easter-egg-active section,
-body.easter-egg-active header,
-body.easter-egg-active footer,
-body.easter-egg-active .hero,
-body.easter-egg-active .services-preview,
-body.easter-egg-active .featured-projects,
-body.easter-egg-active .cta-section,
-body.easter-egg-active .threejs-canvas,
-body.easter-egg-active .grid-overlay,
-body.easter-egg-active .particles,
-body.easter-egg-active .fluid-shape,
-body.easter-egg-active .scroll-indicator,
-body.easter-egg-active
-  > *:not(.easter-egg-vortex):not(.milky-way-scene):not(.milky-way-menu):not(.milky-way-loading) {
+/* Hide all page content when Milky Way is active
+ * Uses single wrapper approach: #main-content
+ * JavaScript handles the actual display:none, CSS handles the animation
+ * Navbar and footer are outside #main-content, so they're hidden explicitly
+ */
+body.easter-egg-active #main-content {
   animation: galaxyVortexDelete 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   transform-origin: center center;
 }
 
-/* After animation, hide everything completely */
+/* Hide navbar and footer (outside #main-content) */
+body.easter-egg-active .navbar,
+body.easter-egg-active #navbar,
+body.easter-egg-active nav.navbar,
+body.easter-egg-active footer {
+  animation: galaxyVortexDelete 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform-origin: center center;
+}
+
+/* After animation completes, ensure content stays hidden
+ * JavaScript handles the actual display:none via style.display
+ * This rule ensures visibility/opacity are also set for edge cases
+ */
+body.easter-egg-active.milky-way-ready #main-content,
 body.easter-egg-active.milky-way-ready .navbar,
-body.easter-egg-active.milky-way-ready .back-to-top,
-body.easter-egg-active.milky-way-ready .scroll-progress,
-body.easter-egg-active.milky-way-ready .cursor-follow,
-body.easter-egg-active.milky-way-ready .cursor-dot,
-body.easter-egg-active.milky-way-ready nav,
-body.easter-egg-active.milky-way-ready section,
-body.easter-egg-active.milky-way-ready header,
-body.easter-egg-active.milky-way-ready footer,
-body.easter-egg-active.milky-way-ready .hero,
-body.easter-egg-active.milky-way-ready .services-preview,
-body.easter-egg-active.milky-way-ready .featured-projects,
-body.easter-egg-active.milky-way-ready .cta-section,
-body.easter-egg-active.milky-way-ready .threejs-canvas,
-body.easter-egg-active.milky-way-ready .grid-overlay,
-body.easter-egg-active.milky-way-ready .particles,
-body.easter-egg-active.milky-way-ready .fluid-shape,
-body.easter-egg-active.milky-way-ready .scroll-indicator,
-body.easter-egg-active.milky-way-ready
-  > *:not(.easter-egg-vortex):not(.milky-way-scene):not(.milky-way-menu):not(.milky-way-loading) {
-  display: none !important;
+body.easter-egg-active.milky-way-ready #navbar,
+body.easter-egg-active.milky-way-ready nav.navbar,
+body.easter-egg-active.milky-way-ready footer {
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;

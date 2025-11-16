@@ -332,18 +332,18 @@ js/
 │   └── three-hero.js     # ✅ EXISTS - Three.js hero background animations (different per page)
 ├── easter-egg/           # ✅ EXISTS - Galaxy easter egg feature (dedicated folder)
 │   ├── easter-egg.js     # ✅ EXISTS - Easter egg trigger/initialization
-│   ├── runtime.js        # ✅ EXISTS - Milky Way 3D scene runtime
-│   ├── celestial-textures.js # ✅ EXISTS - Procedural texture generation for sun, planets, moons (with pole-aware scaling, seamless noise, quadratic feature scaling)
-│   ├── texture-wrapping.js # ✅ EXISTS - Seamless texture wrapping utilities for sphere mapping
-│   ├── procedural-noise.js # ✅ EXISTS - Procedural noise generation (fractal, seamless)
-│   ├── celestial-mechanics.js # ✅ EXISTS - Orbital mechanics and planet configuration
-│   ├── camera-controls.js # ✅ EXISTS - Camera animation and orbital controls
-│   ├── galaxy-generator.js # ✅ EXISTS - Multi-layer galaxy generation with density wave theory
-│   ├── star-field.js     # ✅ EXISTS - Background star field generation with twinkling
-│   ├── lighting-atmosphere.js # ✅ EXISTS - Dynamic lighting and atmospheric glow effects
+│   ├── runtime.js        # ✅ EXISTS - Milky Way 3D scene runtime (single wrapper UI hiding/restoration, navbar/footer handling)
+│   ├── celestial-textures.js # ✅ EXISTS - Procedural texture generation (THREE parameter, MIN_POLE_SCALE_THRESHOLD, pole-aware scaling, seamless noise, quadratic feature scaling)
+│   ├── texture-wrapping.js # ✅ EXISTS - Seamless texture wrapping utilities (featherPoles, isSafeForPolePlacement, multi-pixel blending)
+│   ├── procedural-noise.js # ✅ EXISTS - Procedural noise generation (fractal, seamless, 3D noise)
+│   ├── celestial-mechanics.js # ✅ EXISTS - Orbital mechanics (calculateKeplerianOrbitalSpeedApproximation, calculateLagrangePoints module purity, deltaTime support)
+│   ├── camera-controls.js # ✅ EXISTS - Camera animation and orbital controls (optimized THREE checks)
+│   ├── galaxy-generator.js # ✅ EXISTS - Multi-layer galaxy generation (spatial hash grid optimization for O(1) neighbor lookup)
+│   ├── star-field.js     # ✅ EXISTS - Background star field generation with twinkling (color buffer updates)
+│   ├── lighting-atmosphere.js # ✅ EXISTS - Dynamic lighting and atmospheric glow (initial camera position parameter)
 │   ├── nebula-clouds.js  # ✅ EXISTS - Nebula, star-forming regions, and interstellar medium
-│   ├── particle-effects.js # ✅ EXISTS - Asteroid belts, comets, solar wind, space dust, space stations
-│   └── post-processing.js # ✅ EXISTS - Post-processing effects (bloom, depth of field, motion blur)
+│   ├── particle-effects.js # ✅ EXISTS - Asteroid belts, comets, solar wind (frame-rate independent with deltaTime, squared distance checks), space dust, space stations
+│   └── post-processing.js # ✅ EXISTS - Post-processing effects (recursive raycasting, standardized imports, bloom, depth of field, motion blur)
 ├── utils/                # ✅ EXISTS - Utility modules (10 files)
 │   ├── accessibility.js  # ✅ EXISTS - Accessibility utilities (focus management, ARIA announcements)
 │   ├── env.js            # ✅ EXISTS - Environment detection helpers (browser-safe)
@@ -1051,18 +1051,18 @@ If new code introduces a new pattern, update the documentation and architecture 
 - ✅ **accessibility.js** - Accessibility utilities module
 - ✅ **easter-egg/** - Dedicated folder for galaxy easter egg feature (13 modules)
   - `easter-egg.js` - Trigger/initialization
-  - `runtime.js` - Milky Way 3D scene runtime
-  - `celestial-textures.js` - Procedural texture generation for sun, planets, moons with pole-aware scaling, seamless noise for paths, quadratic feature scaling, and advanced blending
-  - `texture-wrapping.js` - Seamless texture wrapping utilities for equirectangular sphere mapping
-  - `procedural-noise.js` - Procedural noise generation (fractal, seamless) for texture generation
-  - `celestial-mechanics.js` - Orbital mechanics and planet configuration
-  - `camera-controls.js` - Camera animation and orbital controls
-  - `galaxy-generator.js` - Multi-layer galaxy generation with density wave theory
-  - `star-field.js` - Background star field generation with twinkling
-  - `lighting-atmosphere.js` - Dynamic lighting and atmospheric glow effects
+  - `runtime.js` - Milky Way 3D scene runtime (UI hiding/restoration with single wrapper approach, navbar/footer handling)
+  - `celestial-textures.js` - Procedural texture generation for sun, planets, moons (THREE parameter support, MIN_POLE_SCALE_THRESHOLD constant, pole-aware scaling, seamless noise, quadratic feature scaling, advanced blending)
+  - `texture-wrapping.js` - Seamless texture wrapping utilities (featherPoles for pole distortion, isSafeForPolePlacement, multi-pixel blending)
+  - `procedural-noise.js` - Procedural noise generation (fractal, seamless, 3D noise support)
+  - `celestial-mechanics.js` - Orbital mechanics (calculateKeplerianOrbitalSpeedApproximation, calculateLagrangePoints returns plain objects for module purity, deltaTime support, frame-rate independent)
+  - `camera-controls.js` - Camera animation and orbital controls (removed redundant THREE checks)
+  - `galaxy-generator.js` - Multi-layer galaxy generation with density wave theory (spatial hash grid optimization for O(1) neighbor lookup)
+  - `star-field.js` - Background star field generation with twinkling (color buffer update notifications)
+  - `lighting-atmosphere.js` - Dynamic lighting and atmospheric glow effects (initial camera position parameter to prevent first-frame glitches)
   - `nebula-clouds.js` - Nebula, star-forming regions, and interstellar medium
-  - `particle-effects.js` - Asteroid belts, comets, solar wind, space dust, space stations
-  - `post-processing.js` - Post-processing effects (bloom, depth of field, motion blur)
+  - `particle-effects.js` - Asteroid belts, comets, solar wind (frame-rate independent with deltaTime, squared distance checks), space dust, space stations
+  - `post-processing.js` - Post-processing effects (recursive raycasting for accurate DoF, standardized ES module imports, bloom, depth of field, motion blur)
 
 ### NPM Scripts (reporting helpers)
 
@@ -1143,11 +1143,11 @@ If new code introduces a new pattern, update the documentation and architecture 
 
 ---
 
-**Last Updated:** 2025-01-XX (Performance optimizations: font-display, fetchpriority, service worker cache strategy, dynamic prefetch, analytics optimization)
+**Last Updated:** 2025-01-XX (Easter egg architecture improvements: spatial hash grid optimization, frame-rate independence, module purity, UI management, post-processing accuracy, code robustness)
 **Migration Status:** ✅ Complete - All CSS/JS migrated, build system configured, HTML includes implemented
 **Component Count:** 20 CSS components, 9 core JS modules (including three-hero), 10 JS utils (added dynamic-prefetch.js, web-worker-helper.js), 1 JS easter-egg folder (13 modules: easter-egg.js, runtime.js, celestial-textures.js, texture-wrapping.js, procedural-noise.js, celestial-mechanics.js, camera-controls.js, galaxy-generator.js, star-field.js, lighting-atmosphere.js, nebula-clouds.js, particle-effects.js, post-processing.js), 4 JS pages, 4 CSS pages, 9 utility CSS files, 1 CSS easter-egg folder, 2 HTML partials (navbar, footer)
 **Performance:** ✅ Service Worker (optimized cache strategy: stale-while-revalidate for hashed assets, cache-first for static), Self-Hosted Fonts (optimized font-display: swap for critical, optional for non-critical), Critical CSS, Image Optimization (fetchpriority, decoding attributes), Code Splitting, CSS Purging (disabled), CSS Minification (disabled), CSS Code Splitting (disabled), Compression (Gzip/Brotli), Web Vitals Tracking (LCP, CLS, INP via `web-vitals` → Plausible), Dynamic Three.js Loading (pre-loaded), Error Handling, Mobile Performance, Texture Loading Optimization, Optimized Particle Generation, Dynamic Resource Hints (prefetch on hover/focus), Modulepreload for critical ES modules, Analytics loaded after page load, Video lazy loading
 **Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact), Canonical URLs, Accessibility Features, Sitemap, Robots.txt, Comprehensive Favicon Implementation (SVG, PNG sizes, ICO, Apple Touch, Windows Tiles, Safari Pinned Tab)
 **Configuration Files:** ✅ ESLint v9 (flat config), Prettier, EditorConfig, Git Attributes, VS Code Settings, browserconfig.xml
-**Recent Updates:** ✅ HTML include system (Vite plugin for processing `<!-- include partials/... -->` comments at build time), modularized navbar and footer partials, comprehensive favicon implementation (SVG, 64x64/48x48/32x32/16x16 PNG, ICO fallback, Apple Touch Icon, Windows Tiles with browserconfig.xml, Safari Pinned Tab), sessionStorage-backed page transitions with preload snippet, error handling, performance tracking, Three.js optimization, CSP, SRI, accessibility enhancements, mobile performance, **texture modularization** (texture-wrapping.js, procedural-noise.js), **galaxy loading optimizations** (reduced texture resolution, pre-loading, optimized particle generation), **orbital inclinations** (realistic planet orbits), **improved seamless texture wrapping** (multi-pixel blending, pole-aware feature placement), **easter egg organization** (moved to dedicated `js/easter-egg/` and `css/easter-egg/` folders), **celestial texture improvements** (pole-aware radius scaling for equirectangular distortion correction, seamless noise for path generation, quadratic feature count scaling for consistent density, advanced blending modes, removed unused size parameter from createPlanetTexture), **audio assets support** (Vite plugin for copying audio files during build, space ambience audio file for easter egg feature), **performance optimizations** (font-display strategy optimization, image fetchpriority/decoding attributes, service worker cache strategy optimization, dynamic resource hints, modulepreload, analytics loading after page load, video lazy loading, Web Worker utilities)
+**Recent Updates:** ✅ HTML include system (Vite plugin for processing `<!-- include partials/... -->` comments at build time), modularized navbar and footer partials, comprehensive favicon implementation (SVG, 64x64/48x48/32x32/16x16 PNG, ICO fallback, Apple Touch Icon, Windows Tiles with browserconfig.xml, Safari Pinned Tab), sessionStorage-backed page transitions with preload snippet, error handling, performance tracking, Three.js optimization, CSP, SRI, accessibility enhancements, mobile performance, **texture modularization** (texture-wrapping.js, procedural-noise.js), **galaxy loading optimizations** (reduced texture resolution, pre-loading, optimized particle generation with spatial hash grid for O(1) neighbor lookup), **orbital inclinations** (realistic planet orbits), **improved seamless texture wrapping** (featherPoles for pole distortion, isSafeForPolePlacement, multi-pixel blending, pole-aware feature placement), **easter egg organization** (moved to dedicated `js/easter-egg/` and `css/easter-egg/` folders), **celestial texture improvements** (THREE parameter support, MIN_POLE_SCALE_THRESHOLD constant, pole-aware radius scaling for equirectangular distortion correction, seamless noise for path generation, quadratic feature count scaling for consistent density, advanced blending modes), **celestial mechanics improvements** (calculateKeplerianOrbitalSpeedApproximation, calculateLagrangePoints module purity, deltaTime support, frame-rate independent), **runtime improvements** (single wrapper UI hiding/restoration approach, explicit navbar/footer handling), **post-processing improvements** (recursive raycasting for accurate DoF, standardized ES module imports), **lighting improvements** (initial camera position parameter), **particle effects improvements** (frame-rate independent with deltaTime, squared distance checks), **camera controls improvements** (removed redundant THREE checks), **audio assets support** (Vite plugin for copying audio files during build, space ambience audio file for easter egg feature), **performance optimizations** (font-display strategy optimization, image fetchpriority/decoding attributes, service worker cache strategy optimization, dynamic resource hints, modulepreload, analytics loading after page load, video lazy loading, Web Worker utilities)
 **Remember:** Always update this file when making structural changes to the project!

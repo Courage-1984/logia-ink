@@ -165,21 +165,49 @@ export function activateEasterEgg() {
   // Scroll to top immediately
   window.scrollTo({ top: 0, behavior: 'instant' });
 
-  // Hide all UI elements immediately
-  const allElementsToHide = document.querySelectorAll(
-    '.navbar, .back-to-top, .scroll-progress, .cursor-follow, .cursor-dot, nav, section, header, footer, .hero, .services-preview, .featured-projects, .cta-section, .threejs-canvas, .grid-overlay, .particles, .fluid-shape, .scroll-indicator'
-  );
-  allElementsToHide.forEach(el => {
-    if (
-      el &&
-      !el.classList.contains('easter-egg-vortex') &&
-      !el.classList.contains('milky-way-scene') &&
-      !el.classList.contains('milky-way-menu') &&
-      !el.classList.contains('milky-way-loading')
-    ) {
-      el.style.display = 'none';
+  // Hide main content and structural elements (navbar, footer) using a single wrapper approach
+  // Navbar and footer are outside #main-content, so they need to be hidden explicitly
+  const mainContent = document.getElementById('main-content');
+  const navbar = document.querySelector('.navbar, #navbar, nav.navbar');
+  const footer = document.querySelector('footer');
+
+  // Hide main content
+  if (mainContent) {
+    // Store original display style for restoration
+    if (!mainContent.dataset.originalDisplay) {
+      mainContent.dataset.originalDisplay = mainContent.style.display || '';
     }
-  });
+    mainContent.style.display = 'none';
+  }
+
+  // Hide navbar (outside main-content)
+  if (navbar) {
+    if (!navbar.dataset.originalDisplay) {
+      navbar.dataset.originalDisplay = navbar.style.display || '';
+    }
+    navbar.style.display = 'none';
+  }
+
+  // Hide footer (outside main-content)
+  if (footer) {
+    if (!footer.dataset.originalDisplay) {
+      footer.dataset.originalDisplay = footer.style.display || '';
+    }
+    footer.style.display = 'none';
+  }
+
+  // Fallback: hide other top-level elements if main-content doesn't exist
+  if (!mainContent) {
+    const fallbackElements = document.querySelectorAll('body > *:not(.easter-egg-vortex):not(.milky-way-scene):not(.milky-way-menu):not(.milky-way-loading)');
+    fallbackElements.forEach(el => {
+      if (el && el.id !== 'aria-live-region') {
+        if (!el.dataset.originalDisplay) {
+          el.dataset.originalDisplay = el.style.display || '';
+        }
+        el.style.display = 'none';
+      }
+    });
+  }
 
   // Prevent scrolling
   document.body.classList.add('easter-egg-active');
@@ -752,7 +780,7 @@ function createCelestialBodies() {
 
   // Create Sun at the center with texture
   const sunGeometry = new THREE.SphereGeometry(3, 32, 32);
-  const sunTexture = createSunTexture(initialTextureResolution);
+  const sunTexture = createSunTexture(initialTextureResolution, THREE);
   // Use MeshStandardMaterial which supports emissive
   const sunMaterial = new THREE.MeshStandardMaterial({
     map: sunTexture,
@@ -864,7 +892,7 @@ function createCelestialBodies() {
     const planetGeometry = new THREE.SphereGeometry(config.size, 32, 32);
 
     // Generate procedural texture for planet (lower resolution for faster loading)
-    const texture = createPlanetTexture(config.name, config.color, initialTextureResolution);
+    const texture = createPlanetTexture(config.name, config.color, initialTextureResolution, THREE);
 
     const planetMaterial = new THREE.MeshPhongMaterial({
       map: texture,
@@ -910,7 +938,7 @@ function createCelestialBodies() {
     for (let m = 0; m < config.moons; m++) {
       const moonGeometry = new THREE.SphereGeometry(config.size * 0.3, 16, 16);
       // Create simple moon texture (lower resolution for faster loading)
-      const moonTexture = createMoonTexture(initialTextureResolution);
+      const moonTexture = createMoonTexture(initialTextureResolution, THREE);
       const moonMaterial = new THREE.MeshPhongMaterial({
         map: moonTexture,
         color: 0xcccccc,
@@ -945,7 +973,8 @@ function createCelestialBodies() {
     Aurora: { color: 0x66ff88, intensity: 0.35 },
     Nebula: { color: 0xaa88ff, intensity: 0.3 },
   };
-  addAtmospheresToPlanets(THREE, planets, atmosphereConfigs);
+  // Pass initial camera position to prevent first-frame atmosphere glitch
+  addAtmospheresToPlanets(THREE, planets, atmosphereConfigs, milkyWayCamera.position.clone());
 
   // Store planets for lighting updates
   milkyWayScene.userData.planets = planets;
@@ -1726,18 +1755,39 @@ function exitMilkyWay() {
     // Restore cursor
     document.body.style.cursor = '';
 
-    // Restore all UI elements
-    const allElements = document.querySelectorAll(
-      '.navbar, .back-to-top, .scroll-progress, .cursor-follow, .cursor-dot, nav, section, header, footer, .hero, .services-preview, .featured-projects, .cta-section, .threejs-canvas, .grid-overlay, .particles, .fluid-shape, .scroll-indicator'
-    );
-    allElements.forEach(el => {
-      if (el) {
-        el.style.display = '';
-        el.style.visibility = '';
-        el.style.opacity = '';
-        el.style.pointerEvents = '';
-      }
-    });
+    // Restore main content and structural elements (navbar, footer)
+    const mainContent = document.getElementById('main-content');
+    const navbar = document.querySelector('.navbar, #navbar, nav.navbar');
+    const footer = document.querySelector('footer');
+
+    // Restore main content
+    if (mainContent && mainContent.dataset.originalDisplay !== undefined) {
+      mainContent.style.display = mainContent.dataset.originalDisplay;
+      delete mainContent.dataset.originalDisplay;
+    }
+
+    // Restore navbar
+    if (navbar && navbar.dataset.originalDisplay !== undefined) {
+      navbar.style.display = navbar.dataset.originalDisplay;
+      delete navbar.dataset.originalDisplay;
+    }
+
+    // Restore footer
+    if (footer && footer.dataset.originalDisplay !== undefined) {
+      footer.style.display = footer.dataset.originalDisplay;
+      delete footer.dataset.originalDisplay;
+    }
+
+    // Fallback: restore other elements that were hidden (if main-content doesn't exist)
+    if (!mainContent) {
+      const fallbackElements = document.querySelectorAll('body > *:not(.easter-egg-vortex):not(.milky-way-scene):not(.milky-way-menu):not(.milky-way-loading)');
+      fallbackElements.forEach(el => {
+        if (el && el.dataset.originalDisplay !== undefined) {
+          el.style.display = el.dataset.originalDisplay;
+          delete el.dataset.originalDisplay;
+        }
+      });
+    }
 
     // Reset all elements
     document

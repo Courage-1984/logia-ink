@@ -162,8 +162,9 @@ export function generateMultiLayerStarField(THREE, baseParameters = {}) {
  * Update star twinkling effect
  * @param {THREE.Points} starField - Star field points object
  * @param {number} time - Current time in seconds
+ * @param {number} deltaTime - Time elapsed since last frame (in seconds)
  */
-export function updateStarTwinkling(starField, time) {
+export function updateStarTwinkling(starField, time, deltaTime = 0.016) {
   if (!starField || !starField.geometry) {
     return;
   }
@@ -195,7 +196,8 @@ export function updateStarTwinkling(starField, time) {
     const phase = phaseArray[starIndex];
     const speed = speedArray[starIndex];
 
-    // Twinkling effect using sine wave
+    // Twinkling effect using sine wave with delta time for frame-rate independence
+    // Use time-based animation for consistent twinkling regardless of frame rate
     const twinkle = Math.sin(time * speed + phase) * 0.3 + 0.7; // Oscillates between 0.4 and 1.0
 
     // Apply twinkling to base colors

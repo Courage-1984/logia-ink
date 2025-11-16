@@ -53,14 +53,18 @@ export function equirectangularToUV(x, y, width, height) {
  */
 export function isNearPole(v, poleThreshold = 0.05) {
   const distanceFromEquator = Math.abs(v - 0.5) * 2; // 0 at equator, 1 at pole
-  const isNearPole = distanceFromEquator > (1 - poleThreshold * 2);
-  const poleFactor = Math.max(0, (distanceFromEquator - (1 - poleThreshold * 2)) / (poleThreshold * 2));
+  const isNearPole = distanceFromEquator > 1 - poleThreshold * 2;
+  const poleFactor = Math.max(
+    0,
+    (distanceFromEquator - (1 - poleThreshold * 2)) / (poleThreshold * 2)
+  );
   return { isNearPole, poleFactor };
 }
 
 /**
- * Improved seamless wrapping with multi-pixel blending
- * Blends multiple edge pixels for smoother transitions
+ * Improved seamless wrapping with multi-pixel blending (Horizontal seam only)
+ * Blends multiple edge pixels for smoother transitions where U=0 meets U=1.
+ * Removed incorrect vertical pole blending.
  * @param {ImageData} imageData - Image data to make seamless
  * @param {number} width - Image width
  * @param {number} height - Image height
@@ -76,13 +80,14 @@ export function makeSeamless(imageData, width, height, blendWidth = 3) {
     for (let blend = 0; blend < blendWidthClamped; blend++) {
       const leftIdx = (y * width + blend) * 4;
       const rightIdx = (y * width + width - 1 - blend) * 4;
+      // These wrap indices ensure the blended value is written back to the opposing edge
       const leftWrapIdx = (y * width + width - 1 - blend) * 4;
       const rightWrapIdx = (y * width + blend) * 4;
 
       // Calculate blend factor (stronger at edges, weaker further in)
-      const blendFactor = 1 - (blend / blendWidthClamped);
+      const blendFactor = 1 - blend / blendWidthClamped;
 
-      // Blend left edge with right edge
+      // Blend left edge (inner) with right edge (inner)
       for (let c = 0; c < 4; c++) {
         const leftValue = data[leftIdx + c];
         const rightValue = data[rightIdx + c];
@@ -91,11 +96,10 @@ export function makeSeamless(imageData, width, height, blendWidth = 3) {
         data[leftWrapIdx + c] = blended;
       }
 
-      // Blend right edge with left edge
+      // Blend right edge (inner) with left edge (inner)
       for (let c = 0; c < 4; c++) {
         const rightValue = data[rightIdx + c];
-        const leftValue = data[leftIdx + blend];
-        const leftWrapValue = data[leftWrapIdx + c];
+        const leftWrapValue = data[leftWrapIdx + c]; // Use the already blended value if possible, or leftIdx
         const blended = rightValue * (1 - blendFactor * 0.5) + leftWrapValue * (blendFactor * 0.5);
         data[rightIdx + c] = blended;
         data[rightWrapIdx + c] = blended;
@@ -103,50 +107,82 @@ export function makeSeamless(imageData, width, height, blendWidth = 3) {
     }
   }
 
-  // Blend vertical edges at poles (top/bottom wrap) - but with less blending due to pole distortion
-  const poleBlendWidth = Math.min(2, Math.floor(height / 8));
-  for (let x = 0; x < width; x++) {
-    for (let blend = 0; blend < poleBlendWidth; blend++) {
-      const topIdx = (blend * width + x) * 4;
-      const bottomIdx = ((height - 1 - blend) * width + x) * 4;
-      const topWrapIdx = ((height - 1 - blend) * width + x) * 4;
-      const bottomWrapIdx = (blend * width + x) * 4;
-
-      const blendFactor = 1 - (blend / poleBlendWidth);
-
-      // Blend top edge with bottom edge (lighter blend for poles)
-      for (let c = 0; c < 4; c++) {
-        const topValue = data[topIdx + c];
-        const bottomValue = data[bottomIdx + c];
-        const blended = topValue * (1 - blendFactor * 0.3) + bottomValue * (blendFactor * 0.3);
-        data[topIdx + c] = blended;
-        data[topWrapIdx + c] = blended;
-      }
-
-      // Blend bottom edge with top edge
-      for (let c = 0; c < 4; c++) {
-        const bottomValue = data[bottomIdx + c];
-        const topWrapValue = data[topWrapIdx + c];
-        const blended = bottomValue * (1 - blendFactor * 0.3) + topWrapValue * (blendFactor * 0.3);
-        data[bottomIdx + c] = blended;
-        data[bottomWrapIdx + c] = blended;
-      }
-    }
-  }
+  // NOTE: Vertical blending for poles is inappropriate and has been removed.
+  // Use featherPoles() instead to smoothly transition the content to the final edge color.
 
   return imageData;
 }
 
 /**
- * Apply pole-aware feature placement
- * Avoids placing distinct features near poles where distortion is high
+ * Apply polar feathering to smoothly fade details and color variation
+ * to a uniform color at the V-axis edges (poles).
+ * This ensures THREE.ClampToEdgeWrapping works without artifacts.
+ * @param {ImageData} imageData - Image data to modify
+ * @param {number} width - Image width
+ * @param {number} height - Image height
+ * @param {number} fadeZone - The height percentage (0-1) from the edge where the fade should occur (e.g., 0.05 = 5% of height)
+ * @returns {ImageData} Feathered image data
+ */
+export function featherPoles(imageData, width, height, fadeZone = 0.05) {
+  const data = imageData.data;
+  const fadeStart = height * fadeZone; // Y coordinate where fade begins
+  const fadeEndTop = fadeStart;
+  const fadeStartBottom = height - fadeStart;
+
+  for (let y = 0; y < height; y++) {
+    let fadeFactor = 1.0; // 1.0 means full opacity/effect, 0.0 means fully faded
+
+    // Top Pole (y < fadeEndTop)
+    if (y < fadeEndTop) {
+      fadeFactor = y / fadeEndTop; // Fades from 0 at the pole (y=0) to 1 at fadeEndTop
+    }
+    // Bottom Pole (y > fadeStartBottom)
+    else if (y > fadeStartBottom) {
+      fadeFactor = (height - y) / fadeStart; // Fades from 0 at the pole (y=height) to 1 at fadeStartBottom
+    }
+
+    if (fadeFactor < 1.0) {
+      for (let x = 0; x < width; x++) {
+        const idx = (y * width + x) * 4;
+
+        // Get the color of the adjacent row (towards the equator) to fade towards
+        // This makes the transition smooth by blending to the next "valid" row
+        const sourceY = y < fadeEndTop ? Math.floor(fadeEndTop) : Math.floor(fadeStartBottom - 1);
+        const sourceIdx = (sourceY * width + x) * 4;
+
+        for (let c = 0; c < 3; c++) {
+          // R, G, B channels
+          const baseColor = data[sourceIdx + c]; // Use the color just outside the fade zone as the target base
+          const currentValue = data[idx + c];
+
+          // Linearly blend the current pixel value towards the "base" color (just outside the fade zone)
+          data[idx + c] = currentValue * fadeFactor + baseColor * (1 - fadeFactor);
+        }
+        // Alpha channel remains 255
+      }
+    }
+  }
+  return imageData;
+}
+
+/**
+ * Check if a coordinate is safe for feature placement (not near poles)
+ * Returns true when the feature can be safely placed away from pole distortion
  * @param {number} v - V coordinate (0-1, latitude)
  * @param {number} poleExclusionZone - Zone to exclude features (default 0.08 = 8% from top/bottom)
- * @returns {boolean} True if feature should be placed here
+ * @returns {boolean} True if feature placement is safe (not near pole), false if near pole
  */
-export function shouldPlaceFeatureAtPole(v, poleExclusionZone = 0.08) {
+export function isSafeForPolePlacement(v, poleExclusionZone = 0.08) {
   const poleInfo = isNearPole(v, poleExclusionZone);
   return !poleInfo.isNearPole;
+}
+
+/**
+ * @deprecated Use isSafeForPolePlacement instead
+ * Legacy alias for backward compatibility
+ */
+export function shouldPlaceFeatureAtPole(v, poleExclusionZone = 0.08) {
+  return isSafeForPolePlacement(v, poleExclusionZone);
 }
 
 /**
@@ -158,7 +194,7 @@ export function shouldPlaceFeatureAtPole(v, poleExclusionZone = 0.08) {
  */
 export function getPoleScaleFactor(v, poleThreshold = 0.1) {
   const { poleFactor } = isNearPole(v, poleThreshold);
-  return 1 - (poleFactor * 0.5); // Scale down to 50% at poles
+  return 1 - poleFactor * 0.5; // Scale down to 50% at poles
 }
 
 /**
@@ -193,4 +229,3 @@ export function createSphereTexture(canvas, options = {}) {
 
   return texture;
 }
-

@@ -1,0 +1,982 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Logi-Ink</title>
+
+    <!-- Security Headers -->
+    <!-- Note: X-Frame-Options only works via HTTP headers, not meta tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Permissions-Policy"
+      content="geolocation=(), microphone=(), camera=()"
+    />
+    <!-- Content Security Policy (basic - enhance via server headers) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io; frame-src https://www.google.com;"
+    />
+
+    <script>
+      if (sessionStorage.getItem('logiInk:pendingTransition')) {
+        document.documentElement.classList.add('page-transition-preload');
+        sessionStorage.removeItem('logiInk:pendingTransition');
+      }
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Explore our portfolio of successful digital projects. See how we transform ideas into exceptional digital experiences that drive results."
+    />
+    <meta
+      name="keywords"
+      content="portfolio, web projects, digital projects, case studies, web design examples"
+    />
+    <meta name="author" content="Logi-Ink" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://logi-ink.com/projects.html" />
+    <meta property="og:title" content="Projects - Logi-Ink" />
+    <meta
+      property="og:description"
+      content="Explore our portfolio of successful digital projects. See how we transform ideas into exceptional digital experiences."
+    />
+    <meta
+      property="og:image"
+      content="https://logi-ink.com/assets/images/banners/banner_home.webp"
+    />
+    <meta property="og:site_name" content="Logi-Ink" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://logi-ink.com/projects.html" />
+    <meta name="twitter:title" content="Projects - Logi-Ink" />
+    <meta
+      name="twitter:description"
+      content="Explore our portfolio of successful digital projects. See how we transform ideas into exceptional digital experiences."
+    />
+    <meta
+      name="twitter:image"
+      content="https://logi-ink.com/assets/images/banners/banner_home.webp"
+    />
+    <meta name="twitter:site" content="@logiink" />
+    <meta name="twitter:creator" content="@logiink" />
+
+    <!-- Preload critical resources -->
+
+    <!-- Preload critical fonts (self-hosted WOFF2 - Subsetted) -->
+    <link
+      rel="preload"
+      href="data:font/woff2;base64,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"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Rajdhani-Regular-subset-eAD4TeI1.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+
+    <!-- Modulepreload for critical ES modules -->
+    <link rel="modulepreload" href="data:text/javascript;base64,LyoqCiAqIE1haW4gRW50cnkgUG9pbnQKICogSW1wb3J0cyBhbmQgaW5pdGlhbGl6ZXMgYWxsIG1vZHVsZXMKICovCgovLyBDb3JlIG1vZHVsZXMgKGxvYWQgaW1tZWRpYXRlbHkpCmltcG9ydCB7IGluaXRTY3JvbGxNYW5hZ2VyIH0gZnJvbSAnLi9jb3JlL3Njcm9sbC1tYW5hZ2VyLmpzJzsKaW1wb3J0IHsgaW5pdE5hdmlnYXRpb24gfSBmcm9tICcuL2NvcmUvbmF2aWdhdGlvbi5qcyc7CmltcG9ydCB7IGluaXRTY3JvbGwgfSBmcm9tICcuL2NvcmUvc2Nyb2xsLmpzJzsKaW1wb3J0IHsgaW5pdEFuaW1hdGlvbnMgfSBmcm9tICcuL2NvcmUvYW5pbWF0aW9ucy5qcyc7CmltcG9ydCB7IGluaXRDdXJzb3IgfSBmcm9tICcuL2NvcmUvY3Vyc29yLmpzJzsKaW1wb3J0IHsgaW5pdE1vdXNlVGlsdCB9IGZyb20gJy4vY29yZS9tb3VzZS10aWx0LmpzJzsKaW1wb3J0IHsgaW5pdEludGVyYWN0aW9ucyB9IGZyb20gJy4vdXRpbHMvaW50ZXJhY3Rpb25zLmpzJzsKaW1wb3J0IHsgaW5pdEJhY2tncm91bmRWaWRlb0xhenlMb2FkIH0gZnJvbSAnLi91dGlscy9yaXBwbGVzLWxhenlsb2FkLmpzJzsKaW1wb3J0IHsgaW5pdFBhZ2VUcmFuc2l0aW9ucyB9IGZyb20gJy4vY29yZS9wYWdlLXRyYW5zaXRpb25zLmpzJzsKaW1wb3J0IHsgcmVnaXN0ZXJTZXJ2aWNlV29ya2VyIH0gZnJvbSAnLi9jb3JlL3NlcnZpY2Utd29ya2VyLmpzJzsKaW1wb3J0IHsgaW5pdEFjY2Vzc2liaWxpdHkgfSBmcm9tICcuL3V0aWxzL2FjY2Vzc2liaWxpdHkuanMnOwppbXBvcnQgeyBpbml0RXJyb3JIYW5kbGVyIH0gZnJvbSAnLi91dGlscy9lcnJvci1oYW5kbGVyLmpzJzsKaW1wb3J0IHsgaW5pdER5bmFtaWNQcmVmZXRjaCB9IGZyb20gJy4vdXRpbHMvZHluYW1pYy1wcmVmZXRjaC5qcyc7CgovLyBMYXp5IGxvYWQgZWFzdGVyIGVnZyBtb2R1bGUgKGxpZ2h0d2VpZ2h0IGluaXRpYWxpemF0aW9uIC0gaGVhdnkgM0QgbG9hZHMgb24gYWN0aXZhdGlvbikKbGV0IGVhc3RlckVnZ01vZHVsZSA9IG51bGw7CgovLyBJbml0aWFsaXplIGFsbCBtb2R1bGVzIHdoZW4gRE9NIGlzIHJlYWR5CmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ0RPTUNvbnRlbnRMb2FkZWQnLCBhc3luYyAoKSA9PiB7CiAgLy8gSW5pdGlhbGl6ZSBlcnJvciBoYW5kbGluZyBmaXJzdCAoY2F0Y2hlcyBlcnJvcnMgZnJvbSBvdGhlciBtb2R1bGVzKQogIGluaXRFcnJvckhhbmRsZXIoKTsKCiAgLy8gSW5pdGlhbGl6ZSBwZXJmb3JtYW5jZSB0cmFja2luZyAobm9uLWJsb2NraW5nKQogIGNvbnN0IHsgaW5pdFBlcmZvcm1hbmNlVHJhY2tpbmcgfSA9IGF3YWl0IGltcG9ydCgnLi91dGlscy9wZXJmb3JtYW5jZS5qcycpOwogIGluaXRQZXJmb3JtYW5jZVRyYWNraW5nKCk7CgogIC8vIFJlZ2lzdGVyIHNlcnZpY2Ugd29ya2VyIChmb3Igb2ZmbGluZSBzdXBwb3J0IGFuZCBjYWNoaW5nKQogIHJlZ2lzdGVyU2VydmljZVdvcmtlcigpOwoKICAvLyBJbml0aWFsaXplIHNjcm9sbCBtYW5hZ2VyIGZpcnN0IChyZXF1aXJlZCBieSBvdGhlciBtb2R1bGVzKQogIGluaXRTY3JvbGxNYW5hZ2VyKCk7CgogIC8vIEluaXRpYWxpemUgYWNjZXNzaWJpbGl0eSBmZWF0dXJlcyBmaXJzdAogIGluaXRBY2Nlc3NpYmlsaXR5KCk7CgogIC8vIEluaXRpYWxpemUgY29yZSBtb2R1bGVzCiAgaW5pdFBhZ2VUcmFuc2l0aW9ucygpOwogIGluaXROYXZpZ2F0aW9uKCk7CiAgaW5pdFNjcm9sbCgpOwogIGluaXRBbmltYXRpb25zKCk7CiAgaW5pdEN1cnNvcigpOwogIGluaXRNb3VzZVRpbHQoKTsKICBpbml0SW50ZXJhY3Rpb25zKCk7CiAgaW5pdEJhY2tncm91bmRWaWRlb0xhenlMb2FkKCk7CiAgaW5pdER5bmFtaWNQcmVmZXRjaCgpOwoKICAvLyBMYXp5IGxvYWQgcGFnZS1zcGVjaWZpYyBtb2R1bGVzCiAgaWYgKHdpbmRvdy5sb2NhdGlvbi5wYXRobmFtZS5pbmNsdWRlcygnY29udGFjdC5odG1sJykpIHsKICAgIGNvbnN0IHsgaW5pdENvbnRhY3RGb3JtIH0gPSBhd2FpdCBpbXBvcnQoJy4vcGFnZXMvY29udGFjdC5qcycpOwogICAgaW5pdENvbnRhY3RGb3JtKCk7CiAgfQoKICBpZiAod2luZG93LmxvY2F0aW9uLnBhdGhuYW1lLmluY2x1ZGVzKCdzZXJ2aWNlcy5odG1sJykpIHsKICAgIGNvbnN0IHsgaW5pdFNlcnZpY2VNb2RhbHMgfSA9IGF3YWl0IGltcG9ydCgnLi9wYWdlcy9zZXJ2aWNlcy5qcycpOwogICAgaW5pdFNlcnZpY2VNb2RhbHMoKTsKICB9CgogIGlmICh3aW5kb3cubG9jYXRpb24ucGF0aG5hbWUuaW5jbHVkZXMoJ3Byb2plY3RzLmh0bWwnKSkgewogICAgY29uc3QgeyBpbml0UHJvamVjdHNQYWdlIH0gPSBhd2FpdCBpbXBvcnQoJy4vcGFnZXMvcHJvamVjdHMuanMnKTsKICAgIGluaXRQcm9qZWN0c1BhZ2UoKTsKICB9CgogIGlmICh3aW5kb3cubG9jYXRpb24ucGF0aG5hbWUuaW5jbHVkZXMoJ3JlcG9ydHMuaHRtbCcpKSB7CiAgICBjb25zdCB7IGluaXRSZXBvcnRzUGFnZSB9ID0gYXdhaXQgaW1wb3J0KCcuL3BhZ2VzL3JlcG9ydHMuanMnKTsKICAgIGluaXRSZXBvcnRzUGFnZSgpOwogIH0KCiAgLy8gSW5pdGlhbGl6ZSBlYXN0ZXIgZWdnIG1vZHVsZSAoc2V0cyB1cCB0cmlnZ2VycyAtIGhlYXZ5IDNEIGxvYWRzIG9uIGFjdGl2YXRpb24pCiAgLy8gVGhpcyBuZWVkcyB0byBydW4gZWFybHkgc28gaXQgY2FuIGFkZCB0aGUgZm9vdGVyIHRyaWdnZXIgdGV4dAogIGlmICghZWFzdGVyRWdnTW9kdWxlKSB7CiAgICBjb25zdCBlYXN0ZXJFZ2dJbXBvcnQgPSBhd2FpdCBpbXBvcnQoJy4vZWFzdGVyLWVnZy9lYXN0ZXItZWdnLmpzJyk7CiAgICBlYXN0ZXJFZ2dNb2R1bGUgPSBlYXN0ZXJFZ2dJbXBvcnQ7CiAgICBlYXN0ZXJFZ2dJbXBvcnQuaW5pdEVhc3RlckVnZygpOwogIH0KCiAgLy8gSW5pdGlhbGl6ZSBUaHJlZS5qcyBoZXJvIGJhY2tncm91bmRzIChkaWZmZXJlbnQgYW5pbWF0aW9ucyBwZXIgcGFnZSkKICBjb25zdCB7IGluaXRUaHJlZUhlcm8gfSA9IGF3YWl0IGltcG9ydCgnLi9jb3JlL3RocmVlLWhlcm8uanMnKTsKICBpbml0VGhyZWVIZXJvKCk7Cn0pOwo=" />
+    <link rel="modulepreload" href="./assets/navigation-DdWtLabl.js" />
+
+    <!-- Preconnect for third-party resources -->
+    <link rel="preconnect" href="https://plausible.io" crossorigin />
+
+    <!-- Stylesheet (includes self-hosted fonts via @font-face) -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://logi-ink.com/projects.html" />
+
+    <!-- Favicons -->
+    <!-- SVG favicon (modern browsers) -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <!-- PNG favicons (ordered from largest to smallest) -->
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/images/favicon-64x64-aj3bIGPM.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="./assets/images/favicon-48x48-D-NHXH9l.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+    <!-- ICO fallback (legacy browsers) -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <!-- Windows Tiles -->
+    <meta name="msapplication-TileColor" content="#00ffff" />
+    <meta name="msapplication-TileImage" content="./assets/images/mstile-150x150-D0ZAFGe5.png" />
+    <meta name="msapplication-config" content="data:text/xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPGJyb3dzZXJjb25maWc+CiAgICA8bXNhcHBsaWNhdGlvbj4KICAgICAgICA8dGlsZT4KICAgICAgICAgICAgPHNxdWFyZTcweDcwbG9nbyBzcmM9Ii9tc3RpbGUtNzB4NzAucG5nIi8+CiAgICAgICAgICAgIDxzcXVhcmUxNTB4MTUwbG9nbyBzcmM9Ii9tc3RpbGUtMTUweDE1MC5wbmciLz4KICAgICAgICAgICAgPHNxdWFyZTMxMHgzMTBsb2dvIHNyYz0iL21zdGlsZS0zMTB4MzEwLnBuZyIvPgogICAgICAgICAgICA8d2lkZTMxMHgxNTBsb2dvIHNyYz0iL21zdGlsZS0zMTB4MTUwLnBuZyIvPgogICAgICAgICAgICA8VGlsZUNvbG9yPiMwMGZmZmY8L1RpbGVDb2xvcj4KICAgICAgICA8L3RpbGU+CiAgICA8L21zYXBwbGljYXRpb24+CjwvYnJvd3NlcmNvbmZpZz4KCg==" />
+    <!-- Safari Pinned Tab -->
+    <link rel="mask-icon" href="data:image/svg+xml,%3csvg%20width='1024'%20height='1024'%20viewBox='0%200%201024%201024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='1024'%20height='1024'%20fill='%231A1A2E'/%3e%3cpath%20d='M502.461%20135.671C506.734%20128.191%20517.68%20128.311%20521.737%20136.033L912.082%20878.883C915.931%20886.207%20910.619%20895%20902.345%20895H121.655C113.381%20895%20108.069%20886.208%20111.918%20878.883L502.263%20136.033L502.461%20135.671Z'%20fill='%230A0A0A'%20stroke='%2300FFFF'%20stroke-width='20'/%3e%3ccircle%20cx='203.5'%20cy='222.5'%20r='71'%20fill='black'%20stroke='%23FF00FF'%20stroke-width='25'/%3e%3ccircle%20cx='820.5'%20cy='222.5'%20r='71'%20fill='black'%20stroke='%23FF00FF'%20stroke-width='25'/%3e%3c/svg%3e" color="#00ffff" />
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="./assets/video/optimized/site.webmanifest" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Projects - Logi-Ink",
+      "url": "https://logi-ink.com/projects.html",
+      "description": "Explore our portfolio of successful digital projects. See how we transform ideas into exceptional digital experiences.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Logi-Ink"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://logi-ink.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projects",
+            "item": "https://logi-ink.com/projects.html"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Main CSS -->
+    <script type="module" crossorigin src="./assets/js/main-C03pCD7j.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/style-Dlr_3_sh.css">
+  </head>
+
+  <body class="projects-page">
+    <!-- Accessibility: Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ARIA Live Region for announcements -->
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Mouse Follow Effects -->
+    <div class="cursor-follow"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="index.html">
+        <span class="logo-text">LOG<span class="logo-accent">I</span>-INK</span>
+      </a>
+    </div>
+    <ul class="nav-menu" id="navMenu" role="menubar" aria-label="Main navigation">
+      <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+      <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+      <li role="none" class="nav-item-dropdown">
+        <a href="services.html" class="nav-link" role="menuitem" aria-haspopup="true" aria-expanded="false">Services</a>
+        <ul class="dropdown-menu" role="menu">
+          <li role="none"><a href="services.html" class="dropdown-link" role="menuitem">All Services</a></li>
+          <li role="none"><a href="pricing.html" class="dropdown-link" role="menuitem">Pricing</a></li>
+          <li role="none"><a href="seo-services.html" class="dropdown-link" role="menuitem">SEO Services</a></li>
+        </ul>
+      </li>
+      <li role="none"><a href="projects.html" class="nav-link" role="menuitem">Projects</a></li>
+      <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact Us</a></li>
+    </ul>
+    <button
+      class="hamburger"
+      id="hamburger"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="navMenu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+
+
+    <!-- Projects Hero -->
+    <main id="main-content">
+    <section class="hero" style="min-height: 100vh; height: 100vh; padding-top: 100px">
+      <div class="hero-background">
+        <!-- Three.js Canvas for Projects Background -->
+        <canvas id="threejs-projects-canvas" class="threejs-canvas"></canvas>
+        <div class="grid-overlay"></div>
+        <div class="particles"></div>
+        <!-- Fluid Shapes -->
+        <div class="fluid-shape fluid-shape-1"></div>
+        <div class="fluid-shape fluid-shape-2"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 4.5rem)">
+          <span class="text-reveal" style="color: var(--accent-cyan)">OUR</span>
+          <span class="text-reveal delay-1" style="color: var(--accent-magenta)">PROJECTS</span>
+        </h1>
+        <p class="hero-subtitle fade-in delay-2">
+          Showcasing our latest innovations and client successes
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="featured-projects">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Portfolio</h2>
+          <p class="section-subtitle">Transforming ideas into digital reality</p>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card mouse-tilt-container card-3d" data-project-id="ecommerce-platform">
+            <div class="project-image">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="./assets/images/example_placeholder_001-480w-CJORGyqp.avif 480w, ./assets/images/example_placeholder_001-768w-CmhNPKM4.avif 768w, ./assets/images/example_placeholder_001-1024w-D3GI4ExD.avif 1024w, ./assets/images/example_placeholder_001-1280w-DdFyOSrG.avif 1280w, ./assets/images/example_placeholder_001-1920w-wYKYCdWh.avif 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="./assets/images/example_placeholder_001-480w-XfTA97GN.webp 480w, ./assets/images/example_placeholder_001-768w-BJjsZx7x.webp 768w, ./assets/images/example_placeholder_001-1024w-CBCs6tSS.webp 1024w, ./assets/images/example_placeholder_001-1280w-BI-AMske.webp 1280w, ./assets/images/example_placeholder_001-1920w-1lTcu99v.webp 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <img
+                  src="./assets/images/example_placeholder_001-Dq32Nlko.png"
+                  data-base="example_placeholder_001"
+                  loading="lazy"
+                  fetchpriority="low"
+                  decoding="async"
+                  alt="E-commerce platform interface mockup"
+                />
+              </picture>
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-content">
+              <span class="project-category">Web Development</span>
+              <div class="project-tags">
+                <span class="project-tag">React</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">MongoDB</span>
+              </div>
+              <h3>E-Commerce Platform</h3>
+              <p>
+                A revolutionary e-commerce platform with advanced filtering, real-time inventory,
+                and seamless payment integration.
+              </p>
+              <button
+                class="btn btn-outline project-details-btn"
+                type="button"
+                data-project-id="ecommerce-platform"
+              >
+                View Details →
+              </button>
+            </div>
+          </div>
+          <div class="project-card mouse-tilt-container card-3d" data-project-id="fintech-app">
+            <div class="project-image">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="./assets/images/example_placeholder_002-480w-W5TT8bdc.avif 480w, ./assets/images/example_placeholder_002-768w-DSv71alt.avif 768w, ./assets/images/example_placeholder_002-1024w-BlL0oLOc.avif 1024w, ./assets/images/example_placeholder_002-1280w-N2ik5pM6.avif 1280w, ./assets/images/example_placeholder_002-1920w-BiXLvqyN.avif 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="./assets/images/example_placeholder_002-480w-CJT62YGY.webp 480w, ./assets/images/example_placeholder_002-768w-D8lOlmVg.webp 768w, ./assets/images/example_placeholder_002-1024w-ChYYn32V.webp 1024w, ./assets/images/example_placeholder_002-1280w-z5QpSeZD.webp 1280w, ./assets/images/example_placeholder_002-1920w-DYw2F7Ds.webp 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <img
+                  src="./assets/images/example_placeholder_002-DKpQO3wS.png"
+                  data-base="example_placeholder_002"
+                  loading="lazy"
+                  fetchpriority="low"
+                  decoding="async"
+                  alt="FinTech mobile app user interface"
+                />
+              </picture>
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-content">
+              <span class="project-category">UI/UX Design</span>
+              <div class="project-tags">
+                <span class="project-tag">Figma</span>
+                <span class="project-tag">Prototyping</span>
+                <span class="project-tag">Design System</span>
+              </div>
+              <h3>FinTech Mobile App</h3>
+              <p>
+                Modern banking app with intuitive interface design, focusing on user experience and
+                security.
+              </p>
+              <button
+                class="btn btn-outline project-details-btn"
+                type="button"
+                data-project-id="fintech-app"
+              >
+                View Details →
+              </button>
+            </div>
+          </div>
+          <div class="project-card mouse-tilt-container card-3d" data-project-id="startup-rebrand">
+            <div class="project-image">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="./assets/images/example_placeholder_003-480w-DLoR_K6m.avif 480w, ./assets/images/example_placeholder_003-768w-CW_unqlC.avif 768w, ./assets/images/example_placeholder_003-1024w-CRFLBN0P.avif 1024w, ./assets/images/example_placeholder_003-1280w-DTsmac24.avif 1280w, ./assets/images/example_placeholder_003-1920w-Dpw5VWrv.avif 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="./assets/images/example_placeholder_003-480w-B25uzyZg.webp 480w, ./assets/images/example_placeholder_003-768w-86oSHMWM.webp 768w, ./assets/images/example_placeholder_003-1024w-CQhuGDqf.webp 1024w, ./assets/images/example_placeholder_003-1280w-DyYHOmmD.webp 1280w, ./assets/images/example_placeholder_003-1920w-kDGb4cId.webp 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <img
+                  src="./assets/images/example_placeholder_003-qUH-pAHs.png"
+                  data-base="example_placeholder_003"
+                  loading="lazy"
+                  fetchpriority="low"
+                  decoding="async"
+                  alt="Brand strategy presentation boards"
+                />
+              </picture>
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-content">
+              <span class="project-category">Brand Strategy</span>
+              <div class="project-tags">
+                <span class="project-tag">Rebranding</span>
+                <span class="project-tag">Identity</span>
+                <span class="project-tag">Strategy</span>
+              </div>
+              <h3>Tech Startup Rebrand</h3>
+              <p>
+                Complete brand transformation for a tech startup, including logo, visual identity,
+                and brand guidelines.
+              </p>
+              <button
+                class="btn btn-outline project-details-btn"
+                type="button"
+                data-project-id="startup-rebrand"
+              >
+                View Details →
+              </button>
+            </div>
+          </div>
+          <div class="project-card mouse-tilt-container card-3d" data-project-id="corporate-website">
+            <div class="project-image">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="./assets/images/example_placeholder_004-480w-CxtCx5w6.avif 480w, ./assets/images/example_placeholder_004-768w-CJBusfBd.avif 768w, ./assets/images/example_placeholder_004-1024w-BjzCF7ss.avif 1024w, ./assets/images/example_placeholder_004-1280w-DH8pYzQg.avif 1280w, ./assets/images/example_placeholder_004-1920w-KYNGzAQd.avif 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="./assets/images/example_placeholder_004-480w-D1ktFJyI.webp 480w, ./assets/images/example_placeholder_004-768w-DETaQ6P8.webp 768w, ./assets/images/example_placeholder_004-1024w-BF5NYmAg.webp 1024w, ./assets/images/example_placeholder_004-1280w-D3AlKTfM.webp 1280w, ./assets/images/example_placeholder_004-1920w-Bbjnfh0o.webp 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <img
+                  src="./assets/images/example_placeholder_004-DKZ04FP6.png"
+                  data-base="example_placeholder_004"
+                  loading="lazy"
+                  fetchpriority="low"
+                  decoding="async"
+                  alt="Corporate website desktop layout"
+                />
+              </picture>
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-content">
+              <span class="project-category">Web Development</span>
+              <div class="project-tags">
+                <span class="project-tag">WordPress</span>
+                <span class="project-tag">Custom Theme</span>
+                <span class="project-tag">SEO</span>
+              </div>
+              <h3>Corporate Website</h3>
+              <p>
+                Modern corporate website with CMS integration, SEO optimization, and responsive
+                design.
+              </p>
+              <button
+                class="btn btn-outline project-details-btn"
+                type="button"
+                data-project-id="corporate-website"
+              >
+                View Details →
+              </button>
+            </div>
+          </div>
+          <div class="project-card mouse-tilt-container card-3d" data-project-id="fitness-tracker">
+            <div class="project-image">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="./assets/images/example_placeholder_005-480w-CxQ2MyS_.avif 480w, ./assets/images/example_placeholder_005-768w-DiEck9uN.avif 768w, ./assets/images/example_placeholder_005-1024w-CdSbkL8J.avif 1024w, ./assets/images/example_placeholder_005-1280w-DhHh6nNa.avif 1280w, ./assets/images/example_placeholder_005-1920w-BEMEAVfV.avif 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="./assets/images/example_placeholder_005-480w-aa2a9SVA.webp 480w, ./assets/images/example_placeholder_005-768w-Dqs6f5qi.webp 768w, ./assets/images/example_placeholder_005-1024w-B45R9v3y.webp 1024w, ./assets/images/example_placeholder_005-1280w-DMqw6Y9F.webp 1280w, ./assets/images/example_placeholder_005-1920w-CmdFRFsv.webp 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <img
+                  src="./assets/images/example_placeholder_005-BtNbAazi.png"
+                  data-base="example_placeholder_005"
+                  loading="lazy"
+                  fetchpriority="low"
+                  decoding="async"
+                  alt="Fitness tracking app dashboard screens"
+                />
+              </picture>
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-content">
+              <span class="project-category">Mobile App</span>
+              <div class="project-tags">
+                <span class="project-tag">React Native</span>
+                <span class="project-tag">iOS</span>
+                <span class="project-tag">Android</span>
+              </div>
+              <h3>Fitness Tracking App</h3>
+              <p>
+                Cross-platform fitness app with workout tracking, progress analytics, and social
+                features.
+              </p>
+              <button
+                class="btn btn-outline project-details-btn"
+                type="button"
+                data-project-id="fitness-tracker"
+              >
+                View Details →
+              </button>
+            </div>
+          </div>
+          <div class="project-card mouse-tilt-container card-3d" data-project-id="marketing-campaign">
+            <div class="project-image">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="./assets/images/example_placeholder_006-480w-xW-GAs66.avif 480w, ./assets/images/example_placeholder_006-768w-C0WHv7Sj.avif 768w, ./assets/images/example_placeholder_006-1024w-qizKF0CE.avif 1024w, ./assets/images/example_placeholder_006-1280w-hyZAuGIH.avif 1280w, ./assets/images/example_placeholder_006-1920w-CRklTXAQ.avif 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="./assets/images/example_placeholder_006-480w-gwTjMhbu.webp 480w, ./assets/images/example_placeholder_006-768w-DDn95d-0.webp 768w, ./assets/images/example_placeholder_006-1024w-DjejKA_7.webp 1024w, ./assets/images/example_placeholder_006-1280w-BTQ3SKI6.webp 1280w, ./assets/images/example_placeholder_006-1920w-Bxib87rk.webp 1920w"
+                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                />
+                <img
+                  src="./assets/images/example_placeholder_006-BO_AgKU7.png"
+                  data-base="example_placeholder_006"
+                  loading="lazy"
+                  fetchpriority="low"
+                  decoding="async"
+                  alt="Analytics dashboard marketing campaign overview"
+                />
+              </picture>
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-content">
+              <span class="project-category">Digital Marketing</span>
+              <div class="project-tags">
+                <span class="project-tag">SEO</span>
+                <span class="project-tag">Content</span>
+                <span class="project-tag">Analytics</span>
+              </div>
+              <h3>Marketing Campaign</h3>
+              <p>
+                Comprehensive digital marketing campaign with content strategy, SEO, and social
+                media management.
+              </p>
+              <button
+                class="btn btn-outline project-details-btn"
+                type="button"
+                data-project-id="marketing-campaign"
+              >
+                View Details →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technologies Used Section -->
+    <section class="services-preview">
+      <div class="container">
+        <div class="section-header scroll-reveal-3d">
+          <h2 class="section-title">Technologies We Use</h2>
+          <p class="section-subtitle">Our toolkit for building exceptional digital experiences</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+            <div class="service-icon">
+              <div class="icon-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <h3>React & Next.js</h3>
+            <p>Modern frontend frameworks for building dynamic, scalable web applications</p>
+          </div>
+          <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+            <div class="service-icon">
+              <div class="icon-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <path d="M9 9h6v6H9z" />
+              </svg>
+            </div>
+            <h3>Node.js & APIs</h3>
+            <p>Robust backend solutions with REST and GraphQL APIs for seamless integrations</p>
+          </div>
+          <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+            <div class="service-icon">
+              <div class="icon-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <h3>React Native</h3>
+            <p>Cross-platform mobile development for iOS and Android applications</p>
+          </div>
+          <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+            <div class="service-icon">
+              <div class="icon-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+            </div>
+            <h3>Figma & Design</h3>
+            <p>Professional design tools for creating stunning user interfaces and experiences</p>
+          </div>
+          <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+            <div class="service-icon">
+              <div class="icon-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                />
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                <line x1="12" y1="22.08" x2="12" y2="12" />
+              </svg>
+            </div>
+            <h3>WordPress & CMS</h3>
+            <p>Flexible content management systems for easy website maintenance</p>
+          </div>
+          <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+            <div class="service-icon">
+              <div class="icon-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            </div>
+            <h3>Cloud & DevOps</h3>
+            <p>AWS, Docker, CI/CD pipelines for scalable and reliable deployments</p>
+          </div>
+          <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+            <div class="service-icon">
+              <div class="icon-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                <circle cx="12" cy="12" r="2" />
+              </svg>
+            </div>
+            <h3>Python & AI/ML</h3>
+            <p>Data science, machine learning, and AI solutions for intelligent applications</p>
+          </div>
+          <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+            <div class="service-icon">
+              <div class="icon-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg>
+            </div>
+            <h3>Databases & Storage</h3>
+            <p>
+              MongoDB, PostgreSQL, Redis, and cloud storage solutions for robust data management
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Testimonials Section -->
+    <section class="featured-projects parallax-section testimonials-parallax testimonials-section">
+      <div class="parallax-background"></div>
+      <div class="parallax-overlay parallax-overlay--neutral"></div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">What Our Clients Say</h2>
+          <p class="section-subtitle">Hear from our satisfied customers</p>
+        </div>
+        <div class="services-grid" style="position: relative; z-index: 2">
+          <div class="service-card mouse-tilt-container card-3d">
+            <div style="margin-bottom: 1.5rem">
+              <svg
+                viewBox="0 0 24 24"
+                fill="var(--accent-cyan)"
+                width="40"
+                height="40"
+                style="opacity: 0.5"
+              >
+                <path
+                  d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+                />
+              </svg>
+            </div>
+            <p
+              style="
+                font-style: italic;
+                color: var(--text-secondary);
+                margin-bottom: 1.5rem;
+                line-height: 1.8;
+              "
+            >
+              "Logi-Ink delivered an exceptional website that perfectly captured our brand identity
+              and exceeded our expectations. Their team is highly professional and responsive."
+            </p>
+            <div>
+              <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem">Sarah Johnson</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem">CEO, TechCorp</p>
+            </div>
+          </div>
+          <div class="service-card mouse-tilt-container card-3d">
+            <div style="margin-bottom: 1.5rem">
+              <svg
+                viewBox="0 0 24 24"
+                fill="var(--accent-magenta)"
+                width="40"
+                height="40"
+                style="opacity: 0.5"
+              >
+                <path
+                  d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+                />
+              </svg>
+            </div>
+            <p
+              style="
+                font-style: italic;
+                color: var(--text-secondary);
+                margin-bottom: 1.5rem;
+                line-height: 1.8;
+              "
+            >
+              "Their mobile app development was seamless, and the final product exceeded our vision.
+              The user experience is outstanding."
+            </p>
+            <div>
+              <h4 style="color: var(--accent-magenta); margin-bottom: 0.5rem">Michael Chen</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem">Founder, FinTech Solutions</p>
+            </div>
+          </div>
+          <div class="service-card mouse-tilt-container card-3d">
+            <div style="margin-bottom: 1.5rem">
+              <svg
+                viewBox="0 0 24 24"
+                fill="var(--accent-green)"
+                width="40"
+                height="40"
+                style="opacity: 0.5"
+              >
+                <path
+                  d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+                />
+              </svg>
+            </div>
+            <p
+              style="
+                font-style: italic;
+                color: var(--text-secondary);
+                margin-bottom: 1.5rem;
+                line-height: 1.8;
+              "
+            >
+              "The digital marketing campaign they ran for us resulted in a significant increase in
+              website traffic and customer engagement."
+            </p>
+            <div>
+              <h4 style="color: var(--accent-green); margin-bottom: 0.5rem">Emily Davis</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem">
+                Marketing Director, MarketMe
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Results Section -->
+    <section class="services-preview parallax-section testimonials-parallax project-impact-section">
+      <div class="parallax-background"></div>
+      <div class="parallax-overlay parallax-overlay--neutral"></div>
+      <div class="container">
+        <div class="section-header scroll-reveal-3d">
+          <h2 class="section-title">Project Impact</h2>
+          <p class="section-subtitle">Numbers that speak volumes</p>
+        </div>
+        <div class="services-grid">
+          <div
+            class="service-card mouse-tilt-container card-3d project-impact-cyan"
+            style="text-align: center"
+          >
+            <div
+              class="count-number"
+              data-target="200"
+              data-suffix="+"
+              style="
+                font-size: clamp(2.5rem, 5vw, 4rem);
+                color: var(--accent-cyan);
+                margin-bottom: 1rem;
+                font-family: 'Orbitron', sans-serif;
+                font-weight: 900;
+              "
+            >
+              0+
+            </div>
+            <h3>Completed Projects</h3>
+            <p style="color: var(--text-secondary)">
+              Successfully delivered projects across various industries
+            </p>
+          </div>
+          <div
+            class="service-card mouse-tilt-container card-3d project-impact-magenta"
+            style="text-align: center"
+          >
+            <div
+              class="count-number"
+              data-target="50"
+              data-suffix="+"
+              style="
+                font-size: clamp(2.5rem, 5vw, 4rem);
+                color: var(--accent-magenta);
+                margin-bottom: 1rem;
+                font-family: 'Orbitron', sans-serif;
+                font-weight: 900;
+              "
+            >
+              0+
+            </div>
+            <h3>Satisfied Clients</h3>
+            <p style="color: var(--text-secondary)">
+              Long-term partnerships built on trust and excellence
+            </p>
+          </div>
+          <div
+            class="service-card mouse-tilt-container card-3d project-impact-green"
+            style="text-align: center"
+          >
+            <div
+              class="count-number"
+              data-target="10"
+              data-suffix="K+"
+              style="
+                font-size: clamp(2.5rem, 5vw, 4rem);
+                color: var(--accent-green);
+                margin-bottom: 1rem;
+                font-family: 'Orbitron', sans-serif;
+                font-weight: 900;
+              "
+            >
+              0K+
+            </div>
+            <h3>Lines of Code</h3>
+            <p style="color: var(--text-secondary)">
+              Clean, efficient code written for maximum performance
+            </p>
+          </div>
+          <div
+            class="service-card mouse-tilt-container card-3d project-impact-blue"
+            style="text-align: center"
+          >
+            <div
+              class="count-number"
+              data-target="5"
+              data-suffix="K+"
+              style="
+                font-size: clamp(2.5rem, 5vw, 4rem);
+                color: var(--accent-blue);
+                margin-bottom: 1rem;
+                font-family: 'Orbitron', sans-serif;
+                font-weight: 900;
+              "
+            >
+              0K+
+            </div>
+            <h3>Hours Invested</h3>
+            <p style="color: var(--text-secondary)">
+              Dedicated development hours ensuring quality delivery
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <!-- Top Curved Divider -->
+      <div class="portal-divider portal-divider-top">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="topGradientProjects" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color: var(--bg-secondary); stop-opacity: 1" />
+              <stop offset="100%" style="stop-color: var(--bg-secondary); stop-opacity: 0" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,120 Q360,0 720,60 T1440,120 L1440,0 L0,0 Z"
+            fill="url(#topGradientProjects)"
+          />
+        </svg>
+      </div>
+
+      <!-- Portal Glow Effect -->
+      <div class="portal-glow"></div>
+
+      <div class="container">
+        <div class="cta-content">
+          <h2>Have a Project in Mind?</h2>
+          <p>Let's bring your vision to life</p>
+          <a href="contact.html" class="btn btn-primary btn-large">Start Your Project</a>
+        </div>
+      </div>
+
+      <!-- Bottom Curved Divider -->
+      <div class="portal-divider portal-divider-bottom">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bottomGradientProjects" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color: var(--bg-secondary); stop-opacity: 0" />
+              <stop offset="100%" style="stop-color: var(--bg-secondary); stop-opacity: 1" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,0 Q360,120 720,60 T1440,0 L1440,120 L0,120 Z"
+            fill="url(#bottomGradientProjects)"
+          />
+        </svg>
+      </div>
+    </section>
+    </main>
+
+    <!-- Project Details Modal -->
+    <div
+      class="modal project-modal"
+      id="project-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="project-modal-title"
+    >
+      <div class="modal-content project-modal__content" role="document" tabindex="-1">
+        <button class="modal-close modal-close--left" type="button" aria-label="Close project details">
+          ×
+        </button>
+        <div class="project-modal__layout">
+          <figure class="project-modal__media">
+            <picture id="project-modal-picture">
+              <source id="project-modal-source-avif" type="image/avif" />
+              <source id="project-modal-source-webp" type="image/webp" />
+              <img class="project-modal__image" src="" alt="" loading="lazy" fetchpriority="low" decoding="async" />
+            </picture>
+            <div class="project-modal__magnifier" aria-hidden="true"></div>
+          </figure>
+          <div class="project-modal__body">
+            <div class="project-modal__scrollable">
+              <span class="project-modal__category"></span>
+              <h3 class="project-modal__title" id="project-modal-title"></h3>
+              <div class="project-modal__description">
+                <p class="project-modal__summary"></p>
+                <div class="project-modal__tags" aria-label="Project technologies"></div>
+              </div>
+
+              <div class="project-modal__sections">
+                <section class="project-modal__section">
+                  <h4>Key Highlights</h4>
+                  <ul class="project-modal__highlights"></ul>
+                </section>
+                <section class="project-modal__section">
+                  <h4>Results</h4>
+                  <ul class="project-modal__results"></ul>
+                </section>
+              </div>
+            </div>
+            <div class="project-modal__cta-wrapper">
+              <a href="contact.html" class="btn btn-primary project-modal__cta">Start a Similar Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>LOG<span class="logo-accent">I</span>-INK</h3>
+        <p>Digital innovation and creative solutions for the future.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+          <li><a href="#" target="_blank">Twitter</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Logi-Ink. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top"></a>
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Load analytics after page load to reduce impact on Core Web Vitals -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = 'https://plausible.io/js/script.js';
+        script.setAttribute('data-domain', 'logi-ink.com');
+        document.head.appendChild(script);
+      });
+    </script>
+  </body>
+</html>

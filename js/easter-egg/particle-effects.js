@@ -361,8 +361,9 @@ export function createSpaceStation(THREE, planet, parameters = {}) {
 /**
  * Update asteroid belt animation
  * @param {THREE.Points} asteroidBelt - Asteroid belt to animate
+ * @param {number} deltaTime - Time elapsed since last frame (in seconds)
  */
-export function updateAsteroidBelt(asteroidBelt) {
+export function updateAsteroidBelt(asteroidBelt, deltaTime = 0.016) {
   if (!asteroidBelt || !asteroidBelt.userData.rotations) {
     return;
   }
@@ -372,7 +373,8 @@ export function updateAsteroidBelt(asteroidBelt) {
 
   for (let i = 0; i < positions.count; i++) {
     const i3 = i * 3;
-    rotations[i * 2] += rotations[i * 2 + 1];
+    // Apply rotation with delta time for frame-rate independence
+    rotations[i * 2] += rotations[i * 2 + 1] * deltaTime * 60; // Normalize to 60fps
 
     const angle = rotations[i * 2];
     const radius = Math.sqrt(
@@ -390,8 +392,9 @@ export function updateAsteroidBelt(asteroidBelt) {
 /**
  * Update comet animation
  * @param {Object} comet - Comet object with core and trail
+ * @param {number} deltaTime - Time elapsed since last frame (in seconds)
  */
-export function updateComet(comet) {
+export function updateComet(comet, deltaTime = 0.016) {
   if (!comet || !comet.core || !comet.core.userData.isComet) {
     return;
   }
@@ -399,8 +402,8 @@ export function updateComet(comet) {
   const core = comet.core;
   const userData = core.userData;
 
-  // Update orbit
-  userData.orbitAngle += userData.speed;
+  // Update orbit with delta time for frame-rate independence
+  userData.orbitAngle += userData.speed * deltaTime * 60; // Normalize to 60fps
 
   const x = Math.cos(userData.orbitAngle) * userData.orbitRadius;
   const z = Math.sin(userData.orbitAngle) * userData.orbitRadius;
@@ -439,8 +442,9 @@ export function updateComet(comet) {
 /**
  * Update solar wind animation
  * @param {THREE.Points} solarWind - Solar wind particles
+ * @param {number} deltaTime - Time elapsed since last frame (in seconds)
  */
-export function updateSolarWind(solarWind) {
+export function updateSolarWind(solarWind, deltaTime = 0.016) {
   if (!solarWind || !solarWind.userData.velocities) {
     return;
   }
@@ -449,25 +453,30 @@ export function updateSolarWind(solarWind) {
   const velocities = solarWind.userData.velocities;
   const lifetimes = solarWind.userData.lifetimes;
 
+  // Movement factor to normalize velocity scale (velocities are defined in units per second at 60fps)
+  const movementFactor = 60;
+
   for (let i = 0; i < positions.count; i++) {
     const i3 = i * 3;
 
-    // Update position
-    positions.array[i3] += velocities[i3];
-    positions.array[i3 + 1] += velocities[i3 + 1];
-    positions.array[i3 + 2] += velocities[i3 + 2];
+    // Update position with delta time for frame-rate independence
+    // Velocities are defined in units per second, so multiply by deltaTime and movementFactor
+    positions.array[i3] += velocities[i3] * deltaTime * movementFactor;
+    positions.array[i3 + 1] += velocities[i3 + 1] * deltaTime * movementFactor;
+    positions.array[i3 + 2] += velocities[i3 + 2] * deltaTime * movementFactor;
 
-    // Decrease lifetime
-    lifetimes[i] -= 1;
+    // Decrease lifetime (lifetime is in frames, so we convert deltaTime to frames)
+    lifetimes[i] -= deltaTime * movementFactor;
 
-    // Reset if lifetime expired or too far
-    const distance = Math.sqrt(
+    // Reset if lifetime expired or too far from sun
+    // Use squared distance to avoid expensive Math.sqrt
+    const distanceSq =
       positions.array[i3] * positions.array[i3] +
       positions.array[i3 + 1] * positions.array[i3 + 1] +
-      positions.array[i3 + 2] * positions.array[i3 + 2]
-    );
+      positions.array[i3 + 2] * positions.array[i3 + 2];
+    const maxDistanceSq = 50 * 50; // Maximum distance squared from origin (sun at 0,0,0)
 
-    if (lifetimes[i] <= 0 || distance > 50) {
+    if (lifetimes[i] <= 0 || distanceSq > maxDistanceSq) {
       // Respawn near sun
       const radius = 3.5 + Math.random() * 0.5;
       const theta = Math.random() * Math.PI * 2;
@@ -487,14 +496,16 @@ export function updateSolarWind(solarWind) {
 /**
  * Update space station animation
  * @param {THREE.Group} station - Space station to animate
+ * @param {number} deltaTime - Time elapsed since last frame (in seconds)
  */
-export function updateSpaceStation(station) {
+export function updateSpaceStation(station, deltaTime = 0.016) {
   if (!station || !station.userData.isSpaceStation) {
     return;
   }
 
   const userData = station.userData;
-  userData.angle += userData.speed;
+  // Apply rotation with delta time for frame-rate independence
+  userData.angle += userData.speed * deltaTime * 60; // Normalize to 60fps
 
   const x = Math.cos(userData.angle) * userData.distance;
   const z = Math.sin(userData.angle) * userData.distance;
@@ -502,7 +513,7 @@ export function updateSpaceStation(station) {
   station.position.x = x;
   station.position.z = z;
 
-  // Rotate station slowly
-  station.rotation.y += 0.01;
+  // Rotate station slowly with delta time
+  station.rotation.y += 0.01 * deltaTime * 60; // Normalize to 60fps
 }
 

@@ -175,20 +175,31 @@ Coverage: multi-page navigation (desktop + mobile drawer), scroll progress/back-
 The galaxy easter egg is organized in a dedicated folder for better maintainability:
 
 - **`js/easter-egg/easter-egg.js`** - Trigger/initialization (logo clicks, footer trigger)
-- **`js/easter-egg/runtime.js`** - Milky Way 3D scene runtime (Three.js scene, animation, controls)
-- **`js/easter-egg/celestial-textures.js`** - Main texture generator (sun, moon, planets)
-- **`js/easter-egg/texture-wrapping.js`** - Seamless wrapping utilities for sphere mapping
-- **`js/easter-egg/procedural-noise.js`** - Procedural noise generation (fractal, seamless)
-- **`css/easter-egg/easter-egg.css`** - Styles for vortex effect and Milky Way scene
+- **`js/easter-egg/runtime.js`** - Milky Way 3D scene runtime (Three.js scene, animation, controls, single wrapper UI hiding/restoration, navbar/footer handling)
+- **`js/easter-egg/celestial-textures.js`** - Main texture generator (sun, moon, planets) - accepts THREE parameter, uses MIN_POLE_SCALE_THRESHOLD constant
+- **`js/easter-egg/texture-wrapping.js`** - Seamless wrapping utilities (featherPoles for pole distortion, isSafeForPolePlacement, multi-pixel blending)
+- **`js/easter-egg/procedural-noise.js`** - Procedural noise generation (fractal, seamless, 3D noise support)
+- **`js/easter-egg/celestial-mechanics.js`** - Orbital mechanics (calculateKeplerianOrbitalSpeedApproximation, calculateLagrangePoints returns plain objects for module purity, deltaTime support)
+- **`js/easter-egg/camera-controls.js`** - Camera animation and orbital controls (optimized THREE checks)
+- **`js/easter-egg/galaxy-generator.js`** - Multi-layer galaxy generation (spatial hash grid optimization for O(1) neighbor lookup)
+- **`js/easter-egg/lighting-atmosphere.js`** - Dynamic lighting (initial camera position parameter to prevent first-frame glitches)
+- **`js/easter-egg/particle-effects.js`** - Particle systems (frame-rate independent with deltaTime, squared distance checks)
+- **`js/easter-egg/post-processing.js`** - Post-processing effects (recursive raycasting for accurate DoF, standardized ES module imports)
+- **`css/easter-egg/easter-egg.css`** - Styles for vortex effect and Milky Way scene (simplified selectors, single wrapper approach)
 
-Textures use equirectangular projection (2:1 aspect ratio) for optimal sphere mapping. The system supports:
+**Key Features:**
+- Textures use equirectangular projection (2:1 aspect ratio) for optimal sphere mapping
 - Lower initial resolution for faster loading (0.5x default, upgradeable)
 - Seamless horizontal wrapping with multi-pixel blending
-- Pole-aware feature placement and radius scaling to minimize distortion
+- Pole-aware feature placement and radius scaling to minimize distortion (featherPoles utility)
 - Seamless noise functions for path generation (cracks, mountains) to prevent visible seams
 - Quadratic feature count scaling for consistent visual density across resolution levels
 - Texture caching to avoid regeneration
 - Advanced blending modes (e.g., `lighter` for atmospheric clouds)
+- Frame-rate independent animations (all particle systems and mechanics use deltaTime)
+- Module purity (celestial-mechanics.js math functions are framework-agnostic)
+- Optimized performance (spatial hash grid for particle distribution, squared distance checks)
+- Accurate depth of field (recursive raycasting for nested scene hierarchies)
 
 ### Modifying Colors
 
