@@ -50,8 +50,8 @@
 /* Modal Close Button */
 .modal-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: var(--space-4);
+  right: var(--space-4);
   background: transparent;
   border: 2px solid var(--accent-cyan);
   color: var(--accent-cyan);
@@ -75,6 +75,6 @@
 
 .modal-close--left {
   right: auto;
-  left: 1rem;
+  left: var(--space-4);
   transform-origin: center;
 }

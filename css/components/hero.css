@@ -287,17 +287,17 @@
   text-align: center;
   z-index: 10;
   max-width: 1200px;
-  padding: 0 2rem;
+  padding: 0 var(--space-8);
   position: relative;
 }
 
 /* Hero Title */
 .hero-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.5rem, 7vw, 5rem);
-  font-weight: 900;
+  font-weight: var(--font-weight-black);
   line-height: 1.05;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-6);
   text-transform: uppercase;
   letter-spacing: 3px;
   padding-top: 0;
@@ -327,7 +327,7 @@
 .hero-subtitle {
   font-size: clamp(1rem, 1.8vw, 1.3rem);
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-8);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -336,10 +336,10 @@
 /* Hero Buttons Container */
 .hero-buttons {
   display: flex;
-  gap: 1.5rem;
+  gap: var(--space-6);
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-8);
 }
 
 /* Text Reveal Animation */
@@ -396,7 +396,7 @@
   left: 50%;
   transform: translateX(-50%);
   animation: bounce 2s infinite;
-  margin-top: 2rem;
+  margin-top: var(--space-8);
   z-index: 10;
   /* Prevent layout shifts */
   contain: layout style;

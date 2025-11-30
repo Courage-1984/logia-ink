@@ -1,0 +1,3300 @@
+{
+  "totalFiles": 57,
+  "filesWithOpportunities": 45,
+  "totalOpportunities": {
+    "fontSizes": 71,
+    "spacing": 395
+  },
+  "fileDetails": [
+    {
+      "file": "css\\critical.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "padding",
+            "value": "1rem",
+            "line": 85,
+            "context": "padding: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1px",
+            "line": 86,
+            "context": "bottom: 1px"
+          },
+          {
+            "property": "max-width",
+            "value": "1400px",
+            "line": 96,
+            "context": "max-width: 1400px"
+          },
+          {
+            "property": "height",
+            "value": "2px",
+            "line": 152,
+            "context": "height: 2px"
+          },
+          {
+            "property": "gap",
+            "value": "5px",
+            "line": 186,
+            "context": "gap: 5px"
+          },
+          {
+            "property": "width",
+            "value": "25px",
+            "line": 190,
+            "context": "width: 25px"
+          },
+          {
+            "property": "height",
+            "value": "3px",
+            "line": 191,
+            "context": "height: 3px"
+          },
+          {
+            "property": "top",
+            "value": "60px",
+            "line": 207,
+            "context": "top: 60px"
+          },
+          {
+            "property": "bottom",
+            "value": "60px",
+            "line": 208,
+            "context": "bottom: 60px"
+          },
+          {
+            "property": "max-width",
+            "value": "1200px",
+            "line": 227,
+            "context": "max-width: 1200px"
+          },
+          {
+            "property": "bottom",
+            "value": "1.5rem",
+            "line": 236,
+            "context": "bottom: 1.5rem"
+          },
+          {
+            "property": "max-width",
+            "value": "800px",
+            "line": 245,
+            "context": "max-width: 800px"
+          },
+          {
+            "property": "padding",
+            "value": "1rem",
+            "line": 262,
+            "context": "padding: 1rem"
+          },
+          {
+            "property": "height",
+            "value": "3px",
+            "line": 308,
+            "context": "height: 3px"
+          },
+          {
+            "property": "max-width",
+            "value": "768px",
+            "line": 329,
+            "context": "max-width: 768px"
+          },
+          {
+            "property": "top",
+            "value": "60px",
+            "line": 332,
+            "context": "top: 60px"
+          },
+          {
+            "property": "top",
+            "value": "2rem",
+            "line": 340,
+            "context": "top: 2rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 17
+    },
+    {
+      "file": "css\\base.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "1.2rem",
+            "line": 214,
+            "context": "font-size: 1.2rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "width",
+            "value": "12px",
+            "line": 70,
+            "context": "width: 12px"
+          },
+          {
+            "property": "width",
+            "value": "24px",
+            "line": 76,
+            "context": "width: 24px"
+          },
+          {
+            "property": "max-width",
+            "value": "1400px",
+            "line": 179,
+            "context": "max-width: 1400px"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 201,
+            "context": "bottom: 1rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 5
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "1.3rem",
+            "line": 26,
+            "context": "font-size: 1.3rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 34,
+            "context": "font-size: 0.9rem"
+          },
+          {
+            "value": "0.95rem",
+            "line": 81,
+            "context": "font-size: 0.95rem"
+          },
+          {
+            "value": "1.1rem",
+            "line": 106,
+            "context": "font-size: 1.1rem"
+          },
+          {
+            "value": "1.2rem",
+            "line": 124,
+            "context": "font-size: 1.2rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 190,
+            "context": "font-size: 0.9rem"
+          },
+          {
+            "value": "0.95rem",
+            "line": 269,
+            "context": "font-size: 0.95rem"
+          },
+          {
+            "value": "1.3rem",
+            "line": 302,
+            "context": "font-size: 1.3rem"
+          },
+          {
+            "value": "0.95rem",
+            "line": 306,
+            "context": "font-size: 0.95rem"
+          },
+          {
+            "value": "1.3rem",
+            "line": 320,
+            "context": "font-size: 1.3rem"
+          },
+          {
+            "value": "0.95rem",
+            "line": 325,
+            "context": "font-size: 0.95rem"
+          },
+          {
+            "value": "0.8rem",
+            "line": 330,
+            "context": "font-size: 0.8rem"
+          },
+          {
+            "value": "1.3rem",
+            "line": 392,
+            "context": "font-size: 1.3rem"
+          },
+          {
+            "value": "1.1rem",
+            "line": 396,
+            "context": "font-size: 1.1rem"
+          },
+          {
+            "value": "0.95rem",
+            "line": 417,
+            "context": "font-size: 0.95rem"
+          },
+          {
+            "value": "0.95rem",
+            "line": 429,
+            "context": "font-size: 0.95rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 456,
+            "context": "font-size: 0.9rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 483,
+            "context": "font-size: 0.9rem"
+          },
+          {
+            "value": "0.95rem",
+            "line": 489,
+            "context": "font-size: 0.95rem"
+          },
+          {
+            "value": "0.85rem",
+            "line": 524,
+            "context": "font-size: 0.85rem"
+          },
+          {
+            "value": "0.85rem",
+            "line": 529,
+            "context": "font-size: 0.85rem"
+          },
+          {
+            "value": "0.95rem",
+            "line": 537,
+            "context": "font-size: 0.95rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 603,
+            "context": "font-size: 0.9rem"
+          },
+          {
+            "value": "1.2rem",
+            "line": 607,
+            "context": "font-size: 1.2rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 641,
+            "context": "font-size: 0.9rem"
+          },
+          {
+            "value": "0.85rem",
+            "line": 649,
+            "context": "font-size: 0.85rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 655,
+            "context": "font-size: 0.9rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 664,
+            "context": "font-size: 0.9rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "min-width",
+            "value": "769px",
+            "line": 20,
+            "context": "min-width: 769px"
+          },
+          {
+            "property": "max-width",
+            "value": "1024px",
+            "line": 20,
+            "context": "max-width: 1024px"
+          },
+          {
+            "property": "padding",
+            "value": "4rem",
+            "line": 42,
+            "context": "padding: 4rem"
+          },
+          {
+            "property": "bottom",
+            "value": "3rem",
+            "line": 46,
+            "context": "bottom: 3rem"
+          },
+          {
+            "property": "padding",
+            "value": "0.9rem",
+            "line": 80,
+            "context": "padding: 0.9rem"
+          },
+          {
+            "property": "height",
+            "value": "300px",
+            "line": 85,
+            "context": "height: 300px"
+          },
+          {
+            "property": "top",
+            "value": "70px",
+            "line": 131,
+            "context": "top: 70px"
+          },
+          {
+            "property": "padding",
+            "value": "2rem",
+            "line": 138,
+            "context": "padding: 2rem"
+          },
+          {
+            "property": "top",
+            "value": "1px",
+            "line": 139,
+            "context": "top: 1px"
+          },
+          {
+            "property": "left",
+            "value": "1rem",
+            "line": 173,
+            "context": "left: 1rem"
+          },
+          {
+            "property": "left",
+            "value": "2px",
+            "line": 176,
+            "context": "left: 2px"
+          },
+          {
+            "property": "max-height",
+            "value": "200px",
+            "line": 184,
+            "context": "max-height: 200px"
+          },
+          {
+            "property": "top",
+            "value": "0.5rem",
+            "line": 185,
+            "context": "top: 0.5rem"
+          },
+          {
+            "property": "padding",
+            "value": "0.5rem",
+            "line": 189,
+            "context": "padding: 0.5rem"
+          },
+          {
+            "property": "padding",
+            "value": "3rem",
+            "line": 215,
+            "context": "padding: 3rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 219,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "top",
+            "value": "60px",
+            "line": 236,
+            "context": "top: 60px"
+          },
+          {
+            "property": "bottom",
+            "value": "60px",
+            "line": 237,
+            "context": "bottom: 60px"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 248,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "max-width",
+            "value": "300px",
+            "line": 267,
+            "context": "max-width: 300px"
+          },
+          {
+            "property": "padding",
+            "value": "0.9rem",
+            "line": 268,
+            "context": "padding: 0.9rem"
+          },
+          {
+            "property": "padding",
+            "value": "1rem",
+            "line": 273,
+            "context": "padding: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "20px",
+            "line": 277,
+            "context": "bottom: 20px"
+          },
+          {
+            "property": "width",
+            "value": "25px",
+            "line": 281,
+            "context": "width: 25px"
+          },
+          {
+            "property": "height",
+            "value": "40px",
+            "line": 282,
+            "context": "height: 40px"
+          },
+          {
+            "property": "padding",
+            "value": "2rem",
+            "line": 292,
+            "context": "padding: 2rem"
+          },
+          {
+            "property": "width",
+            "value": "60px",
+            "line": 296,
+            "context": "width: 60px"
+          },
+          {
+            "property": "height",
+            "value": "60px",
+            "line": 297,
+            "context": "height: 60px"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 298,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 307,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "height",
+            "value": "200px",
+            "line": 312,
+            "context": "height: 200px"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 326,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "padding",
+            "value": "0.4rem",
+            "line": 336,
+            "context": "padding: 0.4rem"
+          },
+          {
+            "property": "top",
+            "value": "15px",
+            "line": 337,
+            "context": "top: 15px"
+          },
+          {
+            "property": "right",
+            "value": "15px",
+            "line": 338,
+            "context": "right: 15px"
+          },
+          {
+            "property": "top",
+            "value": "2rem",
+            "line": 345,
+            "context": "top: 2rem"
+          },
+          {
+            "property": "padding",
+            "value": "3rem",
+            "line": 377,
+            "context": "padding: 3rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 383,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "bottom",
+            "value": "0.5rem",
+            "line": 418,
+            "context": "bottom: 0.5rem"
+          },
+          {
+            "property": "padding",
+            "value": "0.9rem",
+            "line": 428,
+            "context": "padding: 0.9rem"
+          },
+          {
+            "property": "min-height",
+            "value": "120px",
+            "line": 433,
+            "context": "min-height: 120px"
+          },
+          {
+            "property": "width",
+            "value": "30px",
+            "line": 470,
+            "context": "width: 30px"
+          },
+          {
+            "property": "height",
+            "value": "30px",
+            "line": 471,
+            "context": "height: 30px"
+          },
+          {
+            "property": "margin",
+            "value": "1rem",
+            "line": 500,
+            "context": "margin: 1rem"
+          },
+          {
+            "property": "padding",
+            "value": "1rem",
+            "line": 510,
+            "context": "padding: 1rem"
+          },
+          {
+            "property": "width",
+            "value": "45px",
+            "line": 515,
+            "context": "width: 45px"
+          },
+          {
+            "property": "height",
+            "value": "45px",
+            "line": 516,
+            "context": "height: 45px"
+          },
+          {
+            "property": "padding",
+            "value": "0.15rem",
+            "line": 530,
+            "context": "padding: 0.15rem"
+          },
+          {
+            "property": "padding",
+            "value": "1rem",
+            "line": 535,
+            "context": "padding: 1rem"
+          },
+          {
+            "property": "padding",
+            "value": "2rem",
+            "line": 546,
+            "context": "padding: 2rem"
+          },
+          {
+            "property": "height",
+            "value": "1.5rem",
+            "line": 555,
+            "context": "height: 1.5rem"
+          },
+          {
+            "property": "height",
+            "value": "0.875rem",
+            "line": 559,
+            "context": "height: 0.875rem"
+          },
+          {
+            "property": "height",
+            "value": "150px",
+            "line": 563,
+            "context": "height: 150px"
+          },
+          {
+            "property": "width",
+            "value": "60px",
+            "line": 568,
+            "context": "width: 60px"
+          },
+          {
+            "property": "height",
+            "value": "60px",
+            "line": 569,
+            "context": "height: 60px"
+          },
+          {
+            "property": "width",
+            "value": "4px",
+            "line": 570,
+            "context": "width: 4px"
+          },
+          {
+            "property": "padding",
+            "value": "0.85rem",
+            "line": 602,
+            "context": "padding: 0.85rem"
+          },
+          {
+            "property": "min-height",
+            "value": "100px",
+            "line": 659,
+            "context": "min-height: 100px"
+          },
+          {
+            "property": "padding",
+            "value": "0.85rem",
+            "line": 663,
+            "context": "padding: 0.85rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 87
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "top",
+            "value": "3px",
+            "line": 13,
+            "context": "top: 3px"
+          },
+          {
+            "property": "width",
+            "value": "40px",
+            "line": 15,
+            "context": "width: 40px"
+          },
+          {
+            "property": "height",
+            "value": "40px",
+            "line": 16,
+            "context": "height: 40px"
+          },
+          {
+            "property": "margin",
+            "value": "2rem",
+            "line": 18,
+            "context": "margin: 2rem"
+          },
+          {
+            "property": "width",
+            "value": "60px",
+            "line": 22,
+            "context": "width: 60px"
+          },
+          {
+            "property": "height",
+            "value": "60px",
+            "line": 23,
+            "context": "height: 60px"
+          },
+          {
+            "property": "width",
+            "value": "4px",
+            "line": 24,
+            "context": "width: 4px"
+          },
+          {
+            "property": "width",
+            "value": "20px",
+            "line": 28,
+            "context": "width: 20px"
+          },
+          {
+            "property": "height",
+            "value": "20px",
+            "line": 29,
+            "context": "height: 20px"
+          },
+          {
+            "property": "width",
+            "value": "2px",
+            "line": 30,
+            "context": "width: 2px"
+          },
+          {
+            "property": "width",
+            "value": "80px",
+            "line": 57,
+            "context": "width: 80px"
+          },
+          {
+            "property": "height",
+            "value": "80px",
+            "line": 58,
+            "context": "height: 80px"
+          },
+          {
+            "property": "width",
+            "value": "5px",
+            "line": 59,
+            "context": "width: 5px"
+          }
+        ],
+        "other": []
+      },
+      "total": 13
+    },
+    {
+      "file": "css\\utils\\fluid-effects.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "width",
+            "value": "400px",
+            "line": 94,
+            "context": "width: 400px"
+          },
+          {
+            "property": "height",
+            "value": "400px",
+            "line": 95,
+            "context": "height: 400px"
+          },
+          {
+            "property": "width",
+            "value": "300px",
+            "line": 102,
+            "context": "width: 300px"
+          },
+          {
+            "property": "height",
+            "value": "300px",
+            "line": 103,
+            "context": "height: 300px"
+          },
+          {
+            "property": "width",
+            "value": "350px",
+            "line": 111,
+            "context": "width: 350px"
+          },
+          {
+            "property": "height",
+            "value": "350px",
+            "line": 112,
+            "context": "height: 350px"
+          }
+        ],
+        "other": []
+      },
+      "total": 6
+    },
+    {
+      "file": "css\\utils\\empty-state.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "4rem",
+            "line": 16,
+            "context": "font-size: 4rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "padding",
+            "value": "4rem",
+            "line": 11,
+            "context": "padding: 4rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 17,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 24,
+            "context": "bottom: 1rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 4
+    },
+    {
+      "file": "css\\utils\\dividers.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "height",
+            "value": "1px",
+            "line": 10,
+            "context": "height: 1px"
+          },
+          {
+            "property": "margin",
+            "value": "3rem",
+            "line": 12,
+            "context": "margin: 3rem"
+          },
+          {
+            "property": "width",
+            "value": "1px",
+            "line": 16,
+            "context": "width: 1px"
+          }
+        ],
+        "other": []
+      },
+      "total": 3
+    },
+    {
+      "file": "css\\utils\\cursor.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "width",
+            "value": "6px",
+            "line": 16,
+            "context": "width: 6px"
+          },
+          {
+            "property": "height",
+            "value": "6px",
+            "line": 17,
+            "context": "height: 6px"
+          },
+          {
+            "property": "height",
+            "value": "3px",
+            "line": 49,
+            "context": "height: 3px"
+          }
+        ],
+        "other": []
+      },
+      "total": 3
+    },
+    {
+      "file": "css\\utils\\animations.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "top",
+            "value": "10px",
+            "line": 136,
+            "context": "top: 10px"
+          },
+          {
+            "property": "top",
+            "value": "30px",
+            "line": 141,
+            "context": "top: 30px"
+          },
+          {
+            "property": "height",
+            "value": "1rem",
+            "line": 446,
+            "context": "height: 1rem"
+          },
+          {
+            "property": "margin",
+            "value": "0.5rem",
+            "line": 447,
+            "context": "margin: 0.5rem"
+          },
+          {
+            "property": "height",
+            "value": "2rem",
+            "line": 451,
+            "context": "height: 2rem"
+          },
+          {
+            "property": "margin",
+            "value": "1rem",
+            "line": 453,
+            "context": "margin: 1rem"
+          },
+          {
+            "property": "height",
+            "value": "200px",
+            "line": 457,
+            "context": "height: 200px"
+          }
+        ],
+        "other": []
+      },
+      "total": 7
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "1.8rem",
+            "line": 265,
+            "context": "font-size: 1.8rem"
+          },
+          {
+            "value": "1.2rem",
+            "line": 716,
+            "context": "font-size: 1.2rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "gap",
+            "value": "2.5rem",
+            "line": 232,
+            "context": "gap: 2.5rem"
+          },
+          {
+            "property": "width",
+            "value": "100px",
+            "line": 245,
+            "context": "width: 100px"
+          },
+          {
+            "property": "height",
+            "value": "100px",
+            "line": 246,
+            "context": "height: 100px"
+          },
+          {
+            "property": "top",
+            "value": "5px",
+            "line": 248,
+            "context": "top: 5px"
+          },
+          {
+            "property": "right",
+            "value": "5px",
+            "line": 249,
+            "context": "right: 5px"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 314,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 340,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 357,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 375,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 393,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 411,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 430,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 448,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "gap",
+            "value": "12px",
+            "line": 469,
+            "context": "gap: 12px"
+          },
+          {
+            "property": "gap",
+            "value": "12px",
+            "line": 513,
+            "context": "gap: 12px"
+          },
+          {
+            "property": "width",
+            "value": "12px",
+            "line": 525,
+            "context": "width: 12px"
+          },
+          {
+            "property": "height",
+            "value": "12px",
+            "line": 526,
+            "context": "height: 12px"
+          },
+          {
+            "property": "padding",
+            "value": "0.5rem",
+            "line": 559,
+            "context": "padding: 0.5rem"
+          },
+          {
+            "property": "top",
+            "value": "0.5rem",
+            "line": 562,
+            "context": "top: 0.5rem"
+          },
+          {
+            "property": "bottom",
+            "value": "0.5rem",
+            "line": 563,
+            "context": "bottom: 0.5rem"
+          },
+          {
+            "property": "left",
+            "value": "6px",
+            "line": 611,
+            "context": "left: 6px"
+          },
+          {
+            "property": "right",
+            "value": "6px",
+            "line": 612,
+            "context": "right: 6px"
+          },
+          {
+            "property": "top",
+            "value": "6px",
+            "line": 613,
+            "context": "top: 6px"
+          },
+          {
+            "property": "bottom",
+            "value": "1px",
+            "line": 690,
+            "context": "bottom: 1px"
+          },
+          {
+            "property": "width",
+            "value": "40px",
+            "line": 714,
+            "context": "width: 40px"
+          },
+          {
+            "property": "height",
+            "value": "40px",
+            "line": 715,
+            "context": "height: 40px"
+          }
+        ],
+        "other": []
+      },
+      "total": 28
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "0.85rem",
+            "line": 64,
+            "context": "font-size: 0.85rem"
+          },
+          {
+            "value": "1.05rem",
+            "line": 72,
+            "context": "font-size: 1.05rem"
+          },
+          {
+            "value": "0.95rem",
+            "line": 96,
+            "context": "font-size: 0.95rem"
+          },
+          {
+            "value": "0.85rem",
+            "line": 111,
+            "context": "font-size: 0.85rem"
+          },
+          {
+            "value": "0.95rem",
+            "line": 141,
+            "context": "font-size: 0.95rem"
+          },
+          {
+            "value": "1.3rem",
+            "line": 166,
+            "context": "font-size: 1.3rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 197,
+            "context": "font-size: 0.9rem"
+          },
+          {
+            "value": "0.8rem",
+            "line": 223,
+            "context": "font-size: 0.8rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "max-width",
+            "value": "960px",
+            "line": 30,
+            "context": "max-width: 960px"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 36,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "max-width",
+            "value": "720px",
+            "line": 40,
+            "context": "max-width: 720px"
+          },
+          {
+            "property": "max-width",
+            "value": "960px",
+            "line": 51,
+            "context": "max-width: 960px"
+          },
+          {
+            "property": "bottom",
+            "value": "0.5rem",
+            "line": 68,
+            "context": "bottom: 0.5rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 87,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "padding",
+            "value": "0.35rem",
+            "line": 106,
+            "context": "padding: 0.35rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 149,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 172,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "padding",
+            "value": "0.2rem",
+            "line": 178,
+            "context": "padding: 0.2rem"
+          },
+          {
+            "property": "top",
+            "value": "0.5rem",
+            "line": 183,
+            "context": "top: 0.5rem"
+          },
+          {
+            "property": "top",
+            "value": "1.5rem",
+            "line": 196,
+            "context": "top: 1.5rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 20
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "2rem",
+            "line": 154,
+            "context": "font-size: 2rem"
+          },
+          {
+            "value": "1.8rem",
+            "line": 250,
+            "context": "font-size: 1.8rem"
+          },
+          {
+            "value": "1.05rem",
+            "line": 283,
+            "context": "font-size: 1.05rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "width",
+            "value": "2px",
+            "line": 19,
+            "context": "width: 2px"
+          },
+          {
+            "property": "max-width",
+            "value": "1200px",
+            "line": 38,
+            "context": "max-width: 1200px"
+          },
+          {
+            "property": "bottom",
+            "value": "4rem",
+            "line": 48,
+            "context": "bottom: 4rem"
+          },
+          {
+            "property": "max-width",
+            "value": "500px",
+            "line": 77,
+            "context": "max-width: 500px"
+          },
+          {
+            "property": "padding",
+            "value": "2.5rem",
+            "line": 81,
+            "context": "padding: 2.5rem"
+          },
+          {
+            "property": "right",
+            "value": "3rem",
+            "line": 90,
+            "context": "right: 3rem"
+          },
+          {
+            "property": "left",
+            "value": "3rem",
+            "line": 96,
+            "context": "left: 3rem"
+          },
+          {
+            "property": "width",
+            "value": "80px",
+            "line": 147,
+            "context": "width: 80px"
+          },
+          {
+            "property": "height",
+            "value": "80px",
+            "line": 148,
+            "context": "height: 80px"
+          },
+          {
+            "property": "width",
+            "value": "60px",
+            "line": 200,
+            "context": "width: 60px"
+          },
+          {
+            "property": "height",
+            "value": "60px",
+            "line": 201,
+            "context": "height: 60px"
+          },
+          {
+            "property": "bottom",
+            "value": "1.5rem",
+            "line": 202,
+            "context": "bottom: 1.5rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 251,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "left",
+            "value": "15px",
+            "line": 307,
+            "context": "left: 15px"
+          },
+          {
+            "property": "right",
+            "value": "15px",
+            "line": 308,
+            "context": "right: 15px"
+          },
+          {
+            "property": "top",
+            "value": "20px",
+            "line": 316,
+            "context": "top: 20px"
+          },
+          {
+            "property": "top",
+            "value": "20px",
+            "line": 321,
+            "context": "top: 20px"
+          },
+          {
+            "property": "top",
+            "value": "20px",
+            "line": 326,
+            "context": "top: 20px"
+          },
+          {
+            "property": "top",
+            "value": "20px",
+            "line": 331,
+            "context": "top: 20px"
+          },
+          {
+            "property": "top",
+            "value": "20px",
+            "line": 336,
+            "context": "top: 20px"
+          },
+          {
+            "property": "left",
+            "value": "4rem",
+            "line": 357,
+            "context": "left: 4rem"
+          },
+          {
+            "property": "bottom",
+            "value": "3rem",
+            "line": 358,
+            "context": "bottom: 3rem"
+          },
+          {
+            "property": "width",
+            "value": "60px",
+            "line": 371,
+            "context": "width: 60px"
+          },
+          {
+            "property": "height",
+            "value": "60px",
+            "line": 372,
+            "context": "height: 60px"
+          },
+          {
+            "property": "max-width",
+            "value": "400px",
+            "line": 393,
+            "context": "max-width: 400px"
+          },
+          {
+            "property": "right",
+            "value": "2rem",
+            "line": 397,
+            "context": "right: 2rem"
+          },
+          {
+            "property": "left",
+            "value": "2rem",
+            "line": 401,
+            "context": "left: 2rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 30
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "4rem",
+            "line": 51,
+            "context": "font-size: 4rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "padding",
+            "value": "0.2rem",
+            "line": 12,
+            "context": "padding: 0.2rem"
+          },
+          {
+            "property": "left",
+            "value": "4px",
+            "line": 38,
+            "context": "left: 4px"
+          },
+          {
+            "property": "left",
+            "value": "2rem",
+            "line": 39,
+            "context": "left: 2rem"
+          },
+          {
+            "property": "top",
+            "value": "1rem",
+            "line": 79,
+            "context": "top: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "0.5rem",
+            "line": 80,
+            "context": "bottom: 0.5rem"
+          },
+          {
+            "property": "left",
+            "value": "2rem",
+            "line": 84,
+            "context": "left: 2rem"
+          },
+          {
+            "property": "bottom",
+            "value": "0.5rem",
+            "line": 86,
+            "context": "bottom: 0.5rem"
+          },
+          {
+            "property": "padding",
+            "value": "0.1rem",
+            "line": 93,
+            "context": "padding: 0.1rem"
+          },
+          {
+            "property": "padding",
+            "value": "0.2rem",
+            "line": 102,
+            "context": "padding: 0.2rem"
+          },
+          {
+            "property": "height",
+            "value": "1px",
+            "line": 138,
+            "context": "height: 1px"
+          }
+        ],
+        "other": []
+      },
+      "total": 11
+    },
+    {
+      "file": "css\\components\\tooltips.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "padding",
+            "value": "0.5rem",
+            "line": 26,
+            "context": "padding: 0.5rem"
+          },
+          {
+            "property": "bottom",
+            "value": "0.5rem",
+            "line": 38,
+            "context": "bottom: 0.5rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 2
+    },
+    {
+      "file": "css\\components\\toast.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "min-width",
+            "value": "300px",
+            "line": 19,
+            "context": "min-width: 300px"
+          },
+          {
+            "property": "max-width",
+            "value": "500px",
+            "line": 20,
+            "context": "max-width: 500px"
+          },
+          {
+            "property": "bottom",
+            "value": "0.5rem",
+            "line": 43,
+            "context": "bottom: 0.5rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 3
+    },
+    {
+      "file": "css\\components\\tabs.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "bottom",
+            "value": "2px",
+            "line": 12,
+            "context": "bottom: 2px"
+          },
+          {
+            "property": "padding",
+            "value": "1rem",
+            "line": 30,
+            "context": "padding: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "3px",
+            "line": 33,
+            "context": "bottom: 3px"
+          }
+        ],
+        "other": []
+      },
+      "total": 3
+    },
+    {
+      "file": "css\\components\\tables.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "bottom",
+            "value": "2px",
+            "line": 31,
+            "context": "bottom: 2px"
+          },
+          {
+            "property": "bottom",
+            "value": "1px",
+            "line": 37,
+            "context": "bottom: 1px"
+          }
+        ],
+        "other": []
+      },
+      "total": 2
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "0.9rem",
+            "line": 37,
+            "context": "font-size: 0.9rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "max-width",
+            "value": "350px",
+            "line": 15,
+            "context": "max-width: 350px"
+          }
+        ],
+        "other": []
+      },
+      "total": 2
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "min-height",
+            "value": "400px",
+            "line": 12,
+            "context": "min-height: 400px"
+          }
+        ],
+        "other": []
+      },
+      "total": 1
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "0.9rem",
+            "line": 204,
+            "context": "font-size: 0.9rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "bottom",
+            "value": "1px",
+            "line": 11,
+            "context": "bottom: 1px"
+          },
+          {
+            "property": "max-width",
+            "value": "1400px",
+            "line": 21,
+            "context": "max-width: 1400px"
+          },
+          {
+            "property": "height",
+            "value": "2px",
+            "line": 82,
+            "context": "height: 2px"
+          },
+          {
+            "property": "left",
+            "value": "5px",
+            "line": 147,
+            "context": "left: 5px"
+          },
+          {
+            "property": "right",
+            "value": "5px",
+            "line": 148,
+            "context": "right: 5px"
+          },
+          {
+            "property": "top",
+            "value": "6px",
+            "line": 149,
+            "context": "top: 6px"
+          },
+          {
+            "property": "left",
+            "value": "0.5rem",
+            "line": 157,
+            "context": "left: 0.5rem"
+          },
+          {
+            "property": "top",
+            "value": "0.25rem",
+            "line": 173,
+            "context": "top: 0.25rem"
+          },
+          {
+            "property": "min-width",
+            "value": "200px",
+            "line": 178,
+            "context": "min-width: 200px"
+          },
+          {
+            "property": "padding",
+            "value": "0.5rem",
+            "line": 184,
+            "context": "padding: 0.5rem"
+          },
+          {
+            "property": "width",
+            "value": "3px",
+            "line": 217,
+            "context": "width: 3px"
+          },
+          {
+            "property": "left",
+            "value": "2rem",
+            "line": 227,
+            "context": "left: 2rem"
+          },
+          {
+            "property": "gap",
+            "value": "5px",
+            "line": 238,
+            "context": "gap: 5px"
+          },
+          {
+            "property": "width",
+            "value": "25px",
+            "line": 242,
+            "context": "width: 25px"
+          },
+          {
+            "property": "height",
+            "value": "3px",
+            "line": 243,
+            "context": "height: 3px"
+          }
+        ],
+        "other": []
+      },
+      "total": 16
+    },
+    {
+      "file": "css\\components\\modals.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "1.2rem",
+            "line": 62,
+            "context": "font-size: 1.2rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "padding",
+            "value": "2.5rem",
+            "line": 35,
+            "context": "padding: 2.5rem"
+          },
+          {
+            "property": "max-width",
+            "value": "600px",
+            "line": 36,
+            "context": "max-width: 600px"
+          },
+          {
+            "property": "width",
+            "value": "35px",
+            "line": 58,
+            "context": "width: 35px"
+          },
+          {
+            "property": "height",
+            "value": "35px",
+            "line": 59,
+            "context": "height: 35px"
+          }
+        ],
+        "other": []
+      },
+      "total": 5
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "top",
+            "value": "60px",
+            "line": 19,
+            "context": "top: 60px"
+          },
+          {
+            "property": "bottom",
+            "value": "60px",
+            "line": 20,
+            "context": "bottom: 60px"
+          },
+          {
+            "property": "width",
+            "value": "2px",
+            "line": 242,
+            "context": "width: 2px"
+          },
+          {
+            "property": "height",
+            "value": "2px",
+            "line": 243,
+            "context": "height: 2px"
+          },
+          {
+            "property": "max-width",
+            "value": "1200px",
+            "line": 289,
+            "context": "max-width: 1200px"
+          },
+          {
+            "property": "bottom",
+            "value": "1.5rem",
+            "line": 300,
+            "context": "bottom: 1.5rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 330,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "max-width",
+            "value": "800px",
+            "line": 331,
+            "context": "max-width: 800px"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 342,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "bottom",
+            "value": "30px",
+            "line": 395,
+            "context": "bottom: 30px"
+          },
+          {
+            "property": "top",
+            "value": "2rem",
+            "line": 399,
+            "context": "top: 2rem"
+          },
+          {
+            "property": "width",
+            "value": "30px",
+            "line": 426,
+            "context": "width: 30px"
+          },
+          {
+            "property": "height",
+            "value": "50px",
+            "line": 427,
+            "context": "height: 50px"
+          },
+          {
+            "property": "width",
+            "value": "4px",
+            "line": 435,
+            "context": "width: 4px"
+          },
+          {
+            "property": "height",
+            "value": "10px",
+            "line": 436,
+            "context": "height: 10px"
+          },
+          {
+            "property": "top",
+            "value": "10px",
+            "line": 442,
+            "context": "top: 10px"
+          },
+          {
+            "property": "top",
+            "value": "10px",
+            "line": 450,
+            "context": "top: 10px"
+          },
+          {
+            "property": "top",
+            "value": "30px",
+            "line": 455,
+            "context": "top: 30px"
+          }
+        ],
+        "other": []
+      },
+      "total": 18
+    },
+    {
+      "file": "css\\components\\footer.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "1.2rem",
+            "line": 38,
+            "context": "font-size: 1.2rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "top",
+            "value": "1px",
+            "line": 11,
+            "context": "top: 1px"
+          },
+          {
+            "property": "bottom",
+            "value": "3rem",
+            "line": 20,
+            "context": "bottom: 3rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 32,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 39,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "0.5rem",
+            "line": 53,
+            "context": "bottom: 0.5rem"
+          },
+          {
+            "property": "left",
+            "value": "5px",
+            "line": 65,
+            "context": "left: 5px"
+          },
+          {
+            "property": "top",
+            "value": "2rem",
+            "line": 92,
+            "context": "top: 2rem"
+          },
+          {
+            "property": "top",
+            "value": "1px",
+            "line": 93,
+            "context": "top: 1px"
+          }
+        ],
+        "other": []
+      },
+      "total": 9
+    },
+    {
+      "file": "css\\components\\cta.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "1.2rem",
+            "line": 144,
+            "context": "font-size: 1.2rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "min-height",
+            "value": "400px",
+            "line": 26,
+            "context": "min-height: 400px"
+          },
+          {
+            "property": "height",
+            "value": "120px",
+            "line": 40,
+            "context": "height: 120px"
+          },
+          {
+            "property": "top",
+            "value": "2px",
+            "line": 81,
+            "context": "top: 2px"
+          },
+          {
+            "property": "bottom",
+            "value": "2px",
+            "line": 82,
+            "context": "bottom: 2px"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 136,
+            "context": "bottom: 1rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 6
+    },
+    {
+      "file": "css\\components\\buttons.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "1.1rem",
+            "line": 98,
+            "context": "font-size: 1.1rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 107,
+            "context": "font-size: 0.9rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "padding",
+            "value": "1rem",
+            "line": 10,
+            "context": "padding: 1rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 3
+    },
+    {
+      "file": "css\\components\\breadcrumbs.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "margin",
+            "value": "2rem",
+            "line": 13,
+            "context": "margin: 2rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 1
+    },
+    {
+      "file": "css\\components\\badges.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "padding",
+            "value": "0.25rem",
+            "line": 11,
+            "context": "padding: 0.25rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 1
+    },
+    {
+      "file": "css\\components\\back-to-top.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "width",
+            "value": "50px",
+            "line": 13,
+            "context": "width: 50px"
+          },
+          {
+            "property": "height",
+            "value": "50px",
+            "line": 14,
+            "context": "height: 50px"
+          }
+        ],
+        "other": []
+      },
+      "total": 2
+    },
+    {
+      "file": "css\\components\\alerts.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 14,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "left",
+            "value": "4px",
+            "line": 15,
+            "context": "left: 4px"
+          }
+        ],
+        "other": []
+      },
+      "total": 2
+    },
+    {
+      "file": "css\\components\\accordions.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "margin",
+            "value": "1rem",
+            "line": 13,
+            "context": "margin: 1rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 1
+    },
+    {
+      "file": "css\\pages\\projects\\_projects-grid.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "0.9rem",
+            "line": 126,
+            "context": "font-size: 0.9rem"
+          },
+          {
+            "value": "0.65rem",
+            "line": 168,
+            "context": "font-size: 0.65rem"
+          },
+          {
+            "value": "1.1rem",
+            "line": 219,
+            "context": "font-size: 1.1rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "top",
+            "value": "3rem",
+            "line": 11,
+            "context": "top: 3rem"
+          },
+          {
+            "property": "height",
+            "value": "250px",
+            "line": 39,
+            "context": "height: 250px"
+          },
+          {
+            "property": "top",
+            "value": "4rem",
+            "line": 118,
+            "context": "top: 4rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 128,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 134,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1.5rem",
+            "line": 140,
+            "context": "bottom: 1.5rem"
+          },
+          {
+            "property": "gap",
+            "value": "0.3rem",
+            "line": 149,
+            "context": "gap: 0.3rem"
+          },
+          {
+            "property": "top",
+            "value": "1.1rem",
+            "line": 151,
+            "context": "top: 1.1rem"
+          },
+          {
+            "property": "right",
+            "value": "1.1rem",
+            "line": 152,
+            "context": "right: 1.1rem"
+          },
+          {
+            "property": "padding",
+            "value": "0.2rem",
+            "line": 166,
+            "context": "padding: 0.2rem"
+          },
+          {
+            "property": "gap",
+            "value": "0.35rem",
+            "line": 213,
+            "context": "gap: 0.35rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 14
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "0.85rem",
+            "line": 290,
+            "context": "font-size: 0.85rem"
+          },
+          {
+            "value": "0.92rem",
+            "line": 344,
+            "context": "font-size: 0.92rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "max-width",
+            "value": "1100px",
+            "line": 14,
+            "context": "max-width: 1100px"
+          },
+          {
+            "property": "width",
+            "value": "44px",
+            "line": 161,
+            "context": "width: 44px"
+          },
+          {
+            "property": "height",
+            "value": "44px",
+            "line": 162,
+            "context": "height: 44px"
+          },
+          {
+            "property": "width",
+            "value": "20px",
+            "line": 198,
+            "context": "width: 20px"
+          },
+          {
+            "property": "height",
+            "value": "20px",
+            "line": 199,
+            "context": "height: 20px"
+          },
+          {
+            "property": "width",
+            "value": "8px",
+            "line": 216,
+            "context": "width: 8px"
+          },
+          {
+            "property": "left",
+            "value": "6px",
+            "line": 218,
+            "context": "left: 6px"
+          },
+          {
+            "property": "width",
+            "value": "14px",
+            "line": 225,
+            "context": "width: 14px"
+          },
+          {
+            "property": "height",
+            "value": "10px",
+            "line": 226,
+            "context": "height: 10px"
+          },
+          {
+            "property": "width",
+            "value": "4px",
+            "line": 235,
+            "context": "width: 4px"
+          },
+          {
+            "property": "height",
+            "value": "4px",
+            "line": 236,
+            "context": "height: 4px"
+          },
+          {
+            "property": "right",
+            "value": "2px",
+            "line": 239,
+            "context": "right: 2px"
+          },
+          {
+            "property": "top",
+            "value": "2px",
+            "line": 240,
+            "context": "top: 2px"
+          },
+          {
+            "property": "width",
+            "value": "150px",
+            "line": 248,
+            "context": "width: 150px"
+          },
+          {
+            "property": "height",
+            "value": "150px",
+            "line": 249,
+            "context": "height: 150px"
+          },
+          {
+            "property": "gap",
+            "value": "0.6rem",
+            "line": 269,
+            "context": "gap: 0.6rem"
+          },
+          {
+            "property": "gap",
+            "value": "0.6rem",
+            "line": 276,
+            "context": "gap: 0.6rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2rem",
+            "line": 279,
+            "context": "bottom: 2rem"
+          },
+          {
+            "property": "bottom",
+            "value": "2.75rem",
+            "line": 282,
+            "context": "bottom: 2.75rem"
+          },
+          {
+            "property": "bottom",
+            "value": "0.25rem",
+            "line": 296,
+            "context": "bottom: 0.25rem"
+          },
+          {
+            "property": "gap",
+            "value": "0.15rem",
+            "line": 302,
+            "context": "gap: 0.15rem"
+          },
+          {
+            "property": "top",
+            "value": "0.35rem",
+            "line": 317,
+            "context": "top: 0.35rem"
+          },
+          {
+            "property": "bottom",
+            "value": "0.18rem",
+            "line": 346,
+            "context": "bottom: 0.18rem"
+          },
+          {
+            "property": "left",
+            "value": "1.1rem",
+            "line": 359,
+            "context": "left: 1.1rem"
+          },
+          {
+            "property": "top",
+            "value": "0.6rem",
+            "line": 367,
+            "context": "top: 0.6rem"
+          },
+          {
+            "property": "left",
+            "value": "0.18rem",
+            "line": 368,
+            "context": "left: 0.18rem"
+          },
+          {
+            "property": "width",
+            "value": "0.45rem",
+            "line": 369,
+            "context": "width: 0.45rem"
+          },
+          {
+            "property": "height",
+            "value": "0.45rem",
+            "line": 370,
+            "context": "height: 0.45rem"
+          },
+          {
+            "property": "top",
+            "value": "0.5rem",
+            "line": 384,
+            "context": "top: 0.5rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 31
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "1.1rem",
+            "line": 18,
+            "context": "font-size: 1.1rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "max-width",
+            "value": "900px",
+            "line": 8,
+            "context": "max-width: 900px"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 13,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "max-width",
+            "value": "1200px",
+            "line": 137,
+            "context": "max-width: 1200px"
+          },
+          {
+            "property": "padding",
+            "value": "2.5rem",
+            "line": 145,
+            "context": "padding: 2.5rem"
+          },
+          {
+            "property": "width",
+            "value": "40px",
+            "line": 161,
+            "context": "width: 40px"
+          },
+          {
+            "property": "height",
+            "value": "40px",
+            "line": 162,
+            "context": "height: 40px"
+          },
+          {
+            "property": "right",
+            "value": "2px",
+            "line": 182,
+            "context": "right: 2px"
+          },
+          {
+            "property": "top",
+            "value": "1rem",
+            "line": 200,
+            "context": "top: 1rem"
+          },
+          {
+            "property": "top",
+            "value": "1px",
+            "line": 201,
+            "context": "top: 1px"
+          },
+          {
+            "property": "width",
+            "value": "50px",
+            "line": 206,
+            "context": "width: 50px"
+          },
+          {
+            "property": "height",
+            "value": "50px",
+            "line": 207,
+            "context": "height: 50px"
+          },
+          {
+            "property": "width",
+            "value": "30px",
+            "line": 218,
+            "context": "width: 30px"
+          },
+          {
+            "property": "height",
+            "value": "30px",
+            "line": 219,
+            "context": "height: 30px"
+          },
+          {
+            "property": "bottom",
+            "value": "0.25rem",
+            "line": 225,
+            "context": "bottom: 0.25rem"
+          },
+          {
+            "property": "width",
+            "value": "1px",
+            "line": 242,
+            "context": "width: 1px"
+          },
+          {
+            "property": "height",
+            "value": "1px",
+            "line": 243,
+            "context": "height: 1px"
+          }
+        ],
+        "other": []
+      },
+      "total": 17
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "1.1rem",
+            "line": 103,
+            "context": "font-size: 1.1rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 116,
+            "context": "font-size: 0.9rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "max-width",
+            "value": "768px",
+            "line": 7,
+            "context": "max-width: 768px"
+          },
+          {
+            "property": "min-width",
+            "value": "120px",
+            "line": 45,
+            "context": "min-width: 120px"
+          },
+          {
+            "property": "height",
+            "value": "350px",
+            "line": 62,
+            "context": "height: 350px"
+          },
+          {
+            "property": "height",
+            "value": "300px",
+            "line": 108,
+            "context": "height: 300px"
+          }
+        ],
+        "other": []
+      },
+      "total": 6
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-map.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "1.1rem",
+            "line": 72,
+            "context": "font-size: 1.1rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 97,
+            "context": "font-size: 0.9rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 103,
+            "context": "font-size: 0.9rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "padding",
+            "value": "4rem",
+            "line": 8,
+            "context": "padding: 4rem"
+          },
+          {
+            "property": "max-width",
+            "value": "1200px",
+            "line": 14,
+            "context": "max-width: 1200px"
+          },
+          {
+            "property": "padding",
+            "value": "0.8rem",
+            "line": 47,
+            "context": "padding: 0.8rem"
+          },
+          {
+            "property": "top",
+            "value": "1.4rem",
+            "line": 88,
+            "context": "top: 1.4rem"
+          },
+          {
+            "property": "padding",
+            "value": "0.65rem",
+            "line": 102,
+            "context": "padding: 0.65rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 8
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-form.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "height",
+            "value": "4px",
+            "line": 25,
+            "context": "height: 4px"
+          },
+          {
+            "property": "top",
+            "value": "1.5rem",
+            "line": 73,
+            "context": "top: 1.5rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 74,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "top",
+            "value": "0.5rem",
+            "line": 86,
+            "context": "top: 0.5rem"
+          },
+          {
+            "property": "min-height",
+            "value": "1.5rem",
+            "line": 87,
+            "context": "min-height: 1.5rem"
+          },
+          {
+            "property": "width",
+            "value": "20px",
+            "line": 111,
+            "context": "width: 20px"
+          },
+          {
+            "property": "height",
+            "value": "20px",
+            "line": 112,
+            "context": "height: 20px"
+          }
+        ],
+        "other": []
+      },
+      "total": 7
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "1.2rem",
+            "line": 58,
+            "context": "font-size: 1.2rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "bottom",
+            "value": "3rem",
+            "line": 9,
+            "context": "bottom: 3rem"
+          },
+          {
+            "property": "top",
+            "value": "80px",
+            "line": 11,
+            "context": "top: 80px"
+          },
+          {
+            "property": "max-width",
+            "value": "1200px",
+            "line": 16,
+            "context": "max-width: 1200px"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 51,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "width",
+            "value": "24px",
+            "line": 63,
+            "context": "width: 24px"
+          },
+          {
+            "property": "height",
+            "value": "24px",
+            "line": 64,
+            "context": "height: 24px"
+          },
+          {
+            "property": "top",
+            "value": "1rem",
+            "line": 100,
+            "context": "top: 1rem"
+          },
+          {
+            "property": "width",
+            "value": "16px",
+            "line": 116,
+            "context": "width: 16px"
+          },
+          {
+            "property": "height",
+            "value": "16px",
+            "line": 117,
+            "context": "height: 16px"
+          },
+          {
+            "property": "top",
+            "value": "1rem",
+            "line": 133,
+            "context": "top: 1rem"
+          },
+          {
+            "property": "width",
+            "value": "20px",
+            "line": 154,
+            "context": "width: 20px"
+          },
+          {
+            "property": "height",
+            "value": "20px",
+            "line": 155,
+            "context": "height: 20px"
+          },
+          {
+            "property": "height",
+            "value": "2px",
+            "line": 167,
+            "context": "height: 2px"
+          }
+        ],
+        "other": []
+      },
+      "total": 14
+    },
+    {
+      "file": "css\\components\\forms\\_form-validation.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "top",
+            "value": "0.5rem",
+            "line": 24,
+            "context": "top: 0.5rem"
+          },
+          {
+            "property": "top",
+            "value": "0.5rem",
+            "line": 31,
+            "context": "top: 0.5rem"
+          },
+          {
+            "property": "padding",
+            "value": "1rem",
+            "line": 38,
+            "context": "padding: 1rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 3
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "14px",
+            "line": 38,
+            "context": "font-size: 14px"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "width",
+            "value": "20px",
+            "line": 9,
+            "context": "width: 20px"
+          },
+          {
+            "property": "height",
+            "value": "20px",
+            "line": 10,
+            "context": "height: 20px"
+          },
+          {
+            "property": "width",
+            "value": "20px",
+            "line": 44,
+            "context": "width: 20px"
+          },
+          {
+            "property": "height",
+            "value": "20px",
+            "line": 45,
+            "context": "height: 20px"
+          },
+          {
+            "property": "width",
+            "value": "10px",
+            "line": 71,
+            "context": "width: 10px"
+          },
+          {
+            "property": "height",
+            "value": "10px",
+            "line": 72,
+            "context": "height: 10px"
+          },
+          {
+            "property": "height",
+            "value": "6px",
+            "line": 82,
+            "context": "height: 6px"
+          },
+          {
+            "property": "width",
+            "value": "18px",
+            "line": 91,
+            "context": "width: 18px"
+          },
+          {
+            "property": "height",
+            "value": "18px",
+            "line": 92,
+            "context": "height: 18px"
+          },
+          {
+            "property": "width",
+            "value": "18px",
+            "line": 106,
+            "context": "width: 18px"
+          },
+          {
+            "property": "height",
+            "value": "18px",
+            "line": 107,
+            "context": "height: 18px"
+          },
+          {
+            "property": "height",
+            "value": "6px",
+            "line": 122,
+            "context": "height: 6px"
+          },
+          {
+            "property": "height",
+            "value": "6px",
+            "line": 128,
+            "context": "height: 6px"
+          },
+          {
+            "property": "height",
+            "value": "8px",
+            "line": 137,
+            "context": "height: 8px"
+          },
+          {
+            "property": "right",
+            "value": "3rem",
+            "line": 176,
+            "context": "right: 3rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 16
+    },
+    {
+      "file": "css\\components\\forms\\_form-base.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "0.9rem",
+            "line": 18,
+            "context": "font-size: 0.9rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "min-height",
+            "value": "150px",
+            "line": 43,
+            "context": "min-height: 150px"
+          }
+        ],
+        "other": []
+      },
+      "total": 2
+    },
+    {
+      "file": "css\\components\\cards\\_service-card.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 35,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1.5rem",
+            "line": 46,
+            "context": "bottom: 1.5rem"
+          },
+          {
+            "property": "max-width",
+            "value": "200px",
+            "line": 62,
+            "context": "max-width: 200px"
+          },
+          {
+            "property": "width",
+            "value": "80px",
+            "line": 118,
+            "context": "width: 80px"
+          },
+          {
+            "property": "height",
+            "value": "80px",
+            "line": 119,
+            "context": "height: 80px"
+          },
+          {
+            "property": "bottom",
+            "value": "1.5rem",
+            "line": 120,
+            "context": "bottom: 1.5rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 158,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1.5rem",
+            "line": 164,
+            "context": "bottom: 1.5rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 8
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "0.8rem",
+            "line": 92,
+            "context": "font-size: 0.8rem"
+          },
+          {
+            "value": "0.9rem",
+            "line": 109,
+            "context": "font-size: 0.9rem"
+          },
+          {
+            "value": "2rem",
+            "line": 116,
+            "context": "font-size: 2rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "max-width",
+            "value": "900px",
+            "line": 13,
+            "context": "max-width: 900px"
+          },
+          {
+            "property": "height",
+            "value": "400px",
+            "line": 34,
+            "context": "height: 400px"
+          },
+          {
+            "property": "height",
+            "value": "320px",
+            "line": 41,
+            "context": "height: 320px"
+          },
+          {
+            "property": "top",
+            "value": "20px",
+            "line": 85,
+            "context": "top: 20px"
+          },
+          {
+            "property": "right",
+            "value": "20px",
+            "line": 86,
+            "context": "right: 20px"
+          },
+          {
+            "property": "padding",
+            "value": "0.5rem",
+            "line": 89,
+            "context": "padding: 0.5rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 111,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1rem",
+            "line": 117,
+            "context": "bottom: 1rem"
+          },
+          {
+            "property": "bottom",
+            "value": "1.5rem",
+            "line": 123,
+            "context": "bottom: 1.5rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 12
+    },
+    {
+      "file": "css\\components\\cards\\_offer-panel.css",
+      "opportunities": {
+        "fontSizes": [
+          {
+            "value": "0.7rem",
+            "line": 125,
+            "context": "font-size: 0.7rem"
+          },
+          {
+            "value": "0.95rem",
+            "line": 167,
+            "context": "font-size: 0.95rem"
+          },
+          {
+            "value": "0.85rem",
+            "line": 196,
+            "context": "font-size: 0.85rem"
+          }
+        ],
+        "spacing": [
+          {
+            "property": "min-width",
+            "value": "2.75rem",
+            "line": 144,
+            "context": "min-width: 2.75rem"
+          },
+          {
+            "property": "gap",
+            "value": "0.6rem",
+            "line": 160,
+            "context": "gap: 0.6rem"
+          },
+          {
+            "property": "left",
+            "value": "1.4rem",
+            "line": 165,
+            "context": "left: 1.4rem"
+          },
+          {
+            "property": "top",
+            "value": "0.65rem",
+            "line": 175,
+            "context": "top: 0.65rem"
+          },
+          {
+            "property": "width",
+            "value": "0.45rem",
+            "line": 176,
+            "context": "width: 0.45rem"
+          },
+          {
+            "property": "height",
+            "value": "0.45rem",
+            "line": 177,
+            "context": "height: 0.45rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 9
+    },
+    {
+      "file": "css\\components\\cards\\_card-sections.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "width",
+            "value": "2px",
+            "line": 43,
+            "context": "width: 2px"
+          },
+          {
+            "property": "height",
+            "value": "2px",
+            "line": 44,
+            "context": "height: 2px"
+          },
+          {
+            "property": "width",
+            "value": "40px",
+            "line": 293,
+            "context": "width: 40px"
+          },
+          {
+            "property": "height",
+            "value": "40px",
+            "line": 294,
+            "context": "height: 40px"
+          },
+          {
+            "property": "padding",
+            "value": "3px",
+            "line": 358,
+            "context": "padding: 3px"
+          },
+          {
+            "property": "padding",
+            "value": "3px",
+            "line": 432,
+            "context": "padding: 3px"
+          }
+        ],
+        "other": []
+      },
+      "total": 6
+    },
+    {
+      "file": "css\\components\\cards\\_card-base.css",
+      "opportunities": {
+        "fontSizes": [],
+        "spacing": [
+          {
+            "property": "top",
+            "value": "3rem",
+            "line": 10,
+            "context": "top: 3rem"
+          },
+          {
+            "property": "gap",
+            "value": "2.5rem",
+            "line": 122,
+            "context": "gap: 2.5rem"
+          }
+        ],
+        "other": []
+      },
+      "total": 2
+    }
+  ],
+  "valueFrequency": {
+    "fontSizes": {
+      "1.2rem": 8,
+      "1.3rem": 5,
+      "0.9rem": 18,
+      "0.95rem": 11,
+      "1.1rem": 7,
+      "0.8rem": 3,
+      "0.85rem": 7,
+      "4rem": 2,
+      "1.8rem": 2,
+      "1.05rem": 2,
+      "2rem": 2,
+      "0.65rem": 1,
+      "0.92rem": 1,
+      "14px": 1,
+      "0.7rem": 1
+    },
+    "spacing": {
+      "1rem": 41,
+      "1px": 13,
+      "1400px": 3,
+      "2px": 17,
+      "5px": 8,
+      "25px": 3,
+      "3px": 9,
+      "60px": 17,
+      "1200px": 6,
+      "1.5rem": 12,
+      "800px": 2,
+      "768px": 2,
+      "2rem": 29,
+      "12px": 5,
+      "24px": 3,
+      "769px": 1,
+      "1024px": 1,
+      "4rem": 6,
+      "3rem": 12,
+      "0.9rem": 3,
+      "300px": 6,
+      "70px": 1,
+      "200px": 5,
+      "0.5rem": 22,
+      "20px": 20,
+      "40px": 9,
+      "0.4rem": 1,
+      "15px": 4,
+      "120px": 3,
+      "30px": 8,
+      "45px": 2,
+      "0.15rem": 2,
+      "0.875rem": 1,
+      "150px": 4,
+      "4px": 8,
+      "0.85rem": 2,
+      "100px": 3,
+      "80px": 7,
+      "400px": 6,
+      "350px": 4,
+      "6px": 10,
+      "10px": 7,
+      "2.5rem": 5,
+      "960px": 2,
+      "720px": 1,
+      "0.35rem": 3,
+      "0.2rem": 4,
+      "500px": 2,
+      "0.1rem": 1,
+      "0.25rem": 4,
+      "600px": 1,
+      "35px": 2,
+      "50px": 5,
+      "250px": 1,
+      "0.3rem": 1,
+      "1.1rem": 3,
+      "1100px": 1,
+      "44px": 2,
+      "8px": 2,
+      "14px": 1,
+      "0.6rem": 4,
+      "2.75rem": 2,
+      "0.18rem": 2,
+      "0.45rem": 4,
+      "900px": 2,
+      "0.8rem": 1,
+      "1.4rem": 2,
+      "0.65rem": 2,
+      "16px": 2,
+      "18px": 4,
+      "320px": 1
+    }
+  }
+}

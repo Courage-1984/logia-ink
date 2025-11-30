@@ -303,42 +303,42 @@ input[type='range'].variant-pink::-moz-range-track {
 
 /* Progress Bar Color Variants */
 progress.magenta::-webkit-progress-value {
-  background: linear-gradient(90deg, var(--accent-magenta), #cc00cc);
+  background: linear-gradient(90deg, var(--accent-magenta), var(--accent-magenta-dark));
   box-shadow: 0 0 10px var(--glow-magenta);
 }
 
 progress.magenta::-moz-progress-bar {
-  background: linear-gradient(90deg, var(--accent-magenta), #cc00cc);
+  background: linear-gradient(90deg, var(--accent-magenta), var(--accent-magenta-dark));
   box-shadow: 0 0 10px var(--glow-magenta);
 }
 
 progress.green::-webkit-progress-value {
-  background: linear-gradient(90deg, var(--accent-green), #00cc00);
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-green-dark));
   box-shadow: 0 0 10px var(--glow-green);
 }
 
 progress.green::-moz-progress-bar {
-  background: linear-gradient(90deg, var(--accent-green), #00cc00);
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-green-dark));
   box-shadow: 0 0 10px var(--glow-green);
 }
 
 progress.blue::-webkit-progress-value {
-  background: linear-gradient(90deg, var(--accent-blue), #0052cc);
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-dark));
   box-shadow: 0 0 10px var(--glow-blue);
 }
 
 progress.blue::-moz-progress-bar {
-  background: linear-gradient(90deg, var(--accent-blue), #0052cc);
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-dark));
   box-shadow: 0 0 10px var(--glow-blue);
 }
 
 progress.pink::-webkit-progress-value {
-  background: linear-gradient(90deg, var(--accent-pink), #cc0066);
+  background: linear-gradient(90deg, var(--accent-pink), var(--accent-pink-dark));
   box-shadow: 0 0 10px var(--glow-pink);
 }
 
 progress.pink::-moz-progress-bar {
-  background: linear-gradient(90deg, var(--accent-pink), #cc0066);
+  background: linear-gradient(90deg, var(--accent-pink), var(--accent-pink-dark));
   box-shadow: 0 0 10px var(--glow-pink);
 }
 

@@ -6,7 +6,7 @@
 /* Approach Section - Timeline Style */
 .approach-section {
   position: relative;
-  padding: 6rem 0;
+  padding: var(--space-20) 0;
   overflow: hidden;
 }
 
@@ -37,7 +37,7 @@
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--space-8);
 }
 
 /* Approach Step */
@@ -150,9 +150,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: var(--font-weight-black);
   z-index: 10;
   border: 3px solid var(--bg-secondary);
   background: var(--bg-secondary);
@@ -199,7 +199,7 @@
 .approach-step-icon {
   width: 60px;
   height: 60px;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-6);
   position: relative;
 }
 
@@ -246,9 +246,9 @@
 
 /* Step Title */
 .approach-step-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
   color: var(--text-primary);
 }
 
@@ -348,14 +348,14 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .approach-section::before {
-    left: 2rem;
+    left: var(--space-8);
   }
 
   .approach-step {
     flex-direction: column !important;
     align-items: flex-start !important;
     padding-left: 4rem;
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-12);
   }
 
   .approach-step-content {
@@ -366,24 +366,24 @@
   }
 
   .approach-step-number {
-    left: 2rem;
+    left: var(--space-8);
     transform: translateX(-50%);
     width: 60px;
     height: 60px;
-    font-size: 1.5rem;
+    font-size: var(--font-size-2xl);
   }
 
   .approach-step::after {
-    left: 2rem;
+    left: var(--space-8);
     transform: translateX(-50%);
   }
 
   .approach-step-title {
-    font-size: 1.5rem;
+    font-size: var(--font-size-2xl);
   }
 
   .approach-step-description {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
   }
 }
 

@@ -9,11 +9,11 @@
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #00ffff var(--bg-primary);
+  scrollbar-color: var(--accent-cyan) var(--bg-primary);
 }
 
 body {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-body);
   background: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
@@ -61,7 +61,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
 }
 
 /* Scrollbar Styling (WebKit browsers only) */
@@ -82,7 +82,7 @@ h6 {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #00ffff;
+    background: var(--accent-cyan);
     border-radius: 6px;
     transition:
       background 0.3s ease,
@@ -91,7 +91,7 @@ h6 {
 
   /* Enhanced thumb when hovering over it */
   ::-webkit-scrollbar-thumb:hover {
-    background: #00cccc;
+    background: var(--accent-cyan-dark);
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
   }
 
@@ -103,7 +103,7 @@ h6 {
 
   .magenta-scrollbar::-webkit-scrollbar-thumb:hover,
   .variant-magenta-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #cc00cc;
+    background: var(--accent-magenta-dark);
     box-shadow: 0 0 10px var(--glow-magenta);
   }
 
@@ -114,7 +114,7 @@ h6 {
 
   .green-scrollbar::-webkit-scrollbar-thumb:hover,
   .variant-green-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #00cc00;
+    background: var(--accent-green-dark);
     box-shadow: 0 0 10px var(--glow-green);
   }
 
@@ -125,7 +125,7 @@ h6 {
 
   .blue-scrollbar::-webkit-scrollbar-thumb:hover,
   .variant-blue-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #0052cc;
+    background: var(--accent-blue-dark);
     box-shadow: 0 0 10px var(--glow-blue);
   }
 
@@ -136,7 +136,7 @@ h6 {
 
   .pink-scrollbar::-webkit-scrollbar-thumb:hover,
   .variant-pink-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #cc0066;
+    background: var(--accent-pink-dark);
     box-shadow: 0 0 10px var(--glow-pink);
   }
 }
@@ -178,27 +178,27 @@ h6 {
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--space-8);
 }
 
 /* Section Styles */
 section {
-  padding: 6rem 0;
+  padding: var(--space-20) 0;
   position: relative;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: var(--space-16);
 }
 
 .section-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 900;
+  font-weight: var(--font-weight-black);
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
   background: linear-gradient(
     135deg,
     var(--accent-cyan),

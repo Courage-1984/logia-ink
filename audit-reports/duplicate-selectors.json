@@ -1,0 +1,2186 @@
+{
+  "totalSelectors": 998,
+  "duplicateCount": 216,
+  "duplicates": [
+    {
+      "selector": "0%",
+      "locations": [
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 17,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;\n    transform: rotate(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 41,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);\n  }"
+        },
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 61,
+          "declarations": 1,
+          "cssText": "0% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 26,
+          "declarations": 1,
+          "cssText": "0% {\n    transform: translate(0, 0);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 37,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: translate(0, 0) rotate(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 53,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    opacity: 0;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 79,
+          "declarations": 1,
+          "cssText": "0% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 94,
+          "declarations": 1,
+          "cssText": "0% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 116,
+          "declarations": 1,
+          "cssText": "0%,\n  20%,\n  50%,\n  80%,\n  100% {\n    transform: translateX(-50%) translateY(0);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 135,
+          "declarations": 2,
+          "cssText": "0% {\n    top: 10px;\n    opacity: 1;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 148,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: scale(1);\n    opacity: 0.3;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 162,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    background-position:\n      0% 50%,\n      50% 0%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 178,
+          "declarations": 1,
+          "cssText": "0% {\n    transform: rotate(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 202,
+          "declarations": 1,
+          "cssText": "0% {\n    background-position: 200% 0;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 213,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;\n    transform: rotate(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 237,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 257,
+          "declarations": 1,
+          "cssText": "0% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 272,
+          "declarations": 1,
+          "cssText": "0% {\n    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 295,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: translate3d(0, 0, 0) rotateY(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 311,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 339,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: scale(1) rotate(0deg);\n    opacity: 0.3;\n  }"
+        },
+        {
+          "file": "css\\pages\\about.css",
+          "line": 288,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    box-shadow: 0 0 20px currentColor;\n  }"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 100,
+          "declarations": 3,
+          "cssText": "0% {\n    transform: scale(1) rotate(0deg);\n    opacity: 1;\n    filter: blur(0px);\n  }"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 277,
+          "declarations": 2,
+          "cssText": "0% {\n    transform: rotate(0deg);\n    box-shadow:\n      0 0 40px var(--glow-cyan),\n      0 0 40px va"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 300,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 99,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: scale(1) rotate(0deg);\n    opacity: 0.3;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 166,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: translate3d(-10%, -5%, 0) scale(1);\n    opacity: 0.38;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 184,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: translate3d(5%, 10%, 0) scale(1);\n    opacity: 0.4;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 202,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: translate3d(-12%, 0, 0) scale(1.05);\n    opacity: 0.42;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 271,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: translate(0, 0) rotate(0deg);\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 407,
+          "declarations": 1,
+          "cssText": "0%,\n  20%,\n  50%,\n  80%,\n  100% {\n    transform: translateX(-50%) translateY(0);\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 449,
+          "declarations": 2,
+          "cssText": "0% {\n    top: 10px;\n    opacity: 1;\n  }"
+        },
+        {
+          "file": "css\\components\\footer.css",
+          "line": 80,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: scale(1);\n  }"
+        },
+        {
+          "file": "css\\components\\buttons.css",
+          "line": 117,
+          "declarations": 1,
+          "cssText": "0% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-particles.css",
+          "line": 55,
+          "declarations": 1,
+          "cssText": "0% {\n    background-position: 0 0;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-particles.css",
+          "line": 65,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: translate3d(0, 0, 0) scale(1);\n    opacity: 0.28;\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 8,
+          "declarations": 2,
+          "cssText": "0% {\n    stroke: var(--accent-cyan);\n    filter: drop-shadow(0 0 15px var(--glow-cyan));\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 40,
+          "declarations": 2,
+          "cssText": "0% {\n    opacity: 0;\n    transform: translate3d(var(--offer-enter-x, 0), 40px, 0) scale(0.96);\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 57,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: scale(1);\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 68,
+          "declarations": 1,
+          "cssText": "0% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 92,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    opacity: 0.3;\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 104,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: scale(1);\n    opacity: 0.3;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": "100%",
+      "locations": [
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 17,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;\n    transform: rotate(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 41,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);\n  }"
+        },
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 69,
+          "declarations": 1,
+          "cssText": "100% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 30,
+          "declarations": 1,
+          "cssText": "100% {\n    transform: translate(50px, 50px);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 37,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: translate(0, 0) rotate(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 53,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    opacity: 0;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 87,
+          "declarations": 1,
+          "cssText": "100% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 102,
+          "declarations": 1,
+          "cssText": "100% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 116,
+          "declarations": 1,
+          "cssText": "0%,\n  20%,\n  50%,\n  80%,\n  100% {\n    transform: translateX(-50%) translateY(0);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 140,
+          "declarations": 2,
+          "cssText": "100% {\n    top: 30px;\n    opacity: 0;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 148,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: scale(1);\n    opacity: 0.3;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 162,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    background-position:\n      0% 50%,\n      50% 0%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 182,
+          "declarations": 1,
+          "cssText": "100% {\n    transform: rotate(360deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 206,
+          "declarations": 1,
+          "cssText": "100% {\n    background-position: -200% 0;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 213,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;\n    transform: rotate(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 237,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 265,
+          "declarations": 1,
+          "cssText": "100% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 288,
+          "declarations": 1,
+          "cssText": "100% {\n    transform: perspective(1000px) rotateY(360deg) rotateX(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 295,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: translate3d(0, 0, 0) rotateY(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 311,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 339,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: scale(1) rotate(0deg);\n    opacity: 0.3;\n  }"
+        },
+        {
+          "file": "css\\pages\\about.css",
+          "line": 288,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    box-shadow: 0 0 20px currentColor;\n  }"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 115,
+          "declarations": 3,
+          "cssText": "100% {\n    transform: scale(0) rotate(720deg);\n    opacity: 0;\n    filter: blur(10px);\n  }"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 290,
+          "declarations": 2,
+          "cssText": "100% {\n    transform: rotate(360deg);\n    box-shadow:\n      0 0 40px var(--glow-cyan),\n      0 0 40p"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 300,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 99,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: scale(1) rotate(0deg);\n    opacity: 0.3;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 166,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: translate3d(-10%, -5%, 0) scale(1);\n    opacity: 0.38;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 184,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: translate3d(5%, 10%, 0) scale(1);\n    opacity: 0.4;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 202,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: translate3d(-12%, 0, 0) scale(1.05);\n    opacity: 0.42;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 271,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: translate(0, 0) rotate(0deg);\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 407,
+          "declarations": 1,
+          "cssText": "0%,\n  20%,\n  50%,\n  80%,\n  100% {\n    transform: translateX(-50%) translateY(0);\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 454,
+          "declarations": 2,
+          "cssText": "100% {\n    top: 30px;\n    opacity: 0;\n  }"
+        },
+        {
+          "file": "css\\components\\footer.css",
+          "line": 80,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: scale(1);\n  }"
+        },
+        {
+          "file": "css\\components\\buttons.css",
+          "line": 125,
+          "declarations": 1,
+          "cssText": "100% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-particles.css",
+          "line": 59,
+          "declarations": 1,
+          "cssText": "100% {\n    background-position: 0 16vh;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-particles.css",
+          "line": 65,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: translate3d(0, 0, 0) scale(1);\n    opacity: 0.28;\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 33,
+          "declarations": 2,
+          "cssText": "100% {\n    stroke: var(--accent-cyan);\n    filter: drop-shadow(0 0 15px var(--glow-cyan));\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 50,
+          "declarations": 2,
+          "cssText": "100% {\n    opacity: 1;\n    transform: translate3d(0, 0, 0) scale(1);\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 57,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    transform: scale(1);\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 76,
+          "declarations": 1,
+          "cssText": "100% {\n    background-position: 0% 50%;\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 92,
+          "declarations": 1,
+          "cssText": "0%,\n  100% {\n    opacity: 0.3;\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 104,
+          "declarations": 2,
+          "cssText": "0%,\n  100% {\n    transform: scale(1);\n    opacity: 0.3;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": "50%",
+      "locations": [
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 28,
+          "declarations": 2,
+          "cssText": "50% {\n    border-radius: 50% 50% 30% 70% / 40% 60% 50% 60%;\n    transform: rotate(180deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 50,
+          "declarations": 1,
+          "cssText": "50% {\n    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);\n  }"
+        },
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 65,
+          "declarations": 1,
+          "cssText": "50% {\n    background-position: 100% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 57,
+          "declarations": 1,
+          "cssText": "50% {\n    opacity: 1;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 83,
+          "declarations": 1,
+          "cssText": "50% {\n    background-position: 100% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 98,
+          "declarations": 1,
+          "cssText": "50% {\n    background-position: 100% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 116,
+          "declarations": 1,
+          "cssText": "0%,\n  20%,\n  50%,\n  80%,\n  100% {\n    transform: translateX(-50%) translateY(0);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 154,
+          "declarations": 2,
+          "cssText": "50% {\n    transform: scale(1.2);\n    opacity: 0.5;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 169,
+          "declarations": 1,
+          "cssText": "50% {\n    background-position:\n      100% 50%,\n      50% 100%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 224,
+          "declarations": 2,
+          "cssText": "50% {\n    border-radius: 50% 50% 30% 70% / 40% 60% 50% 60%;\n    transform: rotate(180deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 246,
+          "declarations": 1,
+          "cssText": "50% {\n    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 261,
+          "declarations": 1,
+          "cssText": "50% {\n    background-position: 100% 50%;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 280,
+          "declarations": 1,
+          "cssText": "50% {\n    transform: perspective(1000px) rotateY(180deg) rotateX(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 320,
+          "declarations": 1,
+          "cssText": "50% {\n    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 345,
+          "declarations": 2,
+          "cssText": "50% {\n    transform: scale(1.2) rotate(180deg);\n    opacity: 0.1;\n  }"
+        },
+        {
+          "file": "css\\pages\\about.css",
+          "line": 292,
+          "declarations": 1,
+          "cssText": "50% {\n    box-shadow:\n      0 0 40px currentColor,\n      0 0 60px currentColor;\n  }"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 284,
+          "declarations": 1,
+          "cssText": "50% {\n    box-shadow:\n      0 0 60px var(--glow-cyan),\n      0 0 60px var(--glow-magenta),\n      ins"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 305,
+          "declarations": 2,
+          "cssText": "50% {\n    opacity: 0.6;\n    transform: scale(1.1);\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 105,
+          "declarations": 2,
+          "cssText": "50% {\n    transform: scale(1.2) rotate(180deg);\n    opacity: 0.1;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 407,
+          "declarations": 1,
+          "cssText": "0%,\n  20%,\n  50%,\n  80%,\n  100% {\n    transform: translateX(-50%) translateY(0);\n  }"
+        },
+        {
+          "file": "css\\components\\footer.css",
+          "line": 84,
+          "declarations": 1,
+          "cssText": "50% {\n    transform: scale(1.05);\n  }"
+        },
+        {
+          "file": "css\\components\\buttons.css",
+          "line": 121,
+          "declarations": 1,
+          "cssText": "50% {\n    background-position: 100% 50%;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-testimonials.css",
+          "line": 191,
+          "declarations": 1,
+          "cssText": "50% {\n    border-color: var(--accent-cyan);\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 62,
+          "declarations": 1,
+          "cssText": "50% {\n    transform: scale(1.03);\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 72,
+          "declarations": 1,
+          "cssText": "50% {\n    background-position: 100% 50%;\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 97,
+          "declarations": 1,
+          "cssText": "50% {\n    opacity: 0.8;\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 110,
+          "declarations": 2,
+          "cssText": "50% {\n    transform: scale(1.2);\n    opacity: 0.5;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": "to",
+      "locations": [
+        {
+          "file": "css\\base.css",
+          "line": 51,
+          "declarations": 2,
+          "cssText": "to {\n    opacity: 1;\n    filter: blur(0);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 64,
+          "declarations": 2,
+          "cssText": "to {\n    opacity: 1;\n    transform: translateY(0);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 72,
+          "declarations": 1,
+          "cssText": "to {\n    opacity: 1;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 109,
+          "declarations": 1,
+          "cssText": "to {\n    --angle: 360deg;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 194,
+          "declarations": 2,
+          "cssText": "to {\n    transform: translateX(0);\n    opacity: 1;\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 331,
+          "declarations": 2,
+          "cssText": "to {\n    transform: scale(4);\n    opacity: 0;\n  }"
+        },
+        {
+          "file": "css\\components\\service-worker.css",
+          "line": 76,
+          "declarations": 2,
+          "cssText": "to {\n    transform: translateY(0);\n    opacity: 1;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 354,
+          "declarations": 2,
+          "cssText": "to {\n    opacity: 1;\n    transform: translateY(0);\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 379,
+          "declarations": 1,
+          "cssText": "to {\n    opacity: 1;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-testimonials.css",
+          "line": 187,
+          "declarations": 1,
+          "cssText": "from,\n  to {\n    border-color: transparent;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-form.css",
+          "line": 129,
+          "declarations": 1,
+          "cssText": "to {\n    transform: rotate(360deg);\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 86,
+          "declarations": 1,
+          "cssText": "to {\n    --angle: 360deg;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": "75%",
+      "locations": [
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 33,
+          "declarations": 2,
+          "cssText": "75% {\n    border-radius: 40% 60% 50% 50% / 60% 40% 60% 40%;\n    transform: rotate(270deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 54,
+          "declarations": 1,
+          "cssText": "75% {\n    clip-path: polygon(75% 0%, 100% 75%, 25% 100%, 0% 25%);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 229,
+          "declarations": 2,
+          "cssText": "75% {\n    border-radius: 40% 60% 50% 50% / 60% 40% 60% 40%;\n    transform: rotate(270deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 250,
+          "declarations": 1,
+          "cssText": "75% {\n    clip-path: polygon(75% 0%, 100% 75%, 25% 100%, 0% 25%);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 284,
+          "declarations": 1,
+          "cssText": "75% {\n    transform: perspective(1000px) rotateY(270deg) rotateX(-10deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 324,
+          "declarations": 1,
+          "cssText": "75% {\n    transform: perspective(1000px) rotateX(-5deg) rotateY(5deg);\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-particles.css",
+          "line": 76,
+          "declarations": 2,
+          "cssText": "75% {\n    transform: translate3d(6%, -4%, 0) scale(0.92);\n    opacity: 0.32;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": ".hamburger",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 182,
+          "declarations": 4,
+          "cssText": ".hamburger {\n  display: none;\n  flex-direction: column;\n  cursor: pointer;\n  gap: 5px;\n}"
+        },
+        {
+          "file": "css\\critical.css",
+          "line": 349,
+          "declarations": 1,
+          "cssText": ".hamburger {\n    display: flex;\n  }"
+        },
+        {
+          "file": "css\\base.css",
+          "line": 249,
+          "declarations": 1,
+          "cssText": ".navbar,\n  .footer,\n  .back-to-top,\n  .hamburger {\n    display: none;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 193,
+          "declarations": 1,
+          "cssText": ".hamburger {\n    display: flex;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 705,
+          "declarations": 1,
+          "cssText": ".navbar,\n  .footer,\n  .back-to-top,\n  .hamburger {\n    display: none;\n  }"
+        },
+        {
+          "file": "css\\components\\navigation.css",
+          "line": 234,
+          "declarations": 4,
+          "cssText": ".hamburger {\n  display: none;\n  flex-direction: column;\n  cursor: pointer;\n  gap: 5px;\n}"
+        }
+      ]
+    },
+    {
+      "selector": ".hero-title",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 231,
+          "declarations": 7,
+          "cssText": ".hero-title {\n  font-family: var(--font-heading);\n  font-size: clamp(3rem, 8vw, 6rem);\n  font-weight"
+        },
+        {
+          "file": "css\\critical.css",
+          "line": 365,
+          "declarations": 1,
+          "cssText": ".hero-title {\n    font-size: clamp(2rem, 6vw, 4rem);\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 66,
+          "declarations": 1,
+          "cssText": ".hero-title {\n    font-size: clamp(2.2rem, 5.5vw, 4.5rem);\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 246,
+          "declarations": 3,
+          "cssText": ".hero-title {\n    font-size: clamp(1.8rem, 7vw, 3rem);\n    margin-bottom: 1rem;\n    letter-spacing: "
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 587,
+          "declarations": 2,
+          "cssText": ".hero-title {\n    font-size: clamp(1.4rem, 9vw, 2.2rem);\n    letter-spacing: 1px;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 295,
+          "declarations": 8,
+          "cssText": ".hero-title {\n  font-family: var(--font-heading);\n  font-size: clamp(2.5rem, 7vw, 5rem);\n  font-weig"
+        }
+      ]
+    },
+    {
+      "selector": "from",
+      "locations": [
+        {
+          "file": "css\\base.css",
+          "line": 46,
+          "declarations": 2,
+          "cssText": "from {\n    opacity: 0;\n    filter: blur(10px);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 189,
+          "declarations": 2,
+          "cssText": "from {\n    transform: translateX(-100%);\n    opacity: 0;\n  }"
+        },
+        {
+          "file": "css\\components\\service-worker.css",
+          "line": 72,
+          "declarations": 2,
+          "cssText": "from {\n    transform: translateY(100px);\n    opacity: 0;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-testimonials.css",
+          "line": 187,
+          "declarations": 1,
+          "cssText": "from,\n  to {\n    border-color: transparent;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-form.css",
+          "line": 126,
+          "declarations": 1,
+          "cssText": "from {\n    transform: rotate(0deg);\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 82,
+          "declarations": 1,
+          "cssText": "from {\n    --angle: 0deg;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": "25%",
+      "locations": [
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 23,
+          "declarations": 2,
+          "cssText": "25% {\n    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;\n    transform: rotate(90deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\fluid-effects.css",
+          "line": 46,
+          "declarations": 1,
+          "cssText": "25% {\n    clip-path: polygon(25% 0%, 100% 25%, 75% 100%, 0% 75%);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 219,
+          "declarations": 2,
+          "cssText": "25% {\n    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;\n    transform: rotate(90deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 242,
+          "declarations": 1,
+          "cssText": "25% {\n    clip-path: polygon(25% 0%, 100% 25%, 75% 100%, 0% 75%);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 276,
+          "declarations": 1,
+          "cssText": "25% {\n    transform: perspective(1000px) rotateY(90deg) rotateX(10deg);\n  }"
+        },
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 316,
+          "declarations": 1,
+          "cssText": "25% {\n    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);\n  }"
+        }
+      ]
+    },
+    {
+      "selector": "body",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 54,
+          "declarations": 7,
+          "cssText": "body {\n  font-family: var(--font-body);\n  background: var(--bg-primary);\n  color: var(--text-primary"
+        },
+        {
+          "file": "css\\base.css",
+          "line": 15,
+          "declarations": 7,
+          "cssText": "body {\n  font-family: var(--font-body);\n  background: var(--bg-primary);\n  color: var(--text-primary"
+        },
+        {
+          "file": "css\\base.css",
+          "line": 256,
+          "declarations": 2,
+          "cssText": "body {\n    background: white;\n    color: black;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 712,
+          "declarations": 2,
+          "cssText": "body {\n    background: white;\n    color: black;\n  }"
+        },
+        {
+          "file": "css\\utils\\cursor.css",
+          "line": 31,
+          "declarations": 1,
+          "cssText": "html,\n  body,\n  * {\n    cursor: none !important;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": ".logo-text",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 104,
+          "declarations": 10,
+          "cssText": ".logo-text {\n  /* Use system fonts only for immediate render - no custom font blocking */\n  font-fam"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 25,
+          "declarations": 1,
+          "cssText": ".logo-text {\n    font-size: 1.3rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 123,
+          "declarations": 2,
+          "cssText": ".logo-text {\n    font-size: 1.2rem;\n    letter-spacing: 1px;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 583,
+          "declarations": 1,
+          "cssText": ".logo-text {\n    font-size: 1rem;\n  }"
+        },
+        {
+          "file": "css\\components\\navigation.css",
+          "line": 29,
+          "declarations": 10,
+          "cssText": ".logo-text {\n  /* Use system fonts only for immediate render - no custom font blocking */\n  font-fam"
+        }
+      ]
+    },
+    {
+      "selector": ".nav-menu",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 128,
+          "declarations": 3,
+          "cssText": ".nav-menu {\n  display: flex;\n  list-style: none;\n  gap: 2rem;\n}"
+        },
+        {
+          "file": "css\\critical.css",
+          "line": 330,
+          "declarations": 12,
+          "cssText": ".nav-menu {\n    position: fixed;\n    top: 60px;\n    left: -100%;\n    width: 100%;\n    height: calc(1"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 29,
+          "declarations": 1,
+          "cssText": ".nav-menu {\n    gap: 1.5rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 128,
+          "declarations": 12,
+          "cssText": ".nav-menu {\n    position: fixed;\n    left: -100%;\n    top: 70px;\n    flex-direction: column;\n    bac"
+        },
+        {
+          "file": "css\\components\\navigation.css",
+          "line": 58,
+          "declarations": 3,
+          "cssText": ".nav-menu {\n  display: flex;\n  list-style: none;\n  gap: var(--space-8);\n}"
+        }
+      ]
+    },
+    {
+      "selector": ".hero-buttons",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 250,
+          "declarations": 4,
+          "cssText": ".hero-buttons {\n  display: flex;\n  gap: 1.5rem;\n  justify-content: center;\n  flex-wrap: wrap;\n}"
+        },
+        {
+          "file": "css\\critical.css",
+          "line": 369,
+          "declarations": 2,
+          "cssText": ".hero-buttons {\n    flex-direction: column;\n    align-items: center;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 75,
+          "declarations": 1,
+          "cssText": ".hero-buttons {\n    gap: 1rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 258,
+          "declarations": 4,
+          "cssText": ".hero-buttons {\n    flex-direction: column;\n    align-items: center;\n    gap: 1rem;\n    width: 100%;"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 337,
+          "declarations": 5,
+          "cssText": ".hero-buttons {\n  display: flex;\n  gap: 1.5rem;\n  justify-content: center;\n  flex-wrap: wrap;\n  marg"
+        }
+      ]
+    },
+    {
+      "selector": ".btn",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 260,
+          "declarations": 14,
+          "cssText": ".btn {\n  display: inline-block;\n  padding: 1rem 2rem;\n  font-family: var(--font-body);\n  font-size: "
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 79,
+          "declarations": 2,
+          "cssText": ".btn {\n    padding: 0.9rem 2rem;\n    font-size: 0.95rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 265,
+          "declarations": 4,
+          "cssText": ".btn {\n    width: 100%;\n    max-width: 300px;\n    padding: 0.9rem 2rem;\n    font-size: 0.95rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 601,
+          "declarations": 2,
+          "cssText": ".btn {\n    padding: 0.85rem 1.5rem;\n    font-size: 0.9rem;\n  }"
+        },
+        {
+          "file": "css\\components\\buttons.css",
+          "line": 9,
+          "declarations": 11,
+          "cssText": ".btn {\n  padding: 1rem 2.5rem;\n  font-size: 1rem;\n  font-weight: 700;\n  text-transform: uppercase;\n "
+        }
+      ]
+    },
+    {
+      "selector": ".service-card",
+      "locations": [
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 58,
+          "declarations": 1,
+          "cssText": ".service-card {\n    padding: 2rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 291,
+          "declarations": 1,
+          "cssText": ".service-card {\n    padding: 2rem 1.5rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 596,
+          "declarations": 1,
+          "cssText": ".service-card,\n  .project-content {\n    padding: var(--space-6) var(--space-4);\n  }"
+        },
+        {
+          "file": "css\\utils\\3d-effects.css",
+          "line": 26,
+          "declarations": 1,
+          "cssText": ".service-card {\n  transform-style: preserve-3d;\n}"
+        },
+        {
+          "file": "css\\components\\cards\\_service-card.css",
+          "line": 7,
+          "declarations": 7,
+          "cssText": ".service-card {\n  background: rgba(22, 33, 62, 0.5);\n  border: 1px solid rgba(0, 255, 255, 0.1);\n  p"
+        }
+      ]
+    },
+    {
+      "selector": "40%",
+      "locations": [
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 124,
+          "declarations": 1,
+          "cssText": "40% {\n    transform: translateX(-50%) translateY(-10px);\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 172,
+          "declarations": 2,
+          "cssText": "40% {\n    transform: translate3d(12%, 8%, 0) scale(1.1);\n    opacity: 0.5;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 415,
+          "declarations": 1,
+          "cssText": "40% {\n    transform: translateX(-50%) translateY(-10px);\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-particles.css",
+          "line": 71,
+          "declarations": 2,
+          "cssText": "40% {\n    transform: translate3d(-5%, 6%, 0) scale(1.1);\n    opacity: 0.45;\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 18,
+          "declarations": 2,
+          "cssText": "40% {\n    stroke: var(--accent-green);\n    filter: drop-shadow(0 0 15px var(--glow-green));\n  }"
+        }
+      ]
+    },
+    {
+      "selector": "60%",
+      "locations": [
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 128,
+          "declarations": 1,
+          "cssText": "60% {\n    transform: translateX(-50%) translateY(-5px);\n  }"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 110,
+          "declarations": 3,
+          "cssText": "60% {\n    transform: scale(0.5) rotate(360deg);\n    opacity: 0.5;\n    filter: blur(5px);\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 419,
+          "declarations": 1,
+          "cssText": "60% {\n    transform: translateX(-50%) translateY(-5px);\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 23,
+          "declarations": 2,
+          "cssText": "60% {\n    stroke: var(--accent-blue);\n    filter: drop-shadow(0 0 15px var(--glow-blue));\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 45,
+          "declarations": 2,
+          "cssText": "60% {\n    opacity: 1;\n    transform: translate3d(calc(var(--offer-enter-x, 0) * 0.25), -6px, 0) scal"
+        }
+      ]
+    },
+    {
+      "selector": ".achievements-section::before",
+      "locations": [
+        {
+          "file": "css\\pages\\about.css",
+          "line": 410,
+          "declarations": 5,
+          "cssText": ".achievements-section::before,\n.achievements-section::after {\n  content: '';\n  position: absolute;\n "
+        },
+        {
+          "file": "css\\pages\\about.css",
+          "line": 419,
+          "declarations": 8,
+          "cssText": ".achievements-section::before {\n  background-image: image-set(\n    url('../../assets/images/responsi"
+        },
+        {
+          "file": "css\\pages\\about.css",
+          "line": 434,
+          "declarations": 2,
+          "cssText": ".achievements-section::before {\n    background-image: image-set(\n      url('../../assets/images/resp"
+        },
+        {
+          "file": "css\\pages\\about.css",
+          "line": 444,
+          "declarations": 2,
+          "cssText": ".achievements-section::before {\n    background-image: image-set(\n      url('../../assets/images/resp"
+        },
+        {
+          "file": "css\\pages\\about.css",
+          "line": 454,
+          "declarations": 2,
+          "cssText": ".achievements-section::before {\n    background-image: image-set(\n      url('../../assets/images/resp"
+        }
+      ]
+    },
+    {
+      "selector": ".testimonials-section::before",
+      "locations": [
+        {
+          "file": "css\\pages\\contact\\_contact-testimonials.css",
+          "line": 44,
+          "declarations": 6,
+          "cssText": ".testimonials-section::before,\n.testimonials-section::after {\n  content: '';\n  position: absolute;\n "
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-testimonials.css",
+          "line": 59,
+          "declarations": 7,
+          "cssText": ".testimonials-section::before {\n  background-image: image-set(\n    url('../../assets/images/responsi"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-testimonials.css",
+          "line": 73,
+          "declarations": 2,
+          "cssText": ".testimonials-section::before {\n    background-image: image-set(\n      url('../../assets/images/resp"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-testimonials.css",
+          "line": 83,
+          "declarations": 2,
+          "cssText": ".testimonials-section::before {\n    background-image: image-set(\n      url('../../assets/images/resp"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-testimonials.css",
+          "line": 93,
+          "declarations": 2,
+          "cssText": ".testimonials-section::before {\n    background-image: image-set(\n      url('../../assets/images/resp"
+        }
+      ]
+    },
+    {
+      "selector": ".add-ons-section::before",
+      "locations": [
+        {
+          "file": "css\\components\\cards\\_offer-panel.css",
+          "line": 223,
+          "declarations": 12,
+          "cssText": ".add-ons-section::before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background-image: imag"
+        },
+        {
+          "file": "css\\components\\cards\\_offer-panel.css",
+          "line": 257,
+          "declarations": 2,
+          "cssText": ".add-ons-section::before {\n    background-image: image-set(\n      url('../../assets/images/responsiv"
+        },
+        {
+          "file": "css\\components\\cards\\_offer-panel.css",
+          "line": 267,
+          "declarations": 2,
+          "cssText": ".add-ons-section::before {\n    background-image: image-set(\n      url('../../assets/images/responsiv"
+        },
+        {
+          "file": "css\\components\\cards\\_offer-panel.css",
+          "line": 277,
+          "declarations": 2,
+          "cssText": ".add-ons-section::before {\n    background-image: image-set(\n      url('../../assets/images/responsiv"
+        },
+        {
+          "file": "css\\components\\cards\\_offer-panel.css",
+          "line": 287,
+          "declarations": 2,
+          "cssText": ".add-ons-section::before {\n    background-image: image-set(\n      url('../../assets/images/responsiv"
+        }
+      ]
+    },
+    {
+      "selector": "*",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 42,
+          "declarations": 3,
+          "cssText": "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}"
+        },
+        {
+          "file": "css\\base.css",
+          "line": 3,
+          "declarations": 3,
+          "cssText": "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 669,
+          "declarations": 2,
+          "cssText": "*,\n  *::before,\n  *::after {\n    animation-duration: 0.3s !important;\n    transition-duration: 0.2s "
+        },
+        {
+          "file": "css\\utils\\cursor.css",
+          "line": 31,
+          "declarations": 1,
+          "cssText": "html,\n  body,\n  * {\n    cursor: none !important;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": ".navbar",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 78,
+          "declarations": 9,
+          "cssText": ".navbar {\n  position: fixed;\n  top: 0;\n  width: 100%;\n  background: rgba(10, 10, 10, 0.9);\n  backdro"
+        },
+        {
+          "file": "css\\base.css",
+          "line": 249,
+          "declarations": 1,
+          "cssText": ".navbar,\n  .footer,\n  .back-to-top,\n  .hamburger {\n    display: none;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 705,
+          "declarations": 1,
+          "cssText": ".navbar,\n  .footer,\n  .back-to-top,\n  .hamburger {\n    display: none;\n  }"
+        },
+        {
+          "file": "css\\components\\navigation.css",
+          "line": 3,
+          "declarations": 9,
+          "cssText": ".navbar {\n  position: fixed;\n  top: 0;\n  width: 100%;\n  background: rgba(10, 10, 10, 0.9);\n  backdro"
+        }
+      ]
+    },
+    {
+      "selector": ".nav-container",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 95,
+          "declarations": 6,
+          "cssText": ".nav-container {\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 0 2rem;\n  display: flex;\n  justif"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 21,
+          "declarations": 1,
+          "cssText": ".nav-container {\n    padding: 0 1.5rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 119,
+          "declarations": 1,
+          "cssText": ".nav-container {\n    padding: 0 1rem;\n  }"
+        },
+        {
+          "file": "css\\components\\navigation.css",
+          "line": 20,
+          "declarations": 6,
+          "cssText": ".nav-container {\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 0 var(--space-8);\n  display: flex"
+        }
+      ]
+    },
+    {
+      "selector": ".nav-link",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 134,
+          "declarations": 9,
+          "cssText": ".nav-link {\n  color: var(--text-secondary);\n  text-decoration: none;\n  font-size: 1rem;\n  font-weigh"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 33,
+          "declarations": 1,
+          "cssText": ".nav-link {\n    font-size: 0.9rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 152,
+          "declarations": 3,
+          "cssText": ".nav-link {\n    display: block;\n    padding: 0.75rem 0;\n    font-size: 1rem;\n  }"
+        },
+        {
+          "file": "css\\components\\navigation.css",
+          "line": 64,
+          "declarations": 9,
+          "cssText": ".nav-link {\n  color: var(--text-secondary);\n  text-decoration: none;\n  font-size: 1rem;\n  font-weigh"
+        }
+      ]
+    },
+    {
+      "selector": ".hero-content",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 223,
+          "declarations": 5,
+          "cssText": ".hero-content {\n  position: relative;\n  z-index: 1;\n  text-align: center;\n  max-width: 1200px;\n  pad"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 62,
+          "declarations": 1,
+          "cssText": ".hero-content {\n    padding: 0 1.5rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 242,
+          "declarations": 1,
+          "cssText": ".hero-content {\n    padding: 0 1rem;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 286,
+          "declarations": 5,
+          "cssText": ".hero-content {\n  text-align: center;\n  z-index: 10;\n  max-width: 1200px;\n  padding: 0 2rem;\n  posit"
+        }
+      ]
+    },
+    {
+      "selector": ".hero-subtitle",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 241,
+          "declarations": 6,
+          "cssText": ".hero-subtitle {\n  font-size: clamp(1.2rem, 3vw, 1.5rem);\n  color: var(--text-secondary);\n  margin-b"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 70,
+          "declarations": 2,
+          "cssText": ".hero-subtitle {\n    font-size: clamp(0.95rem, 1.8vw, 1.2rem);\n    padding: 0 1rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 252,
+          "declarations": 3,
+          "cssText": ".hero-subtitle {\n    font-size: clamp(0.9rem, 2.5vw, 1.1rem);\n    margin-bottom: var(--space-6);\n   "
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 327,
+          "declarations": 6,
+          "cssText": ".hero-subtitle {\n  font-size: clamp(1rem, 1.8vw, 1.3rem);\n  color: var(--text-secondary);\n  margin-b"
+        }
+      ]
+    },
+    {
+      "selector": ".cursor-dot",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 317,
+          "declarations": 5,
+          "cssText": ".cursor-follow,\n.cursor-dot {\n  position: fixed;\n  pointer-events: none;\n  z-index: 9999;\n  opacity:"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 694,
+          "declarations": 1,
+          "cssText": ".cursor-follow,\n  .cursor-dot {\n    display: none;\n  }"
+        },
+        {
+          "file": "css\\utils\\cursor.css",
+          "line": 14,
+          "declarations": 10,
+          "cssText": ".cursor-dot {\n  position: fixed;\n  width: 6px;\n  height: 6px;\n  background: var(--accent-cyan);\n  bo"
+        },
+        {
+          "file": "css\\utils\\cursor.css",
+          "line": 38,
+          "declarations": 1,
+          "cssText": ".cursor-dot {\n    opacity: 1;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": ".container",
+      "locations": [
+        {
+          "file": "css\\base.css",
+          "line": 178,
+          "declarations": 3,
+          "cssText": ".container {\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 0 2rem;\n}"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 37,
+          "declarations": 1,
+          "cssText": ".container {\n    padding: 0 1.5rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 210,
+          "declarations": 1,
+          "cssText": ".container {\n    padding: 0 1rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 579,
+          "declarations": 1,
+          "cssText": ".container {\n    padding: 0 0.75rem;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": ".section-title",
+      "locations": [
+        {
+          "file": "css\\base.css",
+          "line": 195,
+          "declarations": 10,
+          "cssText": ".section-title {\n  font-family: var(--font-heading);\n  font-size: clamp(2rem, 5vw, 3.5rem);\n  font-w"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 49,
+          "declarations": 1,
+          "cssText": ".section-title {\n    font-size: clamp(1.8rem, 4vw, 3rem);\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 222,
+          "declarations": 2,
+          "cssText": ".section-title {\n    font-size: clamp(1.5rem, 6vw, 2.5rem);\n    margin-bottom: 0.75rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 592,
+          "declarations": 1,
+          "cssText": ".section-title {\n    font-size: clamp(1.3rem, 8vw, 2rem);\n  }"
+        }
+      ]
+    },
+    {
+      "selector": ".footer",
+      "locations": [
+        {
+          "file": "css\\base.css",
+          "line": 249,
+          "declarations": 1,
+          "cssText": ".navbar,\n  .footer,\n  .back-to-top,\n  .hamburger {\n    display: none;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 376,
+          "declarations": 1,
+          "cssText": ".footer {\n    padding: 3rem 0 1.5rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 705,
+          "declarations": 1,
+          "cssText": ".navbar,\n  .footer,\n  .back-to-top,\n  .hamburger {\n    display: none;\n  }"
+        },
+        {
+          "file": "css\\components\\footer.css",
+          "line": 9,
+          "declarations": 3,
+          "cssText": ".footer {\n  background: var(--bg-primary);\n  border-top: 1px solid rgba(0, 255, 255, 0.1);\n  padding"
+        }
+      ]
+    },
+    {
+      "selector": ".back-to-top",
+      "locations": [
+        {
+          "file": "css\\base.css",
+          "line": 249,
+          "declarations": 1,
+          "cssText": ".navbar,\n  .footer,\n  .back-to-top,\n  .hamburger {\n    display: none;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 514,
+          "declarations": 4,
+          "cssText": ".back-to-top {\n    width: 45px;\n    height: 45px;\n    bottom: 1.5rem;\n    right: 1.5rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 705,
+          "declarations": 1,
+          "cssText": ".navbar,\n  .footer,\n  .back-to-top,\n  .hamburger {\n    display: none;\n  }"
+        },
+        {
+          "file": "css\\components\\back-to-top.css",
+          "line": 9,
+          "declarations": 19,
+          "cssText": ".back-to-top {\n  position: fixed;\n  bottom: 2rem;\n  right: 2rem;\n  width: 50px;\n  height: 50px;\n  ba"
+        }
+      ]
+    },
+    {
+      "selector": ".cta-content h2",
+      "locations": [
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 101,
+          "declarations": 1,
+          "cssText": ".cta-content h2 {\n    font-size: clamp(1.8rem, 4vw, 2.5rem);\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 353,
+          "declarations": 2,
+          "cssText": ".cta-content h2 {\n    font-size: clamp(1.5rem, 6vw, 2.2rem);\n    margin-bottom: 0.75rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 610,
+          "declarations": 1,
+          "cssText": ".cta-content h2 {\n    font-size: clamp(1.3rem, 8vw, 1.8rem);\n  }"
+        },
+        {
+          "file": "css\\components\\cta.css",
+          "line": 133,
+          "declarations": 7,
+          "cssText": ".cta-content h2 {\n  font-family: var(--font-heading);\n  font-size: clamp(2rem, 5vw, 3rem);\n  margin-"
+        }
+      ]
+    },
+    {
+      "selector": ".form-submit",
+      "locations": [
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 436,
+          "declarations": 3,
+          "cssText": ".form-submit {\n    width: 100%;\n    padding: 1rem;\n    font-size: 1rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 662,
+          "declarations": 2,
+          "cssText": ".form-submit {\n    padding: 0.85rem 1.25rem;\n    font-size: 0.9rem;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-form.css",
+          "line": 97,
+          "declarations": 2,
+          "cssText": ".form-submit {\n  position: relative;\n  overflow: hidden;\n}"
+        },
+        {
+          "file": "css\\components\\forms\\_form-validation.css",
+          "line": 36,
+          "declarations": 14,
+          "cssText": ".form-submit {\n  width: 100%;\n  padding: 1rem 2rem;\n  background: transparent;\n  border: 2px solid v"
+        }
+      ]
+    },
+    {
+      "selector": ".contact-container",
+      "locations": [
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 627,
+          "declarations": 1,
+          "cssText": ".contact-container {\n    padding: 0 0.75rem;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-responsive.css",
+          "line": 13,
+          "declarations": 3,
+          "cssText": ".contact-container {\n    grid-template-columns: 1fr;\n    gap: var(--space-12);\n    padding: 0 var(--"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-responsive.css",
+          "line": 85,
+          "declarations": 2,
+          "cssText": ".contact-container {\n    padding: 0 1rem;\n    gap: var(--space-8);\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-base.css",
+          "line": 15,
+          "declarations": 6,
+          "cssText": ".contact-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 0 var(--space-8);\n  display: "
+        }
+      ]
+    },
+    {
+      "selector": ".contact-item",
+      "locations": [
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 631,
+          "declarations": 1,
+          "cssText": ".contact-item {\n    padding: 1.25rem;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-responsive.css",
+          "line": 29,
+          "declarations": 1,
+          "cssText": ".contact-item {\n    padding: 1.5rem;\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-responsive.css",
+          "line": 94,
+          "declarations": 1,
+          "cssText": ".contact-item {\n    padding: var(--space-5);\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-base.css",
+          "line": 32,
+          "declarations": 6,
+          "cssText": ".contact-item {\n  background: rgba(22, 33, 62, 0.5);\n  border: 1px solid rgba(0, 255, 255, 0.1);\n  p"
+        }
+      ]
+    },
+    {
+      "selector": ".contact-form",
+      "locations": [
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 644,
+          "declarations": 1,
+          "cssText": ".contact-form {\n    padding: var(--space-6) var(--space-4);\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-responsive.css",
+          "line": 24,
+          "declarations": 2,
+          "cssText": ".contact-form {\n    order: 2;\n    padding: var(--space-8);\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-responsive.css",
+          "line": 90,
+          "declarations": 1,
+          "cssText": ".contact-form {\n    padding: var(--space-6);\n  }"
+        },
+        {
+          "file": "css\\pages\\contact\\_contact-form.css",
+          "line": 7,
+          "declarations": 4,
+          "cssText": ".contact-form {\n  background: rgba(22, 33, 62, 0.5);\n  border: 1px solid rgba(0, 255, 255, 0.1);\n  p"
+        }
+      ]
+    },
+    {
+      "selector": ".form-group textarea",
+      "locations": [
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 652,
+          "declarations": 2,
+          "cssText": ".form-group input,\n  .form-group textarea {\n    padding: 0.75rem;\n    font-size: 0.9rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 658,
+          "declarations": 1,
+          "cssText": ".form-group textarea {\n    min-height: 100px;\n  }"
+        },
+        {
+          "file": "css\\components\\forms\\_form-base.css",
+          "line": 22,
+          "declarations": 9,
+          "cssText": ".form-group input,\n.form-group textarea {\n  width: 100%;\n  padding: var(--space-4);\n  background: rg"
+        },
+        {
+          "file": "css\\components\\forms\\_form-base.css",
+          "line": 42,
+          "declarations": 2,
+          "cssText": ".form-group textarea {\n  min-height: 150px;\n  resize: vertical;\n}"
+        }
+      ]
+    },
+    {
+      "selector": "80%",
+      "locations": [
+        {
+          "file": "css\\utils\\animations.css",
+          "line": 116,
+          "declarations": 1,
+          "cssText": "0%,\n  20%,\n  50%,\n  80%,\n  100% {\n    transform: translateX(-50%) translateY(0);\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 195,
+          "declarations": 2,
+          "cssText": "80% {\n    transform: translate3d(12%, -15%, 0) scale(0.9);\n    opacity: 0.35;\n  }"
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 407,
+          "declarations": 1,
+          "cssText": "0%,\n  20%,\n  50%,\n  80%,\n  100% {\n    transform: translateX(-50%) translateY(0);\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-animations.css",
+          "line": 28,
+          "declarations": 2,
+          "cssText": "80% {\n    stroke: var(--accent-pink);\n    filter: drop-shadow(0 0 15px var(--glow-pink));\n  }"
+        }
+      ]
+    },
+    {
+      "selector": ".milky-way-scene.active",
+      "locations": [
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 139,
+          "declarations": 7,
+          "cssText": ".milky-way-scene.active {\n  opacity: 1 !important;\n  pointer-events: all !important;\n  display: bloc"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 163,
+          "declarations": 1,
+          "cssText": ".milky-way-scene.active {\n  cursor: default !important;\n}"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 182,
+          "declarations": 1,
+          "cssText": ".milky-way-scene.active,\n  .milky-way-scene.active * {\n    cursor: default !important;\n  }"
+        },
+        {
+          "file": "css\\easter-egg\\easter-egg.css",
+          "line": 206,
+          "declarations": 1,
+          "cssText": ".milky-way-scene.active,\n.milky-way-scene.active * {\n  cursor: default !important;\n}"
+        }
+      ]
+    },
+    {
+      "selector": ".mission-parallax .parallax-background",
+      "locations": [
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 35,
+          "declarations": 3,
+          "cssText": ".mission-parallax .parallax-background {\n  background-image: image-set(\n    url('../../assets/images"
+        },
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 47,
+          "declarations": 2,
+          "cssText": ".mission-parallax .parallax-background {\n    background-image: image-set(\n      url('../../assets/im"
+        },
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 59,
+          "declarations": 2,
+          "cssText": ".mission-parallax .parallax-background {\n    background-image: image-set(\n      url('../../assets/im"
+        },
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 71,
+          "declarations": 2,
+          "cssText": ".mission-parallax .parallax-background {\n    background-image: image-set(\n      url('../../assets/im"
+        }
+      ]
+    },
+    {
+      "selector": ".process-parallax .parallax-background",
+      "locations": [
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 83,
+          "declarations": 2,
+          "cssText": ".process-parallax .parallax-background {\n  background-image: image-set(\n    url('../../assets/images"
+        },
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 94,
+          "declarations": 2,
+          "cssText": ".process-parallax .parallax-background {\n    background-image: image-set(\n      url('../../assets/im"
+        },
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 106,
+          "declarations": 2,
+          "cssText": ".process-parallax .parallax-background {\n    background-image: image-set(\n      url('../../assets/im"
+        },
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 118,
+          "declarations": 2,
+          "cssText": ".process-parallax .parallax-background {\n    background-image: image-set(\n      url('../../assets/im"
+        }
+      ]
+    },
+    {
+      "selector": ".testimonials-parallax .parallax-background",
+      "locations": [
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 130,
+          "declarations": 2,
+          "cssText": ".testimonials-parallax .parallax-background {\n  background-image: image-set(\n    url('../../assets/i"
+        },
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 141,
+          "declarations": 2,
+          "cssText": ".testimonials-parallax .parallax-background {\n    background-image: image-set(\n      url('../../asse"
+        },
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 153,
+          "declarations": 2,
+          "cssText": ".testimonials-parallax .parallax-background {\n    background-image: image-set(\n      url('../../asse"
+        },
+        {
+          "file": "css\\components\\parallax.css",
+          "line": 165,
+          "declarations": 2,
+          "cssText": ".testimonials-parallax .parallax-background {\n    background-image: image-set(\n      url('../../asse"
+        }
+      ]
+    },
+    {
+      "selector": "html",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 48,
+          "declarations": 3,
+          "cssText": "html {\n  scroll-behavior: smooth;\n  scrollbar-width: thin;\n  scrollbar-color: var(--accent-cyan) var"
+        },
+        {
+          "file": "css\\base.css",
+          "line": 9,
+          "declarations": 3,
+          "cssText": "html {\n  scroll-behavior: smooth;\n  scrollbar-width: thin;\n  scrollbar-color: var(--accent-cyan) var"
+        },
+        {
+          "file": "css\\utils\\cursor.css",
+          "line": 31,
+          "declarations": 1,
+          "cssText": "html,\n  body,\n  * {\n    cursor: none !important;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": ".hero",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 199,
+          "declarations": 10,
+          "cssText": ".hero {\n  min-height: 100vh;\n  height: 100vh;\n  display: flex;\n  align-items: center;\n  justify-cont"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 233,
+          "declarations": 6,
+          "cssText": ".hero {\n    min-height: 100vh;\n    height: 100vh;\n    padding-top: 60px;\n    padding-bottom: 60px;\n "
+        },
+        {
+          "file": "css\\components\\hero.css",
+          "line": 11,
+          "declarations": 10,
+          "cssText": ".hero {\n  min-height: 100vh;\n  height: 100vh;\n  display: flex;\n  align-items: center;\n  justify-cont"
+        }
+      ]
+    },
+    {
+      "selector": ".cursor-follow",
+      "locations": [
+        {
+          "file": "css\\critical.css",
+          "line": 317,
+          "declarations": 5,
+          "cssText": ".cursor-follow,\n.cursor-dot {\n  position: fixed;\n  pointer-events: none;\n  z-index: 9999;\n  opacity:"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 694,
+          "declarations": 1,
+          "cssText": ".cursor-follow,\n  .cursor-dot {\n    display: none;\n  }"
+        },
+        {
+          "file": "css\\utils\\cursor.css",
+          "line": 9,
+          "declarations": 1,
+          "cssText": ".cursor-follow {\n  display: none;\n}"
+        }
+      ]
+    },
+    {
+      "selector": "section",
+      "locations": [
+        {
+          "file": "css\\base.css",
+          "line": 185,
+          "declarations": 2,
+          "cssText": "section {\n  padding: 6rem 0;\n  position: relative;\n}"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 41,
+          "declarations": 1,
+          "cssText": "section {\n    padding: 4rem 0;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 214,
+          "declarations": 1,
+          "cssText": "section {\n    padding: 3rem 0;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": ".section-header",
+      "locations": [
+        {
+          "file": "css\\base.css",
+          "line": 190,
+          "declarations": 2,
+          "cssText": ".section-header {\n  text-align: center;\n  margin-bottom: var(--space-16);\n}"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 45,
+          "declarations": 1,
+          "cssText": ".section-header {\n    margin-bottom: 3rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 218,
+          "declarations": 1,
+          "cssText": ".section-header {\n    margin-bottom: 2rem;\n  }"
+        }
+      ]
+    },
+    {
+      "selector": ".services-grid",
+      "locations": [
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 53,
+          "declarations": 2,
+          "cssText": ".services-grid {\n    grid-template-columns: repeat(2, 1fr);\n    gap: 1.5rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 286,
+          "declarations": 2,
+          "cssText": ".services-grid {\n    grid-template-columns: 1fr;\n    gap: 1.5rem;\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_card-base.css",
+          "line": 96,
+          "declarations": 3,
+          "cssText": ".services-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  g"
+        }
+      ]
+    },
+    {
+      "selector": ".project-image",
+      "locations": [
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 84,
+          "declarations": 1,
+          "cssText": ".project-image {\n    height: 300px;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 311,
+          "declarations": 1,
+          "cssText": ".project-image {\n    height: 200px;\n  }"
+        },
+        {
+          "file": "css\\components\\cards\\_project-card.css",
+          "line": 32,
+          "declarations": 5,
+          "cssText": ".project-image {\n  width: 100%;\n  height: 400px;\n  background: linear-gradient(135deg, var(--bg-tert"
+        }
+      ]
+    },
+    {
+      "selector": ".project-content",
+      "locations": [
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 88,
+          "declarations": 1,
+          "cssText": ".project-content {\n    padding: 2rem;\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 315,
+          "declarations": 1,
+          "cssText": ".project-content {\n    padding: var(--space-6);\n  }"
+        },
+        {
+          "file": "css\\utils\\responsive.css",
+          "line": 596,
+          "declarations": 1,
+          "cssText": ".service-card,\n  .project-content {\n    padding: var(--space-6) var(--space-4);\n  }"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "exactDuplicates": 216,
+    "highFrequency": 42
+  }
+}

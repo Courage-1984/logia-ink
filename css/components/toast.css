@@ -1,19 +1,19 @@
 /**
  * Toast Component
  * Toast notification styles (different from alerts)
- * 
+ *
  * Extracted from styles.css (lines: 3294-3342)
  */
 
 /* Notification Toast */
 .toast {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: var(--space-8);
+  right: var(--space-8);
   background: var(--bg-secondary);
   border: 2px solid var(--accent-cyan);
   border-radius: 10px;
-  padding: 1.5rem 2rem;
+  padding: var(--space-6) var(--space-8);
   box-shadow: 0 0 30px var(--glow-cyan);
   z-index: 4000;
   min-width: 300px;
@@ -40,14 +40,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 .toast-close {
   background: transparent;
   border: none;
   color: var(--text-secondary);
-  font-size: 1.5rem;
+  font-size: var(--font-size-2xl);
   cursor: pointer;
   transition: color 0.3s ease;
 }

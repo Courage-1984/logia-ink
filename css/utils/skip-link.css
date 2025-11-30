@@ -12,9 +12,9 @@
   left: 0;
   background: var(--accent-cyan);
   color: var(--bg-primary);
-  padding: 1rem;
+  padding: var(--space-4);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   z-index: 2000;
 }
 

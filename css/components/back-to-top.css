@@ -8,8 +8,8 @@
 /* Back to Top Button */
 .back-to-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: var(--space-8);
+  right: var(--space-8);
   width: 50px;
   height: 50px;
   background: var(--bg-secondary);
@@ -24,8 +24,8 @@
   z-index: 999;
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
   text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
 }
 
 .back-to-top.visible {

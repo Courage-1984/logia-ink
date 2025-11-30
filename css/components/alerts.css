@@ -1,17 +1,17 @@
 /**
  * Alerts Component
  * Alert and notification styles with variants
- * 
+ *
  * Extracted from styles.css (lines: 2875-2920)
- * 
+ *
  * Note: @keyframes slideIn is defined in animations.css
  */
 
 /* Alert Base */
 .alert {
-  padding: 1rem 1.5rem;
+  padding: var(--space-4) var(--space-6);
   border-radius: 10px;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
   border-left: 4px solid;
   position: relative;
   animation: slideIn 0.3s ease;
@@ -32,8 +32,8 @@
 
 .alert-warning {
   background: rgba(255, 255, 0, 0.1);
-  border-color: #ffff00;
-  color: #ffff00;
+  border-color: var(--accent-yellow);
+  color: var(--accent-yellow);
 }
 
 .alert-info {

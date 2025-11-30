@@ -1,0 +1,5 @@
+---
+description: Use Filesystem MCP when the user requests actions like open, read, search, or rewrite files in the project.
+alwaysApply: false
+---
+**Tool:** Filesystem MCP **Usage:** Automatically use the filesystem tool for file reading/editing when user requests: "Open", "Read", "Search in my project", or "Rewrite this file".

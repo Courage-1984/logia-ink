@@ -1,7 +1,7 @@
 /**
  * Typography Component
  * Code blocks, blockquotes, and other typography-related styles
- * 
+ *
  * Extracted from styles.css (lines: 2998-3048)
  */
 
@@ -9,9 +9,9 @@
 code {
   background: rgba(0, 255, 255, 0.1);
   color: var(--accent-cyan);
-  padding: 0.2rem 0.4rem;
+  padding: 0.var(--space-8) 0.4rem;
   border-radius: 4px;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.9em;
   border: 1px solid rgba(0, 255, 255, 0.2);
 }
@@ -20,9 +20,9 @@ pre {
   background: var(--bg-secondary);
   border: 1px solid rgba(0, 255, 255, 0.2);
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: var(--space-6);
   overflow-x: auto;
-  margin: 1.5rem 0;
+  margin: var(--space-6) 0;
 }
 
 pre code {
@@ -36,12 +36,12 @@ pre code {
 /* Blockquote Styling */
 blockquote {
   border-left: 4px solid var(--accent-cyan);
-  padding-left: 2rem;
-  margin: 2rem 0;
+  padding-left: var(--space-8);
+  margin: var(--space-8) 0;
   font-style: italic;
   color: var(--text-secondary);
   background: rgba(0, 255, 255, 0.05);
-  padding: 1.5rem 2rem;
+  padding: var(--space-6) var(--space-8);
   border-radius: 5px;
   position: relative;
 }
@@ -51,7 +51,7 @@ blockquote::before {
   font-size: 4rem;
   color: var(--accent-cyan);
   position: absolute;
-  left: 0.5rem;
+  left: var(--space-2);
   top: 0;
   opacity: 0.3;
   font-family: serif;
@@ -64,33 +64,33 @@ ul:not(.nav-menu):not(.tab-list) li::marker {
 
 ol li::marker {
   color: var(--accent-cyan);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
 /* Definition List */
 dl {
-  margin: 1.5rem 0;
+  margin: var(--space-6) 0;
 }
 
 dt {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
   color: var(--accent-cyan);
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
 }
 
 dd {
-  margin-left: 2rem;
+  margin-left: var(--space-8);
   color: var(--text-secondary);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 /* Highlight/Mark */
 mark {
   background: rgba(0, 255, 255, 0.2);
   color: var(--accent-cyan);
-  padding: 0.1rem 0.3rem;
+  padding: 0.var(--space-4) 0.var(--space-12);
   border-radius: 3px;
 }
 
@@ -99,9 +99,9 @@ kbd {
   background: var(--bg-secondary);
   border: 1px solid var(--accent-cyan);
   border-radius: 4px;
-  padding: 0.2rem 0.5rem;
-  font-family: 'Courier New', monospace;
-  font-size: 0.875rem;
+  padding: 0.var(--space-8) var(--space-2);
+  font-family: var(--font-mono), monospace;
+  font-size: var(--font-size-sm);
   color: var(--accent-cyan);
   box-shadow: 0 2px 0 rgba(0, 255, 255, 0.3);
 }
@@ -116,13 +116,13 @@ abbr {
 
 /* Small Text */
 small {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: var(--text-muted);
 }
 
 /* Strong/Bold */
 strong {
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   color: var(--text-primary);
 }
 
@@ -137,5 +137,5 @@ hr {
   border: none;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
-  margin: 3rem 0;
+  margin: var(--space-12) 0;
 }

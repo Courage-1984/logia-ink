@@ -1,0 +1,363 @@
+{
+  "totalFiles": 58,
+  "modifiedFiles": 35,
+  "totalReplacements": {
+    "1rem": 58,
+    "2rem": 44,
+    "0.5rem": 27,
+    "1.5rem": 27,
+    "3rem": 14
+  },
+  "fileDetails": [
+    {
+      "file": "css\\critical.css",
+      "replacements": {
+        "1rem": 2,
+        "2rem": 4,
+        "0.5rem": 0,
+        "1.5rem": 1,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\base.css",
+      "replacements": {
+        "1rem": 1,
+        "2rem": 1,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "replacements": {
+        "1rem": 18,
+        "2rem": 8,
+        "0.5rem": 6,
+        "1.5rem": 9,
+        "3rem": 4
+      }
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "replacements": {
+        "1rem": 0,
+        "2rem": 1,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\utils\\empty-state.css",
+      "replacements": {
+        "1rem": 2,
+        "2rem": 1,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\utils\\dividers.css",
+      "replacements": {
+        "1rem": 0,
+        "2rem": 1,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 1
+      }
+    },
+    {
+      "file": "css\\utils\\animations.css",
+      "replacements": {
+        "1rem": 2,
+        "2rem": 1,
+        "0.5rem": 1,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "replacements": {
+        "1rem": 0,
+        "2rem": 8,
+        "0.5rem": 3,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "replacements": {
+        "1rem": 3,
+        "2rem": 2,
+        "0.5rem": 2,
+        "1.5rem": 2,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "replacements": {
+        "1rem": 1,
+        "2rem": 1,
+        "0.5rem": 0,
+        "1.5rem": 1,
+        "3rem": 1
+      }
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "replacements": {
+        "1rem": 2,
+        "2rem": 4,
+        "0.5rem": 3,
+        "1.5rem": 0,
+        "3rem": 1
+      }
+    },
+    {
+      "file": "css\\components\\tooltips.css",
+      "replacements": {
+        "1rem": 1,
+        "2rem": 0,
+        "0.5rem": 2,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\toast.css",
+      "replacements": {
+        "1rem": 0,
+        "2rem": 0,
+        "0.5rem": 1,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\tabs.css",
+      "replacements": {
+        "1rem": 2,
+        "2rem": 0,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "replacements": {
+        "1rem": 0,
+        "2rem": 0,
+        "0.5rem": 0,
+        "1.5rem": 1,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "replacements": {
+        "1rem": 0,
+        "2rem": 1,
+        "0.5rem": 2,
+        "1.5rem": 1,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "replacements": {
+        "1rem": 0,
+        "2rem": 4,
+        "0.5rem": 0,
+        "1.5rem": 1,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\footer.css",
+      "replacements": {
+        "1rem": 2,
+        "2rem": 1,
+        "0.5rem": 1,
+        "1.5rem": 0,
+        "3rem": 1
+      }
+    },
+    {
+      "file": "css\\components\\cta.css",
+      "replacements": {
+        "1rem": 1,
+        "2rem": 0,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\buttons.css",
+      "replacements": {
+        "1rem": 0,
+        "2rem": 0,
+        "0.5rem": 0,
+        "1.5rem": 1,
+        "3rem": 1
+      }
+    },
+    {
+      "file": "css\\components\\breadcrumbs.css",
+      "replacements": {
+        "1rem": 0,
+        "2rem": 1,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\alerts.css",
+      "replacements": {
+        "1rem": 1,
+        "2rem": 0,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\accordions.css",
+      "replacements": {
+        "1rem": 1,
+        "2rem": 0,
+        "0.5rem": 0,
+        "1.5rem": 2,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "replacements": {
+        "1rem": 2,
+        "2rem": 1,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "replacements": {
+        "1rem": 1,
+        "2rem": 0,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-map.css",
+      "replacements": {
+        "1rem": 1,
+        "2rem": 1,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-form.css",
+      "replacements": {
+        "1rem": 1,
+        "2rem": 0,
+        "0.5rem": 2,
+        "1.5rem": 2,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "replacements": {
+        "1rem": 3,
+        "2rem": 0,
+        "0.5rem": 0,
+        "1.5rem": 1,
+        "3rem": 1
+      }
+    },
+    {
+      "file": "css\\pages\\projects\\_projects-grid.css",
+      "replacements": {
+        "1rem": 4,
+        "2rem": 1,
+        "0.5rem": 0,
+        "1.5rem": 1,
+        "3rem": 2
+      }
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "replacements": {
+        "1rem": 1,
+        "2rem": 1,
+        "0.5rem": 1,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\forms\\_form-validation.css",
+      "replacements": {
+        "1rem": 1,
+        "2rem": 1,
+        "0.5rem": 2,
+        "1.5rem": 0,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "replacements": {
+        "1rem": 0,
+        "2rem": 0,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 1
+      }
+    },
+    {
+      "file": "css\\components\\cards\\_service-card.css",
+      "replacements": {
+        "1rem": 2,
+        "2rem": 0,
+        "0.5rem": 0,
+        "1.5rem": 3,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "replacements": {
+        "1rem": 3,
+        "2rem": 0,
+        "0.5rem": 1,
+        "1.5rem": 1,
+        "3rem": 0
+      }
+    },
+    {
+      "file": "css\\components\\cards\\_card-base.css",
+      "replacements": {
+        "1rem": 0,
+        "2rem": 0,
+        "0.5rem": 0,
+        "1.5rem": 0,
+        "3rem": 1
+      }
+    }
+  ]
+}

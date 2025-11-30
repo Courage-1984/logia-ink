@@ -21,7 +21,7 @@
   background-attachment: fixed;
   text-align: center;
   overflow: hidden;
-  padding: 8rem 0;
+  padding: var(--space-20) 0;
   transition: background-image 0.3s ease;
   min-height: 400px; /* Ensure section has height even without background */
   }
@@ -131,9 +131,9 @@
 }
 
 .cta-content h2 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
   background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -143,5 +143,5 @@
 .cta-content p {
   font-size: 1.2rem;
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-8);
 }

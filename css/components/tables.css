@@ -1,7 +1,7 @@
 /**
  * Tables Component
  * Table styling including headers, rows, and hover effects
- * 
+ *
  * Extracted from styles.css (lines: 2959-2997)
  */
 
@@ -9,7 +9,7 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 2rem 0;
+  margin: var(--space-8) 0;
   background: var(--bg-secondary);
   border-radius: 10px;
   overflow: hidden;
@@ -21,10 +21,10 @@ thead {
 }
 
 th {
-  padding: 1rem;
+  padding: var(--space-4);
   text-align: left;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--accent-cyan);
@@ -33,7 +33,7 @@ th {
 
 /* Table Body */
 td {
-  padding: 1rem;
+  padding: var(--space-4);
   border-bottom: 1px solid rgba(0, 255, 255, 0.1);
   color: var(--text-secondary);
 }

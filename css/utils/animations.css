@@ -443,14 +443,14 @@
 }
 
 .skeleton-text {
-  height: 1rem;
-  margin: 0.5rem 0;
+  height: var(--space-4);
+  margin: var(--space-2) 0;
 }
 
 .skeleton-title {
-  height: 2rem;
+  height: var(--space-8);
   width: 60%;
-  margin: 1rem 0;
+  margin: var(--space-4) 0;
 }
 
 .skeleton-image {

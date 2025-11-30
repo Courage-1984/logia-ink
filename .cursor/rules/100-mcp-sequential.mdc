@@ -1,0 +1,5 @@
+---
+description: Use Sequential-Thinking MCP for tasks requiring complex, multi-step reasoning, solving, or planning.
+alwaysApply: false
+---
+**Tool:** Sequential-Thinking MCP **Usage:** Automatically invoke sequential-thinking to break down complex, multi-step tasks.

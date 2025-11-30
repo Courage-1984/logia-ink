@@ -1,0 +1,5 @@
+---
+description: Rule for updating documentation and rule files when project architecture or code changes.
+alwaysApply: false
+---
+## Keep Rules and Documentation Current Whenever project structure, architecture, workflow, coding style, or tools change: 1. Update `./.cursor/rules/cursorrules.mdc` and other rules to reflect the new standards. 2. Ensure all documentation and developer instructions remain synchronized with the current codebase. 3. **If rules become obsolete, rewrite or remove them** rather than letting them fall out of sync. ## Documentation Update Requirement Whenever code is added, modified, refactored, or removed: - Update relevant project documentation (README, docs folder, API references). - For significant changes, include a written summary explaining **What changed**, **Why it changed**, and **How it affects future development**.

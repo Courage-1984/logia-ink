@@ -261,9 +261,9 @@ body.easter-egg-active.milky-way-ready * {
 
 .milky-way-loading-text {
   color: var(--accent-cyan) !important;
-  font-family: 'Orbitron', sans-serif !important;
+  font-family: var(--font-heading) !important;
   font-size: 1.8rem !important;
-  font-weight: 700 !important;
+  font-weight: var(--font-weight-bold) !important;
   text-shadow:
     0 0 15px var(--glow-cyan),
     0 0 30px var(--glow-cyan) !important;
@@ -311,7 +311,7 @@ body.easter-egg-active.milky-way-ready * {
 /* Milky Way Menu (3-dot menu) - Hidden by default */
 .milky-way-menu {
   position: fixed;
-  bottom: 2rem !important;
+  bottom: var(--space-8) !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   top: auto !important;
@@ -337,7 +337,7 @@ body:fullscreen .milky-way-menu {
   visibility: visible !important;
   opacity: 1 !important;
   pointer-events: all !important;
-  bottom: 2rem !important;
+  bottom: var(--space-8) !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   top: auto !important;
@@ -354,7 +354,7 @@ body:fullscreen .milky-way-menu {
     visibility: visible !important;
     opacity: 1 !important;
     pointer-events: all !important;
-    bottom: 2rem !important;
+    bottom: var(--space-8) !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     top: auto !important;
@@ -372,7 +372,7 @@ body:fullscreen .milky-way-menu {
     visibility: visible !important;
     opacity: 1 !important;
     pointer-events: all !important;
-    bottom: 2rem !important;
+    bottom: var(--space-8) !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     top: auto !important;
@@ -390,7 +390,7 @@ body:fullscreen .milky-way-menu.active {
   width: auto !important;
   height: auto !important;
   overflow: visible !important;
-  bottom: 2rem !important;
+  bottom: var(--space-8) !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   top: auto !important;
@@ -408,7 +408,7 @@ body:fullscreen .milky-way-menu.active {
     width: auto !important;
     height: auto !important;
     overflow: visible !important;
-    bottom: 2rem !important;
+    bottom: var(--space-8) !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     top: auto !important;
@@ -427,7 +427,7 @@ body:fullscreen .milky-way-menu.active {
     width: auto !important;
     height: auto !important;
     overflow: visible !important;
-    bottom: 2rem !important;
+    bottom: var(--space-8) !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     top: auto !important;
@@ -445,7 +445,7 @@ body.easter-egg-active.milky-way-ready .milky-way-menu.active {
   height: auto !important;
   overflow: visible !important;
   position: fixed !important;
-  bottom: 2rem !important;
+  bottom: var(--space-8) !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   top: auto !important;
@@ -556,15 +556,15 @@ body:not(.easter-egg-active):not(.milky-way-ready) .milky-way-menu,
   right: auto !important;
   background: rgba(10, 10, 10, 0.95) !important;
   color: var(--text-primary) !important;
-  padding: 0.5rem 0.75rem !important;
-  padding-left: 0.75rem !important;
-  padding-right: 0.75rem !important;
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
+  padding: var(--space-2) 0.75rem !important;
+  padding-left: var(--space-3) !important;
+  padding-right: var(--space-3) !important;
+  padding-top: var(--space-2) !important;
+  padding-bottom: var(--space-2) !important;
   border-radius: 6px !important;
-  font-size: 0.75rem !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-weight: 600 !important;
+  font-size: var(--font-size-xs) !important;
+  font-family: var(--font-body) !important;
+  font-weight: var(--font-weight-semibold) !important;
   white-space: nowrap !important;
   opacity: 0 !important;
   visibility: hidden !important;
@@ -709,8 +709,8 @@ body:not(.easter-egg-active):not(.milky-way-ready) .milky-way-menu,
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .milky-way-exit {
-    top: 1rem;
-    right: 1rem;
+    top: var(--space-4);
+    right: var(--space-4);
     width: 40px;
     height: 40px;
     font-size: 1.2rem;

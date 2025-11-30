@@ -23,11 +23,11 @@
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0.5rem 1rem;
+  padding: var(--space-2) var(--space-4);
   background: var(--bg-secondary);
   border: 1px solid var(--accent-cyan);
   color: var(--text-primary);
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   white-space: nowrap;
   border-radius: 5px;
   box-shadow: 0 0 15px var(--glow-cyan);
@@ -35,7 +35,7 @@
   visibility: hidden;
   transition: all 0.3s ease;
   z-index: 1000;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 [data-tooltip]::after {

@@ -69,26 +69,84 @@ The Logi-Ink website follows a **cyberpunk aesthetic** with:
 
 ### Font Families
 
+Use CSS variables for font families:
+
 ```css
 /* Headings & Display Text */
-font-family: 'Orbitron', sans-serif;
+font-family: var(--font-heading);
 
 /* Body Text & UI Elements */
-font-family: 'Rajdhani', sans-serif;
+font-family: var(--font-body);
+
+/* Monospace (code, etc.) */
+font-family: var(--font-mono);
 ```
+
+**Available Variables:**
+- `--font-heading`: 'Orbitron', sans-serif
+- `--font-body`: 'Rajdhani', sans-serif
+- `--font-mono`: 'Courier New', 'Fira Code', monospace
 
 ### Font Sizes
 
-| Element | Size | Weight | Line Height |
-|---------|------|--------|-------------|
-| H1 (Hero) | `clamp(3rem, 8vw, 6rem)` | 900 | 1.1 |
-| H1 (Page) | `clamp(2.5rem, 6vw, 4.5rem)` | 900 | 1.1 |
-| H2 (Section) | `clamp(2rem, 5vw, 3.5rem)` | 900 | 1.2 |
-| H3 | `1.5rem - 2rem` | 700 | 1.3 |
-| H4 | `1.2rem` | 700 | 1.4 |
-| Body | `1rem` | 400 | 1.6 |
-| Small | `0.875rem` | 400 | 1.5 |
-| Button | `1rem` | 700 | 1.2 |
+Use CSS variables for font sizes:
+
+```css
+/* Examples */
+font-size: var(--font-size-base);    /* 1rem / 16px */
+font-size: var(--font-size-lg);      /* 1.125rem / 18px */
+font-size: var(--font-size-2xl);     /* 1.5rem / 24px */
+```
+
+**Available Font Size Variables:**
+
+| Variable | Value | Pixels | Usage |
+|----------|-------|--------|-------|
+| `--font-size-xs` | `0.75rem` | 12px | Extra small text, labels |
+| `--font-size-sm` | `0.875rem` | 14px | Small text, captions |
+| `--font-size-base` | `1rem` | 16px | Body text, default size |
+| `--font-size-lg` | `1.125rem` | 18px | Large body text |
+| `--font-size-xl` | `1.25rem` | 20px | Extra large body text |
+| `--font-size-2xl` | `1.5rem` | 24px | Small headings (H4) |
+| `--font-size-3xl` | `1.875rem` | 30px | Medium headings (H3) |
+| `--font-size-4xl` | `2.25rem` | 36px | Large headings (H2) |
+| `--font-size-5xl` | `3rem` | 48px | Extra large headings |
+| `--font-size-6xl` | `3.75rem` | 60px | Display headings |
+
+**Typical Usage:**
+
+| Element | Size Variable | Weight Variable | Line Height |
+|---------|---------------|-----------------|-------------|
+| H1 (Hero) | `clamp(3rem, 8vw, 6rem)` | `var(--font-weight-black)` | 1.1 |
+| H1 (Page) | `clamp(2.5rem, 6vw, 4.5rem)` | `var(--font-weight-black)` | 1.1 |
+| H2 (Section) | `clamp(2rem, 5vw, 3.5rem)` | `var(--font-weight-black)` | 1.2 |
+| H3 | `var(--font-size-3xl)` | `var(--font-weight-bold)` | 1.3 |
+| H4 | `var(--font-size-xl)` | `var(--font-weight-bold)` | 1.4 |
+| Body | `var(--font-size-base)` | `var(--font-weight-normal)` | 1.6 |
+| Small | `var(--font-size-sm)` | `var(--font-weight-normal)` | 1.5 |
+| Button | `var(--font-size-base)` | `var(--font-weight-bold)` | 1.2 |
+
+### Font Weights
+
+Use CSS variables for font weights:
+
+```css
+/* Examples */
+font-weight: var(--font-weight-normal);  /* 400 */
+font-weight: var(--font-weight-bold);    /* 700 */
+font-weight: var(--font-weight-black);  /* 900 */
+```
+
+**Available Font Weight Variables:**
+
+| Variable | Value | Usage |
+|----------|-------|-------|
+| `--font-weight-light` | `300` | Light text |
+| `--font-weight-normal` | `400` | Normal/regular text (body) |
+| `--font-weight-medium` | `500` | Medium weight |
+| `--font-weight-semibold` | `600` | Semi-bold text |
+| `--font-weight-bold` | `700` | Bold text (headings, buttons) |
+| `--font-weight-black` | `900` | Black/heavy text (hero headings) |
 
 ### Typography Classes
 
@@ -129,15 +187,42 @@ font-family: 'Rajdhani', sans-serif;
 
 ### Spacing Scale
 
-| Size | Value | Usage |
-|------|-------|-------|
-| xs | `0.25rem` (4px) | Badge padding |
-| sm | `0.5rem` (8px) | Small margins |
-| md | `1rem` (16px) | Standard spacing |
-| lg | `1.5rem` (24px) | Medium spacing |
-| xl | `2rem` (32px) | Large spacing |
-| xxl | `3rem` (48px) | Extra large spacing |
-| xxxl | `4rem` (64px) | Section spacing |
+Use CSS variables for consistent spacing:
+
+```css
+/* Examples */
+padding: var(--space-4);        /* 1rem / 16px */
+margin-bottom: var(--space-8);  /* 2rem / 32px */
+gap: var(--space-6);            /* 1.5rem / 24px */
+```
+
+**Available Spacing Variables:**
+
+| Variable | Value | Pixels | Usage |
+|----------|-------|--------|-------|
+| `--space-1` | `0.25rem` | 4px | Tiny spacing, badge padding |
+| `--space-2` | `0.5rem` | 8px | Small spacing, tight margins |
+| `--space-3` | `0.75rem` | 12px | Small-medium spacing |
+| `--space-4` | `1rem` | 16px | Standard spacing (default) |
+| `--space-5` | `1.25rem` | 20px | Medium spacing |
+| `--space-6` | `1.5rem` | 24px | Medium-large spacing |
+| `--space-7` | `1.75rem` | 28px | Large-medium spacing |
+| `--space-8` | `2rem` | 32px | Large spacing, card padding |
+| `--space-10` | `2.5rem` | 40px | Extra large spacing |
+| `--space-12` | `3rem` | 48px | XXL spacing, section gaps |
+| `--space-16` | `4rem` | 64px | XXXL spacing, section padding |
+| `--space-20` | `5rem` | 80px | Huge spacing, hero sections |
+
+**Common Patterns:**
+
+| Pattern | Variable | Usage |
+|---------|----------|-------|
+| Badge padding | `var(--space-1)` | Small badges, labels |
+| Tight margins | `var(--space-2)` | Icon spacing, small gaps |
+| Standard spacing | `var(--space-4)` | Default padding, margins |
+| Card padding | `var(--space-8)` | Card internal spacing |
+| Section gaps | `var(--space-12)` | Grid gaps, section spacing |
+| Section padding | `var(--space-16)` | Vertical section padding |
 
 ---
 
@@ -878,16 +963,25 @@ function showToast(message, type = 'success') {
 - Maintain consistency across similar elements
 
 ### Typography
-- Use Orbitron only for headings and display text
-- Use Rajdhani for body text and UI elements
+- **Always use CSS variables** for font families, sizes, and weights
+- Use `var(--font-heading)` for headings and display text
+- Use `var(--font-body)` for body text and UI elements
+- Use `var(--font-mono)` for code and monospace text
+- Use font-size variables (`--font-size-*`) instead of hardcoded rem values
+- Use font-weight variables (`--font-weight-*`) instead of hardcoded numbers
 - Maintain proper heading hierarchy
-- Use appropriate font weights
+- Prefer `clamp()` for responsive typography (hero titles, section headings)
 
 ### Spacing
+- **Always use CSS spacing variables** (`--space-*`) instead of hardcoded rem values
 - Follow the spacing scale consistently
 - Use container class for content width
 - Maintain consistent padding and margins
 - Use grid gaps for card layouts
+- Common patterns:
+  - Card padding: `var(--space-8)`
+  - Section gaps: `var(--space-12)`
+  - Section padding: `var(--space-16)`
 
 ### Animations
 - Keep animations smooth and purposeful

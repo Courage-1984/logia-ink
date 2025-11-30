@@ -1,0 +1,5 @@
+---
+description: Use Playwright MCP for browser automation, UI flow testing, and interacting with web UIs.
+alwaysApply: false
+---
+**Tool:** Playwright MCP **Usage:** Use the playwright server when user requests: "Log into this site", "Test form submission", or "Automate my checkout flow".

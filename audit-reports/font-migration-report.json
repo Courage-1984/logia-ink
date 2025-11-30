@@ -1,0 +1,291 @@
+{
+  "totalFiles": 57,
+  "modifiedFiles": 35,
+  "totalReplacements": {
+    "fontSize": 51,
+    "fontWeight": 36,
+    "spacing": 38
+  },
+  "fileDetails": [
+    {
+      "file": "css\\critical.css",
+      "replacements": {
+        "fontSize": 3,
+        "fontWeight": 4,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\base.css",
+      "replacements": {
+        "fontSize": 0,
+        "fontWeight": 1,
+        "spacing": 1
+      }
+    },
+    {
+      "file": "css\\utils\\skip-link.css",
+      "replacements": {
+        "fontSize": 0,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "replacements": {
+        "fontSize": 11,
+        "fontWeight": 0,
+        "spacing": 12
+      }
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 2,
+        "spacing": 2
+      }
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "replacements": {
+        "fontSize": 0,
+        "fontWeight": 1,
+        "spacing": 3
+      }
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "replacements": {
+        "fontSize": 3,
+        "fontWeight": 1,
+        "spacing": 1
+      }
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "replacements": {
+        "fontSize": 2,
+        "fontWeight": 3,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\tooltips.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 0,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\toast.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 0,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\tabs.css",
+      "replacements": {
+        "fontSize": 2,
+        "fontWeight": 1,
+        "spacing": 2
+      }
+    },
+    {
+      "file": "css\\components\\tables.css",
+      "replacements": {
+        "fontSize": 0,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 2,
+        "spacing": 1
+      }
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "replacements": {
+        "fontSize": 0,
+        "fontWeight": 0,
+        "spacing": 1
+      }
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "replacements": {
+        "fontSize": 2,
+        "fontWeight": 3,
+        "spacing": 1
+      }
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "replacements": {
+        "fontSize": 0,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\footer.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 0,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\cta.css",
+      "replacements": {
+        "fontSize": 0,
+        "fontWeight": 0,
+        "spacing": 1
+      }
+    },
+    {
+      "file": "css\\components\\buttons.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 1,
+        "spacing": 2
+      }
+    },
+    {
+      "file": "css\\components\\badges.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\back-to-top.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\accordions.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\pages\\projects\\_projects-grid.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "replacements": {
+        "fontSize": 0,
+        "fontWeight": 1,
+        "spacing": 1
+      }
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "replacements": {
+        "fontSize": 3,
+        "fontWeight": 0,
+        "spacing": 1
+      }
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "replacements": {
+        "fontSize": 2,
+        "fontWeight": 0,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-map.css",
+      "replacements": {
+        "fontSize": 2,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-form.css",
+      "replacements": {
+        "fontSize": 4,
+        "fontWeight": 0,
+        "spacing": 1
+      }
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 2,
+        "spacing": 4
+      }
+    },
+    {
+      "file": "css\\components\\forms\\_form-validation.css",
+      "replacements": {
+        "fontSize": 3,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\forms\\_form-base.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\cards\\_service-card.css",
+      "replacements": {
+        "fontSize": 1,
+        "fontWeight": 1,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "replacements": {
+        "fontSize": 0,
+        "fontWeight": 2,
+        "spacing": 0
+      }
+    },
+    {
+      "file": "css\\components\\cards\\_offer-panel.css",
+      "replacements": {
+        "fontSize": 0,
+        "fontWeight": 0,
+        "spacing": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+---
+description: Ensure project behavior, documentation, and rules are always synchronized.
+globs: ["**/*.mdc", "**/*.md"]
+alwaysApply: true
+---
+## Meta-Consistency and Alignment At all times, ensure that **project behavior, documentation, and rules remain aligned**. If they diverge, pause and correct alignment before proceeding.

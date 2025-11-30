@@ -1,42 +1,6 @@
 {
-  "totalFiles": 39,
+  "totalFiles": 59,
   "files": [
-    {
-      "path": "css\\components\\cards.css",
-      "lines": 1470,
-      "size": 39932,
-      "sizeKB": "39.00",
-      "modified": "2025-11-29",
-      "classCount": 289,
-      "idCount": 8,
-      "mediaQueryCount": 9,
-      "variableCount": 23,
-      "importantCount": 40,
-      "fontFaceCount": 0,
-      "importCount": 0,
-      "concerns": [
-        "LARGE_FILE",
-        "VERY_LARGE_FILE",
-        "EXCESSIVE_IMPORTANT"
-      ]
-    },
-    {
-      "path": "css\\components\\forms.css",
-      "lines": 844,
-      "size": 20814,
-      "sizeKB": "20.33",
-      "modified": "2025-11-08",
-      "classCount": 194,
-      "idCount": 4,
-      "mediaQueryCount": 0,
-      "variableCount": 0,
-      "importantCount": 0,
-      "fontFaceCount": 0,
-      "importCount": 0,
-      "concerns": [
-        "LARGE_FILE"
-      ]
-    },
     {
       "path": "css\\easter-egg\\easter-egg.css",
       "lines": 719,
@@ -56,37 +20,20 @@
       ]
     },
     {
-      "path": "css\\pages\\contact.css",
-      "lines": 856,
-      "size": 16370,
-      "sizeKB": "15.99",
-      "modified": "2025-11-29",
-      "classCount": 150,
-      "idCount": 0,
-      "mediaQueryCount": 6,
-      "variableCount": 0,
-      "importantCount": 3,
-      "fontFaceCount": 0,
-      "importCount": 0,
-      "concerns": [
-        "LARGE_FILE"
-      ]
-    },
-    {
-      "path": "css\\pages\\projects.css",
-      "lines": 637,
-      "size": 13376,
-      "sizeKB": "13.06",
+      "path": "css\\components\\cards\\_card-sections.css",
+      "lines": 491,
+      "size": 16982,
+      "sizeKB": "16.58",
       "modified": "2025-11-30",
-      "classCount": 148,
-      "idCount": 0,
+      "classCount": 53,
+      "idCount": 8,
       "mediaQueryCount": 2,
       "variableCount": 0,
-      "importantCount": 3,
+      "importantCount": 38,
       "fontFaceCount": 0,
       "importCount": 0,
       "concerns": [
-        "LARGE_FILE"
+        "EXCESSIVE_IMPORTANT"
       ]
     },
     {
@@ -106,6 +53,21 @@
         "LARGE_FILE",
         "EXCESSIVE_IMPORTANT"
       ]
+    },
+    {
+      "path": "css\\components\\forms\\_form-variants.css",
+      "lines": 469,
+      "size": 12605,
+      "sizeKB": "12.31",
+      "modified": "2025-11-30",
+      "classCount": 166,
+      "idCount": 4,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
     },
     {
       "path": "css\\pages\\about.css",
@@ -155,6 +117,21 @@
       "concerns": []
     },
     {
+      "path": "css\\pages\\projects\\_project-modal.css",
+      "lines": 414,
+      "size": 8306,
+      "sizeKB": "8.11",
+      "modified": "2025-11-30",
+      "classCount": 73,
+      "idCount": 0,
+      "mediaQueryCount": 2,
+      "variableCount": 0,
+      "importantCount": 3,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
       "path": "css\\critical.css",
       "lines": 374,
       "size": 7891,
@@ -170,6 +147,21 @@
       "concerns": []
     },
     {
+      "path": "css\\components\\cards\\_offer-panel.css",
+      "lines": 296,
+      "size": 6939,
+      "sizeKB": "6.78",
+      "modified": "2025-11-30",
+      "classCount": 69,
+      "idCount": 0,
+      "mediaQueryCount": 5,
+      "variableCount": 23,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
       "path": "css\\components\\parallax.css",
       "lines": 207,
       "size": 6871,
@@ -178,6 +170,21 @@
       "classCount": 69,
       "idCount": 0,
       "mediaQueryCount": 9,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
+      "path": "css\\pages\\contact\\_contact-testimonials.css",
+      "lines": 252,
+      "size": 5397,
+      "sizeKB": "5.27",
+      "modified": "2025-11-30",
+      "classCount": 47,
+      "idCount": 0,
+      "mediaQueryCount": 3,
       "variableCount": 0,
       "importantCount": 0,
       "fontFaceCount": 0,
@@ -217,6 +224,21 @@
       "concerns": []
     },
     {
+      "path": "css\\pages\\projects\\_projects-grid.css",
+      "lines": 226,
+      "size": 4984,
+      "sizeKB": "4.87",
+      "modified": "2025-11-30",
+      "classCount": 72,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
       "path": "css\\pages\\reports.css",
       "lines": 226,
       "size": 4679,
@@ -232,16 +254,76 @@
       "concerns": []
     },
     {
+      "path": "css\\components\\cards\\_service-card.css",
+      "lines": 199,
+      "size": 4429,
+      "sizeKB": "4.33",
+      "modified": "2025-11-30",
+      "classCount": 35,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
+      "path": "css\\components\\forms\\_form-inputs.css",
+      "lines": 197,
+      "size": 4337,
+      "sizeKB": "4.24",
+      "modified": "2025-11-30",
+      "classCount": 2,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
+      "path": "css\\components\\cards\\_card-variants.css",
+      "lines": 137,
+      "size": 4246,
+      "sizeKB": "4.15",
+      "modified": "2025-11-30",
+      "classCount": 75,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
       "path": "css\\components\\cta.css",
       "lines": 148,
-      "size": 3524,
-      "sizeKB": "3.44",
-      "modified": "2025-11-29",
+      "size": 3491,
+      "sizeKB": "3.41",
+      "modified": "2025-11-30",
       "classCount": 18,
       "idCount": 0,
       "mediaQueryCount": 0,
       "variableCount": 0,
-      "importantCount": 3,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
+      "path": "css\\pages\\contact\\_contact-base.css",
+      "lines": 181,
+      "size": 3329,
+      "sizeKB": "3.25",
+      "modified": "2025-11-30",
+      "classCount": 23,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 1,
       "fontFaceCount": 0,
       "importCount": 0,
       "concerns": []
@@ -262,12 +344,72 @@
       "concerns": []
     },
     {
+      "path": "css\\components\\cards\\_project-card.css",
+      "lines": 127,
+      "size": 2802,
+      "sizeKB": "2.74",
+      "modified": "2025-11-30",
+      "classCount": 19,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
+      "path": "css\\components\\cards\\_card-base.css",
+      "lines": 135,
+      "size": 2654,
+      "sizeKB": "2.59",
+      "modified": "2025-11-30",
+      "classCount": 18,
+      "idCount": 0,
+      "mediaQueryCount": 2,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
+      "path": "css\\pages\\contact\\_contact-form.css",
+      "lines": 139,
+      "size": 2653,
+      "sizeKB": "2.59",
+      "modified": "2025-11-30",
+      "classCount": 30,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
       "path": "css\\components\\typography.css",
       "lines": 142,
       "size": 2605,
       "sizeKB": "2.54",
       "modified": "2025-11-06",
       "classCount": 3,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
+      "path": "css\\components\\forms\\_form-base.css",
+      "lines": 117,
+      "size": 2491,
+      "sizeKB": "2.43",
+      "modified": "2025-11-30",
+      "classCount": 7,
       "idCount": 0,
       "mediaQueryCount": 0,
       "variableCount": 0,
@@ -307,6 +449,36 @@
       "concerns": []
     },
     {
+      "path": "css\\pages\\contact\\_contact-map.css",
+      "lines": 111,
+      "size": 2139,
+      "sizeKB": "2.09",
+      "modified": "2025-11-30",
+      "classCount": 20,
+      "idCount": 0,
+      "mediaQueryCount": 1,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
+      "path": "css\\main.css",
+      "lines": 58,
+      "size": 1879,
+      "sizeKB": "1.83",
+      "modified": "2025-11-30",
+      "classCount": 37,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 1,
+      "importCount": 37,
+      "concerns": []
+    },
+    {
       "path": "css\\utils\\3d-effects.css",
       "lines": 73,
       "size": 1868,
@@ -322,21 +494,6 @@
       "concerns": []
     },
     {
-      "path": "css\\main.css",
-      "lines": 58,
-      "size": 1855,
-      "sizeKB": "1.81",
-      "modified": "2025-11-16",
-      "classCount": 37,
-      "idCount": 0,
-      "mediaQueryCount": 0,
-      "variableCount": 0,
-      "importantCount": 0,
-      "fontFaceCount": 1,
-      "importCount": 37,
-      "concerns": []
-    },
-    {
       "path": "css\\components\\footer.css",
       "lines": 96,
       "size": 1765,
@@ -346,6 +503,21 @@
       "idCount": 0,
       "mediaQueryCount": 0,
       "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
+      "path": "css\\components\\cards\\_card-animations.css",
+      "lines": 116,
+      "size": 1745,
+      "sizeKB": "1.70",
+      "modified": "2025-11-30",
+      "classCount": 0,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 2,
       "importantCount": 0,
       "fontFaceCount": 0,
       "importCount": 0,
@@ -367,12 +539,57 @@
       "concerns": []
     },
     {
+      "path": "css\\pages\\contact\\_contact-responsive.css",
+      "lines": 120,
+      "size": 1665,
+      "sizeKB": "1.63",
+      "modified": "2025-11-30",
+      "classCount": 24,
+      "idCount": 0,
+      "mediaQueryCount": 2,
+      "variableCount": 0,
+      "importantCount": 2,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
+      "path": "css\\pages\\contact\\_contact-particles.css",
+      "lines": 82,
+      "size": 1578,
+      "sizeKB": "1.54",
+      "modified": "2025-11-30",
+      "classCount": 3,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
       "path": "css\\components\\modals.css",
       "lines": 81,
       "size": 1499,
       "sizeKB": "1.46",
       "modified": "2025-11-08",
       "classCount": 11,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
+      "path": "css\\components\\forms\\_form-validation.css",
+      "lines": 74,
+      "size": 1439,
+      "sizeKB": "1.41",
+      "modified": "2025-11-30",
+      "classCount": 18,
       "idCount": 0,
       "mediaQueryCount": 0,
       "variableCount": 0,
@@ -472,6 +689,21 @@
       "concerns": []
     },
     {
+      "path": "css\\components\\cards\\_pricing-card.css",
+      "lines": 40,
+      "size": 953,
+      "sizeKB": "0.93",
+      "modified": "2025-11-30",
+      "classCount": 16,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
       "path": "css\\components\\badges.css",
       "lines": 46,
       "size": 949,
@@ -562,6 +794,36 @@
       "concerns": []
     },
     {
+      "path": "css\\components\\cards\\index.css",
+      "lines": 24,
+      "size": 514,
+      "sizeKB": "0.50",
+      "modified": "2025-11-30",
+      "classCount": 8,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 8,
+      "concerns": []
+    },
+    {
+      "path": "css\\pages\\contact\\index.css",
+      "lines": 24,
+      "size": 467,
+      "sizeKB": "0.46",
+      "modified": "2025-11-30",
+      "classCount": 6,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 6,
+      "concerns": []
+    },
+    {
       "path": "css\\utils\\empty-state.css",
       "lines": 26,
       "size": 445,
@@ -605,47 +867,41 @@
       "fontFaceCount": 0,
       "importCount": 0,
       "concerns": []
-    }
-  ],
-  "totalLines": 9820,
-  "totalSize": 216926,
-  "largestFiles": [
-    {
-      "path": "css\\components\\cards.css",
-      "lines": 1470,
-      "size": 39932,
-      "sizeKB": "39.00",
-      "modified": "2025-11-29",
-      "classCount": 289,
-      "idCount": 8,
-      "mediaQueryCount": 9,
-      "variableCount": 23,
-      "importantCount": 40,
-      "fontFaceCount": 0,
-      "importCount": 0,
-      "concerns": [
-        "LARGE_FILE",
-        "VERY_LARGE_FILE",
-        "EXCESSIVE_IMPORTANT"
-      ]
     },
     {
-      "path": "css\\components\\forms.css",
-      "lines": 844,
-      "size": 20814,
-      "sizeKB": "20.33",
-      "modified": "2025-11-08",
-      "classCount": 194,
-      "idCount": 4,
+      "path": "css\\components\\forms\\index.css",
+      "lines": 18,
+      "size": 336,
+      "sizeKB": "0.33",
+      "modified": "2025-11-30",
+      "classCount": 4,
+      "idCount": 0,
       "mediaQueryCount": 0,
       "variableCount": 0,
       "importantCount": 0,
       "fontFaceCount": 0,
-      "importCount": 0,
-      "concerns": [
-        "LARGE_FILE"
-      ]
+      "importCount": 4,
+      "concerns": []
     },
+    {
+      "path": "css\\pages\\projects\\index.css",
+      "lines": 12,
+      "size": 239,
+      "sizeKB": "0.23",
+      "modified": "2025-11-30",
+      "classCount": 2,
+      "idCount": 0,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 2,
+      "concerns": []
+    }
+  ],
+  "totalLines": 10014,
+  "totalSize": 219654,
+  "largestFiles": [
     {
       "path": "css\\easter-egg\\easter-egg.css",
       "lines": 719,
@@ -665,37 +921,20 @@
       ]
     },
     {
-      "path": "css\\pages\\contact.css",
-      "lines": 856,
-      "size": 16370,
-      "sizeKB": "15.99",
-      "modified": "2025-11-29",
-      "classCount": 150,
-      "idCount": 0,
-      "mediaQueryCount": 6,
-      "variableCount": 0,
-      "importantCount": 3,
-      "fontFaceCount": 0,
-      "importCount": 0,
-      "concerns": [
-        "LARGE_FILE"
-      ]
-    },
-    {
-      "path": "css\\pages\\projects.css",
-      "lines": 637,
-      "size": 13376,
-      "sizeKB": "13.06",
+      "path": "css\\components\\cards\\_card-sections.css",
+      "lines": 491,
+      "size": 16982,
+      "sizeKB": "16.58",
       "modified": "2025-11-30",
-      "classCount": 148,
-      "idCount": 0,
+      "classCount": 53,
+      "idCount": 8,
       "mediaQueryCount": 2,
       "variableCount": 0,
-      "importantCount": 3,
+      "importantCount": 38,
       "fontFaceCount": 0,
       "importCount": 0,
       "concerns": [
-        "LARGE_FILE"
+        "EXCESSIVE_IMPORTANT"
       ]
     },
     {
@@ -715,6 +954,21 @@
         "LARGE_FILE",
         "EXCESSIVE_IMPORTANT"
       ]
+    },
+    {
+      "path": "css\\components\\forms\\_form-variants.css",
+      "lines": 469,
+      "size": 12605,
+      "sizeKB": "12.31",
+      "modified": "2025-11-30",
+      "classCount": 166,
+      "idCount": 4,
+      "mediaQueryCount": 0,
+      "variableCount": 0,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
     },
     {
       "path": "css\\pages\\about.css",
@@ -764,6 +1018,21 @@
       "concerns": []
     },
     {
+      "path": "css\\pages\\projects\\_project-modal.css",
+      "lines": 414,
+      "size": 8306,
+      "sizeKB": "8.11",
+      "modified": "2025-11-30",
+      "classCount": 73,
+      "idCount": 0,
+      "mediaQueryCount": 2,
+      "variableCount": 0,
+      "importantCount": 3,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
+    },
+    {
       "path": "css\\critical.css",
       "lines": 374,
       "size": 7891,
@@ -777,18 +1046,33 @@
       "fontFaceCount": 0,
       "importCount": 0,
       "concerns": []
+    },
+    {
+      "path": "css\\components\\cards\\_offer-panel.css",
+      "lines": 296,
+      "size": 6939,
+      "sizeKB": "6.78",
+      "modified": "2025-11-30",
+      "classCount": 69,
+      "idCount": 0,
+      "mediaQueryCount": 5,
+      "variableCount": 23,
+      "importantCount": 0,
+      "fontFaceCount": 0,
+      "importCount": 0,
+      "concerns": []
     }
   ],
   "statistics": {
-    "avgLinesPerFile": 252,
-    "avgSizePerFile": "5.43 KB",
-    "totalSizeKB": "211.84",
+    "avgLinesPerFile": 170,
+    "avgSizePerFile": "3.64 KB",
+    "totalSizeKB": "214.51",
     "totalSizeGzipped": "N/A",
-    "filesOver500Lines": 6,
-    "filesOver1000Lines": 1,
-    "totalConcerns": 12,
-    "totalClasses": 1728,
-    "totalVariables": 58,
-    "totalImportant": 391
+    "filesOver500Lines": 2,
+    "filesOver1000Lines": 0,
+    "totalConcerns": 7,
+    "totalClasses": 1737,
+    "totalVariables": 60,
+    "totalImportant": 386
   }
 }

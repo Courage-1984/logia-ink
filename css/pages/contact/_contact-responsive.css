@@ -6,14 +6,14 @@
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
   .contact-section {
-    padding: 4rem 0 2rem 0;
-    padding-bottom: 2rem !important;
+    padding: var(--space-16) 0 var(--space-8) 0;
+    padding-bottom: var(--space-8) !important;
   }
 
   .contact-container {
     grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 0 1.5rem;
+    gap: var(--space-12);
+    padding: 0 var(--space-6);
   }
 
   /* Contact info above form on mobile */
@@ -23,11 +23,11 @@
 
   .contact-form {
     order: 2;
-    padding: 2rem;
+    padding: var(--space-8);
   }
 
   .contact-item {
-    padding: 1.5rem;
+    padding: var(--space-6);
   }
 
   .contact-quick-action {
@@ -47,15 +47,15 @@
   }
 
   .form-title {
-    font-size: 1.25rem;
+    font-size: var(--font-size-xl);
   }
 
   .map-section {
-    padding: 3rem 0;
+    padding: var(--space-12) 0;
   }
 
   .map-container {
-    padding: 0 1.5rem;
+    padding: 0 var(--space-6);
   }
 
   .map-container iframe {
@@ -64,44 +64,44 @@
 
   .testimonials-grid {
     grid-template-columns: 1fr;
-    padding: 0 1.5rem;
+    padding: 0 var(--space-6);
   }
 
   .testimonial-card {
-    padding: 2rem;
+    padding: var(--space-8);
   }
 
   .faq-container {
-    padding: 0 1.5rem;
+    padding: 0 var(--space-6);
   }
 }
 
 @media (max-width: 480px) {
   .contact-section {
-    padding: 3rem 0 1.5rem 0;
-    padding-bottom: 1.5rem !important;
+    padding: var(--space-12) 0 var(--space-6) 0;
+    padding-bottom: var(--space-6) !important;
   }
 
   .contact-container {
-    padding: 0 1rem;
-    gap: 2rem;
+    padding: 0 var(--space-4);
+    gap: var(--space-8);
   }
 
   .contact-form {
-    padding: 1.5rem;
+    padding: var(--space-6);
   }
 
   .contact-item {
-    padding: 1.25rem;
+    padding: var(--space-5);
   }
 
   .contact-item h3 {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
   }
 
   .form-title {
     font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-6);
   }
 
   .map-container iframe {
@@ -109,7 +109,7 @@
   }
 
   .testimonial-card {
-    padding: 1.5rem;
+    padding: var(--space-6);
   }
 
   .testimonial-text {

@@ -5,14 +5,14 @@
 
 /* Form Group */
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-6);
 }
 
 .form-group label {
   display: block;
   color: var(--accent-cyan);
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  margin-bottom: var(--space-2);
+  font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.9rem;
@@ -22,13 +22,13 @@
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 1rem;
+  padding: var(--space-4);
   background: rgba(10, 10, 10, 0.5);
   border: 1px solid rgba(0, 255, 255, 0.2);
   border-radius: 5px;
   color: var(--text-primary);
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
   transition: all 0.3s ease;
 }
 
@@ -87,7 +87,7 @@ select:-webkit-autofill:focus {
 /* Caret/Cursor Color */
 input,
 textarea {
-  caret-color: #00ffff;
+  caret-color: var(--accent-cyan);
 }
 
 /* Focus Outline Styling */

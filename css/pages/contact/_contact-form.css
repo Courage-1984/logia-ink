@@ -7,15 +7,15 @@
 .contact-form {
   background: rgba(22, 33, 62, 0.5);
   border: 1px solid rgba(0, 255, 255, 0.1);
-  padding: 3rem;
+  padding: var(--space-12);
   border-radius: 15px;
 }
 
 .form-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
   color: var(--accent-cyan);
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-8);
   text-align: center;
 }
 
@@ -25,7 +25,7 @@
   height: 4px;
   background: rgba(0, 255, 255, 0.1);
   border-radius: 2px;
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-8);
   overflow: hidden;
 }
 
@@ -40,15 +40,15 @@
 /* Floating Labels */
 .form-group.floating-label {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-8);
 }
 
 .form-group.floating-label label {
   position: absolute;
-  left: 1rem;
-  top: 1rem;
+  left: var(--space-4);
+  top: var(--space-4);
   color: rgba(0, 255, 255, 0.6);
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   pointer-events: none;
   transition: all 0.3s ease;
   background: transparent;
@@ -61,17 +61,17 @@
 .form-group.floating-label textarea:focus + label,
 .form-group.floating-label textarea:not(:placeholder-shown) + label {
   top: -0.5rem;
-  left: 0.75rem;
-  font-size: 0.75rem;
+  left: var(--space-3);
+  font-size: var(--font-size-xs);
   color: var(--accent-cyan);
   background: rgba(22, 33, 62, 0.95);
-  padding: 0 0.5rem;
+  padding: 0 var(--space-2);
 }
 
 .form-group.floating-label input,
 .form-group.floating-label textarea {
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-4);
 }
 
 .form-group.floating-label .required {
@@ -83,14 +83,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0.5rem;
-  min-height: 1.5rem;
+  margin-top: var(--space-2);
+  min-height: var(--space-6);
 }
 
 .character-counter {
-  font-size: 0.75rem;
+  font-size: var(--font-size-xs);
   color: var(--text-secondary);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-body);
 }
 
 /* Submit Button Spinner */

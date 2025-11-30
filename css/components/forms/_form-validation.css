@@ -20,28 +20,28 @@
 
 .form-error-message {
   color: var(--accent-pink);
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-2);
   display: block;
 }
 
 .form-success-message {
   color: var(--accent-green);
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-2);
   display: block;
 }
 
 /* Form Submit Button */
 .form-submit {
   width: 100%;
-  padding: 1rem 2rem;
+  padding: var(--space-4) var(--space-8);
   background: transparent;
   border: 2px solid var(--accent-cyan);
   color: var(--accent-cyan);
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: 2px;
   cursor: pointer;

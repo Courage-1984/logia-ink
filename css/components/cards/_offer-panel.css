@@ -15,7 +15,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: var(--space-7);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   opacity: 0;
   transform: translate3d(0, 40px, 0);
@@ -111,8 +111,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 1.5rem;
-  padding-right: 0.75rem;
+  gap: var(--space-6);
+  padding-right: var(--space-3);
 }
 
 .offer-panel__header > div {
@@ -125,18 +125,18 @@
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   color: var(--panel-accent);
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-3);
 }
 
 .offer-panel__title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.4rem, 2.2vw, 1.8rem);
   color: var(--text-primary);
   margin: 0;
 }
 
 .offer-panel__number {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.5rem, 4vw, 2.4rem);
   color: var(--panel-accent);
   opacity: 0.75;
@@ -184,7 +184,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-4);
   margin-top: auto;
 }
 
@@ -201,11 +201,11 @@
 
 @media (max-width: 768px) {
   .offer-grid {
-    gap: 2rem;
+    gap: var(--space-8);
   }
 
   .offer-panel {
-    padding: 1.75rem;
+    padding: var(--space-7);
   }
 
   .offer-panel__actions {

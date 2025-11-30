@@ -1,0 +1,2822 @@
+{
+  "fonts": [
+    {
+      "file": "css\\fonts.css",
+      "line": 15,
+      "match": "font-family: 'Orbitron'",
+      "suggestion": "Use CSS variable (e.g., var(--font-heading))"
+    },
+    {
+      "file": "css\\fonts.css",
+      "line": 23,
+      "match": "font-family: 'Orbitron'",
+      "suggestion": "Use CSS variable (e.g., var(--font-heading))"
+    },
+    {
+      "file": "css\\fonts.css",
+      "line": 31,
+      "match": "font-family: 'Orbitron'",
+      "suggestion": "Use CSS variable (e.g., var(--font-heading))"
+    },
+    {
+      "file": "css\\fonts.css",
+      "line": 41,
+      "match": "font-family: 'Rajdhani'",
+      "suggestion": "Use CSS variable (e.g., var(--font-heading))"
+    },
+    {
+      "file": "css\\fonts.css",
+      "line": 49,
+      "match": "font-family: 'Rajdhani'",
+      "suggestion": "Use CSS variable (e.g., var(--font-heading))"
+    },
+    {
+      "file": "css\\fonts.css",
+      "line": 57,
+      "match": "font-family: 'Rajdhani'",
+      "suggestion": "Use CSS variable (e.g., var(--font-heading))"
+    },
+    {
+      "file": "css\\fonts.css",
+      "line": 65,
+      "match": "font-family: 'Rajdhani'",
+      "suggestion": "Use CSS variable (e.g., var(--font-heading))"
+    }
+  ],
+  "spacing": [
+    {
+      "file": "css\\critical.css",
+      "line": 85,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 86,
+      "match": "bottom: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 96,
+      "match": "width: 1400px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 131,
+      "match": "gap: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 152,
+      "match": "height: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 186,
+      "match": "gap: 5px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 190,
+      "match": "width: 25px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 191,
+      "match": "height: 3px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 207,
+      "match": "top: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 208,
+      "match": "bottom: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 227,
+      "match": "width: 1200px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 245,
+      "match": "width: 800px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 262,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 308,
+      "match": "height: 3px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 329,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 332,
+      "match": "top: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 340,
+      "match": "top: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\critical.css",
+      "line": 341,
+      "match": "gap: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\base.css",
+      "line": 70,
+      "match": "width: 12px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\base.css",
+      "line": 76,
+      "match": "width: 24px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\base.css",
+      "line": 179,
+      "match": "width: 1400px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\base.css",
+      "line": 186,
+      "match": "padding: 6rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\base.css",
+      "line": 201,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\skip-link.css",
+      "line": 15,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 20,
+      "match": "width: 769px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 20,
+      "match": "width: 1024px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 42,
+      "match": "padding: 4rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 46,
+      "match": "bottom: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 59,
+      "match": "padding: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 76,
+      "match": "gap: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 85,
+      "match": "height: 300px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 89,
+      "match": "padding: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 98,
+      "match": "gap: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 111,
+      "match": "padding: 4rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 129,
+      "match": "padding: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 147,
+      "match": "height: 130px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 157,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 160,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 174,
+      "match": "top: 70px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 181,
+      "match": "padding: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 182,
+      "match": "top: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 216,
+      "match": "left: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 219,
+      "match": "left: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 227,
+      "match": "height: 200px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 258,
+      "match": "padding: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 262,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 279,
+      "match": "top: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 280,
+      "match": "bottom: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 291,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 304,
+      "match": "gap: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 310,
+      "match": "width: 300px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 316,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 320,
+      "match": "bottom: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 324,
+      "match": "width: 25px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 325,
+      "match": "height: 40px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 335,
+      "match": "padding: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 339,
+      "match": "width: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 340,
+      "match": "height: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 341,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 350,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 355,
+      "match": "height: 200px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 369,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 380,
+      "match": "top: 15px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 381,
+      "match": "right: 15px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 388,
+      "match": "top: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 420,
+      "match": "padding: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 425,
+      "match": "gap: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 426,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 476,
+      "match": "height: 120px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 481,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 487,
+      "match": "padding: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 492,
+      "match": "gap: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 497,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 519,
+      "match": "padding: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 539,
+      "match": "height: 120px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 566,
+      "match": "margin: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 572,
+      "match": "width: 30px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 573,
+      "match": "height: 30px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 590,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 602,
+      "match": "margin: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 609,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 610,
+      "match": "right: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 611,
+      "match": "left: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 612,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 617,
+      "match": "width: 45px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 618,
+      "match": "height: 45px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 625,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 637,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 648,
+      "match": "padding: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 665,
+      "match": "height: 150px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 670,
+      "match": "width: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 671,
+      "match": "height: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 672,
+      "match": "width: 4px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 677,
+      "match": "width: 480px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 680,
+      "match": "width: 480px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\responsive.css",
+      "line": 761,
+      "match": "height: 100px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 15,
+      "match": "width: 40px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 16,
+      "match": "height: 40px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 18,
+      "match": "margin: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 22,
+      "match": "width: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 23,
+      "match": "height: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 24,
+      "match": "width: 4px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 28,
+      "match": "width: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 29,
+      "match": "height: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 30,
+      "match": "width: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 57,
+      "match": "width: 80px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 58,
+      "match": "height: 80px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\loading.css",
+      "line": 59,
+      "match": "width: 5px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\fluid-effects.css",
+      "line": 94,
+      "match": "width: 400px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\fluid-effects.css",
+      "line": 95,
+      "match": "height: 400px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\fluid-effects.css",
+      "line": 102,
+      "match": "width: 300px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\fluid-effects.css",
+      "line": 103,
+      "match": "height: 300px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\fluid-effects.css",
+      "line": 111,
+      "match": "width: 350px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\fluid-effects.css",
+      "line": 112,
+      "match": "height: 350px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\empty-state.css",
+      "line": 11,
+      "match": "padding: 4rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\empty-state.css",
+      "line": 17,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\empty-state.css",
+      "line": 24,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\dividers.css",
+      "line": 10,
+      "match": "height: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\dividers.css",
+      "line": 12,
+      "match": "margin: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\dividers.css",
+      "line": 16,
+      "match": "width: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\cursor.css",
+      "line": 16,
+      "match": "width: 6px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\cursor.css",
+      "line": 17,
+      "match": "height: 6px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\cursor.css",
+      "line": 49,
+      "match": "height: 3px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\animations.css",
+      "line": 136,
+      "match": "top: 10px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\animations.css",
+      "line": 141,
+      "match": "top: 30px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\animations.css",
+      "line": 446,
+      "match": "height: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\animations.css",
+      "line": 451,
+      "match": "height: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\animations.css",
+      "line": 453,
+      "match": "margin: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\utils\\animations.css",
+      "line": 457,
+      "match": "height: 200px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 30,
+      "match": "width: 960px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 36,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 40,
+      "match": "width: 720px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 51,
+      "match": "width: 960px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 87,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 149,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 172,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 201,
+      "match": "width: 992px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 213,
+      "match": "width: 640px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 9,
+      "match": "padding: 6rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 19,
+      "match": "width: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 38,
+      "match": "width: 1200px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 48,
+      "match": "bottom: 4rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 77,
+      "match": "width: 500px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 90,
+      "match": "right: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 96,
+      "match": "left: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 147,
+      "match": "width: 80px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 148,
+      "match": "height: 80px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 200,
+      "match": "width: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 201,
+      "match": "height: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 251,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 307,
+      "match": "left: 15px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 308,
+      "match": "right: 15px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 349,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 351,
+      "match": "left: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 357,
+      "match": "left: 4rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 358,
+      "match": "bottom: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 369,
+      "match": "left: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 371,
+      "match": "width: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 372,
+      "match": "height: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 377,
+      "match": "left: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 391,
+      "match": "width: 769px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 391,
+      "match": "width: 1024px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 393,
+      "match": "width: 400px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 397,
+      "match": "right: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 401,
+      "match": "left: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 433,
+      "match": "width: 1024px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 443,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 453,
+      "match": "width: 480px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 245,
+      "match": "width: 100px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 246,
+      "match": "height: 100px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 314,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 340,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 357,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 375,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 393,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 411,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 430,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 448,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 469,
+      "match": "gap: 12px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 513,
+      "match": "gap: 12px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 525,
+      "match": "width: 12px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 526,
+      "match": "height: 12px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 611,
+      "match": "left: 6px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 612,
+      "match": "right: 6px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 690,
+      "match": "bottom: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 710,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 712,
+      "match": "top: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 713,
+      "match": "right: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 714,
+      "match": "width: 40px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 715,
+      "match": "height: 40px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "line": 39,
+      "match": "left: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "line": 79,
+      "match": "top: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "line": 84,
+      "match": "left: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "line": 138,
+      "match": "height: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\toast.css",
+      "line": 11,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\toast.css",
+      "line": 12,
+      "match": "right: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\toast.css",
+      "line": 19,
+      "match": "width: 300px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\toast.css",
+      "line": 20,
+      "match": "width: 500px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\tabs.css",
+      "line": 12,
+      "match": "bottom: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\tabs.css",
+      "line": 19,
+      "match": "gap: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\tabs.css",
+      "line": 30,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\tabs.css",
+      "line": 33,
+      "match": "bottom: 3px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\tabs.css",
+      "line": 67,
+      "match": "width: 640px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\tables.css",
+      "line": 24,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\tables.css",
+      "line": 36,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\tables.css",
+      "line": 37,
+      "match": "bottom: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "line": 7,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "line": 8,
+      "match": "right: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "line": 15,
+      "match": "width: 350px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "line": 83,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "line": 85,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "line": 86,
+      "match": "right: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "line": 87,
+      "match": "left: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "line": 12,
+      "match": "height: 400px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "line": 13,
+      "match": "padding: 6rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "line": 46,
+      "match": "width: 1024px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "line": 58,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "line": 70,
+      "match": "width: 480px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "line": 93,
+      "match": "width: 1024px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "line": 105,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "line": 117,
+      "match": "width: 480px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "line": 140,
+      "match": "width: 1024px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "line": 152,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\parallax.css",
+      "line": 164,
+      "match": "width: 480px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 11,
+      "match": "bottom: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 21,
+      "match": "width: 1400px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 82,
+      "match": "height: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 147,
+      "match": "left: 5px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 148,
+      "match": "right: 5px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 178,
+      "match": "width: 200px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 217,
+      "match": "width: 3px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 227,
+      "match": "left: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 238,
+      "match": "gap: 5px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 242,
+      "match": "width: 25px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 243,
+      "match": "height: 3px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\modals.css",
+      "line": 36,
+      "match": "width: 600px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\modals.css",
+      "line": 53,
+      "match": "top: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\modals.css",
+      "line": 54,
+      "match": "right: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\modals.css",
+      "line": 58,
+      "match": "width: 35px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\modals.css",
+      "line": 59,
+      "match": "height: 35px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\modals.css",
+      "line": 78,
+      "match": "left: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 19,
+      "match": "top: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 20,
+      "match": "bottom: 60px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 242,
+      "match": "width: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 243,
+      "match": "height: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 289,
+      "match": "width: 1200px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 330,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 331,
+      "match": "width: 800px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 342,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 395,
+      "match": "bottom: 30px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 399,
+      "match": "top: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 426,
+      "match": "width: 30px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 427,
+      "match": "height: 50px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 435,
+      "match": "width: 4px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 436,
+      "match": "height: 10px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 442,
+      "match": "top: 10px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 450,
+      "match": "top: 10px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 455,
+      "match": "top: 30px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\footer.css",
+      "line": 11,
+      "match": "top: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\footer.css",
+      "line": 20,
+      "match": "bottom: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\footer.css",
+      "line": 32,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\footer.css",
+      "line": 39,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\footer.css",
+      "line": 65,
+      "match": "left: 5px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\footer.css",
+      "line": 92,
+      "match": "top: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\footer.css",
+      "line": 93,
+      "match": "top: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cta.css",
+      "line": 24,
+      "match": "padding: 8rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cta.css",
+      "line": 26,
+      "match": "height: 400px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cta.css",
+      "line": 40,
+      "match": "height: 120px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cta.css",
+      "line": 81,
+      "match": "top: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cta.css",
+      "line": 82,
+      "match": "bottom: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cta.css",
+      "line": 136,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\buttons.css",
+      "line": 10,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\breadcrumbs.css",
+      "line": 13,
+      "match": "margin: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\back-to-top.css",
+      "line": 11,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\back-to-top.css",
+      "line": 12,
+      "match": "right: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\back-to-top.css",
+      "line": 13,
+      "match": "width: 50px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\back-to-top.css",
+      "line": 14,
+      "match": "height: 50px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\alerts.css",
+      "line": 14,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\alerts.css",
+      "line": 15,
+      "match": "left: 4px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\accordions.css",
+      "line": 13,
+      "match": "margin: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_projects-grid.css",
+      "line": 11,
+      "match": "top: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_projects-grid.css",
+      "line": 39,
+      "match": "height: 250px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_projects-grid.css",
+      "line": 118,
+      "match": "top: 4rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_projects-grid.css",
+      "line": 128,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_projects-grid.css",
+      "line": 134,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 14,
+      "match": "width: 1100px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 159,
+      "match": "top: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 160,
+      "match": "right: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 161,
+      "match": "width: 44px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 162,
+      "match": "height: 44px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 198,
+      "match": "width: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 199,
+      "match": "height: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 216,
+      "match": "width: 8px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 218,
+      "match": "left: 6px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 225,
+      "match": "width: 14px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 226,
+      "match": "height: 10px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 235,
+      "match": "width: 4px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 236,
+      "match": "height: 4px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 239,
+      "match": "right: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 240,
+      "match": "top: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 248,
+      "match": "width: 150px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 249,
+      "match": "height: 150px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 279,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 391,
+      "match": "width: 1024px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 402,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 8,
+      "match": "width: 900px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 13,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 28,
+      "match": "padding: 6rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 72,
+      "match": "width: 1024px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 82,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 92,
+      "match": "width: 480px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 137,
+      "match": "width: 1200px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 161,
+      "match": "width: 40px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 162,
+      "match": "height: 40px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 200,
+      "match": "top: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 201,
+      "match": "top: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 206,
+      "match": "width: 50px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 207,
+      "match": "height: 50px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 218,
+      "match": "width: 30px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 219,
+      "match": "height: 30px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 242,
+      "match": "width: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 243,
+      "match": "height: 1px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "line": 7,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "line": 9,
+      "match": "padding: 4rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "line": 10,
+      "match": "bottom: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "line": 15,
+      "match": "gap: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "line": 45,
+      "match": "width: 120px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "line": 54,
+      "match": "padding: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "line": 62,
+      "match": "height: 350px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "line": 79,
+      "match": "width: 480px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "line": 81,
+      "match": "padding: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-responsive.css",
+      "line": 108,
+      "match": "height: 300px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-map.css",
+      "line": 8,
+      "match": "padding: 4rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-map.css",
+      "line": 14,
+      "match": "width: 1200px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-map.css",
+      "line": 100,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-form.css",
+      "line": 25,
+      "match": "height: 4px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-form.css",
+      "line": 48,
+      "match": "left: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-form.css",
+      "line": 49,
+      "match": "top: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-form.css",
+      "line": 74,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-form.css",
+      "line": 111,
+      "match": "width: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-form.css",
+      "line": 112,
+      "match": "height: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 8,
+      "match": "padding: 6rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 9,
+      "match": "bottom: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 11,
+      "match": "top: 80px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 16,
+      "match": "width: 1200px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 51,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 63,
+      "match": "width: 24px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 64,
+      "match": "height: 24px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 100,
+      "match": "top: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 116,
+      "match": "width: 16px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 117,
+      "match": "height: 16px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 133,
+      "match": "top: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 154,
+      "match": "width: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 155,
+      "match": "height: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 167,
+      "match": "height: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-validation.css",
+      "line": 38,
+      "match": "padding: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 9,
+      "match": "width: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 10,
+      "match": "height: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 44,
+      "match": "width: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 45,
+      "match": "height: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 71,
+      "match": "width: 10px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 72,
+      "match": "height: 10px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 82,
+      "match": "height: 6px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 91,
+      "match": "width: 18px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 92,
+      "match": "height: 18px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 106,
+      "match": "width: 18px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 107,
+      "match": "height: 18px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 122,
+      "match": "height: 6px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 128,
+      "match": "height: 6px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 137,
+      "match": "height: 8px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 176,
+      "match": "right: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-base.css",
+      "line": 43,
+      "match": "height: 150px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_service-card.css",
+      "line": 35,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_service-card.css",
+      "line": 62,
+      "match": "width: 200px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_service-card.css",
+      "line": 118,
+      "match": "width: 80px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_service-card.css",
+      "line": 119,
+      "match": "height: 80px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_service-card.css",
+      "line": 158,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "line": 13,
+      "match": "width: 900px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "line": 34,
+      "match": "height: 400px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "line": 41,
+      "match": "height: 320px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "line": 85,
+      "match": "top: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "line": 86,
+      "match": "right: 20px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "line": 111,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "line": 117,
+      "match": "bottom: 1rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_offer-panel.css",
+      "line": 202,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_offer-panel.css",
+      "line": 256,
+      "match": "width: 1280px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_offer-panel.css",
+      "line": 266,
+      "match": "width: 1024px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_offer-panel.css",
+      "line": 276,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_offer-panel.css",
+      "line": 286,
+      "match": "width: 480px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-sections.css",
+      "line": 43,
+      "match": "width: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-sections.css",
+      "line": 44,
+      "match": "height: 2px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-sections.css",
+      "line": 293,
+      "match": "width: 40px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-sections.css",
+      "line": 294,
+      "match": "height: 40px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-sections.css",
+      "line": 358,
+      "match": "padding: 3px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-sections.css",
+      "line": 432,
+      "match": "padding: 3px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-base.css",
+      "line": 10,
+      "match": "top: 3rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-base.css",
+      "line": 99,
+      "match": "gap: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-base.css",
+      "line": 107,
+      "match": "width: 768px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-base.css",
+      "line": 113,
+      "match": "width: 1024px",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-base.css",
+      "line": 127,
+      "match": "gap: 2rem",
+      "suggestion": "Consider using spacing variable (e.g., var(--space-4))"
+    }
+  ],
+  "borderRadius": [
+    {
+      "file": "css\\critical.css",
+      "line": 270,
+      "match": "border-radius: 4px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\base.css",
+      "line": 86,
+      "match": "border-radius: 6px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\base.css",
+      "line": 222,
+      "match": "border-radius: 10px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\utils\\animations.css",
+      "line": 442,
+      "match": "border-radius: 5px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 57,
+      "match": "border-radius: 16px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 89,
+      "match": "border-radius: 16px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 107,
+      "match": "border-radius: 999px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 116,
+      "match": "border-radius: 20px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 126,
+      "match": "border-radius: 12px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 137,
+      "match": "border-radius: 12px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 157,
+      "match": "border-radius: 16px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\reports.css",
+      "line": 179,
+      "match": "border-radius: 4px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\about.css",
+      "line": 80,
+      "match": "border-radius: 15px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\easter-egg\\easter-egg.css",
+      "line": 564,
+      "match": "border-radius: 6px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "line": 13,
+      "match": "border-radius: 4px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "line": 22,
+      "match": "border-radius: 10px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "line": 45,
+      "match": "border-radius: 5px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "line": 94,
+      "match": "border-radius: 3px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\typography.css",
+      "line": 101,
+      "match": "border-radius: 4px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\tooltips.css",
+      "line": 32,
+      "match": "border-radius: 5px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\toast.css",
+      "line": 15,
+      "match": "border-radius: 10px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\tables.css",
+      "line": 14,
+      "match": "border-radius: 10px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "line": 11,
+      "match": "border-radius: 8px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\service-worker.css",
+      "line": 42,
+      "match": "border-radius: 4px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\navigation.css",
+      "line": 177,
+      "match": "border-radius: 8px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\modals.css",
+      "line": 34,
+      "match": "border-radius: 15px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 429,
+      "match": "border-radius: 15px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\hero.css",
+      "line": 438,
+      "match": "border-radius: 2px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\badges.css",
+      "line": 12,
+      "match": "border-radius: 15px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\alerts.css",
+      "line": 13,
+      "match": "border-radius: 10px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\accordions.css",
+      "line": 12,
+      "match": "border-radius: 10px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\projects\\_projects-grid.css",
+      "line": 17,
+      "match": "border-radius: 15px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\projects\\_projects-grid.css",
+      "line": 167,
+      "match": "border-radius: 999px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 33,
+      "match": "border-radius: 12px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 228,
+      "match": "border-radius: 2px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\projects\\_project-modal.css",
+      "line": 383,
+      "match": "border-radius: 12px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-testimonials.css",
+      "line": 146,
+      "match": "border-radius: 15px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-map.css",
+      "line": 22,
+      "match": "border-radius: 10px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-map.css",
+      "line": 54,
+      "match": "border-radius: 999px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-form.css",
+      "line": 11,
+      "match": "border-radius: 15px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-form.css",
+      "line": 27,
+      "match": "border-radius: 2px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 36,
+      "match": "border-radius: 10px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 104,
+      "match": "border-radius: 5px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\pages\\contact\\_contact-base.css",
+      "line": 143,
+      "match": "border-radius: 5px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 12,
+      "match": "border-radius: 4px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 84,
+      "match": "border-radius: 3px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 124,
+      "match": "border-radius: 3px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 130,
+      "match": "border-radius: 3px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 140,
+      "match": "border-radius: 4px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 145,
+      "match": "border-radius: 4px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 150,
+      "match": "border-radius: 4px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 156,
+      "match": "border-radius: 4px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-inputs.css",
+      "line": 166,
+      "match": "border-radius: 5px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\forms\\_form-base.css",
+      "line": 28,
+      "match": "border-radius: 5px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\cards\\_service-card.css",
+      "line": 11,
+      "match": "border-radius: 10px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\cards\\_service-card.css",
+      "line": 22,
+      "match": "border-radius: 10px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "line": 9,
+      "match": "border-radius: 15px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\cards\\_project-card.css",
+      "line": 90,
+      "match": "border-radius: 20px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\cards\\_offer-panel.css",
+      "line": 11,
+      "match": "border-radius: 18px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\cards\\_offer-panel.css",
+      "line": 178,
+      "match": "border-radius: 999px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-sections.css",
+      "line": 357,
+      "match": "border-radius: 13px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    },
+    {
+      "file": "css\\components\\cards\\_card-sections.css",
+      "line": 431,
+      "match": "border-radius: 13px",
+      "suggestion": "Consider using radius variable (e.g., var(--radius-md))"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+---
+description: Enforce modular design, separation of concerns, and reusable components.
+globs: []
+alwaysApply: true
+---
+## Project Modularity When writing or refactoring code: 1. Prefer modular design over monolithic structures. 2. Separate concerns so that components, utilities, services, and data layers are isolated and reusable. 3. Avoid duplicating logic; extract shared functionality into common modules. 4. Keep file responsibilities narrow and clear.

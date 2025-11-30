@@ -7,8 +7,8 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  gap: var(--space-8);
+  margin-top: var(--space-12);
 }
 
 /* Projects Page Specific Project Card Styles */
@@ -114,30 +114,30 @@
 }
 
 .projects-page .project-content {
-  padding: 2rem;
+  padding: var(--space-8);
   padding-top: 4rem;
 }
 
 .projects-page .project-category {
   color: var(--accent-cyan);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.9rem;
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
 }
 
 .projects-page .project-content h3 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-4);
   color: var(--text-primary);
 }
 
 .projects-page .project-content p {
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-6);
   line-height: 1.8;
 }
 
@@ -146,10 +146,10 @@
   flex-wrap: nowrap;
   justify-content: flex-end;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.var(--space-12);
   position: absolute;
-  top: 1.1rem;
-  right: 1.1rem;
+  top: 1.var(--space-4);
+  right: 1.var(--space-4);
   max-width: calc(100% - 2.2rem);
   z-index: 3;
   overflow-x: auto;
@@ -163,7 +163,7 @@
 .projects-page .project-tag {
   background: rgba(10, 10, 26, 0.88);
   color: var(--text-primary);
-  padding: 0.2rem 0.55rem;
+  padding: 0.var(--space-8) 0.55rem;
   border-radius: 999px;
   font-size: 0.65rem;
   border: 1px solid rgba(0, 255, 255, 0.3);
@@ -195,7 +195,7 @@
 .projects-page .testimonials-section .service-card {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-6);
   height: 100%;
 }
 
@@ -215,7 +215,7 @@
 
 .projects-page .testimonials-section .service-card h4 {
   margin: 0;
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.1rem;
 }
 

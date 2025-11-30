@@ -156,8 +156,8 @@
 
 .project-modal__media-toggle {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: var(--space-4);
+  right: var(--space-4);
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -275,8 +275,8 @@
   flex-direction: column;
   gap: 0.6rem;
   overflow-y: auto;
-  padding-right: 0.75rem;
-  padding-bottom: 2rem;
+  padding-right: var(--space-3);
+  padding-bottom: var(--space-8);
   min-height: 0;
   scroll-behavior: smooth;
   scroll-padding-bottom: 2.75rem;
@@ -284,14 +284,14 @@
 
 .project-modal__category {
   color: var(--accent-cyan);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.85rem;
 }
 
 .project-modal__title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3vw, 2.4rem);
   margin-bottom: 0.25rem;
   color: var(--text-primary);
@@ -311,7 +311,7 @@
 .project-modal__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem;
+  gap: var(--space-1);
   justify-content: flex-start;
   align-items: center;
   padding-top: 0.35rem;
@@ -331,7 +331,7 @@
 
 .project-modal__sections {
   display: grid;
-  gap: 0.25rem;
+  gap: var(--space-1);
 }
 
 .project-modal__section {
@@ -340,7 +340,7 @@
 }
 
 .project-modal__section h4 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-heading);
   font-size: 0.92rem;
   color: var(--text-primary);
   margin-bottom: 0.18rem;
@@ -351,12 +351,12 @@
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 0.25rem;
+  gap: var(--space-1);
 }
 
 .project-modal__section li {
   position: relative;
-  padding-left: 1.1rem;
+  padding-left: 1.var(--space-4);
   color: var(--text-secondary);
   line-height: 1.35;
 }
@@ -381,7 +381,7 @@
   width: 100%;
   backdrop-filter: blur(8px);
   border-radius: 12px;
-  padding-top: 0.5rem;
+  padding-top: var(--space-2);
 }
 
 .project-modal__cta {
@@ -403,7 +403,7 @@
   .project-modal .modal-content {
     width: 90vw;
     height: 85vh;
-    padding: 1.5rem;
+    padding: var(--space-6);
   }
 
   .project-modal__media {

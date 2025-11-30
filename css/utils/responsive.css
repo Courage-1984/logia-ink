@@ -11,6 +11,14 @@
  * - Mobile: max-width 768px
  * - Small Mobile: max-width 480px
  * - Print: Print media queries
+ *
+ * 📝 NOTE: Font-size values in this file are intentionally hardcoded
+ * for fine-tuned responsive adjustments. These values (e.g., 0.9rem, 0.95rem, 1.2rem)
+ * are breakpoint-specific and intentionally differ from the standard font-size scale
+ * to achieve optimal typography at different screen sizes.
+ *
+ * 📝 NOTE: Some spacing values remain hardcoded for breakpoint-specific adjustments.
+ * Values inside clamp() functions are intentional for responsive spacing.
  */
 
 /* ============================================
@@ -23,19 +31,21 @@
   }
 
   .logo-text {
+    /* Intentionally hardcoded for tablet breakpoint fine-tuning */
     font-size: 1.3rem;
   }
 
   .nav-menu {
-    gap: 1.5rem;
+    gap: var(--space-6);
   }
 
   .nav-link {
+    /* Intentionally hardcoded for tablet breakpoint fine-tuning */
     font-size: 0.9rem;
   }
 
   .container {
-    padding: 0 1.5rem;
+    padding: 0 var(--space-6);
   }
 
   section {
@@ -43,7 +53,7 @@
   }
 
   .section-header {
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-12);
   }
 
   .section-title {
@@ -52,15 +62,15 @@
 
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: var(--space-6);
   }
 
   .service-card {
-    padding: 2rem;
+    padding: var(--space-8);
   }
 
   .hero-content {
-    padding: 0 1.5rem;
+    padding: 0 var(--space-6);
   }
 
   .hero-title {
@@ -69,15 +79,15 @@
 
   .hero-subtitle {
     font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-    padding: 0 1rem;
+    padding: 0 var(--space-4);
   }
 
   .hero-buttons {
-    gap: 1rem;
+    gap: var(--space-4);
   }
 
   .btn {
-    padding: 0.9rem 2rem;
+    padding: 0.9rem var(--space-8);
     font-size: 0.95rem;
   }
 
@@ -86,16 +96,16 @@
   }
 
   .project-content {
-    padding: 2rem;
+    padding: var(--space-8);
   }
 
   .project-content h3 {
-    font-size: 1.5rem;
+    font-size: var(--font-size-2xl);
   }
 
   .footer-content {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: var(--space-8);
   }
 
   .cta-content h2 {
@@ -103,54 +113,12 @@
   }
 
   .cta-content p {
+    /* Intentionally hardcoded for tablet breakpoint fine-tuning */
     font-size: 1.1rem;
   }
 
   /* Contact Page - Tablet */
-  .contact-section {
-    padding: 4rem 0;
-  }
-
-  .contact-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    padding: 0 1.5rem;
-  }
-
-  .contact-item {
-    padding: 1.5rem;
-  }
-
-  .contact-item h3 {
-    font-size: 1.1rem;
-  }
-
-  .contact-form {
-    padding: 2rem;
-  }
-
-  .form-group {
-    margin-bottom: 1.25rem;
-  }
-
-  .form-group label {
-    font-size: 0.85rem;
-  }
-
-  .form-group input,
-  .form-group textarea {
-    padding: 0.9rem;
-    font-size: 0.95rem;
-  }
-
-  .form-group textarea {
-    min-height: 130px;
-  }
-
-  .form-submit {
-    padding: 0.9rem 2rem;
-    font-size: 0.95rem;
-  }
+  /* Note: Contact-specific responsive styles moved to pages/contact/_contact-responsive.css */
 }
 
 /* ============================================
@@ -164,6 +132,7 @@
   }
 
   .logo-text {
+    /* Intentionally hardcoded for mobile breakpoint fine-tuning */
     font-size: 1.2rem;
     letter-spacing: 1px;
   }
@@ -178,7 +147,7 @@
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    padding: 2rem 0;
+    padding: var(--space-8) 0;
     border-top: 1px solid rgba(0, 255, 255, 0.1);
     gap: 0;
   }
@@ -189,13 +158,13 @@
 
   .nav-menu li {
     width: 100%;
-    padding: 0.75rem 0;
+    padding: var(--space-3) 0;
   }
 
   .nav-link {
     display: block;
-    padding: 0.75rem 0;
-    font-size: 1rem;
+    padding: var(--space-3) 0;
+    font-size: var(--font-size-base);
   }
 
   /* Mobile Dropdown Styles */
@@ -213,7 +182,7 @@
     visibility: visible;
     transform: none;
     margin-top: 0;
-    margin-left: 1rem;
+    margin-left: var(--space-4);
     background: rgba(0, 0, 0, 0.3);
     border: none;
     border-left: 2px solid rgba(0, 255, 255, 0.2);
@@ -225,11 +194,11 @@
 
   .nav-item-dropdown.active .dropdown-menu {
     max-height: 200px;
-    margin-top: 0.5rem;
+    margin-top: var(--space-2);
   }
 
   .dropdown-menu .dropdown-link {
-    padding: 0.5rem 1rem;
+    padding: var(--space-2) var(--space-4);
     font-size: 0.9rem;
   }
 
@@ -251,25 +220,25 @@
 
   /* Container and Spacing */
   .container {
-    padding: 0 1rem;
+    padding: 0 var(--space-4);
   }
 
   section {
-    padding: 3rem 0;
+    padding: var(--space-12) 0;
   }
 
   .section-header {
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-8);
   }
 
   .section-title {
     font-size: clamp(1.5rem, 6vw, 2.5rem);
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--space-3);
   }
 
   .section-subtitle {
-    font-size: 1rem;
-    padding: 0 0.5rem;
+    font-size: var(--font-size-base);
+    padding: 0 var(--space-2);
   }
 
   /* Hero Section */
@@ -283,37 +252,37 @@
   }
 
   .hero-content {
-    padding: 0 1rem;
+    padding: 0 var(--space-4);
   }
 
   .hero-title {
     font-size: clamp(1.8rem, 7vw, 3rem);
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
     letter-spacing: 2px;
   }
 
   .hero-subtitle {
     font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-    margin-bottom: 1.5rem;
-    padding: 0 0.5rem;
+    margin-bottom: var(--space-6);
+    padding: 0 var(--space-2);
   }
 
   .hero-buttons {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: var(--space-4);
     width: 100%;
   }
 
   .btn {
     width: 100%;
     max-width: 300px;
-    padding: 0.9rem 2rem;
+    padding: 0.9rem var(--space-8);
     font-size: 0.95rem;
   }
 
   .btn-large {
-    padding: 1rem 2.5rem;
+    padding: var(--space-4) 2.5rem;
   }
 
   .scroll-indicator {
@@ -328,17 +297,17 @@
   /* Services Grid */
   .services-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: var(--space-6);
   }
 
   .service-card {
-    padding: 2rem 1.5rem;
+    padding: var(--space-8) var(--space-6);
   }
 
   .service-icon {
     width: 60px;
     height: 60px;
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
   }
 
   .service-card h3 {
@@ -347,7 +316,7 @@
 
   .service-card p {
     font-size: 0.95rem;
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
   }
 
   /* Project Cards */
@@ -356,27 +325,30 @@
   }
 
   .project-content {
-    padding: 1.5rem;
+    padding: var(--space-6);
   }
 
   .project-content h3 {
+    /* Intentionally hardcoded for mobile breakpoint fine-tuning */
     font-size: 1.3rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--space-3);
   }
 
   .project-content p {
+    /* Intentionally hardcoded for mobile breakpoint fine-tuning */
     font-size: 0.95rem;
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
   }
 
   .project-category {
+    /* Intentionally hardcoded for mobile breakpoint fine-tuning */
     font-size: 0.8rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--space-3);
   }
 
   .project-tag {
-    font-size: 0.75rem;
-    padding: 0.4rem 1rem;
+    font-size: var(--font-size-xs);
+    padding: 0.4rem var(--space-4);
     top: 15px;
     right: 15px;
   }
@@ -384,23 +356,23 @@
   /* Projects Grid (from projects.html) */
   .projects-grid {
     grid-template-columns: 1fr !important;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
   }
 
   /* CTA Section */
   .cta-content {
-    padding: 0 1rem;
+    padding: 0 var(--space-4);
   }
 
   .cta-content h2 {
     font-size: clamp(1.5rem, 6vw, 2.2rem);
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--space-3);
   }
 
   .cta-content p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-6);
   }
 
   /* CTA Section - Mobile Background Fix */
@@ -417,18 +389,18 @@
 
   /* Footer */
   .footer {
-    padding: 3rem 0 1.5rem;
+    padding: var(--space-12) 0 var(--space-6);
   }
 
   .footer-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    gap: var(--space-8);
+    margin-bottom: var(--space-8);
     text-align: center;
   }
 
   .footer-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-6);
   }
 
   .footer-section h3 {
@@ -446,19 +418,19 @@
   }
 
   /* Forms */
-  .contact-form,
+  /* Note: Contact form styles moved to pages/contact/_contact-responsive.css */
   form {
     width: 100%;
     padding: 0;
   }
 
   .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-6);
   }
 
   .form-group label {
     font-size: 0.95rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-2);
   }
 
   input[type='text'],
@@ -478,83 +450,24 @@
 
   .form-submit {
     width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
+    padding: var(--space-4);
+    font-size: var(--font-size-base);
   }
 
   /* Contact Page - Mobile */
-  .contact-section {
-    padding: 3rem 0;
-  }
-
-  .contact-container {
-    grid-template-columns: 1fr !important;
-    gap: 2rem;
-    padding: 0 1rem;
-  }
-
-  .contact-info {
-    margin-bottom: 2rem;
-    text-align: center;
-    gap: 1.5rem;
-  }
-
-  .contact-item {
-    padding: 1.5rem;
-    margin-bottom: 0;
-  }
-
-  .contact-item h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .contact-item p,
-  .contact-item a {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  .contact-form {
-    padding: 2rem 1.5rem;
-    width: 100%;
-  }
-
-  .form-group {
-    margin-bottom: 1.25rem;
-  }
-
-  .form-group label {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .form-group input,
-  .form-group textarea {
-    padding: 0.85rem;
-    font-size: 0.95rem;
-  }
-
-  .form-group textarea {
-    min-height: 120px;
-  }
-
-  .form-submit {
-    padding: 0.95rem 1.5rem;
-    font-size: 0.95rem;
-  }
+  /* Note: Contact-specific responsive styles moved to pages/contact/_contact-responsive.css */
 
   /* Tables */
   table {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    margin: 1.5rem 0;
+    margin: var(--space-6) 0;
   }
 
   th,
   td {
-    padding: 0.75rem 0.5rem;
+    padding: var(--space-3) var(--space-2);
     font-size: 0.9rem;
   }
 
@@ -562,99 +475,99 @@
   .modal-content {
     width: 95%;
     max-width: 95%;
-    padding: 1.5rem;
-    margin: 1rem;
+    padding: var(--space-6);
+    margin: var(--space-4);
   }
 
   .modal-close {
-    top: 0.75rem;
-    right: 0.75rem;
+    top: var(--space-3);
+    right: var(--space-3);
     width: 30px;
     height: 30px;
-    font-size: 1rem;
+    font-size: var(--font-size-base);
   }
 
   /* Tabs */
   .tab-list {
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: var(--space-2);
   }
 
   .tab-button {
-    padding: 0.75rem 1.5rem;
+    padding: var(--space-3) var(--space-6);
     font-size: 0.9rem;
   }
 
   /* Accordions */
   summary {
-    padding: 1rem;
+    padding: var(--space-4);
     font-size: 0.95rem;
   }
 
   details > *:not(summary) {
-    padding: 0 1rem 1rem;
+    padding: 0 var(--space-4) var(--space-4);
   }
 
   /* Breadcrumbs */
   .breadcrumbs {
     flex-wrap: wrap;
-    gap: 0.25rem;
-    margin: 1rem 0;
+    gap: var(--space-1);
+    margin: var(--space-4) 0;
   }
 
   /* Toast */
   .toast {
     min-width: calc(100% - 2rem);
     max-width: calc(100% - 2rem);
-    bottom: 1rem;
-    right: 1rem;
-    left: 1rem;
-    padding: 1rem 1.5rem;
+    bottom: var(--space-4);
+    right: var(--space-4);
+    left: var(--space-4);
+    padding: var(--space-4) var(--space-6);
   }
 
   /* Back to Top */
   .back-to-top {
     width: 45px;
     height: 45px;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    bottom: var(--space-6);
+    right: var(--space-6);
   }
 
   /* Code Blocks */
   pre {
-    padding: 1rem;
+    padding: var(--space-4);
     font-size: 0.85rem;
     overflow-x: auto;
   }
 
   code {
     font-size: 0.85rem;
-    padding: 0.15rem 0.3rem;
+    padding: 0.15rem 0.var(--space-12);
   }
 
   /* Blockquotes */
   blockquote {
-    padding: 1rem 1.5rem;
-    margin: 1.5rem 0;
+    padding: var(--space-4) var(--space-6);
+    margin: var(--space-6) 0;
     font-size: 0.95rem;
   }
 
   blockquote::before {
-    font-size: 3rem;
+    font-size: var(--font-size-5xl);
   }
 
   /* Empty State */
   .empty-state {
-    padding: 2rem 1rem;
+    padding: var(--space-8) var(--space-4);
   }
 
   .empty-state-icon {
-    font-size: 3rem;
+    font-size: var(--font-size-5xl);
   }
 
   /* Skeleton */
   .skeleton-title {
-    height: 1.5rem;
+    height: var(--space-6);
   }
 
   .skeleton-text {
@@ -683,7 +596,7 @@
   }
 
   .logo-text {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
   }
 
   .hero-title {
@@ -697,11 +610,11 @@
 
   .service-card,
   .project-content {
-    padding: 1.5rem 1rem;
+    padding: var(--space-6) var(--space-4);
   }
 
   .btn {
-    padding: 0.85rem 1.5rem;
+    padding: 0.85rem var(--space-6);
     font-size: 0.9rem;
   }
 
@@ -731,11 +644,11 @@
   }
 
   .contact-item {
-    padding: 1.25rem;
+    padding: var(--space-5);
   }
 
   .contact-item h3 {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
   }
 
   .contact-item p,
@@ -744,16 +657,18 @@
   }
 
   .contact-form {
-    padding: 1.5rem 1rem;
+    padding: var(--space-6) var(--space-4);
   }
 
   .form-group label {
+    /* Intentionally hardcoded for mobile breakpoint fine-tuning */
     font-size: 0.85rem;
   }
 
   .form-group input,
   .form-group textarea {
-    padding: 0.75rem;
+    padding: var(--space-3);
+    /* Intentionally hardcoded for mobile breakpoint fine-tuning */
     font-size: 0.9rem;
   }
 
@@ -762,7 +677,8 @@
   }
 
   .form-submit {
-    padding: 0.85rem 1.25rem;
+    padding: 0.85rem var(--space-5);
+    /* Intentionally hardcoded for mobile breakpoint fine-tuning */
     font-size: 0.9rem;
   }
 

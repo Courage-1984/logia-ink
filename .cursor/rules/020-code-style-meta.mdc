@@ -1,0 +1,6 @@
+---
+description: Primary rule for code style; prioritize simplification over excessive comments.
+globs: ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx"]
+alwaysApply: true
+---
+## Code Style: Simplicity First 1. Code should be **self-explanatory first, commented second**. 2. If comments are required to understand basic flow, **simplify the code** instead of increasing comments.
