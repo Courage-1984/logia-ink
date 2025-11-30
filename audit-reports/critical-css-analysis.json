@@ -1,0 +1,607 @@
+{
+  "pages": [
+    {
+      "file": "services.html",
+      "aboveFold": {
+        "classes": [
+          "hero",
+          "hero-background",
+          "threejs-canvas",
+          "grid-overlay",
+          "particles",
+          "fluid-shape",
+          "fluid-shape-1",
+          "fluid-shape-2",
+          "hero-content",
+          "hero-title",
+          "text-reveal",
+          "delay-1",
+          "hero-subtitle",
+          "fade-in",
+          "delay-2",
+          "services-preview",
+          "container",
+          "section-header",
+          "section-title",
+          "section-subtitle",
+          "offer-grid",
+          "offer-panel",
+          "offer-panel--cyan",
+          "mouse-tilt-container",
+          "card-3d",
+          "offer-panel__header",
+          "offer-panel__tag",
+          "offer-panel__title",
+          "offer-panel__description",
+          "offer-panel__list",
+          "offer-panel__actions",
+          "btn",
+          "btn-outline",
+          "service-modal-btn",
+          "offer-panel__hint",
+          "offer-panel--magenta",
+          "offer-panel--green",
+          "offer-panel--blue"
+        ],
+        "ids": [
+          "threejs-services-canvas"
+        ],
+        "elements": [
+          "section",
+          "div",
+          "canvas",
+          "h1",
+          "span",
+          "p",
+          "h2",
+          "article",
+          "h3",
+          "ul",
+          "li",
+          "button"
+        ]
+      }
+    },
+    {
+      "file": "seo-services.html",
+      "aboveFold": {
+        "classes": [
+          "hero",
+          "hero-background",
+          "threejs-canvas",
+          "grid-overlay",
+          "particles",
+          "fluid-shape",
+          "fluid-shape-1",
+          "fluid-shape-2",
+          "fluid-shape-3",
+          "hero-content",
+          "hero-text",
+          "hero-title",
+          "text-reveal",
+          "delay-1",
+          "hero-subtitle",
+          "fade-in",
+          "delay-2",
+          "hero-buttons",
+          "delay-3",
+          "btn",
+          "btn-primary",
+          "btn-secondary",
+          "scroll-indicator",
+          "mouse",
+          "wheel",
+          "services-preview",
+          "container",
+          "section-header",
+          "section-title",
+          "section-subtitle",
+          "services-grid",
+          "service-card",
+          "mouse-tilt-container",
+          "card-3d",
+          "service-icon",
+          "icon-glow"
+        ],
+        "ids": [
+          "threejs-services-canvas"
+        ],
+        "elements": [
+          "section",
+          "div",
+          "canvas",
+          "h1",
+          "span",
+          "p",
+          "a",
+          "h2",
+          "svg",
+          "path",
+          "circle",
+          "h3",
+          "polyline",
+          "line"
+        ]
+      }
+    },
+    {
+      "file": "reports.html",
+      "aboveFold": {
+        "classes": [
+          "hero",
+          "reports-hero",
+          "reports-hero__background",
+          "hero-content",
+          "hero-title",
+          "hero-subtitle",
+          "reports-hero__meta",
+          "reports-hero__meta-item",
+          "reports-hero__meta-label",
+          "reports-hero__meta-value",
+          "reports-dashboard",
+          "container",
+          "section-header",
+          "section-title",
+          "section-subtitle",
+          "reports-actions",
+          "reports-actions__note",
+          "reports-actions__chips",
+          "tabs",
+          "tab-list",
+          "tab-button",
+          "active",
+          "navbar",
+          "nav-container",
+          "nav-menu",
+          "nav-link",
+          "nav-item-dropdown"
+        ],
+        "ids": [
+          "tab-bundle-treemap",
+          "tab-bundle-stats",
+          "tab-coverage",
+          "tab-lighthouse",
+          "tab-performance",
+          "tab-pwa",
+          "tab-seo",
+          "tab-media"
+        ],
+        "elements": [
+          "section",
+          "div",
+          "h1",
+          "p",
+          "span",
+          "h2",
+          "strong",
+          "code",
+          "ul",
+          "li",
+          "button"
+        ]
+      }
+    },
+    {
+      "file": "projects.html",
+      "aboveFold": {
+        "classes": [
+          "hero",
+          "hero-background",
+          "threejs-canvas",
+          "grid-overlay",
+          "particles",
+          "fluid-shape",
+          "fluid-shape-1",
+          "fluid-shape-2",
+          "hero-content",
+          "hero-title",
+          "text-reveal",
+          "delay-1",
+          "hero-subtitle",
+          "fade-in",
+          "delay-2",
+          "featured-projects",
+          "container",
+          "section-header",
+          "section-title",
+          "section-subtitle",
+          "projects-grid",
+          "project-card",
+          "mouse-tilt-container",
+          "card-3d",
+          "project-image",
+          "project-image-poster",
+          "project-hover-video",
+          "project-overlay",
+          "project-content",
+          "project-category",
+          "project-tags",
+          "project-tag",
+          "btn",
+          "btn-outline",
+          "project-details-btn"
+        ],
+        "ids": [
+          "threejs-projects-canvas",
+          "ecommerce-platform",
+          "fintech-app"
+        ],
+        "elements": [
+          "section",
+          "div",
+          "canvas",
+          "h1",
+          "span",
+          "p",
+          "h2",
+          "picture",
+          "source",
+          "img",
+          "video",
+          "h3",
+          "button"
+        ]
+      }
+    },
+    {
+      "file": "pricing.html",
+      "aboveFold": {
+        "classes": [
+          "hero",
+          "hero-background",
+          "grid-overlay",
+          "particles",
+          "fluid-shape",
+          "fluid-shape-1",
+          "fluid-shape-2",
+          "hero-content",
+          "hero-title",
+          "text-reveal",
+          "delay-1",
+          "hero-subtitle",
+          "fade-in",
+          "delay-2",
+          "services-preview",
+          "container",
+          "section-header",
+          "section-title",
+          "section-subtitle",
+          "services-grid",
+          "service-card",
+          "mouse-tilt-container",
+          "card-3d",
+          "pricing-card",
+          "pricing-card--cyan",
+          "btn",
+          "btn-primary",
+          "pricing-card--magenta"
+        ],
+        "ids": [],
+        "elements": [
+          "section",
+          "div",
+          "h1",
+          "span",
+          "p",
+          "h2",
+          "h3",
+          "ul",
+          "li",
+          "a"
+        ]
+      }
+    },
+    {
+      "file": "index.html",
+      "aboveFold": {
+        "classes": [
+          "hero",
+          "hero-background",
+          "threejs-canvas",
+          "particles",
+          "fluid-shape",
+          "fluid-shape-1",
+          "fluid-shape-2",
+          "fluid-shape-3",
+          "hero-content",
+          "hero-text",
+          "hero-title",
+          "text-reveal",
+          "delay-1",
+          "delay-2",
+          "delay-3",
+          "hero-subtitle",
+          "fade-in",
+          "delay-4",
+          "hero-buttons",
+          "delay-5",
+          "btn",
+          "btn-primary",
+          "btn-secondary",
+          "scroll-indicator",
+          "mouse",
+          "wheel",
+          "services-preview",
+          "specialized-services-section",
+          "container",
+          "section-header",
+          "scroll-reveal-3d",
+          "section-title",
+          "section-subtitle",
+          "services-grid",
+          "service-card",
+          "mouse-tilt-container",
+          "card-3d",
+          "service-icon",
+          "icon-glow",
+          "service-link",
+          "featured-projects",
+          "projects-preview",
+          "project-card-large",
+          "project-image"
+        ],
+        "ids": [
+          "threejs-hero-canvas"
+        ],
+        "elements": [
+          "section",
+          "div",
+          "canvas",
+          "h1",
+          "span",
+          "p",
+          "a",
+          "h2",
+          "svg",
+          "path",
+          "h3",
+          "rect",
+          "polygon",
+          "picture",
+          "source"
+        ]
+      }
+    },
+    {
+      "file": "contact.html",
+      "aboveFold": {
+        "classes": [
+          "hero",
+          "hero-background",
+          "grid-overlay",
+          "particles-contact",
+          "fluid-shape",
+          "fluid-shape-2",
+          "fluid-shape-3",
+          "hero-content",
+          "hero-title",
+          "text-reveal",
+          "delay-1",
+          "hero-subtitle",
+          "fade-in",
+          "delay-2",
+          "hero-buttons",
+          "delay-3",
+          "btn",
+          "btn-primary",
+          "scroll-to-form",
+          "contact-section",
+          "contact-container",
+          "contact-info",
+          "contact-item",
+          "mouse-tilt-container",
+          "contact-item-header",
+          "contact-icon",
+          "contact-quick-action"
+        ],
+        "ids": [
+          "contactSection"
+        ],
+        "elements": [
+          "section",
+          "div",
+          "h1",
+          "span",
+          "p",
+          "a",
+          "svg",
+          "path",
+          "polyline",
+          "h3",
+          "circle",
+          "br"
+        ]
+      }
+    },
+    {
+      "file": "about.html",
+      "aboveFold": {
+        "classes": [
+          "hero",
+          "hero-background",
+          "grid-overlay",
+          "liquid-background",
+          "liquid-background__blob",
+          "liquid-background__blob--one",
+          "liquid-background__blob--two",
+          "liquid-background__blob--three",
+          "particles",
+          "fluid-shape",
+          "fluid-shape-1",
+          "fluid-shape-3",
+          "hero-content",
+          "hero-title",
+          "text-reveal",
+          "delay-1",
+          "logo-accent",
+          "hero-subtitle",
+          "fade-in",
+          "delay-2",
+          "services-preview",
+          "parallax-section",
+          "mission-parallax",
+          "parallax-background",
+          "parallax-overlay",
+          "container",
+          "section-header",
+          "scroll-reveal-3d",
+          "section-title",
+          "fade-in-up",
+          "section-subtitle",
+          "featured-projects",
+          "values-section",
+          "values-stars",
+          "services-grid",
+          "service-card",
+          "mouse-tilt-container",
+          "card-3d",
+          "service-icon",
+          "icon-glow"
+        ],
+        "ids": [],
+        "elements": [
+          "section",
+          "div",
+          "h1",
+          "span",
+          "p",
+          "h2",
+          "svg",
+          "path",
+          "h3",
+          "polyline"
+        ]
+      }
+    }
+  ],
+  "commonClasses": [
+    {
+      "class": "hero",
+      "pages": 8
+    },
+    {
+      "class": "hero-content",
+      "pages": 8
+    },
+    {
+      "class": "hero-title",
+      "pages": 8
+    },
+    {
+      "class": "hero-subtitle",
+      "pages": 8
+    },
+    {
+      "class": "hero-background",
+      "pages": 7
+    },
+    {
+      "class": "fluid-shape",
+      "pages": 7
+    },
+    {
+      "class": "text-reveal",
+      "pages": 7
+    },
+    {
+      "class": "delay-1",
+      "pages": 7
+    },
+    {
+      "class": "fade-in",
+      "pages": 7
+    },
+    {
+      "class": "delay-2",
+      "pages": 7
+    },
+    {
+      "class": "container",
+      "pages": 7
+    },
+    {
+      "class": "section-header",
+      "pages": 7
+    },
+    {
+      "class": "section-title",
+      "pages": 7
+    },
+    {
+      "class": "section-subtitle",
+      "pages": 7
+    },
+    {
+      "class": "mouse-tilt-container",
+      "pages": 7
+    },
+    {
+      "class": "grid-overlay",
+      "pages": 6
+    },
+    {
+      "class": "particles",
+      "pages": 6
+    },
+    {
+      "class": "fluid-shape-1",
+      "pages": 6
+    },
+    {
+      "class": "fluid-shape-2",
+      "pages": 6
+    },
+    {
+      "class": "card-3d",
+      "pages": 6
+    }
+  ],
+  "commonIds": [
+    "threejs-services-canvas",
+    "tab-bundle-treemap",
+    "tab-bundle-stats",
+    "tab-coverage",
+    "tab-lighthouse",
+    "tab-performance",
+    "tab-pwa",
+    "tab-seo",
+    "tab-media",
+    "threejs-projects-canvas",
+    "ecommerce-platform",
+    "fintech-app",
+    "threejs-hero-canvas",
+    "contactSection"
+  ],
+  "commonElements": [
+    "section",
+    "div",
+    "canvas",
+    "h1",
+    "span",
+    "p",
+    "h2",
+    "article",
+    "h3",
+    "ul",
+    "li",
+    "button",
+    "a",
+    "svg",
+    "path",
+    "circle",
+    "polyline",
+    "line",
+    "strong",
+    "code",
+    "picture",
+    "source",
+    "img",
+    "video",
+    "rect",
+    "polygon",
+    "br"
+  ],
+  "criticalCSSSize": 8174,
+  "missingVariables": [],
+  "circularReferences": []
+}

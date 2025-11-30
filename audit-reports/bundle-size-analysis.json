@@ -1,0 +1,27 @@
+{
+  "summary": {
+    "totalFiles": 1,
+    "totalRawSize": 229233,
+    "totalGzippedSize": 47091,
+    "overallCompression": 79.5,
+    "targets": {
+      "totalCSS": 102400,
+      "largestFile": 51200,
+      "totalFiles": 20
+    },
+    "meetsTargets": {
+      "totalSize": true,
+      "fileCount": true,
+      "largestFile": true
+    }
+  },
+  "files": [
+    {
+      "file": "assets\\style-DUNLMhK1.css",
+      "rawSize": 229233,
+      "gzippedSize": 47091,
+      "ratio": 79.5
+    }
+  ],
+  "issues": []
+}

@@ -1,0 +1,309 @@
+{
+  "preloads": [
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "services.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "services.html"
+    },
+    {
+      "href": "./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "services.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "seo-services.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "seo-services.html"
+    },
+    {
+      "href": "./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "seo-services.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "reports.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "reports.html"
+    },
+    {
+      "href": "./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "reports.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "projects.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "projects.html"
+    },
+    {
+      "href": "./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "projects.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "pricing.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "pricing.html"
+    },
+    {
+      "href": "./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "pricing.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "index.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "index.html"
+    },
+    {
+      "href": "./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "index.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "contact.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "contact.html"
+    },
+    {
+      "href": "./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "contact.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "about.html"
+    },
+    {
+      "href": "./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "about.html"
+    },
+    {
+      "href": "./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2",
+      "crossorigin": "anonymous",
+      "fullTag": "<link\n      rel=\"preload\"\n      href=\"./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2\"\n      as=\"font\"\n      crossorigin=\"anonymous\"\n    />",
+      "sourceFile": "about.html"
+    }
+  ],
+  "fontFaces": [
+    {
+      "family": "Orbitron",
+      "src": [
+        "../assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2"
+      ],
+      "weight": "400",
+      "style": "normal",
+      "display": "swap",
+      "sourceFile": "css\\fonts.css"
+    },
+    {
+      "family": "Orbitron",
+      "src": [
+        "../assets/fonts/Orbitron/woff2/Orbitron-Bold-subset.woff2"
+      ],
+      "weight": "700",
+      "style": "normal",
+      "display": "optional",
+      "sourceFile": "css\\fonts.css"
+    },
+    {
+      "family": "Orbitron",
+      "src": [
+        "../assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2"
+      ],
+      "weight": "900",
+      "style": "normal",
+      "display": "optional",
+      "sourceFile": "css\\fonts.css"
+    },
+    {
+      "family": "Rajdhani",
+      "src": [
+        "../assets/fonts/Rajdhani/woff2/Rajdhani-Light-subset.woff2"
+      ],
+      "weight": "300",
+      "style": "normal",
+      "display": "optional",
+      "sourceFile": "css\\fonts.css"
+    },
+    {
+      "family": "Rajdhani",
+      "src": [
+        "../assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2"
+      ],
+      "weight": "400",
+      "style": "normal",
+      "display": "swap",
+      "sourceFile": "css\\fonts.css"
+    },
+    {
+      "family": "Rajdhani",
+      "src": [
+        "../assets/fonts/Rajdhani/woff2/Rajdhani-SemiBold-subset.woff2"
+      ],
+      "weight": "600",
+      "style": "normal",
+      "display": "optional",
+      "sourceFile": "css\\fonts.css"
+    },
+    {
+      "family": "Rajdhani",
+      "src": [
+        "../assets/fonts/Rajdhani/woff2/Rajdhani-Bold-subset.woff2"
+      ],
+      "weight": "700",
+      "style": "normal",
+      "display": "optional",
+      "sourceFile": "css\\fonts.css"
+    }
+  ],
+  "criticalFonts": [
+    {
+      "family": "Orbitron",
+      "weight": "400",
+      "style": "normal",
+      "display": "swap",
+      "src": [
+        "../assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2"
+      ],
+      "fileSize": null,
+      "preloaded": true,
+      "sourceFile": "css\\fonts.css"
+    },
+    {
+      "family": "Rajdhani",
+      "weight": "400",
+      "style": "normal",
+      "display": "swap",
+      "src": [
+        "../assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2"
+      ],
+      "fileSize": null,
+      "preloaded": true,
+      "sourceFile": "css\\fonts.css"
+    }
+  ],
+  "nonCriticalFonts": [
+    {
+      "family": "Orbitron",
+      "weight": "700",
+      "style": "normal",
+      "display": "optional",
+      "src": [
+        "../assets/fonts/Orbitron/woff2/Orbitron-Bold-subset.woff2"
+      ],
+      "fileSize": null,
+      "preloaded": false,
+      "sourceFile": "css\\fonts.css"
+    },
+    {
+      "family": "Orbitron",
+      "weight": "900",
+      "style": "normal",
+      "display": "optional",
+      "src": [
+        "../assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2"
+      ],
+      "fileSize": null,
+      "preloaded": true,
+      "sourceFile": "css\\fonts.css"
+    },
+    {
+      "family": "Rajdhani",
+      "weight": "300",
+      "style": "normal",
+      "display": "optional",
+      "src": [
+        "../assets/fonts/Rajdhani/woff2/Rajdhani-Light-subset.woff2"
+      ],
+      "fileSize": null,
+      "preloaded": false,
+      "sourceFile": "css\\fonts.css"
+    },
+    {
+      "family": "Rajdhani",
+      "weight": "600",
+      "style": "normal",
+      "display": "optional",
+      "src": [
+        "../assets/fonts/Rajdhani/woff2/Rajdhani-SemiBold-subset.woff2"
+      ],
+      "fileSize": null,
+      "preloaded": false,
+      "sourceFile": "css\\fonts.css"
+    },
+    {
+      "family": "Rajdhani",
+      "weight": "700",
+      "style": "normal",
+      "display": "optional",
+      "src": [
+        "../assets/fonts/Rajdhani/woff2/Rajdhani-Bold-subset.woff2"
+      ],
+      "fileSize": null,
+      "preloaded": false,
+      "sourceFile": "css\\fonts.css"
+    }
+  ],
+  "recommendations": []
+}
