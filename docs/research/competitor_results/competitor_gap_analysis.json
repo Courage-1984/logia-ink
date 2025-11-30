@@ -1,0 +1,203 @@
+{
+    "task": "competitor_content_gap_analysis",
+    "crawler": {
+        "rateLimitPerSecond": 1,
+        "maxDepth": 50,
+        "maxPagesPerDomain": 500,
+        "respectRobotsTxt": false,
+        "sameOriginOnly": true,
+        "maxConcurrency": 2,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+        "crawlSitemap": true
+    },
+    "compareAgainst": "https://courage-1984.github.io/logi-ink/",
+    "domains": [
+        "https://tacticalmarketing.co.za/",
+        "https://www.quantratech.co.za/",
+        "https://www.lamusdesign.co.za/",
+        "https://www.itm.co.za/",
+        "https://webforce.co.za/",
+        "https://www.websitedesign.co.za/",
+        "https://allsortswebdesigners.co.za/",
+        "https://www.webdesignservices.co.za/",
+        "https://www.newperspectivestudio.co.za/",
+        "https://www.webpartner.co.za/",
+        "https://www.yeboapp.co.za/",
+        "https://www.smerocket.co.za/",
+        "https://clickresults.co.za/",
+        "https://blitssites.co.za/",
+        "https://magooze.co.za/"
+    ],
+    "extract": {
+        "fields": [
+            "title",
+            "meta.description",
+            "meta.keywords",
+            "h1",
+            "h2",
+            "text:first_300_words",
+            "canonical",
+            "og:title",
+            "og:description",
+            "internalLinks",
+            "structuredData",
+            "price",
+            "services",
+            "tags"
+        ]
+    },
+    "compareFields": [
+        "title",
+        "meta.description",
+        "h1",
+        "h2",
+        "text:first_300_words",
+        "keywords",
+        "tags",
+        "price",
+        "services"
+    ],
+    "scoring": {
+        "enabled": true,
+        "weightings": {
+            "contentCoverage": 0.4,
+            "seoElements": 0.25,
+            "servicesProducts": 0.2,
+            "internalLinks": 0.15
+        },
+        "priorityRules": [
+            {
+                "scoreThreshold": 0.8,
+                "priority": 1,
+                "action": "High impact — replicate or improve content, meta, services"
+            },
+            {
+                "scoreThreshold": 0.5,
+                "priority": 2,
+                "action": "Medium impact — optimize content, fill gaps in keywords and H2"
+            },
+            {
+                "scoreThreshold": 0.3,
+                "priority": 3,
+                "action": "Low impact — minor improvements or monitoring"
+            }
+        ],
+        "calculateMissingVsTarget": true,
+        "suggestNewPagesBasedOnGaps": true
+    },
+    "keywordsAnalysis": {
+        "enabled": true,
+        "aggregateAcrossCompetitors": true,
+        "compareAgainstTarget": true,
+        "output": {
+            "csv": "competitor_keywords_map.csv",
+            "json": "competitor_keywords_analysis.json",
+            "markdown": "competitor_keywords_analysis.md"
+        },
+        "fields": [
+            "keyword",
+            "frequency_in_competitors",
+            "missing_on_target",
+            "pages_using_keyword",
+            "suggested_new_pages"
+        ],
+        "prioritizeBy": [
+            "missing_on_target",
+            "frequency_in_competitors"
+        ]
+    },
+    "smartRecommendations": {
+        "enabled": true,
+        "generateSuggestedPages": true,
+        "fields": [
+            "title",
+            "suggested_slug",
+            "h1",
+            "meta_description",
+            "target_keywords",
+            "priority",
+            "estimated_effort",
+            "search_intent"
+        ],
+        "priorityRules": [
+            {
+                "missing_keywords_ratio": ">0.6",
+                "priority": 1,
+                "estimated_effort": "high"
+            },
+            {
+                "missing_keywords_ratio": "0.3-0.6",
+                "priority": 2,
+                "estimated_effort": "medium"
+            },
+            {
+                "missing_keywords_ratio": "<0.3",
+                "priority": 3,
+                "estimated_effort": "low"
+            }
+        ],
+        "suggestedTitlesAndMeta": true,
+        "suggestSlugFromTitle": true
+    },
+    "analysis": {
+        "outputs": [
+            {
+                "type": "csv",
+                "filename": "competitor_crawl_results.csv",
+                "columns": [
+                    "domain",
+                    "page_title",
+                    "url",
+                    "path",
+                    "meta_description",
+                    "h1",
+                    "h2",
+                    "content_summary",
+                    "keywords",
+                    "tags",
+                    "price",
+                    "services",
+                    "structured_data_present",
+                    "internal_links_count",
+                    "missing_vs_TARGET",
+                    "gap_score",
+                    "suggested_new_path",
+                    "priority",
+                    "estimated_effort",
+                    "notes"
+                ],
+                "defaults": {
+                    "priority": 3,
+                    "estimated_effort": "medium"
+                }
+            },
+            {
+                "type": "markdown",
+                "filename": "competitor_analysis.md",
+                "sections": [
+                    "executive_summary_top_5_opportunities",
+                    "per_domain_strengths_and_gaps",
+                    "aggregated_keyword_and_topic_gaps",
+                    "recommended_new_pages_with_titles_h1_meta_search_intent",
+                    "quick_win_action_list_prioritized"
+                ]
+            },
+            {
+                "type": "json",
+                "filename": "top_5_recommended_new_pages.json",
+                "fields": [
+                    "title",
+                    "suggested_slug",
+                    "priority",
+                    "effort",
+                    "search_intent"
+                ]
+            }
+        ]
+    },
+    "errorHandling": {
+        "logSkippedPages": true,
+        "noteCloudflareJSBlocks": true,
+        "retryOnFail": true
+    }
+}

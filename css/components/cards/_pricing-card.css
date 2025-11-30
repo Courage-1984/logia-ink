@@ -1,0 +1,39 @@
+/**
+ * Pricing Card Styles
+ * Pricing card component with color variants
+ */
+
+/* Pricing cards */
+.pricing-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card.pricing-card--cyan {
+  border-color: rgba(0, 255, 255, 0.3);
+}
+
+.pricing-card.pricing-card--magenta {
+  border-color: var(--accent-magenta);
+  box-shadow: 0 20px 60px var(--glow-magenta);
+}
+
+.pricing-card.pricing-card--green {
+  border-color: rgba(0, 255, 0, 0.3);
+}
+
+.pricing-card.pricing-card--cyan.mouse-tilt-container:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 10px 40px var(--glow-cyan);
+}
+
+.pricing-card.pricing-card--magenta.mouse-tilt-container:hover {
+  border-color: var(--accent-magenta);
+  box-shadow: 0 10px 40px var(--glow-magenta);
+}
+
+.pricing-card.pricing-card--green.mouse-tilt-container:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 10px 40px var(--glow-green);
+}
+

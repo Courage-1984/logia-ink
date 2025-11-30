@@ -1,0 +1,25 @@
+/**
+ * Empty State Utility
+ * Empty state styling for when content is not available
+ * 
+ * Extracted from styles.css (lines: 3382-3398)
+ */
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--accent-cyan);
+  margin-bottom: 1rem;
+}

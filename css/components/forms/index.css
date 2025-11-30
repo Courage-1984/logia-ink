@@ -1,0 +1,17 @@
+/**
+ * Forms Component Index
+ * Imports all form component modules in the correct order
+ */
+
+/* Base styles */
+@import url('./_form-base.css');
+
+/* Input variants */
+@import url('./_form-inputs.css');
+
+/* Validation and submit button */
+@import url('./_form-validation.css');
+
+/* Color variants */
+@import url('./_form-variants.css');
+

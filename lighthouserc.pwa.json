@@ -1,0 +1,25 @@
+{
+  "ci": {
+    "collect": {
+      "url": [
+        "http://127.0.0.1:4173/"
+      ],
+      "numberOfRuns": 1,
+      "settings": {
+        "onlyCategories": [
+          "pwa"
+        ],
+        "chromeFlags": "--headless --no-sandbox --disable-gpu"
+      },
+      "reportFilename": "pwa-audit",
+      "reportFormats": [
+        "html"
+      ],
+      "outputDir": ".lighthouseci",
+      "chromePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    },
+    "assert": {
+      "preset": "lighthouse:no-pwa"
+    }
+  }
+}

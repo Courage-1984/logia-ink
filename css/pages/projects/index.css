@@ -1,0 +1,11 @@
+/**
+ * Projects Page Component Index
+ * Imports all projects page modules in the correct order
+ */
+
+/* Projects grid and card styles */
+@import url('./_projects-grid.css');
+
+/* Project modal styles */
+@import url('./_project-modal.css');
+

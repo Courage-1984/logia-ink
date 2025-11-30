@@ -1,0 +1,413 @@
+/**
+ * Project Modal Styles
+ * Modal layout, media, body, and interactive elements
+ */
+
+.project-modal__description > *:not(.project-modal__tags) {
+  margin: 0;
+}
+
+/* Project Modal */
+.project-modal .modal-content {
+  width: 80vw;
+  height: 80vh;
+  max-width: 1100px;
+  padding: clamp(2rem, 3.6vw, 3.8rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 2vw, 2rem);
+  overflow: hidden;
+}
+
+.project-modal__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 1.8vw, 1.75rem);
+  height: 100%;
+  min-height: 0;
+}
+
+.project-modal__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--bg-tertiary);
+  min-height: 0;
+  contain: layout style paint;
+  will-change: contents;
+}
+
+.project-modal__media picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  contain: layout style paint;
+  will-change: opacity;
+}
+
+.project-modal__image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.4s ease;
+  display: block;
+  z-index: 1;
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  contain: layout style paint;
+  content-visibility: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.project-modal__video-background {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  display: block;
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  contain: layout style paint;
+}
+
+.project-modal__video {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  width: 100% !important;
+  align-self: center;
+  will-change: opacity;
+  backface-visibility: hidden;
+}
+
+/* Keep container as flex when it has video (prevents layout recalculation on toggle) */
+.project-modal__media.has-video {
+  display: flex;
+  height: 100%;
+}
+
+.project-modal__media.show-video .project-modal__video-background {
+  opacity: 1;
+  z-index: 0;
+}
+
+.project-modal__media.show-video .project-modal__video {
+  opacity: 1;
+  z-index: 1;
+}
+
+.project-modal__media.show-video picture {
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.project-modal__media.show-video img {
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.project-modal__media.show-video .project-modal__image {
+  opacity: 0 !important;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Ensure image maintains position even when container is flex (prevents FOUC) */
+.project-modal__media.has-video .project-modal__image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.project-modal__media.show-video .project-modal__magnifier {
+  display: none !important;
+}
+
+.project-modal__media-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(10, 10, 26, 0.85);
+  border: 2px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
+}
+
+.project-modal__media.has-video .project-modal__media-toggle {
+  display: flex;
+}
+
+.project-modal__media-toggle:hover {
+  background: rgba(0, 255, 255, 0.15);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.project-modal__media-toggle:active {
+  transform: scale(0.95);
+}
+
+.project-modal__media-toggle:focus {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+.project-modal__toggle-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: block;
+}
+
+.project-modal__toggle-icon::before,
+.project-modal__toggle-icon::after {
+  content: '';
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+/* Icon: Video (play button) when showing image */
+.project-modal__media-toggle[aria-pressed="false"] .project-modal__toggle-icon::before {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 14px;
+  border-color: transparent transparent transparent currentColor;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Icon: Image (square/photo) when showing video */
+.project-modal__media-toggle[aria-pressed="true"] .project-modal__toggle-icon::before {
+  width: 14px;
+  height: 10px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.project-modal__media-toggle[aria-pressed="true"] .project-modal__toggle-icon::after {
+  width: 4px;
+  height: 4px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  right: 2px;
+  top: 2px;
+  background: currentColor;
+}
+
+.project-modal__magnifier {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-cyan);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.25);
+  pointer-events: none;
+  display: none;
+  background-repeat: no-repeat;
+  background-color: rgba(10, 10, 26, 0.85);
+  mix-blend-mode: normal;
+  transition: opacity 0.2s ease;
+  z-index: 5;
+}
+
+.project-modal__media.is-magnifying .project-modal__magnifier {
+  display: block;
+}
+
+.project-modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-height: 0;
+}
+
+.project-modal__scrollable {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  overflow-y: auto;
+  padding-right: 0.75rem;
+  padding-bottom: 2rem;
+  min-height: 0;
+  scroll-behavior: smooth;
+  scroll-padding-bottom: 2.75rem;
+}
+
+.project-modal__category {
+  color: var(--accent-cyan);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+}
+
+.project-modal__title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.project-modal__description {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.project-modal__summary {
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.project-modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 0.35rem;
+  margin: 0;
+}
+
+.project-modal__tags .project-tag {
+  background: rgba(0, 255, 255, 0.18);
+  border-color: rgba(0, 255, 255, 0.6);
+  color: var(--text-primary);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+  position: relative;
+  top: auto;
+  right: auto;
+  text-transform: none;
+}
+
+.project-modal__sections {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.project-modal__section {
+  padding: 0;
+  margin: 0;
+}
+
+.project-modal__section h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  margin-bottom: 0.18rem;
+}
+
+.project-modal__section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.project-modal__section li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.project-modal__section li::before {
+  content: '';
+  position: absolute;
+  top: 0.6rem;
+  left: 0.18rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--glow-cyan);
+}
+
+.project-modal__cta-wrapper {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding-top: 0.5rem;
+}
+
+.project-modal__cta {
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .project-modal__layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .project-modal__media {
+    height: 45vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-modal .modal-content {
+    width: 90vw;
+    height: 85vh;
+    padding: 1.5rem;
+  }
+
+  .project-modal__media {
+    height: 35vh;
+  }
+}
+

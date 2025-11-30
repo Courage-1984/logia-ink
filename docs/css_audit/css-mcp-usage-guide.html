@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.genspark.ai/api/files/s/K6FsSoof -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+          body {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2rem 80px;
+            position: relative;
+          }
+          @media screen and (max-width: 500px) {
+            body {
+              padding: 1rem 16px;
+            }
+          }
+        </style>
+      </head>
+      <body data-new-gr-c-s-check-loaded="14.1264.0" data-gr-ext-installed="">
+        <h1>Complete CSS &amp; Font Audit Guide Using MCP Servers in Cursor IDE</h1>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#1-introduction">1. Introduction</a></li>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#2-mcp-server-overview--tools">2. MCP Server Overview &amp; Tools</a></li>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#3-complete-css--font-audit-workflow">3. Complete CSS &amp; Font Audit Workflow</a></li>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#4-detailed-tool-usage-examples">4. Detailed Tool Usage Examples</a></li>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#5-css-audit-checklist">5. CSS Audit Checklist</a></li>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#6-font-audit-checklist">6. Font Audit Checklist</a></li>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#7-common-issues--solutions">7. Common Issues &amp; Solutions</a></li>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#8-performance-optimization-strategies">8. Performance Optimization Strategies</a></li>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#9-best-practices--industry-standards">9. Best Practices &amp; Industry Standards</a></li>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#10-troubleshooting-guide">10. Troubleshooting Guide</a></li>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#11-advanced-workflows">11. Advanced Workflows</a></li>
+<li><a href="https://www.genspark.ai/api/files/s/K6FsSoof#12-resources--references">12. Resources &amp; References</a></li>
+</ul>
+<hr>
+<h2>1. Introduction</h2>
+<h3>What is this guide about</h3>
+<p>This comprehensive guide provides a systematic approach to auditing CSS and font usage in your codebase using Model Context Protocol (MCP) servers within Cursor IDE. You'll learn to identify unused styles, optimize performance, eliminate duplicates, and restructure your CSS architecture for better maintainability and performance.</p>
+<h3>Prerequisites</h3>
+<ul>
+<li>Cursor IDE with MCP server support enabled</li>
+<li>Basic understanding of CSS and web performance concepts</li>
+<li>Access to your project's codebase</li>
+<li>Chrome browser for DevTools integration</li>
+</ul>
+<h3>Overview of MCP servers you'll use</h3>
+<p>This guide leverages seven powerful MCP servers, each serving specific roles in the audit process:</p>
+<ul>
+<li><strong>Filesystem MCP</strong> - Project structure analysis and file operations</li>
+<li><strong>Chrome DevTools MCP</strong> - Performance profiling and CSS coverage analysis</li>
+<li><strong>Context7 MCP</strong> - Latest documentation and best practices research</li>
+<li><strong>Brave Search MCP</strong> - Industry standards and solution research</li>
+<li><strong>Playwright MCP</strong> - Automated testing and cross-browser validation</li>
+<li><strong>Sequential Thinking MCP</strong> - Strategic planning and decision-making</li>
+<li><strong>Firecrawl MCP</strong> - External resource research and documentation scraping</li>
+</ul>
+<hr>
+<h2>2. MCP Server Overview &amp; Tools</h2>
+<h3>Filesystem MCP Server</h3>
+<p><strong>Purpose:</strong> Provides comprehensive file system operations for analyzing project structure, reading CSS files, and identifying assets.</p>
+<h4>Key Tools for CSS/Font Auditing:</h4>
+<ul>
+<li><code>read_file</code> - Read CSS files for content analysis</li>
+<li><code>list_directory</code> - Scan project directories for CSS and font files</li>
+<li><code>search_files</code> - Find specific patterns in CSS files</li>
+<li><code>get_file_info</code> - Analyze file sizes and modification dates</li>
+</ul>
+<h4>Installation Verification:</h4>
+<pre><code class="language-bash"># Test filesystem access
+Use tool: list_directory
+Arguments: {"path": "./src"}
+</code></pre>
+<h3>Chrome DevTools MCP Server</h3>
+<p><strong>Purpose:</strong> Provides browser automation and DevTools integration for performance analysis, CSS coverage testing, and network monitoring.</p>
+<h4>Key Tools for CSS/Font Auditing:</h4>
+<ul>
+<li><code>performance_start_trace</code> - Record performance metrics during page load</li>
+<li><code>performance_stop_trace</code> - Analyze CSS and font loading performance</li>
+<li><code>take_screenshot</code> - Visual regression testing</li>
+<li><code>evaluate_script</code> - Run CSS coverage analysis scripts</li>
+<li><code>list_network_requests</code> - Analyze CSS and font network requests</li>
+</ul>
+<h4>Installation Verification:</h4>
+<pre><code class="language-javascript"># Test Chrome DevTools connection
+Use tool: navigate_page
+Arguments: {"url": "about:blank"}
+</code></pre>
+<h3>Context7 MCP Server</h3>
+<p><strong>Purpose:</strong> Fetches up-to-date documentation and code examples from official sources to ensure compliance with latest standards.</p>
+<h4>Key Tools for CSS/Font Auditing:</h4>
+<ul>
+<li><code>search_docs</code> - Find latest CSS optimization techniques</li>
+<li><code>get_examples</code> - Retrieve modern CSS architecture examples</li>
+<li><code>fetch_standards</code> - Access current web standards documentation</li>
+</ul>
+<h4>Installation Verification:</h4>
+<pre><code class="language-javascript"># Test Context7 access
+Use tool: search_docs
+Arguments: {"query": "CSS performance optimization", "source": "MDN"}
+</code></pre>
+<h3>Brave Search MCP Server</h3>
+<p><strong>Purpose:</strong> Searches the web for industry best practices, tools, and solutions for CSS optimization challenges.</p>
+<h4>Key Tools for CSS/Font Auditing:</h4>
+<ul>
+<li><code>web_search</code> - Search for CSS optimization tools and techniques</li>
+<li><code>summarize_results</code> - Summarize search results for quick insights</li>
+</ul>
+<h4>Installation Verification:</h4>
+<pre><code class="language-javascript"># Test Brave Search
+Use tool: web_search
+Arguments: {"query": "CSS unused styles detection tools 2024", "limit": 5}
+</code></pre>
+<h3>Playwright MCP Server</h3>
+<p><strong>Purpose:</strong> Automated browser testing for CSS coverage analysis, visual regression testing, and cross-browser compatibility validation.</p>
+<h4>Key Tools for CSS/Font Auditing:</h4>
+<ul>
+<li><code>run_test</code> - Execute automated CSS coverage tests</li>
+<li><code>capture_coverage</code> - Generate CSS usage reports</li>
+<li><code>visual_diff</code> - Compare before/after screenshots</li>
+</ul>
+<h4>Installation Verification:</h4>
+<pre><code class="language-javascript"># Test Playwright functionality
+Use tool: run_test
+Arguments: {"script": "page.goto('about:blank')", "browser": "chromium"}
+</code></pre>
+<h3>Sequential Thinking MCP Server</h3>
+<p><strong>Purpose:</strong> Provides structured problem-solving approach for planning CSS refactoring strategies and optimization decisions.</p>
+<h4>Key Tools for CSS/Font Auditing:</h4>
+<ul>
+<li><code>analyze_problem</code> - Break down complex CSS architecture issues</li>
+<li><code>generate_strategy</code> - Create step-by-step refactoring plans</li>
+<li><code>evaluate_options</code> - Compare different optimization approaches</li>
+</ul>
+<h4>Installation Verification:</h4>
+<pre><code class="language-javascript"># Test Sequential Thinking
+Use tool: analyze_problem
+Arguments: {"problem": "Large CSS bundle with potential unused styles"}
+</code></pre>
+<h3>Firecrawl MCP Server</h3>
+<p><strong>Purpose:</strong> Web scraping for researching external CSS frameworks, documentation, and gathering optimization insights from various sources.</p>
+<h4>Key Tools for CSS/Font Auditing:</h4>
+<ul>
+<li><code>scrape</code> - Extract content from CSS documentation sites</li>
+<li><code>crawl</code> - Gather comprehensive information from multiple pages</li>
+<li><code>search</code> - Find specific CSS optimization resources</li>
+</ul>
+<h4>Installation Verification:</h4>
+<pre><code class="language-javascript"># Test Firecrawl functionality
+Use tool: scrape
+Arguments: {"url": "https://web.dev/fast/#optimize-your-css", "formats": ["markdown"]}
+</code></pre>
+<hr>
+<h2>3. Complete CSS &amp; Font Audit Workflow</h2>
+<h3>Phase 1: Discovery &amp; Inventory</h3>
+<p>📋 <strong>Objective:</strong> Create a comprehensive inventory of all CSS and font assets in your project.</p>
+<h4>Step 1.1: Project Structure Analysis</h4>
+<p><strong>Using Filesystem MCP - Scan Project Structure</strong></p>
+<pre><code class="language-javascript"># Discover all CSS files
+Use tool: search_files
+Arguments: {
+  "path": "./",
+  "pattern": "**/*.css",
+  "include_content": false
+}
+
+# Find CSS-in-JS files
+Use tool: search_files
+Arguments: {
+  "path": "./src",
+  "pattern": "**/*.{js,jsx,ts,tsx}",
+  "content_pattern": "styled|css`|makeStyles"
+}
+
+# Locate font files
+Use tool: search_files
+Arguments: {
+  "path": "./",
+  "pattern": "**/*.{woff,woff2,ttf,otf,eot}",
+  "include_content": false
+}
+</code></pre>
+<h4>Step 1.2: Asset Inventory Creation</h4>
+<p><strong>Using Filesystem MCP - Analyze File Sizes</strong></p>
+<pre><code class="language-javascript"># Get detailed info for each CSS file
+Use tool: get_file_info
+Arguments: {"path": "./src/styles/main.css"}
+
+# List all stylesheets in public directory
+Use tool: list_directory
+Arguments: {
+  "path": "./public/css",
+  "recursive": true,
+  "include_hidden": false
+}
+</code></pre>
+<h4>Step 1.3: External Dependencies Discovery</h4>
+<p><strong>Using Filesystem MCP - Find External CSS References</strong></p>
+<pre><code class="language-javascript"># Search for CDN links and external stylesheets
+Use tool: search_files
+Arguments: {
+  "path": "./",
+  "pattern": "**/*.{html,jsx,tsx}",
+  "content_pattern": "link.*stylesheet|@import|cdn.*css"
+}
+</code></pre>
+<h3>Phase 2: CSS Analysis &amp; Documentation Research</h3>
+<p>🔍 <strong>Objective:</strong> Research current best practices and analyze your CSS against industry standards.</p>
+<h4>Step 2.1: Research Latest CSS Best Practices</h4>
+<p><strong>Using Context7 MCP - Fetch Current Standards</strong></p>
+<pre><code class="language-javascript"># Get latest CSS architecture guidelines
+Use tool: search_docs
+Arguments: {
+  "query": "CSS architecture BEM SMACSS OOCSS 2024",
+  "source": "MDN",
+  "limit": 10
+}
+
+# Research CSS performance optimization
+Use tool: get_examples
+Arguments: {
+  "topic": "CSS performance optimization techniques",
+  "framework": "vanilla CSS"
+}
+</code></pre>
+<h4>Step 2.2: Industry Standards Research</h4>
+<p><strong>Using Brave Search MCP - Find Current Trends</strong></p>
+<pre><code class="language-javascript"># Search for CSS optimization tools and techniques
+Use tool: web_search
+Arguments: {
+  "query": "CSS unused styles detection tools 2024 PurgeCSS UnCSS",
+  "limit": 10,
+  "include_summary": true
+}
+
+# Research font loading optimization
+Use tool: web_search
+Arguments: {
+  "query": "web font optimization font-display preload 2024",
+  "limit": 8,
+  "include_summary": true
+}
+</code></pre>
+<h4>Step 2.3: Framework-Specific Research</h4>
+<p><strong>Using Firecrawl MCP - Gather Framework Documentation</strong></p>
+<pre><code class="language-javascript"># Scrape Tailwind CSS optimization guide (if applicable)
+Use tool: scrape
+Arguments: {
+  "url": "https://tailwindcss.com/docs/optimizing-for-production",
+  "formats": ["markdown"],
+  "onlyMainContent": true
+}
+
+# Research CSS modules best practices
+Use tool: search
+Arguments: {
+  "query": "CSS modules best practices optimization",
+  "limit": 5
+}
+</code></pre>
+<h3>Phase 3: Performance &amp; Usage Analysis</h3>
+<p>⚡ <strong>Objective:</strong> Analyze CSS performance, identify unused styles, and measure loading times.</p>
+<h4>Step 3.1: CSS Coverage Analysis</h4>
+<p><strong>Using Chrome DevTools MCP - Performance Profiling</strong></p>
+<pre><code class="language-javascript"># Start performance trace
+Use tool: performance_start_trace
+Arguments: {
+  "categories": ["loading", "rendering", "painting"]
+}
+
+# Navigate to your application
+Use tool: navigate_page
+Arguments: {"url": "http://localhost:3000"}
+
+# Stop trace and analyze
+Use tool: performance_stop_trace
+Arguments: {"analyze": true}
+</code></pre>
+<h4>Step 3.2: CSS Coverage Detection</h4>
+<p><strong>Using Chrome DevTools MCP - CSS Coverage Analysis</strong></p>
+<pre><code class="language-javascript"># Enable CSS coverage
+Use tool: evaluate_script
+Arguments: {
+  "script": `
+    // Enable CSS coverage
+    await window.chrome.runtime.sendMessage({
+      action: 'startCoverage',
+      options: { css: true, js: false }
+    });
+  
+    // Simulate user interactions
+    document.querySelectorAll('a, button').forEach(el =&gt; el.click());
+  
+    // Get coverage report
+    const coverage = await window.chrome.runtime.sendMessage({
+      action: 'stopCoverage'
+    });
+    console.log('CSS Coverage:', coverage);
+  `
+}
+</code></pre>
+<h4>Step 3.3: Network Performance Analysis</h4>
+<p><strong>Using Chrome DevTools MCP - Network Analysis</strong></p>
+<pre><code class="language-javascript"># Analyze network requests for CSS and fonts
+Use tool: list_network_requests
+Arguments: {
+  "filter": {
+    "resourceType": ["stylesheet", "font"],
+    "status": "all"
+  }
+}
+
+# Get specific network request details
+Use tool: get_network_request
+Arguments: {"requestId": "stylesheet-main-css"}
+</code></pre>
+<h4>Step 3.4: Cross-Browser Testing</h4>
+<p><strong>Using Playwright MCP - Automated Testing</strong></p>
+<pre><code class="language-javascript"># Run CSS coverage test across browsers
+Use tool: run_test
+Arguments: {
+  "script": `
+    const browsers = ['chromium', 'firefox', 'webkit'];
+    const results = {};
+  
+    for (const browserName of browsers) {
+      const browser = await playwright[browserName].launch();
+      const page = await browser.newPage();
+      await page.coverage.startCSSCoverage();
+      await page.goto('http://localhost:3000');
+      await page.waitForLoadState('networkidle');
+      const coverage = await page.coverage.stopCSSCoverage();
+      results[browserName] = coverage;
+      await browser.close();
+    }
+    return results;
+  `,
+  "timeout": 30000
+}
+</code></pre>
+<h3>Phase 4: Code Quality Audit</h3>
+<p>🔍 <strong>Objective:</strong> Identify duplicate styles, conflicts, and code quality issues.</p>
+<h4>Step 4.1: Duplicate Detection</h4>
+<p><strong>Using Filesystem MCP - Analyze CSS Content</strong></p>
+<pre><code class="language-javascript"># Read and analyze main stylesheet
+Use tool: read_file
+Arguments: {"path": "./src/styles/main.css"}
+
+# Search for duplicate color definitions
+Use tool: search_files
+Arguments: {
+  "path": "./src",
+  "pattern": "**/*.css",
+  "content_pattern": "color:\\s*#[0-9a-fA-F]{6}"
+}
+
+# Find duplicate font-family declarations
+Use tool: search_files
+Arguments: {
+  "path": "./src",
+  "pattern": "**/*.css",
+  "content_pattern": "font-family:"
+}
+</code></pre>
+<h4>Step 4.2: Specificity Analysis</h4>
+<p><strong>Using Chrome DevTools MCP - Specificity Issues</strong></p>
+<pre><code class="language-javascript"># Analyze CSS specificity conflicts
+Use tool: evaluate_script
+Arguments: {
+  "script": `
+    // Function to calculate CSS specificity
+    function calculateSpecificity(selector) {
+      let specificity = [0, 0, 0, 0];
+      // Count IDs
+      specificity[1] = (selector.match(/#[\\w-]+/g) || []).length;
+      // Count classes, attributes, pseudo-classes
+      specificity[2] = (selector.match(/\\.[\\w-]+|\\[[^\\]]+\\]|:[\\w-]+/g) || []).length;
+      // Count elements and pseudo-elements
+      specificity[3] = (selector.match(/^[\\w-]+|\\s[\\w-]+/g) || []).length;
+      return specificity.join('');
+    }
+  
+    // Analyze all stylesheets
+    const sheets = Array.from(document.styleSheets);
+    const specificityReport = [];
+  
+    sheets.forEach(sheet =&gt; {
+      try {
+        Array.from(sheet.cssRules).forEach(rule =&gt; {
+          if (rule.selectorText) {
+            specificityReport.push({
+              selector: rule.selectorText,
+              specificity: calculateSpecificity(rule.selectorText),
+              sheet: sheet.href || 'inline'
+            });
+          }
+        });
+      } catch (e) {
+        console.warn('Cannot access stylesheet:', e);
+      }
+    });
+    return specificityReport;
+  `
+}
+</code></pre>
+<h4>Step 4.3: Font Declaration Audit</h4>
+<p><strong>Using Filesystem MCP - Font Analysis</strong></p>
+<pre><code class="language-javascript"># Search for @font-face declarations
+Use tool: search_files
+Arguments: {
+  "path": "./src",
+  "pattern": "**/*.css",
+  "content_pattern": "@font-face"
+}
+
+# Find font-display usage
+Use tool: search_files
+Arguments: {
+  "path": "./src",
+  "pattern": "**/*.css",
+  "content_pattern": "font-display:"
+}
+</code></pre>
+<h3>Phase 5: Optimization &amp; Refactoring Plan</h3>
+<p>🎯 <strong>Objective:</strong> Create a strategic plan for optimizing and refactoring CSS architecture.</p>
+<h4>Step 5.1: Strategic Planning</h4>
+<p><strong>Using Sequential Thinking MCP - Refactoring Strategy</strong></p>
+<pre><code class="language-javascript"># Analyze the CSS optimization challenge
+Use tool: analyze_problem
+Arguments: {
+  "problem": "Large CSS bundle with 40% unused styles, duplicate declarations, and poor modularity",
+  "context": "React application with 50+ components and multiple CSS files",
+  "constraints": [
+    "Must maintain visual consistency",
+    "Cannot break existing functionality",
+    "Need to improve loading performance"
+  ]
+}
+
+# Generate optimization strategy
+Use tool: generate_strategy
+Arguments: {
+  "goal": "Reduce CSS bundle size by 50% while improving maintainability",
+  "considerations": [
+    "unused style removal",
+    "modular architecture",
+    "performance optimization"
+  ]
+}
+</code></pre>
+<h4>Step 5.2: Architecture Planning</h4>
+<p><strong>Using Sequential Thinking MCP - Modular CSS Plan</strong></p>
+<pre><code class="language-javascript"># Evaluate CSS architecture options
+Use tool: evaluate_options
+Arguments: {
+  "options": [
+    "CSS Modules with component-scoped styles",
+    "BEM methodology with atomic CSS",
+    "Utility-first approach with Tailwind CSS",
+    "CSS-in-JS with styled-components"
+  ],
+  "criteria": [
+    "maintainability",
+    "performance",
+    "developer experience",
+    "bundle size"
+  ]
+}
+</code></pre>
+<h4>Step 5.3: Implementation Roadmap</h4>
+<p><strong>Using Sequential Thinking MCP - Create Roadmap</strong></p>
+<pre><code class="language-javascript"># Create step-by-step implementation plan
+Use tool: generate_strategy
+Arguments: {
+  "goal": "Implement modular CSS architecture with optimized performance",
+  "phases": [
+    "Remove unused styles",
+    "Consolidate duplicate declarations",
+    "Implement modular structure",
+    "Optimize font loading",
+    "Add automated tools"
+  ]
+}
+</code></pre>
+<h3>Phase 6: Implementation &amp; Verification</h3>
+<p>✅ <strong>Objective:</strong> Implement optimizations and verify improvements through testing.</p>
+<h4>Step 6.1: Performance Comparison</h4>
+<p><strong>Using Chrome DevTools MCP - Before/After Analysis</strong></p>
+<pre><code class="language-javascript"># Baseline performance measurement
+Use tool: performance_start_trace
+Arguments: {"categories": ["loading", "rendering"]}
+
+Use tool: navigate_page
+Arguments: {"url": "http://localhost:3000"}
+
+Use tool: performance_stop_trace
+Arguments: {"save_as": "baseline_performance.json"}
+
+# Take baseline screenshot
+Use tool: take_screenshot
+Arguments: {"filename": "baseline_visual.png"}
+</code></pre>
+<h4>Step 6.2: Regression Testing</h4>
+<p><strong>Using Playwright MCP - Visual Regression Testing</strong></p>
+<pre><code class="language-javascript"># Compare visual differences after optimization
+Use tool: visual_diff
+Arguments: {
+  "baseline_image": "baseline_visual.png",
+  "current_url": "http://localhost:3000",
+  "threshold": 0.1,
+  "ignore_regions": [".timestamp", ".dynamic-content"]
+}
+
+# Run comprehensive cross-browser tests
+Use tool: run_test
+Arguments: {
+  "script": `
+    const testResults = {};
+    const browsers = ['chromium', 'firefox', 'webkit'];
+  
+    for (const browserName of browsers) {
+      const browser = await playwright[browserName].launch();
+      const page = await browser.newPage();
+      await page.goto('http://localhost:3000');
+      await page.waitForLoadState('networkidle');
+    
+      // Check for layout issues
+      const layoutIssues = await page.evaluate(() =&gt; {
+        return Array.from(document.querySelectorAll('*')).filter(el =&gt; {
+          const style = getComputedStyle(el);
+          return style.width === '0px' &amp;&amp; style.height === '0px' &amp;&amp; el.children.length &gt; 0;
+        }).length;
+      });
+    
+      testResults[browserName] = {
+        layoutIssues,
+        loadTime: await page.evaluate(() =&gt; performance.now())
+      };
+      await browser.close();
+    }
+    return testResults;
+  `
+}
+</code></pre>
+<h4>Step 6.3: Research Additional Solutions</h4>
+<p><strong>Using Firecrawl MCP - Research New Tools</strong></p>
+<pre><code class="language-javascript"># Research if new optimization tools have emerged
+Use tool: search
+Arguments: {
+  "query": "CSS optimization tools 2024 PurgeCSS alternatives",
+  "limit": 5
+}
+
+# Scrape detailed information about recommended tools
+Use tool: scrape
+Arguments: {
+  "url": "https://github.com/FullHuman/purgecss",
+  "formats": ["markdown"],
+  "onlyMainContent": true
+}
+</code></pre>
+<hr>
+<h2>4. Detailed Tool Usage Examples</h2>
+<h3>CSS File Analysis Examples</h3>
+<p><strong>Filesystem MCP - Advanced CSS Pattern Search</strong></p>
+<pre><code class="language-javascript"># Find all CSS custom properties (variables)
+Use tool: search_files
+Arguments: {
+  "path": "./src",
+  "pattern": "**/*.css",
+  "content_pattern": "--[a-zA-Z0-9-]+:",
+  "include_line_numbers": true
+}
+
+# Detect vendor prefixes that might be obsolete
+Use tool: search_files
+Arguments: {
+  "path": "./src",
+  "pattern": "**/*.css",
+  "content_pattern": "-(webkit|moz|ms|o)-",
+  "include_context": 2
+}
+
+# Find hardcoded color values
+Use tool: search_files
+Arguments: {
+  "path": "./src",
+  "pattern": "**/*.css",
+  "content_pattern": "#[0-9a-fA-F]{3,6}|rgb\\(|rgba\\(|hsl\\(",
+  "group_by_file": true
+}
+</code></pre>
+<p><strong>Chrome DevTools MCP - Comprehensive Performance Analysis</strong></p>
+<pre><code class="language-javascript"># Detailed CSS loading analysis
+Use tool: evaluate_script
+Arguments: {
+  "script": `
+    // Analyze CSS loading performance
+    const cssAnalysis = {
+      totalStylesheets: document.styleSheets.length,
+      externalSheets: 0,
+      inlineStyles: 0,
+      totalRules: 0,
+      loadTimes: []
+    };
+  
+    // Performance timing for CSS resources
+    const resources = performance.getEntriesByType('resource');
+    cssAnalysis.loadTimes = resources
+      .filter(r =&gt; r.name.includes('.css'))
+      .map(r =&gt; ({
+        name: r.name,
+        duration: r.duration,
+        transferSize: r.transferSize,
+        encodedBodySize: r.encodedBodySize
+      }));
+  
+    // Count total CSS rules
+    Array.from(document.styleSheets).forEach(sheet =&gt; {
+      try {
+        cssAnalysis.totalRules += sheet.cssRules.length;
+        if (sheet.href) {
+          cssAnalysis.externalSheets++;
+        } else {
+          cssAnalysis.inlineStyles++;
+        }
+      } catch (e) {
+        console.warn('Cannot access stylesheet rules:', e);
+      }
+    });
+  
+    return cssAnalysis;
+  `
+}
+</code></pre>
+<h3>Font Optimization Examples</h3>
+<p><strong>Chrome DevTools MCP - Font Loading Analysis</strong></p>
+<pre><code class="language-javascript"># Analyze font loading performance and FOUT/FOIT
+Use tool: evaluate_script
+Arguments: {
+  "script": `
+    // Font loading analysis
+    const fontAnalysis = {
+      webFonts: [],
+      systemFonts: [],
+      loadingStrategy: {},
+      renderingMetrics: {}
+    };
+  
+    // Check font-display values
+    Array.from(document.styleSheets).forEach(sheet =&gt; {
+      try {
+        Array.from(sheet.cssRules).forEach(rule =&gt; {
+          if (rule.constructor.name === 'CSSFontFaceRule') {
+            const fontDisplay = rule.style.getPropertyValue('font-display');
+            fontAnalysis.webFonts.push({
+              family: rule.style.getPropertyValue('font-family'),
+              display: fontDisplay || 'auto',
+              src: rule.style.getPropertyValue('src')
+            });
+          }
+        });
+      } catch (e) {
+        console.warn('Cannot access font rules:', e);
+      }
+    });
+  
+    // Check for font preloading
+    const fontPreloads = Array.from(document.querySelectorAll('link[rel="preload"][as="font"]'));
+    fontAnalysis.preloadedFonts = fontPreloads.map(link =&gt; ({
+      href: link.href,
+      crossorigin: link.crossOrigin
+    }));
+  
+    return fontAnalysis;
+  `
+}
+</code></pre>
+<h3>CSS Coverage and Usage Analysis</h3>
+<p><strong>Playwright MCP - Comprehensive CSS Coverage</strong></p>
+<pre><code class="language-javascript"># Advanced CSS coverage analysis with user interaction simulation
+Use tool: run_test
+Arguments: {
+  "script": `
+    const browser = await playwright.chromium.launch();
+    const page = await browser.newPage();
+  
+    // Start CSS coverage
+    await page.coverage.startCSSCoverage();
+  
+    // Navigate to application
+    await page.goto('http://localhost:3000');
+    await page.waitForLoadState('networkidle');
+  
+    // Simulate user interactions to trigger dynamic styles
+    const interactionPlan = [
+      () =&gt; page.hover('[data-testid="menu-button"]'),
+      () =&gt; page.click('[data-testid="menu-button"]'),
+      () =&gt; page.fill('input[type="search"]', 'test query'),
+      () =&gt; page.click('button[type="submit"]'),
+      () =&gt; page.evaluate(() =&gt; window.scrollTo(0, document.body.scrollHeight))
+    ];
+  
+    for (const interaction of interactionPlan) {
+      await interaction();
+      await page.waitForTimeout(500);
+    }
+  
+    // Stop coverage and analyze
+    const coverage = await page.coverage.stopCSSCoverage();
+    const coverageReport = coverage.map(entry =&gt; {
+      const usedBytes = entry.ranges.reduce((used, range) =&gt; 
+        used + (range.end - range.start), 0
+      );
+      const totalBytes = entry.text.length;
+      const usagePercentage = (usedBytes / totalBytes) * 100;
+    
+      return {
+        url: entry.url,
+        totalBytes,
+        usedBytes,
+        unusedBytes: totalBytes - usedBytes,
+        usagePercentage: Math.round(usagePercentage * 100) / 100,
+        unusedRanges: entry.ranges
+      };
+    });
+  
+    await browser.close();
+    return coverageReport;
+  `,
+  "timeout": 60000
+}
+</code></pre>
+<hr>
+<h2>5. CSS Audit Checklist</h2>
+<h3>File Organization &amp; Structure</h3>
+<ul>
+<li class="vditor-task"><input disabled="" type="checkbox"> CSS files are logically organized (components, utilities, base, etc.)</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Consistent naming conventions are used throughout</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Import statements are organized and optimized</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> No circular dependencies between CSS modules</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Separate concerns (layout, typography, colors, animations)</li>
+</ul>
+<h3>Code Quality</h3>
+<ul>
+<li class="vditor-task"><input disabled="" type="checkbox"> No duplicate CSS declarations</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Consistent indentation and formatting</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Meaningful class and ID names</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Appropriate CSS selector specificity</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> No overly qualified selectors</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> CSS custom properties used for repeated values</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Vendor prefixes are necessary and up-to-date</li>
+</ul>
+<h3>Performance</h3>
+<ul>
+<li class="vditor-task"><input disabled="" type="checkbox"> No unused CSS rules (verified through coverage analysis)</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> CSS files are minified in production</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Critical CSS is inlined for above-the-fold content</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Non-critical CSS is loaded asynchronously</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> CSS bundle size is optimized</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> HTTP/2 optimization considered for multiple files</li>
+</ul>
+<h3>Maintainability</h3>
+<ul>
+<li class="vditor-task"><input disabled="" type="checkbox"> Modular CSS architecture implemented</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Component-scoped styles prevent global conflicts</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Design system tokens are used consistently</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> CSS documentation is present and up-to-date</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Build process includes CSS linting</li>
+</ul>
+<h3>Browser Compatibility</h3>
+<ul>
+<li class="vditor-task"><input disabled="" type="checkbox"> CSS features are supported in target browsers</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Fallbacks provided for unsupported features</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Progressive enhancement implemented</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Cross-browser testing completed</li>
+</ul>
+<h3>Accessibility</h3>
+<ul>
+<li class="vditor-task"><input disabled="" type="checkbox"> Sufficient color contrast ratios maintained</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Focus indicators are visible and accessible</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Text remains readable when zoomed to 200%</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> No CSS-only interactive elements</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Reduced motion preferences respected</li>
+</ul>
+<hr>
+<h2>6. Font Audit Checklist</h2>
+<h3>Font File Optimization</h3>
+<ul>
+<li class="vditor-task"><input disabled="" type="checkbox"> Using modern font formats (WOFF2, then WOFF fallback)</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Font files are compressed and optimized</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Unnecessary font weights and styles removed</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Font subsetting implemented for reduced file sizes</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Variable fonts considered where appropriate</li>
+</ul>
+<h3>Font Loading Strategy</h3>
+<ul>
+<li class="vditor-task"><input disabled="" type="checkbox"> <code>font-display</code> property set appropriately (swap, optional, etc.)</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Critical fonts preloaded with <code>&lt;link rel="preload"&gt;</code></li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Font loading strategy prevents FOIT (Flash of Invisible Text)</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> System font fallbacks defined</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Font loading monitored and optimized</li>
+</ul>
+<h3>Performance Metrics</h3>
+<ul>
+<li class="vditor-task"><input disabled="" type="checkbox"> First Contentful Paint (FCP) not delayed by fonts</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Largest Contentful Paint (LCP) optimized</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Cumulative Layout Shift (CLS) minimal from font swapping</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Total font file size under performance budget</li>
+</ul>
+<h3>Font Declarations</h3>
+<ul>
+<li class="vditor-task"><input disabled="" type="checkbox"> @font-face declarations properly structured</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Font family names consistently used</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Unicode ranges specified where needed</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Font format hints provided</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> CORS headers configured for cross-origin fonts</li>
+</ul>
+<h3>Typography System</h3>
+<ul>
+<li class="vditor-task"><input disabled="" type="checkbox"> Consistent typography scale defined</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Line heights optimized for readability</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Font pairing follows design system</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Responsive typography implemented</li>
+<li class="vditor-task"><input disabled="" type="checkbox"> Text rendering optimized (text-rendering, font-smooth)</li>
+</ul>
+<hr>
+<h2>7. Common Issues &amp; Solutions</h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>MCP Server to Use</th>
+<th>Solution Approach</th>
+<th>Example Commands</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Large CSS bundle with unused styles</td>
+<td>Chrome DevTools + Playwright</td>
+<td>CSS coverage analysis across user journeys</td>
+<td><code>performance_start_trace</code> + <code>run_test</code> with coverage</td>
+</tr>
+<tr>
+<td>Duplicate CSS declarations</td>
+<td>Filesystem</td>
+<td>Pattern matching to find duplicate rules</td>
+<td><code>search_files</code> with CSS property patterns</td>
+</tr>
+<tr>
+<td>Poor font loading performance</td>
+<td>Chrome DevTools + Context7</td>
+<td>Analyze loading waterfall + research best practices</td>
+<td><code>list_network_requests</code> + <code>search_docs</code></td>
+</tr>
+<tr>
+<td>CSS specificity conflicts</td>
+<td>Chrome DevTools</td>
+<td>Evaluate computed styles and specificity</td>
+<td><code>evaluate_script</code> with specificity calculator</td>
+</tr>
+<tr>
+<td>Outdated vendor prefixes</td>
+<td>Filesystem + Brave Search</td>
+<td>Find prefixes + research current browser support</td>
+<td><code>search_files</code> + <code>web_search</code></td>
+</tr>
+<tr>
+<td>Non-modular CSS architecture</td>
+<td>Sequential Thinking + Context7</td>
+<td>Plan refactoring strategy + research modern patterns</td>
+<td><code>analyze_problem</code> + <code>get_examples</code></td>
+</tr>
+<tr>
+<td>Missing critical CSS optimization</td>
+<td>Firecrawl + Chrome DevTools</td>
+<td>Research tools + measure above-fold rendering</td>
+<td><code>search</code> + <code>performance_analyze_insight</code></td>
+</tr>
+<tr>
+<td>Inconsistent naming conventions</td>
+<td>Filesystem</td>
+<td>Pattern analysis across CSS files</td>
+<td><code>search_files</code> with class name patterns</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>8. Performance Optimization Strategies</h2>
+<h3>Critical CSS Extraction</h3>
+<blockquote>
+<p>💡 <strong>Strategy:</strong> Identify and inline CSS required for above-the-fold content rendering.</p>
+<p><strong>MCP Tools:</strong> Chrome DevTools for viewport analysis, Playwright for automated critical path detection</p>
+</blockquote>
+<p><strong>Chrome DevTools MCP - Critical CSS Detection</strong></p>
+<pre><code class="language-javascript"># Analyze above-the-fold content
+Use tool: evaluate_script
+Arguments: {
+  "script": `
+    // Get viewport dimensions
+    const viewport = {
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
+  
+    // Find elements in critical path
+    const criticalElements = Array.from(document.querySelectorAll('*'))
+      .filter(el =&gt; {
+        const rect = el.getBoundingClientRect();
+        return rect.top &lt; viewport.height &amp;&amp; rect.left &lt; viewport.width;
+      })
+      .map(el =&gt; ({
+        tagName: el.tagName,
+        className: el.className,
+        id: el.id,
+        position: el.getBoundingClientRect()
+      }));
+  
+    return { viewport, criticalElements };
+  `
+}
+</code></pre>
+<h3>CSS Splitting Strategies</h3>
+<blockquote>
+<p>ℹ️ <strong>Strategy:</strong> Split CSS into logical chunks: critical, component-specific, and utility styles.</p>
+<p><strong>MCP Tools:</strong> Sequential Thinking for planning, Filesystem for implementation</p>
+</blockquote>
+<h3>Font Preloading Optimization</h3>
+<p><strong>Chrome DevTools MCP - Font Preload Analysis</strong></p>
+<pre><code class="language-javascript"># Check current font preloading strategy
+Use tool: evaluate_script
+Arguments: {
+  "script": `
+    // Analyze font preloading
+    const fontPreloads = Array.from(document.querySelectorAll('link[rel="preload"][as="font"]'));
+    const fontFaces = [];
+  
+    // Check @font-face declarations
+    Array.from(document.styleSheets).forEach(sheet =&gt; {
+      try {
+        Array.from(sheet.cssRules).forEach(rule =&gt; {
+          if (rule.constructor.name === 'CSSFontFaceRule') {
+            fontFaces.push({
+              family: rule.style.fontFamily,
+              weight: rule.style.fontWeight,
+              style: rule.style.fontStyle,
+              display: rule.style.fontDisplay,
+              src: rule.style.src
+            });
+          }
+        });
+      } catch (e) {
+        console.warn('Cannot access stylesheet:', e);
+      }
+    });
+  
+    return {
+      preloadedFonts: fontPreloads.map(link =&gt; ({
+        href: link.href,
+        crossorigin: link.crossOrigin
+      })),
+      declaredFonts: fontFaces,
+      recommendations: {
+        missingPreloads: fontFaces.filter(font =&gt; 
+          !fontPreloads.some(preload =&gt; preload.href.includes(font.family))
+        )
+      }
+    };
+  `
+}
+</code></pre>
+<h3>Tree Shaking Unused Styles</h3>
+<p>⚠️ <strong>Important:</strong> Always test thoroughly after removing unused CSS, as dynamic content and JavaScript-generated elements might use styles not detected in static analysis.</p>
+<p><strong>Playwright MCP - Dynamic CSS Usage Detection</strong></p>
+<pre><code class="language-javascript"># Comprehensive usage analysis with state changes
+Use tool: run_test
+Arguments: {
+  "script": `
+    const browser = await playwright.chromium.launch();
+    const page = await browser.newPage();
+  
+    // Start CSS coverage
+    await page.coverage.startCSSCoverage();
+    await page.goto('http://localhost:3000');
+  
+    // Test various application states
+    const testStates = [
+      { action: 'hover', selector: '.interactive-element' },
+      { action: 'click', selector: '.menu-toggle' },
+      { action: 'focus', selector: 'input' },
+      { action: 'scroll', position: { x: 0, y: 1000 } },
+      { action: 'resize', viewport: { width: 768, height: 1024 } }
+    ];
+  
+    for (const test of testStates) {
+      switch (test.action) {
+        case 'hover':
+          await page.hover(test.selector);
+          break;
+        case 'click':
+          await page.click(test.selector);
+          break;
+        case 'focus':
+          await page.focus(test.selector);
+          break;
+        case 'scroll':
+          await page.evaluate((pos) =&gt; window.scrollTo(pos.x, pos.y), test.position);
+          break;
+        case 'resize':
+          await page.setViewportSize(test.viewport);
+          break;
+      }
+      await page.waitForTimeout(1000);
+    }
+  
+    const coverage = await page.coverage.stopCSSCoverage();
+    await browser.close();
+  
+    return coverage.map(entry =&gt; ({
+      url: entry.url,
+      usedPercentage: (entry.ranges.reduce((sum, range) =&gt; 
+        sum + (range.end - range.start), 0) / entry.text.length) * 100
+    }));
+  `
+}
+</code></pre>
+<hr>
+<h2>9. Best Practices &amp; Industry Standards</h2>
+<h3>Modern CSS Architecture Patterns</h3>
+<h4>BEM (Block Element Modifier)</h4>
+<p>✅ <strong>Benefits:</strong> Clear naming convention, component isolation, scalability</p>
+<p><strong>Use Case:</strong> Large teams, complex applications requiring maintainable CSS</p>
+<h4>CSS Modules</h4>
+<p>✅ <strong>Benefits:</strong> Automatic scoping, collision prevention, build-time optimization</p>
+<p><strong>Use Case:</strong> Component-based frameworks (React, Vue, Angular)</p>
+<h4>Utility-First CSS</h4>
+<p>✅ <strong>Benefits:</strong> Rapid development, consistent design system, smaller final bundle</p>
+<p><strong>Use Case:</strong> Design systems, rapid prototyping, teams preferring atomic CSS</p>
+<h3>Font Loading Best Practices</h3>
+<p><strong>Optimal Font Loading Strategy</strong></p>
+<pre><code class="language-html">&lt;!-- Critical font preloading --&gt;
+&lt;link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin&gt;
+
+&lt;!-- CSS with optimized font declarations --&gt;
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-var.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* Fallback font stack */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+</code></pre>
+<h3>Performance Budget Guidelines</h3>
+<table>
+<thead>
+<tr>
+<th>Asset Type</th>
+<th>Budget (Gzipped)</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Critical CSS</td>
+<td>&lt; 14KB</td>
+<td>Fits in first TCP round trip</td>
+</tr>
+<tr>
+<td>Total CSS Bundle</td>
+<td>&lt; 100KB</td>
+<td>Reasonable for complex applications</td>
+</tr>
+<tr>
+<td>Web Fonts</td>
+<td>&lt; 200KB total</td>
+<td>Balance between typography and performance</td>
+</tr>
+<tr>
+<td>Individual Font File</td>
+<td>&lt; 50KB</td>
+<td>Fast loading on mobile networks</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>10. Troubleshooting Guide</h2>
+<h3>MCP Server Connection Issues</h3>
+<p>⚠️ <strong>Problem:</strong> MCP server not responding or tools unavailable</p>
+<p><strong>Solution:</strong> Check server status and restart if necessary</p>
+<p><strong>Verify MCP Server Status</strong></p>
+<pre><code class="language-bash"># Test each server individually
+1. Filesystem: Use tool: list_directory with {"path": "./"}
+2. Chrome DevTools: Use tool: navigate_page with {"url": "about:blank"}
+3. Context7: Use tool: search_docs with basic query
+4. Brave Search: Use tool: web_search with simple query
+5. Playwright: Use tool: run_test with basic script
+6. Sequential Thinking: Use tool: analyze_problem with simple problem
+7. Firecrawl: Use tool: scrape with public URL
+</code></pre>
+<h3>CSS Coverage Analysis Issues</h3>
+<blockquote>
+<p>ℹ️ <strong>Problem:</strong> Coverage analysis shows incorrect results</p>
+<p><strong>Causes:</strong> Dynamic content, JavaScript-generated styles, media queries</p>
+<p><strong>Solution:</strong> Comprehensive user journey simulation and state testing</p>
+</blockquote>
+<h3>Performance Measurement Inconsistencies</h3>
+<p>⚠️ <strong>Problem:</strong> Performance metrics vary between runs</p>
+<p><strong>Solution:</strong> Multiple measurement runs, controlled environment, cache considerations</p>
+<p><strong>Reliable Performance Testing</strong></p>
+<pre><code class="language-javascript"># Multiple run performance analysis
+Use tool: run_test
+Arguments: {
+  "script": `
+    const results = [];
+    const runs = 5;
+  
+    for (let i = 0; i &lt; runs; i++) {
+      const browser = await playwright.chromium.launch();
+      const page = await browser.newPage();
+    
+      // Clear cache between runs
+      await page.context().clearCookies();
+    
+      const startTime = Date.now();
+      await page.goto('http://localhost:3000', { waitUntil: 'networkidle' });
+    
+      const metrics = await page.evaluate(() =&gt; ({
+        fcp: performance.getEntriesByType('paint')
+          .find(entry =&gt; entry.name === 'first-contentful-paint')?.startTime,
+        lcp: performance.getEntriesByType('largest-contentful-paint')[0]?.startTime,
+        cls: performance.getEntriesByType('layout-shift')
+          .reduce((sum, entry) =&gt; sum + entry.value, 0)
+      }));
+    
+      results.push({
+        run: i + 1,
+        loadTime: Date.now() - startTime,
+        ...metrics
+      });
+    
+      await browser.close();
+    }
+  
+    // Calculate averages
+    const averages = {
+      loadTime: results.reduce((sum, r) =&gt; sum + r.loadTime, 0) / runs,
+      fcp: results.reduce((sum, r) =&gt; sum + (r.fcp || 0), 0) / runs,
+      lcp: results.reduce((sum, r) =&gt; sum + (r.lcp || 0), 0) / runs,
+      cls: results.reduce((sum, r) =&gt; sum + (r.cls || 0), 0) / runs
+    };
+  
+    return { individual: results, averages };
+  `,
+  "timeout": 120000
+}
+</code></pre>
+<h3>Font Loading Issues</h3>
+<blockquote>
+<p>ℹ️ <strong>Problem:</strong> FOIT (Flash of Invisible Text) or FOUT (Flash of Unstyled Text)</p>
+<p><strong>Solution:</strong> Proper font-display values, preloading critical fonts, system font fallbacks</p>
+</blockquote>
+<hr>
+<h2>11. Advanced Workflows</h2>
+<h3>Automated CSS Audit Pipeline</h3>
+<p>Create an automated workflow that combines multiple MCP servers for comprehensive CSS auditing.</p>
+<p><strong>Complete Automated Audit Workflow</strong></p>
+<pre><code class="language-javascript"># Step 1: Project Discovery (Filesystem MCP)
+Use tool: search_files
+Arguments: {"path": "./", "pattern": "**/*.css", "include_content": false}
+
+# Step 2: Research Best Practices (Context7 + Brave Search)
+Use tool: search_docs
+Arguments: {"query": "CSS optimization 2024", "limit": 5}
+
+# Step 3: Performance Baseline (Chrome DevTools)
+Use tool: performance_start_trace
+Use tool: navigate_page with {"url": "http://localhost:3000"}
+Use tool: performance_stop_trace
+
+# Step 4: Coverage Analysis (Playwright)
+Use tool: run_test with comprehensive coverage script
+
+# Step 5: Strategy Planning (Sequential Thinking)
+Use tool: analyze_problem with findings from previous steps
+
+# Step 6: Implementation and Verification
+Use tool: visual_diff for before/after comparison
+</code></pre>
+<h3>Cross-Framework CSS Analysis</h3>
+<p>Adapt the audit process for different frameworks and build systems.</p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Specific Considerations</th>
+<th>MCP Tools Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>React</td>
+<td>CSS-in-JS, CSS Modules, component scoping</td>
+<td>Filesystem (JSX analysis), Chrome DevTools (runtime styles)</td>
+</tr>
+<tr>
+<td>Vue</td>
+<td>Scoped styles, CSS preprocessing</td>
+<td>Filesystem (SFC analysis), Playwright (component testing)</td>
+</tr>
+<tr>
+<td>Angular</td>
+<td>Component styles, ViewEncapsulation</td>
+<td>Chrome DevTools (style isolation), Context7 (Angular best practices)</td>
+</tr>
+<tr>
+<td>Svelte</td>
+<td>Compiled styles, automatic scoping</td>
+<td>Filesystem (component analysis), Brave Search (Svelte optimization)</td>
+</tr>
+</tbody>
+</table>
+<h3>CI/CD Integration Strategies</h3>
+<blockquote>
+<p>ℹ️ Integrate CSS auditing into your continuous integration pipeline using MCP servers programmatically.</p>
+</blockquote>
+<h4>Automated Performance Budgets</h4>
+<p><strong>Performance Budget Validation</strong></p>
+<pre><code class="language-javascript"># Automated performance budget enforcement
+Use tool: run_test
+Arguments: {
+  "script": `
+    const budget = {
+      totalCSS: 100000, // 100KB
+      criticalCSS: 14000, // 14KB
+      totalFonts: 200000 // 200KB
+    };
+  
+    const browser = await playwright.chromium.launch();
+    const page = await browser.newPage();
+    await page.goto('http://localhost:3000');
+  
+    const resources = await page.evaluate(() =&gt; {
+      return performance.getEntriesByType('resource')
+        .filter(r =&gt; r.name.includes('.css') || r.name.includes('font'))
+        .map(r =&gt; ({
+          name: r.name,
+          size: r.transferSize,
+          type: r.name.includes('.css') ? 'css' : 'font'
+        }));
+    });
+  
+    const totals = {
+      css: resources.filter(r =&gt; r.type === 'css')
+        .reduce((sum, r) =&gt; sum + r.size, 0),
+      fonts: resources.filter(r =&gt; r.type === 'font')
+        .reduce((sum, r) =&gt; sum + r.size, 0)
+    };
+  
+    const violations = [];
+    if (totals.css &gt; budget.totalCSS) {
+      violations.push('CSS budget exceeded');
+    }
+    if (totals.fonts &gt; budget.totalFonts) {
+      violations.push('Font budget exceeded');
+    }
+  
+    await browser.close();
+    return { totals, budget, violations };
+  `
+}
+</code></pre>
+<hr>
+<h2>12. Resources &amp; References</h2>
+<h3>Official MCP Documentation</h3>
+<ul>
+<li><a href="https://modelcontextprotocol.io/">Model Context Protocol Specification</a></li>
+<li><a href="https://docs.cursor.com/context/mcp">Cursor MCP Integration Guide</a></li>
+<li><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp">Chrome DevTools MCP Server</a></li>
+<li><a href="https://github.com/microsoft/playwright-mcp">Playwright MCP Documentation</a></li>
+</ul>
+<h3>CSS Optimization Tools</h3>
+<ul>
+<li><a href="https://purgecss.com/">PurgeCSS</a> - Remove unused CSS</li>
+<li><a href="https://github.com/addyosmani/critical">Critical</a> - Extract critical CSS</li>
+<li><a href="https://postcss.org/">PostCSS</a> - CSS processing toolkit</li>
+<li><a href="https://cssnano.co/">CSS Nano</a> - CSS minification</li>
+<li><a href="https://github.com/uncss/uncss">UnCSS</a> - Remove unused styles</li>
+</ul>
+<h3>Font Optimization Resources</h3>
+<ul>
+<li><a href="https://web.dev/font-loading-api/">Font Loading Strategies</a></li>
+<li><a href="https://web.dev/variable-fonts/">Variable Fonts Guide</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display">Font Display Property</a></li>
+<li><a href="https://developers.google.com/fonts/docs/optimization">Google Fonts Optimization</a></li>
+</ul>
+<h3>Performance Testing Resources</h3>
+<ul>
+<li><a href="https://web.dev/vitals/">Web Vitals</a></li>
+<li><a href="https://developers.google.com/web/tools/lighthouse">Lighthouse Performance Audits</a></li>
+<li><a href="https://www.webpagetest.org/">WebPageTest</a></li>
+<li><a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance">Chrome DevTools Performance Guide</a></li>
+</ul>
+<h3>CSS Architecture Resources</h3>
+<ul>
+<li><a href="http://getbem.com/">BEM Methodology</a></li>
+<li><a href="http://smacss.com/">SMACSS</a></li>
+<li><a href="https://github.com/css-modules/css-modules">CSS Modules</a></li>
+<li><a href="https://acss.io/">Atomic CSS</a></li>
+<li><a href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/">ITCSS</a></li>
+</ul>
+
+      <script defer="" src="./Document_files/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;9a6b627e1e107412&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfEdge&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}},&quot;version&quot;:&quot;2025.9.1&quot;,&quot;token&quot;:&quot;4edd5f8ec12a48cfa682ab8261b80a79&quot;}" crossorigin="anonymous"></script>
+
+    </body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

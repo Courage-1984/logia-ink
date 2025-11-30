@@ -1,0 +1,23 @@
+/**
+ * Contact Page Component Index
+ * Imports all contact page modules in the correct order
+ */
+
+/* Base styles */
+@import url('./_contact-base.css');
+
+/* Form styles */
+@import url('./_contact-form.css');
+
+/* Map section */
+@import url('./_contact-map.css');
+
+/* Testimonials and FAQ */
+@import url('./_contact-testimonials.css');
+
+/* Particles effects */
+@import url('./_contact-particles.css');
+
+/* Responsive styles */
+@import url('./_contact-responsive.css');
+

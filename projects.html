@@ -1,0 +1,1138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00ffff" />
+    <title>Projects - Logi-Ink</title>
+
+    <!-- Security Headers -->
+    <!-- Note: X-Frame-Options only works via HTTP headers, not meta tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+    <!-- Content Security Policy (basic - enhance via server headers) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io; frame-src https://www.google.com;"
+    />
+
+    <script>
+      if (sessionStorage.getItem('logiInk:pendingTransition')) {
+        document.documentElement.classList.add('page-transition-preload');
+        sessionStorage.removeItem('logiInk:pendingTransition');
+      }
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Explore our portfolio of successful digital projects. See how we transform ideas into exceptional digital experiences that drive results."
+    />
+    <meta
+      name="keywords"
+      content="portfolio, web projects, digital projects, case studies, web design examples"
+    />
+    <meta name="author" content="Logi-Ink" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://logi-ink.com/projects.html" />
+    <meta property="og:title" content="Projects - Logi-Ink" />
+    <meta
+      property="og:description"
+      content="Explore our portfolio of successful digital projects. See how we transform ideas into exceptional digital experiences."
+    />
+    <meta
+      property="og:image"
+      content="https://logi-ink.com/assets/images/banners/banner_home.webp"
+    />
+    <meta property="og:site_name" content="Logi-Ink" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://logi-ink.com/projects.html" />
+    <meta name="twitter:title" content="Projects - Logi-Ink" />
+    <meta
+      name="twitter:description"
+      content="Explore our portfolio of successful digital projects. See how we transform ideas into exceptional digital experiences."
+    />
+    <meta
+      name="twitter:image"
+      content="https://logi-ink.com/assets/images/banners/banner_home.webp"
+    />
+    <meta name="twitter:site" content="@logiink" />
+    <meta name="twitter:creator" content="@logiink" />
+
+    <!-- Preload critical resources -->
+
+    <!-- Preload critical fonts (self-hosted WOFF2 - Subsetted) -->
+    <link
+      rel="preload"
+      href="./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Orbitron/woff2/Orbitron-Black-subset.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+
+    <!-- Modulepreload for critical ES modules -->
+    <link rel="modulepreload" href="./js/main.js" />
+    <link rel="modulepreload" href="./js/core/navigation.js" />
+
+    <!-- Preconnect for third-party resources -->
+    <link rel="preconnect" href="https://plausible.io" crossorigin />
+
+    <!-- Stylesheet (includes self-hosted fonts via @font-face) -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://logi-ink.com/projects.html" />
+
+    <!-- Favicons -->
+    <!-- SVG favicon (modern browsers) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- PNG favicons (ordered from largest to smallest) -->
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <!-- ICO fallback (legacy browsers) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <!-- Windows Tiles -->
+    <meta name="msapplication-TileColor" content="#00ffff" />
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <!-- Safari Pinned Tab -->
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00ffff" />
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Projects - Logi-Ink",
+        "url": "https://logi-ink.com/projects.html",
+        "description": "Explore our portfolio of successful digital projects. See how we transform ideas into exceptional digital experiences.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Logi-Ink"
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://logi-ink.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://logi-ink.com/projects.html"
+            }
+          ]
+        }
+      }
+    </script>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body class="projects-page">
+    <!-- Accessibility: Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ARIA Live Region for announcements -->
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Mouse Follow Effects -->
+    <div class="cursor-follow"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- include partials/navbar.html -->
+
+    <!-- Projects Hero -->
+    <main id="main-content">
+      <section class="hero" style="min-height: 100vh; height: 100vh; padding-top: 100px">
+        <div class="hero-background">
+          <!-- Three.js Canvas for Projects Background -->
+          <canvas id="threejs-projects-canvas" class="threejs-canvas"></canvas>
+          <div class="grid-overlay"></div>
+          <div class="particles"></div>
+          <!-- Fluid Shapes -->
+          <div class="fluid-shape fluid-shape-1"></div>
+          <div class="fluid-shape fluid-shape-2"></div>
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 4.5rem)">
+            <span class="text-reveal" style="color: var(--accent-cyan)">OUR</span>
+            <span class="text-reveal delay-1" style="color: var(--accent-magenta)">PROJECTS</span>
+          </h1>
+          <p class="hero-subtitle fade-in delay-2">
+            Showcasing our latest innovations and client successes
+          </p>
+        </div>
+      </section>
+
+      <!-- Projects Grid -->
+      <section class="featured-projects">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Portfolio</h2>
+            <p class="section-subtitle">Transforming ideas into digital reality</p>
+          </div>
+          <div class="projects-grid">
+            <div
+              class="project-card mouse-tilt-container card-3d"
+              data-project-id="ecommerce-platform"
+            >
+              <div class="project-image">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-e-commerce-platform-480w.avif   480w,
+                      ./assets/images/responsive/portfolio/image-e-commerce-platform-768w.avif   768w,
+                      ./assets/images/responsive/portfolio/image-e-commerce-platform-1024w.avif 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-e-commerce-platform-480w.webp   480w,
+                      ./assets/images/responsive/portfolio/image-e-commerce-platform-768w.webp   768w,
+                      ./assets/images/responsive/portfolio/image-e-commerce-platform-1024w.webp 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <img
+                    src="./assets/images/portfolio/image-e-commerce-platform.png"
+                    data-base="image-e-commerce-platform"
+                    loading="lazy"
+                    fetchpriority="low"
+                    decoding="async"
+                    alt="E-commerce platform interface mockup"
+                    width="600"
+                    height="400"
+                    class="project-image-poster"
+                  />
+                </picture>
+                <video
+                  class="project-hover-video"
+                  src="./assets/video/video-e-commerce-platform.mp4"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-hidden="true"
+                  disablePictureInPicture
+                  disableRemotePlayback
+                ></video>
+                <div class="project-overlay"></div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">Web Development</span>
+                <div class="project-tags">
+                  <span class="project-tag">React</span>
+                  <span class="project-tag">Node.js</span>
+                  <span class="project-tag">MongoDB</span>
+                </div>
+                <h3>E-Commerce Platform</h3>
+                <p>
+                  A revolutionary e-commerce platform with advanced filtering, real-time inventory,
+                  and seamless payment integration.
+                </p>
+                <button
+                  class="btn btn-outline project-details-btn"
+                  type="button"
+                  data-project-id="ecommerce-platform"
+                >
+                  View Details →
+                </button>
+              </div>
+            </div>
+            <div class="project-card mouse-tilt-container card-3d" data-project-id="fintech-app">
+              <div class="project-image">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-fintech-mobile-app-480w.avif   480w,
+                      ./assets/images/responsive/portfolio/image-fintech-mobile-app-768w.avif   768w,
+                      ./assets/images/responsive/portfolio/image-fintech-mobile-app-1024w.avif 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-fintech-mobile-app-480w.webp   480w,
+                      ./assets/images/responsive/portfolio/image-fintech-mobile-app-768w.webp   768w,
+                      ./assets/images/responsive/portfolio/image-fintech-mobile-app-1024w.webp 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <img
+                    src="./assets/images/portfolio/image-fintech-mobile-app.png"
+                    data-base="image-fintech-mobile-app"
+                    loading="lazy"
+                    fetchpriority="low"
+                    decoding="async"
+                    alt="FinTech mobile app user interface"
+                    width="600"
+                    height="400"
+                    class="project-image-poster"
+                  />
+                </picture>
+                <video
+                  class="project-hover-video"
+                  src="./assets/video/video-fintech-mobile-app.mp4"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-hidden="true"
+                  disablePictureInPicture
+                  disableRemotePlayback
+                ></video>
+                <div class="project-overlay"></div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">UI/UX Design</span>
+                <div class="project-tags">
+                  <span class="project-tag">Figma</span>
+                  <span class="project-tag">Prototyping</span>
+                  <span class="project-tag">Design System</span>
+                </div>
+                <h3>FinTech Mobile App</h3>
+                <p>
+                  Modern banking app with intuitive interface design, focusing on user experience
+                  and security.
+                </p>
+                <button
+                  class="btn btn-outline project-details-btn"
+                  type="button"
+                  data-project-id="fintech-app"
+                >
+                  View Details →
+                </button>
+              </div>
+            </div>
+            <div
+              class="project-card mouse-tilt-container card-3d"
+              data-project-id="startup-rebrand"
+            >
+              <div class="project-image">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-tech-startup-rebrand-480w.avif   480w,
+                      ./assets/images/responsive/portfolio/image-tech-startup-rebrand-768w.avif   768w,
+                      ./assets/images/responsive/portfolio/image-tech-startup-rebrand-1024w.avif 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-tech-startup-rebrand-480w.webp   480w,
+                      ./assets/images/responsive/portfolio/image-tech-startup-rebrand-768w.webp   768w,
+                      ./assets/images/responsive/portfolio/image-tech-startup-rebrand-1024w.webp 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <img
+                    src="./assets/images/portfolio/image-tech-startup-rebrand.png"
+                    data-base="image-tech-startup-rebrand"
+                    loading="lazy"
+                    fetchpriority="low"
+                    decoding="async"
+                    alt="Brand strategy presentation boards"
+                    width="600"
+                    height="400"
+                    class="project-image-poster"
+                  />
+                </picture>
+                <video
+                  class="project-hover-video"
+                  src="./assets/video/video-tech-startup-rebrand.mp4"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-hidden="true"
+                  disablePictureInPicture
+                  disableRemotePlayback
+                ></video>
+                <div class="project-overlay"></div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">Brand Strategy</span>
+                <div class="project-tags">
+                  <span class="project-tag">Rebranding</span>
+                  <span class="project-tag">Identity</span>
+                  <span class="project-tag">Strategy</span>
+                </div>
+                <h3>Tech Startup Rebrand</h3>
+                <p>
+                  Complete brand transformation for a tech startup, including logo, visual identity,
+                  and brand guidelines.
+                </p>
+                <button
+                  class="btn btn-outline project-details-btn"
+                  type="button"
+                  data-project-id="startup-rebrand"
+                >
+                  View Details →
+                </button>
+              </div>
+            </div>
+            <div
+              class="project-card mouse-tilt-container card-3d"
+              data-project-id="corporate-website"
+            >
+              <div class="project-image">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-corporate-website-480w.avif   480w,
+                      ./assets/images/responsive/portfolio/image-corporate-website-768w.avif   768w,
+                      ./assets/images/responsive/portfolio/image-corporate-website-1024w.avif 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-corporate-website-480w.webp   480w,
+                      ./assets/images/responsive/portfolio/image-corporate-website-768w.webp   768w,
+                      ./assets/images/responsive/portfolio/image-corporate-website-1024w.webp 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <img
+                    src="./assets/images/portfolio/image-corporate-website.png"
+                    data-base="image-corporate-website"
+                    loading="lazy"
+                    fetchpriority="low"
+                    decoding="async"
+                    alt="Corporate website desktop layout"
+                    width="600"
+                    height="400"
+                    class="project-image-poster"
+                  />
+                </picture>
+                <video
+                  class="project-hover-video"
+                  src="./assets/video/video-corporate-website.mp4"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-hidden="true"
+                  disablePictureInPicture
+                  disableRemotePlayback
+                ></video>
+                <div class="project-overlay"></div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">Web Development</span>
+                <div class="project-tags">
+                  <span class="project-tag">WordPress</span>
+                  <span class="project-tag">Custom Theme</span>
+                  <span class="project-tag">SEO</span>
+                </div>
+                <h3>Corporate Website</h3>
+                <p>
+                  Modern corporate website with CMS integration, SEO optimization, and responsive
+                  design.
+                </p>
+                <button
+                  class="btn btn-outline project-details-btn"
+                  type="button"
+                  data-project-id="corporate-website"
+                >
+                  View Details →
+                </button>
+              </div>
+            </div>
+            <div
+              class="project-card mouse-tilt-container card-3d"
+              data-project-id="fitness-tracker"
+            >
+              <div class="project-image">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-fitness-tracking-app-480w.avif   480w,
+                      ./assets/images/responsive/portfolio/image-fitness-tracking-app-768w.avif   768w,
+                      ./assets/images/responsive/portfolio/image-fitness-tracking-app-1024w.avif 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-fitness-tracking-app-480w.webp   480w,
+                      ./assets/images/responsive/portfolio/image-fitness-tracking-app-768w.webp   768w,
+                      ./assets/images/responsive/portfolio/image-fitness-tracking-app-1024w.webp 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <img
+                    src="./assets/images/portfolio/image-fitness-tracking-app.png"
+                    data-base="image-fitness-tracking-app"
+                    loading="lazy"
+                    fetchpriority="low"
+                    decoding="async"
+                    alt="Fitness tracking app dashboard screens"
+                    width="600"
+                    height="400"
+                    class="project-image-poster"
+                  />
+                </picture>
+                <video
+                  class="project-hover-video"
+                  src="./assets/video/video-fitness-tracking-app.mp4"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-hidden="true"
+                  disablePictureInPicture
+                  disableRemotePlayback
+                ></video>
+                <div class="project-overlay"></div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">Mobile App</span>
+                <div class="project-tags">
+                  <span class="project-tag">React Native</span>
+                  <span class="project-tag">iOS</span>
+                  <span class="project-tag">Android</span>
+                </div>
+                <h3>Fitness Tracking App</h3>
+                <p>
+                  Cross-platform fitness app with workout tracking, progress analytics, and social
+                  features.
+                </p>
+                <button
+                  class="btn btn-outline project-details-btn"
+                  type="button"
+                  data-project-id="fitness-tracker"
+                >
+                  View Details →
+                </button>
+              </div>
+            </div>
+            <div
+              class="project-card mouse-tilt-container card-3d"
+              data-project-id="marketing-campaign"
+            >
+              <div class="project-image">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-marketing-campaign-480w.avif   480w,
+                      ./assets/images/responsive/portfolio/image-marketing-campaign-768w.avif   768w,
+                      ./assets/images/responsive/portfolio/image-marketing-campaign-1024w.avif 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./assets/images/responsive/portfolio/image-marketing-campaign-480w.webp   480w,
+                      ./assets/images/responsive/portfolio/image-marketing-campaign-768w.webp   768w,
+                      ./assets/images/responsive/portfolio/image-marketing-campaign-1024w.webp 1024w
+                    "
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
+                  />
+                  <img
+                    src="./assets/images/portfolio/image-marketing-campaign.png"
+                    data-base="image-marketing-campaign"
+                    loading="lazy"
+                    fetchpriority="low"
+                    decoding="async"
+                    alt="Analytics dashboard marketing campaign overview"
+                    width="600"
+                    height="400"
+                    class="project-image-poster"
+                  />
+                </picture>
+                <video
+                  class="project-hover-video"
+                  src="./assets/video/video-marketing-campaign.mp4"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-hidden="true"
+                  disablePictureInPicture
+                  disableRemotePlayback
+                ></video>
+                <div class="project-overlay"></div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">Digital Marketing</span>
+                <div class="project-tags">
+                  <span class="project-tag">SEO</span>
+                  <span class="project-tag">Content</span>
+                  <span class="project-tag">Analytics</span>
+                </div>
+                <h3>Marketing Campaign</h3>
+                <p>
+                  Comprehensive digital marketing campaign with content strategy, SEO, and social
+                  media management.
+                </p>
+                <button
+                  class="btn btn-outline project-details-btn"
+                  type="button"
+                  data-project-id="marketing-campaign"
+                >
+                  View Details →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technologies Used Section -->
+      <section class="services-preview">
+        <div class="container">
+          <div class="section-header scroll-reveal-3d">
+            <h2 class="section-title">Technologies We Use</h2>
+            <p class="section-subtitle">Our toolkit for building exceptional digital experiences</p>
+          </div>
+          <div class="services-grid">
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <h3>React & Next.js</h3>
+              <p>Modern frontend frameworks for building dynamic, scalable web applications</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <path d="M9 9h6v6H9z" />
+                </svg>
+              </div>
+              <h3>Node.js & APIs</h3>
+              <p>Robust backend solutions with REST and GraphQL APIs for seamless integrations</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </div>
+              <h3>React Native</h3>
+              <p>Cross-platform mobile development for iOS and Android applications</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+              </div>
+              <h3>Figma & Design</h3>
+              <p>Professional design tools for creating stunning user interfaces and experiences</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+              </div>
+              <h3>WordPress & CMS</h3>
+              <p>Flexible content management systems for easy website maintenance</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+              </div>
+              <h3>Cloud & DevOps</h3>
+              <p>AWS, Docker, CI/CD pipelines for scalable and reliable deployments</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </div>
+              <h3>Python & AI/ML</h3>
+              <p>Data science, machine learning, and AI solutions for intelligent applications</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <ellipse cx="12" cy="5" rx="9" ry="3" />
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                </svg>
+              </div>
+              <h3>Databases & Storage</h3>
+              <p>
+                MongoDB, PostgreSQL, Redis, and cloud storage solutions for robust data management
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Client Testimonials Section -->
+      <section
+        class="featured-projects parallax-section testimonials-parallax testimonials-section"
+      >
+        <div class="parallax-background"></div>
+        <div class="parallax-overlay parallax-overlay--neutral"></div>
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Hear from our satisfied customers</p>
+          </div>
+          <div class="services-grid" style="position: relative; z-index: 2">
+            <div class="service-card mouse-tilt-container card-3d">
+              <div style="margin-bottom: 1.5rem">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="var(--accent-cyan)"
+                  width="40"
+                  height="40"
+                  style="opacity: 0.5"
+                >
+                  <path
+                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+                  />
+                </svg>
+              </div>
+              <p
+                style="
+                  font-style: italic;
+                  color: var(--text-secondary);
+                  margin-bottom: 1.5rem;
+                  line-height: 1.8;
+                "
+              >
+                "Logi-Ink delivered an exceptional website that perfectly captured our brand
+                identity and exceeded our expectations. Their team is highly professional and
+                responsive."
+              </p>
+              <div>
+                <h3
+                  style="
+                    color: var(--accent-cyan);
+                    margin-bottom: 0.5rem;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                  "
+                >
+                  Sarah Johnson
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem">CEO, TechCorp</p>
+              </div>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d">
+              <div style="margin-bottom: 1.5rem">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="var(--accent-magenta)"
+                  width="40"
+                  height="40"
+                  style="opacity: 0.5"
+                >
+                  <path
+                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+                  />
+                </svg>
+              </div>
+              <p
+                style="
+                  font-style: italic;
+                  color: var(--text-secondary);
+                  margin-bottom: 1.5rem;
+                  line-height: 1.8;
+                "
+              >
+                "Their mobile app development was seamless, and the final product exceeded our
+                vision. The user experience is outstanding."
+              </p>
+              <div>
+                <h3
+                  style="
+                    color: var(--accent-magenta);
+                    margin-bottom: 0.5rem;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                  "
+                >
+                  Michael Chen
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem">
+                  Founder, FinTech Solutions
+                </p>
+              </div>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d">
+              <div style="margin-bottom: 1.5rem">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="var(--accent-green)"
+                  width="40"
+                  height="40"
+                  style="opacity: 0.5"
+                >
+                  <path
+                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+                  />
+                </svg>
+              </div>
+              <p
+                style="
+                  font-style: italic;
+                  color: var(--text-secondary);
+                  margin-bottom: 1.5rem;
+                  line-height: 1.8;
+                "
+              >
+                "The digital marketing campaign they ran for us resulted in a significant increase
+                in website traffic and customer engagement."
+              </p>
+              <div>
+                <h3
+                  style="
+                    color: var(--accent-green);
+                    margin-bottom: 0.5rem;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                  "
+                >
+                  Emily Davis
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem">
+                  Marketing Director, MarketMe
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Results Section -->
+      <section
+        class="services-preview parallax-section testimonials-parallax project-impact-section"
+      >
+        <div class="parallax-background"></div>
+        <div class="parallax-overlay parallax-overlay--neutral"></div>
+        <div class="container">
+          <div class="section-header scroll-reveal-3d">
+            <h2 class="section-title">Project Impact</h2>
+            <p class="section-subtitle">Numbers that speak volumes</p>
+          </div>
+          <div class="services-grid">
+            <div
+              class="service-card mouse-tilt-container card-3d project-impact-cyan"
+              style="text-align: center"
+            >
+              <div
+                class="count-number"
+                data-target="200"
+                data-suffix="+"
+                style="
+                  font-size: clamp(2.5rem, 5vw, 4rem);
+                  color: var(--accent-cyan);
+                  margin-bottom: 1rem;
+                  font-family: 'Orbitron', sans-serif;
+                  font-weight: 900;
+                "
+              >
+                0+
+              </div>
+              <h3>Completed Projects</h3>
+              <p style="color: var(--text-secondary)">
+                Successfully delivered projects across various industries
+              </p>
+            </div>
+            <div
+              class="service-card mouse-tilt-container card-3d project-impact-magenta"
+              style="text-align: center"
+            >
+              <div
+                class="count-number"
+                data-target="50"
+                data-suffix="+"
+                style="
+                  font-size: clamp(2.5rem, 5vw, 4rem);
+                  color: var(--accent-magenta);
+                  margin-bottom: 1rem;
+                  font-family: 'Orbitron', sans-serif;
+                  font-weight: 900;
+                "
+              >
+                0+
+              </div>
+              <h3>Satisfied Clients</h3>
+              <p style="color: var(--text-secondary)">
+                Long-term partnerships built on trust and excellence
+              </p>
+            </div>
+            <div
+              class="service-card mouse-tilt-container card-3d project-impact-green"
+              style="text-align: center"
+            >
+              <div
+                class="count-number"
+                data-target="10"
+                data-suffix="K+"
+                style="
+                  font-size: clamp(2.5rem, 5vw, 4rem);
+                  color: var(--accent-green);
+                  margin-bottom: 1rem;
+                  font-family: 'Orbitron', sans-serif;
+                  font-weight: 900;
+                "
+              >
+                0K+
+              </div>
+              <h3>Lines of Code</h3>
+              <p style="color: var(--text-secondary)">
+                Clean, efficient code written for maximum performance
+              </p>
+            </div>
+            <div
+              class="service-card mouse-tilt-container card-3d project-impact-blue"
+              style="text-align: center"
+            >
+              <div
+                class="count-number"
+                data-target="5"
+                data-suffix="K+"
+                style="
+                  font-size: clamp(2.5rem, 5vw, 4rem);
+                  color: var(--accent-blue);
+                  margin-bottom: 1rem;
+                  font-family: 'Orbitron', sans-serif;
+                  font-weight: 900;
+                "
+              >
+                0K+
+              </div>
+              <h3>Hours Invested</h3>
+              <p style="color: var(--text-secondary)">
+                Dedicated development hours ensuring quality delivery
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <!-- Top Curved Divider -->
+        <div class="portal-divider portal-divider-top">
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="topGradientProjects" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: var(--bg-secondary); stop-opacity: 1" />
+                <stop offset="100%" style="stop-color: var(--bg-secondary); stop-opacity: 0" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0,120 Q360,0 720,60 T1440,120 L1440,0 L0,0 Z"
+              fill="url(#topGradientProjects)"
+            />
+          </svg>
+        </div>
+
+        <!-- Portal Glow Effect -->
+        <div class="portal-glow"></div>
+
+        <div class="container">
+          <div class="cta-content">
+            <h2>Have a Project in Mind?</h2>
+            <p>Let's bring your vision to life</p>
+            <a href="contact.html" class="btn btn-primary btn-large">Start Your Project</a>
+          </div>
+        </div>
+
+        <!-- Bottom Curved Divider -->
+        <div class="portal-divider portal-divider-bottom">
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bottomGradientProjects" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: var(--bg-secondary); stop-opacity: 0" />
+                <stop offset="100%" style="stop-color: var(--bg-secondary); stop-opacity: 1" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0,0 Q360,120 720,60 T1440,0 L1440,120 L0,120 Z"
+              fill="url(#bottomGradientProjects)"
+            />
+          </svg>
+        </div>
+      </section>
+    </main>
+
+    <!-- Project Details Modal -->
+    <div
+      class="modal project-modal"
+      id="project-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="project-modal-title"
+    >
+      <div class="modal-content project-modal__content" role="document" tabindex="-1">
+        <button
+          class="modal-close modal-close--left"
+          type="button"
+          aria-label="Close project details"
+        >
+          ×
+        </button>
+        <div class="project-modal__layout">
+          <figure class="project-modal__media">
+            <picture id="project-modal-picture">
+              <source id="project-modal-source-avif" type="image/avif" />
+              <source id="project-modal-source-webp" type="image/webp" />
+              <img
+                class="project-modal__image"
+                src=""
+                alt=""
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+              />
+            </picture>
+            <img
+              id="project-modal-video-background"
+              class="project-modal__video-background"
+              src=""
+              alt=""
+              aria-hidden="true"
+            />
+            <video
+              id="project-modal-video"
+              class="project-modal__video"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-hidden="true"
+              disablePictureInPicture
+              disableRemotePlayback
+            ></video>
+            <button
+              class="project-modal__media-toggle"
+              type="button"
+              aria-label="Toggle between image and video"
+              aria-pressed="false"
+            >
+              <span class="project-modal__toggle-icon" aria-hidden="true"></span>
+            </button>
+            <div class="project-modal__magnifier" aria-hidden="true"></div>
+          </figure>
+          <div class="project-modal__body">
+            <div class="project-modal__scrollable">
+              <span class="project-modal__category"></span>
+              <h3 class="project-modal__title" id="project-modal-title"></h3>
+              <div class="project-modal__description">
+                <p class="project-modal__summary"></p>
+                <div class="project-modal__tags" aria-label="Project technologies"></div>
+              </div>
+
+              <div class="project-modal__sections">
+                <section class="project-modal__section">
+                  <h4>Key Highlights</h4>
+                  <ul class="project-modal__highlights"></ul>
+                </section>
+                <section class="project-modal__section">
+                  <h4>Results</h4>
+                  <ul class="project-modal__results"></ul>
+                </section>
+              </div>
+            </div>
+            <div class="project-modal__cta-wrapper">
+              <a href="contact.html" class="btn btn-primary project-modal__cta"
+                >Start a Similar Project</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- include partials/footer.html -->
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top"></a>
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+
+    <!-- Load analytics after page load to reduce impact on Core Web Vitals -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = 'https://plausible.io/js/script.js';
+        script.setAttribute('data-domain', 'logi-ink.com');
+        document.head.appendChild(script);
+      });
+    </script>
+  </body>
+</html>

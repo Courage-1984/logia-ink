@@ -1,0 +1,23 @@
+/**
+ * Skip Link Utility
+ * Accessibility skip-to-content link
+ * 
+ * Extracted from styles.css (lines: 3090-3104)
+ */
+
+/* Skip to Content Link (Accessibility) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--accent-cyan);
+  color: var(--bg-primary);
+  padding: 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  z-index: 2000;
+}
+
+.skip-link:focus {
+  top: 0;
+}

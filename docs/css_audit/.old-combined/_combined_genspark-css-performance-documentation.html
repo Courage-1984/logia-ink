@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete CSS &amp; Font Audit Guide - MCP Servers in Cursor IDE</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family:
+          'Inter',
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        line-height: 1.6;
+        color: #2c3e50;
+      }
+
+      .document-header {
+        text-align: center;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+      }
+
+      .document-meta {
+        font-size: 0.9em;
+        color: #7f8c8d;
+        margin-top: 10px;
+      }
+
+      .toc {
+        background: #f8f9fa;
+        padding: 20px;
+        margin: 30px 0;
+        border-left: 4px solid #3498db;
+      }
+
+      .toc h3 {
+        margin-top: 0;
+        color: #2c3e50;
+      }
+
+      .toc ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .toc li {
+        margin: 8px 0;
+      }
+
+      .toc a {
+        text-decoration: none;
+        color: #3498db;
+        font-weight: 500;
+      }
+
+      .alert {
+        margin: 20px 0;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid;
+      }
+
+      .alert-info {
+        background-color: #e3f2fd;
+        border-left-color: #2196f3;
+        color: #0d47a1;
+      }
+
+      .alert-warning {
+        background-color: #fff3e0;
+        border-left-color: #ff9800;
+        color: #e65100;
+      }
+
+      .alert-success {
+        background-color: #e8f5e8;
+        border-left-color: #4caf50;
+        color: #1b5e20;
+      }
+
+      .alert-critical {
+        background-color: #ffebee;
+        border-left-color: #f44336;
+        color: #b71c1c;
+      }
+
+      .code-block {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        padding: 16px;
+        margin: 16px 0;
+        font-family: 'JetBrains Mono', Consolas, monospace;
+        font-size: 0.875em;
+        line-height: 1.5;
+        overflow-x: auto;
+      }
+
+      .code-inline {
+        background: #f1f3f4;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: 'JetBrains Mono', Consolas, monospace;
+        font-size: 0.9em;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 0.9em;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+        color: #495057;
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .checklist li {
+        margin: 8px 0;
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .checklist li::before {
+        content: '☐';
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        color: #6c757d;
+      }
+
+      .section-divider {
+        border-top: 2px solid #e9ecef;
+        margin: 40px 0 30px 0;
+      }
+
+      .phase-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 6px;
+        margin: 30px 0 20px 0;
+      }
+
+      .mcp-tool {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        padding: 15px;
+        margin: 15px 0;
+      }
+
+      .mcp-tool h4 {
+        margin-top: 0;
+        color: #495057;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .stat-card {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 6px;
+        text-align: center;
+        border: 1px solid #dee2e6;
+      }
+
+      .stat-number {
+        font-size: 2em;
+        font-weight: 700;
+        color: #3498db;
+      }
+
+      .filename {
+        background: #e3f2fd;
+        color: #1565c0;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body style="">
+    <div class="document-header">
+      <h1>Complete CSS &amp; Font Audit Guide</h1>
+      <h2>Using MCP Servers in Cursor IDE</h2>
+      <div class="document-meta">
+        <p>
+          <strong>Version:</strong> 2.0 | <strong>Last Updated:</strong> January 2025 |
+          <strong>Status:</strong> Comprehensive Master Guide
+        </p>
+      </div>
+    </div>
+
+    <div class="toc">
+      <h3>📋 Table of Contents</h3>
+      <ul>
+        <li><a href="#executive-summary">1. Executive Summary</a></li>
+        <li><a href="#introduction">2. Introduction &amp; Prerequisites</a></li>
+        <li><a href="#mcp-servers">3. MCP Server Overview &amp; Tools</a></li>
+        <li><a href="#current-state">4. Current State Analysis</a></li>
+        <li><a href="#industry-standards">5. Industry Standards &amp; Best Practices</a></li>
+        <li><a href="#audit-workflow">6. Complete Audit Workflow</a></li>
+        <li><a href="#mcp-usage">7. Detailed MCP Tool Usage</a></li>
+        <li><a href="#optimization-strategies">8. Optimization Strategies</a></li>
+        <li><a href="#implementation-roadmap">9. Implementation Roadmap</a></li>
+        <li><a href="#checklists">10. Comprehensive Checklists</a></li>
+        <li><a href="#common-issues">11. Common Issues &amp; Solutions</a></li>
+        <li><a href="#tools-automation">12. Tools &amp; Automation</a></li>
+        <li><a href="#resources">13. Resources &amp; References</a></li>
+      </ul>
+    </div>
+
+    <section id="executive-summary">
+      <h2>1. Executive Summary</h2>
+
+      <div class="alert alert-info">
+        <strong>📘 Purpose:</strong> This comprehensive guide provides a systematic approach to auditing CSS and font
+        usage in your codebase using Model Context Protocol (MCP) servers within Cursor IDE. You'll learn to identify
+        unused styles, optimize performance, eliminate duplicates, and restructure your CSS architecture for better
+        maintainability and performance.
+      </div>
+
+      <h3>Key Objectives</h3>
+      <ul>
+        <li>✅ Achieve industry-standard CSS architecture and performance</li>
+        <li>✅ Optimize font loading and eliminate unused font files</li>
+        <li>✅ Create a more modular and granular CSS structure</li>
+        <li>✅ Remove duplicate and conflicting styles</li>
+        <li>✅ Eliminate unused CSS to reduce bundle size</li>
+      </ul>
+
+      <h3>Expected Outcomes</h3>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">20-40%</div>
+          <div>CSS Bundle Size Reduction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50%+</div>
+          <div>Faster LCP Performance</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">0</div>
+          <div>Duplicate Declarations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">&lt;5%</div>
+          <div>Unused CSS Remaining</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="introduction">
+      <h2>2. Introduction &amp; Prerequisites</h2>
+
+      <h3>What This Guide Covers</h3>
+      <p>
+        This guide provides comprehensive strategies for CSS and font optimization using advanced MCP (Model Context
+        Protocol) servers in Cursor IDE. It combines industry best practices with practical automation tools to deliver
+        measurable performance improvements.
+      </p>
+
+      <h3>Prerequisites</h3>
+      <ul>
+        <li><strong>Cursor IDE</strong> with MCP server support enabled</li>
+        <li><strong>Basic CSS knowledge</strong> and web performance concepts</li>
+        <li><strong>Chrome browser</strong> for DevTools integration</li>
+        <li><strong>Node.js</strong> v18+ for automation scripts</li>
+        <li><strong>Project access</strong> with ability to modify CSS files</li>
+      </ul>
+
+      <div class="alert alert-warning">
+        <strong>⚠️ Before You Begin:</strong> Always create a backup branch before starting any optimization work. CSS
+        changes can have unexpected visual impacts across your application.
+      </div>
+
+      <h3>MCP Servers Overview</h3>
+      <p>This guide leverages seven powerful MCP servers, each serving specific roles in the audit process:</p>
+      <ul>
+        <li><strong>Filesystem MCP</strong> - Project structure analysis and file operations</li>
+        <li><strong>Chrome DevTools MCP</strong> - Performance profiling and CSS coverage analysis</li>
+        <li><strong>Context7 MCP</strong> - Latest documentation and best practices research</li>
+        <li><strong>Brave Search MCP</strong> - Industry standards and solution research</li>
+        <li><strong>Playwright MCP</strong> - Automated testing and cross-browser validation</li>
+        <li><strong>Sequential Thinking MCP</strong> - Strategic planning and decision-making</li>
+        <li><strong>Firecrawl MCP</strong> - External resource research and documentation scraping</li>
+      </ul>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="mcp-servers">
+      <h2>3. MCP Server Overview &amp; Tools</h2>
+
+      <h3>Filesystem MCP Server</h3>
+      <div class="mcp-tool">
+        <h4>Purpose</h4>
+        <p>
+          Provides comprehensive file system operations for analyzing project structure, reading CSS files, and
+          identifying assets.
+        </p>
+
+        <h4>Key Tools for CSS/Font Auditing</h4>
+        <ul>
+          <li><code class="code-inline">read_file</code> - Read CSS files for content analysis</li>
+          <li><code class="code-inline">list_directory</code> - Scan project directories for CSS and font files</li>
+          <li><code class="code-inline">search_files</code> - Find specific patterns in CSS files</li>
+          <li><code class="code-inline">get_file_info</code> - Analyze file sizes and modification dates</li>
+        </ul>
+
+        <h4>Installation Verification</h4>
+        <div class="code-block"># Test filesystem access Use tool: list_directory Arguments: {"path": "./src"}</div>
+      </div>
+
+      <h3>Chrome DevTools MCP Server</h3>
+      <div class="mcp-tool">
+        <h4>Purpose</h4>
+        <p>
+          Provides browser automation and DevTools integration for performance analysis, CSS coverage testing, and
+          network monitoring.
+        </p>
+
+        <h4>Key Tools for CSS/Font Auditing</h4>
+        <ul>
+          <li>
+            <code class="code-inline">performance_start_trace</code> - Record performance metrics during page load
+          </li>
+          <li><code class="code-inline">performance_stop_trace</code> - Analyze CSS and font loading performance</li>
+          <li><code class="code-inline">take_screenshot</code> - Visual regression testing</li>
+          <li><code class="code-inline">evaluate_script</code> - Run CSS coverage analysis scripts</li>
+          <li><code class="code-inline">list_network_requests</code> - Analyze CSS and font network requests</li>
+        </ul>
+
+        <h4>Installation Verification</h4>
+        <div class="code-block">
+          # Test Chrome DevTools connection Use tool: navigate_page Arguments: {"url": "about:blank"}
+        </div>
+      </div>
+
+      <h3>Context7 MCP Server</h3>
+      <div class="mcp-tool">
+        <h4>Purpose</h4>
+        <p>
+          Fetches up-to-date documentation and code examples from official sources to ensure compliance with latest
+          standards.
+        </p>
+
+        <h4>Key Tools for CSS/Font Auditing</h4>
+        <ul>
+          <li><code class="code-inline">search_docs</code> - Find latest CSS optimization techniques</li>
+          <li><code class="code-inline">get_examples</code> - Retrieve modern CSS architecture examples</li>
+          <li><code class="code-inline">fetch_standards</code> - Access current web standards documentation</li>
+        </ul>
+
+        <h4>Installation Verification</h4>
+        <div class="code-block">
+          # Test Context7 access Use tool: search_docs Arguments: {"query": "CSS performance optimization", "source":
+          "MDN"}
+        </div>
+      </div>
+
+      <h3>Brave Search MCP Server</h3>
+      <div class="mcp-tool">
+        <h4>Purpose</h4>
+        <p>Searches the web for industry best practices, tools, and solutions for CSS optimization challenges.</p>
+
+        <h4>Key Tools for CSS/Font Auditing</h4>
+        <ul>
+          <li><code class="code-inline">web_search</code> - Search for CSS optimization tools and techniques</li>
+          <li><code class="code-inline">summarize_results</code> - Summarize search results for quick insights</li>
+        </ul>
+
+        <h4>Installation Verification</h4>
+        <div class="code-block">
+          # Test Brave Search Use tool: web_search Arguments: {"query": "CSS unused styles detection tools 2024",
+          "limit": 5}
+        </div>
+      </div>
+
+      <h3>Playwright MCP Server</h3>
+      <div class="mcp-tool">
+        <h4>Purpose</h4>
+        <p>
+          Automated browser testing for CSS coverage analysis, visual regression testing, and cross-browser
+          compatibility validation.
+        </p>
+
+        <h4>Key Tools for CSS/Font Auditing</h4>
+        <ul>
+          <li><code class="code-inline">run_test</code> - Execute automated CSS coverage tests</li>
+          <li><code class="code-inline">capture_coverage</code> - Generate CSS usage reports</li>
+          <li><code class="code-inline">visual_diff</code> - Compare before/after screenshots</li>
+        </ul>
+
+        <h4>Installation Verification</h4>
+        <div class="code-block">
+          # Test Playwright functionality Use tool: run_test Arguments: {"script": "page.goto('about:blank')",
+          "browser": "chromium"}
+        </div>
+      </div>
+
+      <h3>Sequential Thinking MCP Server</h3>
+      <div class="mcp-tool">
+        <h4>Purpose</h4>
+        <p>
+          Provides structured problem-solving approach for planning CSS refactoring strategies and optimization
+          decisions.
+        </p>
+
+        <h4>Key Tools for CSS/Font Auditing</h4>
+        <ul>
+          <li><code class="code-inline">analyze_problem</code> - Break down complex CSS architecture issues</li>
+          <li><code class="code-inline">generate_strategy</code> - Create step-by-step refactoring plans</li>
+          <li><code class="code-inline">evaluate_options</code> - Compare different optimization approaches</li>
+        </ul>
+
+        <h4>Installation Verification</h4>
+        <div class="code-block">
+          # Test Sequential Thinking Use tool: analyze_problem Arguments: {"problem": "Large CSS bundle with potential
+          unused styles"}
+        </div>
+      </div>
+
+      <h3>Firecrawl MCP Server</h3>
+      <div class="mcp-tool">
+        <h4>Purpose</h4>
+        <p>
+          Web scraping for researching external CSS frameworks, documentation, and gathering optimization insights from
+          various sources.
+        </p>
+
+        <h4>Key Tools for CSS/Font Auditing</h4>
+        <ul>
+          <li><code class="code-inline">scrape</code> - Extract content from CSS documentation sites</li>
+          <li><code class="code-inline">crawl</code> - Gather comprehensive information from multiple pages</li>
+          <li><code class="code-inline">search</code> - Find specific CSS optimization resources</li>
+        </ul>
+
+        <h4>Installation Verification</h4>
+        <div class="code-block">
+          # Test Firecrawl functionality Use tool: scrape Arguments: {"url": "https://web.dev/fast/#optimize-your-css",
+          "formats": ["markdown"]}
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="current-state">
+      <h2>4. Current State Analysis</h2>
+
+      <h3>CSS Architecture Assessment</h3>
+
+      <div class="alert alert-success">
+        <strong>✅ Strengths Identified:</strong>
+        <ul>
+          <li>Modular structure already in place (components, pages, utils)</li>
+          <li>CSS Variables for design tokens</li>
+          <li>Self-hosted fonts (privacy &amp; performance)</li>
+          <li>Critical CSS file exists</li>
+        </ul>
+      </div>
+
+      <h3>Critical Issues Identified</h3>
+
+      <h4>1. File Size Issues</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>File</th>
+            <th>Current Size</th>
+            <th>Issue</th>
+            <th>Action Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="filename">cards.css</span></td>
+            <td>1,470+ lines</td>
+            <td>Too large, poor maintainability</td>
+            <td>Split into granular components</td>
+          </tr>
+          <tr>
+            <td><span class="filename">responsive.css</span></td>
+            <td>824+ lines</td>
+            <td>Should be co-located or split</td>
+            <td>Reorganize by component</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>2. Duplicate Styles</h4>
+      <div class="alert alert-critical">
+        <strong>🚨 Critical Finding:</strong> <code>.pricing-card.pricing-card--magenta</code> appears twice (lines 357
+        &amp; 361 in cards.css). The second declaration overrides the first, making line 357 dead code.
+      </div>
+
+      <div class="code-block">
+        /* Line 357 - DUPLICATE (dead code) */ .pricing-card.pricing-card--magenta { border-color: rgba(255, 0, 255,
+        0.3); } /* Line 361 - ACTIVE (overrides above) */ .pricing-card.pricing-card--magenta { border-color:
+        var(--accent-magenta); box-shadow: 0 20px 60px var(--glow-magenta); }
+      </div>
+
+      <h4>3. Font File Inventory</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Count</th>
+            <th>Files</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>✅ Used</td>
+            <td>7</td>
+            <td>Orbitron: Regular, Bold, Black<br>Rajdhani: Light, Regular, SemiBold, Bold</td>
+            <td>Keep</td>
+          </tr>
+          <tr>
+            <td>❌ Unused</td>
+            <td>17+</td>
+            <td>Non-subset duplicates, unused weights</td>
+            <td>Delete</td>
+          </tr>
+          <tr>
+            <td>❓ Unknown</td>
+            <td>Variable font</td>
+            <td>Orbitron-VariableFont_wght-subset.woff2</td>
+            <td>Evaluate usage</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>4. Configuration Issues</h4>
+      <div class="alert alert-warning">
+        <strong>⚠️ Performance Impact:</strong> Key optimizations are disabled in your build configuration:
+        <ul>
+          <li><code>cssMinify: false</code> - CSS not being compressed</li>
+          <li><code>cssCodeSplit: false</code> - No per-page CSS splitting</li>
+          <li>PurgeCSS disabled - Unused CSS not removed</li>
+        </ul>
+      </div>
+
+      <h3>Font-Family Usage Analysis</h3>
+      <p>Font-family declarations are repeated excessively throughout the codebase:</p>
+      <ul>
+        <li><code>font-family: 'Orbitron'</code> appears <strong>23+ times</strong></li>
+        <li><code>font-family: 'Rajdhani'</code> appears <strong>20+ times</strong></li>
+      </ul>
+
+      <div class="alert alert-info">
+        <strong>📘 Recommendation:</strong> Replace repeated font-family declarations with CSS custom properties for
+        better maintainability.
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="industry-standards">
+      <h2>5. Industry Standards &amp; Best Practices</h2>
+
+      <h3>CSS Architecture Methodologies</h3>
+
+      <h4>BEM (Block Element Modifier)</h4>
+      <div class="code-block">
+        /* BEM Naming Convention */ .block {} .block__element {} .block--modifier {} .block__element--modifier {} /*
+        Example Implementation */ .card {} /* Block */ .card__header {} /* Element */ .card__header--large {} /*
+        Modified Element */ .card--featured {} /* Modified Block */
+      </div>
+
+      <h4>OOCSS (Object-Oriented CSS)</h4>
+      <p>Separate structure from skin, and container from content:</p>
+      <div class="code-block">
+        /* Structure (reusable) */ .media { display: flex; align-items: flex-start; } .media__object { flex-shrink: 0;
+        margin-right: 1rem; } .media__body { flex: 1; } /* Skin (themeable) */ .media--large .media__object {
+        margin-right: 2rem; }
+      </div>
+
+      <h3>Font Loading Optimization Standards</h3>
+
+      <h4>Font-Display Strategy Comparison</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Value</th>
+            <th>Block Period</th>
+            <th>Swap Period</th>
+            <th>Effect</th>
+            <th>Use Case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>swap</code></td>
+            <td>~0s</td>
+            <td>Indefinite</td>
+            <td>Shows fallback immediately, swaps when loaded</td>
+            <td><strong>Recommended</strong> for most text</td>
+          </tr>
+          <tr>
+            <td><code>block</code></td>
+            <td>3s</td>
+            <td>Indefinite</td>
+            <td>Hides text up to 3s (FOIT)</td>
+            <td>Critical brand fonts only</td>
+          </tr>
+          <tr>
+            <td><code>fallback</code></td>
+            <td>100ms</td>
+            <td>3s</td>
+            <td>Brief hide, then fallback, permanent if late</td>
+            <td>Non-essential fonts</td>
+          </tr>
+          <tr>
+            <td><code>optional</code></td>
+            <td>100ms</td>
+            <td>0s</td>
+            <td>Browser decides based on connection</td>
+            <td>Purely aesthetic fonts</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Font Preloading Best Practices</h4>
+      <div class="code-block">
+        &lt;!-- Correct preloading with all required attributes --&gt; &lt;link rel="preload"
+        href="./fonts/Orbitron-Regular-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous"&gt; &lt;!--
+        Font-display in CSS --&gt; @font-face { font-family: 'Orbitron'; src:
+        url('./fonts/Orbitron-Regular-subset.woff2') format('woff2'); font-display: swap; font-weight: 400; font-style:
+        normal; }
+      </div>
+
+      <h3>Performance Optimization Techniques</h3>
+
+      <h4>Critical CSS Strategy</h4>
+      <div class="alert alert-success">
+        <strong>✅ Best Practice:</strong> Extract and inline CSS for above-the-fold content (target &lt;14KB). Load
+        remaining CSS asynchronously to prevent render-blocking.
+      </div>
+
+      <div class="code-block">
+        &lt;!-- Inline critical CSS --&gt; &lt;style&gt; /* Critical styles for above-the-fold content */ .hero {
+        display: flex; min-height: 100vh; } &lt;/style&gt; &lt;!-- Async non-critical CSS --&gt; &lt;link
+        rel="stylesheet" href="css/non-critical.css" media="print" onload="this.media='all'"&gt;
+      </div>
+
+      <h4>CSS Custom Properties for Maintainability</h4>
+      <div class="code-block">
+        /* Design System Tokens */ :root { /* Typography */ --font-heading: 'Orbitron', sans-serif; --font-body:
+        'Rajdhani', sans-serif; /* Colors */ --color-primary: #3498db; --color-accent-cyan: #00bcd4;
+        --color-accent-magenta: #e91e63; /* Spacing */ --space-sm: 0.5rem; --space-md: 1rem; --space-lg: 2rem; } /*
+        Usage */ .heading { font-family: var(--font-heading); color: var(--color-primary); margin-bottom:
+        var(--space-md); }
+      </div>
+
+      <h3>Advanced Optimization Techniques</h3>
+
+      <h4>CSS Containment for Performance</h4>
+      <div class="code-block">
+        /* Apply containment to large components */ .service-card { contain: layout style paint; } .services-grid {
+        contain: layout; } /* Benefits: Isolates rendering, improves performance */
+      </div>
+
+      <h4>Font Metric Adjustment (Advanced)</h4>
+      <div class="code-block">
+        /* Create metric-matched fallback to reduce CLS */ @font-face { font-family: 'Orbitron-Fallback'; src:
+        local('Arial'); size-adjust: 105%; ascent-override: 95%; descent-override: 20%; } .heading { font-family:
+        'Orbitron', 'Orbitron-Fallback', sans-serif; }
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="audit-workflow">
+      <h2>6. Complete Audit Workflow</h2>
+
+      <div class="phase-header">
+        <h3>Phase 1: Discovery &amp; Inventory</h3>
+        <p>🎯 <strong>Objective:</strong> Create comprehensive inventory of all CSS and font assets</p>
+      </div>
+
+      <h4>Step 1.1: Project Structure Analysis</h4>
+      <p><strong>Using Filesystem MCP - Scan Project Structure</strong></p>
+      <div class="code-block">
+        # Discover all CSS files Use tool: search_files Arguments: { "path": "./", "pattern": "**/*.css",
+        "include_content": false } # Find CSS-in-JS files Use tool: search_files Arguments: { "path": "./src",
+        "pattern": "**/*.{js,jsx,ts,tsx}", "content_pattern": "styled|css`|makeStyles" } # Locate font files Use tool:
+        search_files Arguments: { "path": "./", "pattern": "**/*.{woff,woff2,ttf,otf,eot}", "include_content": false }
+      </div>
+
+      <h4>Step 1.2: Asset Size Analysis</h4>
+      <p><strong>Using Filesystem MCP - File Information</strong></p>
+      <div class="code-block">
+        # Get detailed info for each CSS file Use tool: get_file_info Arguments: {"path": "./src/styles/main.css"} #
+        List all stylesheets with sizes Use tool: list_directory Arguments: { "path": "./public/css", "recursive": true,
+        "include_hidden": false }
+      </div>
+
+      <div class="phase-header">
+        <h3>Phase 2: Performance &amp; Usage Analysis</h3>
+        <p>🎯 <strong>Objective:</strong> Analyze CSS performance and identify unused styles</p>
+      </div>
+
+      <h4>Step 2.1: CSS Coverage Analysis</h4>
+      <p><strong>Using Chrome DevTools MCP - Performance Profiling</strong></p>
+      <div class="code-block">
+        # Start performance trace Use tool: performance_start_trace Arguments: { "categories": ["loading", "rendering",
+        "painting"] } # Navigate to application Use tool: navigate_page Arguments: {"url": "http://localhost:3000"} #
+        Stop trace and analyze Use tool: performance_stop_trace Arguments: {"analyze": true}
+      </div>
+
+      <h4>Step 2.2: Comprehensive CSS Coverage</h4>
+      <p><strong>Using Playwright MCP - Multi-Browser Testing</strong></p>
+      <div class="code-block">
+        # Advanced CSS coverage with user interactions Use tool: run_test Arguments: { "script": ` const browser = await
+        playwright.chromium.launch(); const page = await browser.newPage(); // Start CSS coverage await
+        page.coverage.startCSSCoverage(); // Navigate and interact await page.goto('http://localhost:3000'); await
+        page.waitForLoadState('networkidle'); // Simulate user interactions const interactions = [ () =&gt;
+        page.hover('[data-testid="menu-button"]'), () =&gt; page.click('[data-testid="menu-button"]'), () =&gt;
+        page.fill('input[type="search"]', 'test'), () =&gt; page.evaluate(() =&gt; window.scrollTo(0,
+        document.body.scrollHeight)) ]; for (const interaction of interactions) { await interaction(); await
+        page.waitForTimeout(500); } // Get coverage report const coverage = await page.coverage.stopCSSCoverage(); const
+        report = coverage.map(entry =&gt; ({ url: entry.url, totalBytes: entry.text.length, usedBytes:
+        entry.ranges.reduce((used, range) =&gt; used + (range.end - range.start), 0), usagePercentage: Math.round(
+        (entry.ranges.reduce((used, range) =&gt; used + (range.end - range.start), 0) / entry.text.length) * 100 ) }));
+        await browser.close(); return report; `, "timeout": 60000 }
+      </div>
+
+      <div class="phase-header">
+        <h3>Phase 3: Code Quality Audit</h3>
+        <p>🎯 <strong>Objective:</strong> Identify duplicates, conflicts, and quality issues</p>
+      </div>
+
+      <h4>Step 3.1: Duplicate Detection</h4>
+      <p><strong>Using Filesystem MCP - Pattern Analysis</strong></p>
+      <div class="code-block">
+        # Find duplicate CSS class definitions Use tool: search_files Arguments: { "path": "./src", "pattern":
+        "**/*.css", "content_pattern": "\\.[a-zA-Z][a-zA-Z0-9-_]*\\s*\\{", "include_line_numbers": true } # Search for
+        duplicate color definitions Use tool: search_files Arguments: { "path": "./src", "pattern": "**/*.css",
+        "content_pattern": "color:\\s*#[0-9a-fA-F]{6}", "group_by_file": true } # Find repeated font-family declarations
+        Use tool: search_files Arguments: { "path": "./src", "pattern": "**/*.css", "content_pattern": "font-family:",
+        "include_context": 1 }
+      </div>
+
+      <h4>Step 3.2: Specificity Analysis</h4>
+      <p><strong>Using Chrome DevTools MCP - Conflict Detection</strong></p>
+      <div class="code-block">
+        # Analyze CSS specificity conflicts Use tool: evaluate_script Arguments: { "script": ` function
+        calculateSpecificity(selector) { let specificity = [0, 0, 0, 0]; // IDs specificity[1] =
+        (selector.match(/#[\\w-]+/g) || []).length; // Classes, attributes, pseudo-classes specificity[2] =
+        (selector.match(/\\.[\\w-]+|\\[[^\\]]+\\]|:[\\w-]+/g) || []).length; // Elements and pseudo-elements
+        specificity[3] = (selector.match(/^[\\w-]+|\\s[\\w-]+/g) || []).length; return specificity.join(''); } const
+        sheets = Array.from(document.styleSheets); const specificityReport = []; sheets.forEach(sheet =&gt; { try {
+        Array.from(sheet.cssRules).forEach(rule =&gt; { if (rule.selectorText) { specificityReport.push({ selector:
+        rule.selectorText, specificity: calculateSpecificity(rule.selectorText), sheet: sheet.href || 'inline' }); } });
+        } catch (e) { console.warn('Cannot access stylesheet:', e); } }); return specificityReport.sort((a, b) =&gt;
+        b.specificity - a.specificity); ` }
+      </div>
+
+      <div class="phase-header">
+        <h3>Phase 4: Strategic Planning</h3>
+        <p>🎯 <strong>Objective:</strong> Create optimization and refactoring strategy</p>
+      </div>
+
+      <h4>Step 4.1: Problem Analysis</h4>
+      <p><strong>Using Sequential Thinking MCP - Strategy Development</strong></p>
+      <div class="code-block">
+        # Analyze CSS optimization challenges Use tool: analyze_problem Arguments: { "problem": "Large CSS bundle
+        (&gt;200KB) with 40% unused styles, duplicate declarations, and poor modularity", "context": "React application
+        with 50+ components, multiple CSS files, performance issues", "constraints": [ "Must maintain visual
+        consistency", "Cannot break existing functionality", "Need to improve Core Web Vitals", "Limited development
+        time" ] } # Generate optimization strategy Use tool: generate_strategy Arguments: { "goal": "Reduce CSS bundle
+        size by 50% while improving maintainability", "considerations": [ "unused style removal", "modular architecture
+        implementation", "performance optimization", "developer experience" ] }
+      </div>
+
+      <h4>Step 4.2: Architecture Planning</h4>
+      <p><strong>Using Sequential Thinking MCP - Architecture Decisions</strong></p>
+      <div class="code-block">
+        # Evaluate CSS architecture options Use tool: evaluate_options Arguments: { "options": [ { "name": "CSS Modules
+        with component-scoped styles", "pros": ["Automatic scoping", "Dead code elimination", "Type safety"], "cons":
+        ["Build complexity", "Learning curve"] }, { "name": "BEM methodology with atomic CSS", "pros": ["Clear naming",
+        "Maintainable", "Framework agnostic"], "cons": ["Verbose classes", "Manual enforcement"] }, { "name":
+        "Utility-first with Tailwind CSS", "pros": ["Rapid development", "Small bundle", "Consistent design"], "cons":
+        ["HTML verbosity", "Learning curve"] } ], "criteria": ["maintainability", "performance", "developer_experience",
+        "bundle_size"] }
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="optimization-strategies">
+      <h2>8. Optimization Strategies</h2>
+
+      <h3>Critical CSS Extraction</h3>
+      <div class="alert alert-info">
+        <strong>📘 Strategy:</strong> Identify and inline CSS required for above-the-fold content rendering to improve
+        First Contentful Paint (FCP) and Largest Contentful Paint (LCP).
+      </div>
+
+      <h4>Automated Critical CSS Detection</h4>
+      <p><strong>Using Chrome DevTools MCP - Critical Path Analysis</strong></p>
+      <div class="code-block">
+        # Analyze above-the-fold content Use tool: evaluate_script Arguments: { "script": ` const viewport = { width:
+        window.innerWidth, height: window.innerHeight }; // Find elements in critical rendering path const
+        criticalElements = Array.from(document.querySelectorAll('*')) .filter(el =&gt; { const rect =
+        el.getBoundingClientRect(); return rect.top &lt; viewport.height &amp;&amp; rect.left &lt; viewport.width &amp;&amp; rect.width &gt; 0 &amp;&amp;
+        rect.height &gt; 0; }) .map(el =&gt; ({ tagName: el.tagName, className: el.className, id: el.id, computedStyles: {
+        display: getComputedStyle(el).display, position: getComputedStyle(el).position, fontSize:
+        getComputedStyle(el).fontSize, color: getComputedStyle(el).color } })); return { viewport, criticalElements }; `
+        }
+      </div>
+
+      <h3>PurgeCSS Implementation</h3>
+      <div class="alert alert-success">
+        <strong>✅ Recommended Tool:</strong> PurgeCSS automatically removes unused CSS by analyzing your HTML,
+        JavaScript, and template files.
+      </div>
+
+      <h4>PurgeCSS Configuration</h4>
+      <div class="code-block">
+        // postcss.config.cjs const purgecss = require('@fullhuman/postcss-purgecss').default; module.exports = {
+        plugins: [ ...(process.env.NODE_ENV === 'production' ? [ purgecss({ content: [ './**/*.html', './js/**/*.js',
+        './partials/**/*.html', ], defaultExtractor: content =&gt; { const broadMatches =
+        content.match(/[^&lt;&gt;"'`\s]*[^&lt;&gt;"'`\s:]/g) || []; const classMatches = content.match(/class=["']([^"']+)["']/gi)
+        || []; const classes = classMatches.flatMap( m =&gt; m.match(/class=["']([^"']+)["']/i)?.[1]?.split(/\s+/) || [] );
+        return [...broadMatches, ...classes]; }, safelist: [ // Dynamic classes 'active', 'scrolled', 'is-visible',
+        'bg-loaded', // Pattern matching /^service-card/, /^offer-panel/, /^process-card-/, /^impact-card-/,
+        /^faq-card-/ ] }) ] : []) ] };
+      </div>
+
+      <h3>Font Loading Optimization</h3>
+
+      <h4>Font Preloading Strategy</h4>
+      <p><strong>Using Chrome DevTools MCP - Font Analysis</strong></p>
+      <div class="code-block">
+        # Analyze current font loading performance Use tool: evaluate_script Arguments: { "script": ` const fontAnalysis
+        = { webFonts: [], preloadedFonts: [], loadingMetrics: {} }; // Check @font-face declarations
+        Array.from(document.styleSheets).forEach(sheet =&gt; { try { Array.from(sheet.cssRules).forEach(rule =&gt; { if
+        (rule.constructor.name === 'CSSFontFaceRule') { fontAnalysis.webFonts.push({ family: rule.style.fontFamily,
+        display: rule.style.fontDisplay || 'auto', weight: rule.style.fontWeight, src: rule.style.src }); } }); } catch
+        (e) { console.warn('Cannot access stylesheet:', e); } }); // Check font preloads const preloads =
+        document.querySelectorAll('link[rel="preload"][as="font"]'); fontAnalysis.preloadedFonts =
+        Array.from(preloads).map(link =&gt; ({ href: link.href, crossorigin: link.crossOrigin })); // Font loading timing
+        const fontResources = performance.getEntriesByType('resource') .filter(r =&gt; r.name.includes('.woff') ||
+        r.name.includes('.ttf')); fontAnalysis.loadingMetrics = fontResources.map(r =&gt; ({ name: r.name.split('/').pop(),
+        duration: Math.round(r.duration), size: r.transferSize, startTime: Math.round(r.startTime) })); return
+        fontAnalysis; ` }
+      </div>
+
+      <h4>Font-Display Implementation</h4>
+      <div class="code-block">
+        /* Optimal font-display strategy */ @font-face { font-family: 'Orbitron'; src:
+        url('./fonts/Orbitron-Regular-subset.woff2') format('woff2'); font-display: swap; /* Show fallback immediately,
+        swap when loaded */ font-weight: 400; font-style: normal; } @font-face { font-family: 'Orbitron'; src:
+        url('./fonts/Orbitron-Bold-subset.woff2') format('woff2'); font-display: swap; font-weight: 700; font-style:
+        normal; } /* For decorative fonts (optional loading) */ @font-face { font-family: 'Decorative'; src:
+        url('./fonts/Decorative-Regular.woff2') format('woff2'); font-display: optional; /* Only load if fast connection
+        */ }
+      </div>
+
+      <h3>CSS Architecture Refactoring</h3>
+
+      <h4>Modular File Structure</h4>
+      <div class="alert alert-info">
+        <strong>📘 Strategy:</strong> Split large CSS files into logical, maintainable modules organized by component or
+        functionality.
+      </div>
+
+      <h4>Proposed Structure for Large Files</h4>
+      <div class="code-block">
+        # Current: cards.css (1,470 lines) # Split into: css/components/cards/ ├── service-card.css # Service card
+        styles (~300 lines) ├── project-card.css # Project card styles (~250 lines) ├── pricing-card.css # Pricing card
+        styles (~200 lines) ├── offer-panel.css # Offer panel styles (~150 lines) ├── card-animations.css # Shared
+        animations (~100 lines) └── card-variants.css # Color variants (~470 lines) # Import in main.css: @import
+        './components/cards/service-card.css'; @import './components/cards/project-card.css'; @import
+        './components/cards/pricing-card.css'; /* ... etc */
+      </div>
+
+      <h4>CSS Custom Properties Consolidation</h4>
+      <div class="code-block">
+        /* variables.css - Centralized design tokens */ :root { /* Typography Scale */ --font-heading: 'Orbitron',
+        sans-serif; --font-body: 'Rajdhani', sans-serif; --font-size-xs: 0.75rem; --font-size-sm: 0.875rem;
+        --font-size-base: 1rem; --font-size-lg: 1.125rem; --font-size-xl: 1.25rem; /* Color System */ --color-primary:
+        #3498db; --color-secondary: #2c3e50; --accent-cyan: #00bcd4; --accent-magenta: #e91e63; --glow-cyan: rgba(0,
+        188, 212, 0.3); --glow-magenta: rgba(233, 30, 99, 0.3); /* Spacing Scale */ --space-xs: 0.25rem; --space-sm:
+        0.5rem; --space-md: 1rem; --space-lg: 1.5rem; --space-xl: 2rem; --space-2xl: 3rem; /* Layout */
+        --container-max-width: 1200px; --border-radius: 8px; --transition: 0.3s ease; } /* Replace repeated font-family
+        declarations */ .heading, h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); } .body-text, p, span, div
+        { font-family: var(--font-body); }
+      </div>
+
+      <h3>Performance-First Optimizations</h3>
+
+      <h4>CSS Containment Implementation</h4>
+      <div class="code-block">
+        /* Add containment to isolate rendering */ .service-card { contain: layout style paint; /* Isolates this
+        component's layout and styling */ } .services-grid { contain: layout; /* Prevents layout thrashing from children
+        */ } .animated-element { contain: layout style paint; will-change: transform; /* Promotes to GPU layer for
+        smooth animations */ }
+      </div>
+
+      <h4>Lazy Loading Non-Critical CSS</h4>
+      <div class="code-block">
+        <!-- Critical CSS inlined in head -->
+        <style>
+          /* Above-the-fold styles only */
+          .hero,
+          .navigation,
+          .header {
+            /* Critical styles here */
+          }
+        </style>
+
+        <!-- Async load remaining CSS -->
+        <link rel="stylesheet" href="css/non-critical.css" media="print" onload="this.media='all'">
+        <noscript>
+          <link rel="stylesheet" href="css/non-critical.css" />
+        </noscript>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="implementation-roadmap">
+      <h2>9. Implementation Roadmap</h2>
+
+      <div class="alert alert-info">
+        <strong>📘 Timeline Overview:</strong> 7-week structured implementation plan with weekly milestones and
+        deliverables.
+      </div>
+
+      <h3>Week 1: Preparation &amp; Analysis</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Tasks</th>
+            <th>MCP Tools</th>
+            <th>Deliverables</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1-2</td>
+            <td>Complete CSS/font inventory<br>Run coverage analysis<br>Document current state</td>
+            <td>Filesystem MCP<br>Chrome DevTools MCP<br>Playwright MCP</td>
+            <td>Asset inventory report<br>Coverage analysis baseline</td>
+          </tr>
+          <tr>
+            <td>3-4</td>
+            <td>Setup build tools<br>Configure PurgeCSS<br>Install Stylelint</td>
+            <td>Context7 MCP<br>Brave Search MCP</td>
+            <td>Build configuration<br>Linting setup</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Create backup branch<br>Establish testing checklist</td>
+            <td>Sequential Thinking MCP</td>
+            <td>Backup &amp; testing plan</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Week 2: Font Optimization</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Tasks</th>
+            <th>Expected Results</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1-2</td>
+            <td>Audit font usage<br>Create font variable map<br>Document unused files</td>
+            <td>Complete font inventory<br>Usage mapping</td>
+          </tr>
+          <tr>
+            <td>3-4</td>
+            <td>Remove unused font files<br>Replace font-family with variables<br>Test font loading</td>
+            <td>17+ files removed<br>~200KB saved<br>Consistent font usage</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Optimize font-display<br>Review preloading<br>Consider variable fonts</td>
+            <td>Improved font loading<br>Reduced FOUT/FOIT</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Week 3: CSS Deduplication</h3>
+      <div class="alert alert-critical">
+        <strong>🚨 High Priority Tasks:</strong>
+        <ul>
+          <li>Fix <code>.pricing-card--magenta</code> duplicate (lines 357 &amp; 361)</li>
+          <li>Consolidate repeated hover effects using CSS variables</li>
+          <li>Remove conflicting media query declarations</li>
+        </ul>
+      </div>
+
+      <h3>Week 4: Modularization</h3>
+      <h4>File Splitting Strategy</h4>
+      <div class="code-block">
+        # Split cards.css (1,470 lines) into modules: ## Before css/ └── cards.css (1,470 lines) ## After
+        css/components/cards/ ├── service-card.css (300 lines) ├── project-card.css (250 lines) ├── pricing-card.css
+        (200 lines) ├── offer-panel.css (150 lines) ├── card-animations.css (100 lines) └── card-variants.css (470
+        lines)
+      </div>
+
+      <h3>Week 5: Unused CSS Removal</h3>
+      <h4>Automated PurgeCSS Implementation</h4>
+      <div class="code-block">
+        # Enable PurgeCSS in production npm install --save-dev @fullhuman/postcss-purgecss # Configure safelist for
+        dynamic classes: safelist: [ 'active', 'scrolled', 'is-visible', 'bg-loaded', 'page-transition-preload',
+        'page-transition-in', 'page-transition-out', /^service-card/, /^offer-panel/, /^process-card-/, /^impact-card-/,
+        /^faq-card-/, /^project-impact-/ ]
+      </div>
+
+      <h3>Week 6: Performance Optimization</h3>
+      <h4>Critical CSS Implementation</h4>
+      <div class="code-block">
+        # Enable build optimizations build: { cssMinify: true, // Enable CSS minification cssCodeSplit: true, // Split
+        CSS per page rollupOptions: { output: { manualChunks: { 'critical': ['./src/css/critical.css'], 'components':
+        ['./src/css/components/**/*.css'] } } } }
+      </div>
+
+      <h3>Week 7: Documentation &amp; Deployment</h3>
+      <ul class="checklist">
+        <li>Update development documentation</li>
+        <li>Create component style guide</li>
+        <li>Document new CSS architecture</li>
+        <li>Final cross-browser testing</li>
+        <li>Performance benchmarking</li>
+        <li>Production deployment</li>
+      </ul>
+
+      <h3>Success Metrics Targets</h3>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">200KB → 120KB</div>
+          <div>CSS Bundle Size (40% reduction)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">24 → 7</div>
+          <div>Font Files (70% reduction)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">&lt;2.5s</div>
+          <div>Largest Contentful Paint</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">&lt;0.1</div>
+          <div>Cumulative Layout Shift</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="checklists">
+      <h2>10. Comprehensive Checklists</h2>
+
+      <h3>CSS Architecture Audit Checklist</h3>
+      <h4>File Organization &amp; Structure</h4>
+      <ul class="checklist">
+        <li>CSS files are logically organized (components, utilities, base)</li>
+        <li>Consistent naming conventions used throughout</li>
+        <li>Import statements are organized and optimized</li>
+        <li>No circular dependencies between CSS modules</li>
+        <li>Separate concerns (layout, typography, colors, animations)</li>
+        <li>File sizes are manageable (&lt;500 lines per file)</li>
+      </ul>
+
+      <h4>Code Quality</h4>
+      <ul class="checklist">
+        <li>No duplicate CSS declarations</li>
+        <li>Consistent indentation and formatting</li>
+        <li>Meaningful class and ID names</li>
+        <li>Appropriate CSS selector specificity</li>
+        <li>No overly qualified selectors (avoid deep nesting)</li>
+        <li>CSS custom properties used for repeated values</li>
+        <li>Vendor prefixes are necessary and up-to-date</li>
+        <li>No !important declarations (or minimal usage)</li>
+      </ul>
+
+      <h4>Performance Optimization</h4>
+      <ul class="checklist">
+        <li>No unused CSS rules (verified through coverage analysis)</li>
+        <li>CSS files are minified in production</li>
+        <li>Critical CSS is inlined for above-the-fold content</li>
+        <li>Non-critical CSS is loaded asynchronously</li>
+        <li>CSS bundle size is optimized (&lt;100KB gzipped)</li>
+        <li>CSS containment applied to large components</li>
+        <li>Expensive selectors avoided (:nth-child complex patterns)</li>
+      </ul>
+
+      <h3>Font Optimization Checklist</h3>
+
+      <h4>Font File Management</h4>
+      <ul class="checklist">
+        <li>Using modern font formats (WOFF2 primary, WOFF fallback)</li>
+        <li>Font files are compressed and optimized</li>
+        <li>Unnecessary font weights and styles removed</li>
+        <li>Font subsetting implemented for reduced file sizes</li>
+        <li>Variable fonts evaluated and implemented where beneficial</li>
+        <li>Font files are self-hosted (no external CDN dependencies)</li>
+      </ul>
+
+      <h4>Font Loading Strategy</h4>
+      <ul class="checklist">
+        <li><code>font-display</code> property set appropriately (swap recommended)</li>
+        <li>Critical fonts preloaded with <code>&lt;link rel="preload"&gt;</code></li>
+        <li><code>crossorigin</code> attribute included in preload links</li>
+        <li>Font loading strategy prevents FOIT (Flash of Invisible Text)</li>
+        <li>System font fallbacks properly defined</li>
+        <li>Font loading performance monitored and optimized</li>
+      </ul>
+
+      <h4>Font-Face Declarations</h4>
+      <ul class="checklist">
+        <li>@font-face declarations properly structured</li>
+        <li>Font family names consistently used</li>
+        <li>Unicode ranges specified where needed</li>
+        <li>Format hints provided for browser optimization</li>
+        <li>Font-display values aligned with loading strategy</li>
+      </ul>
+
+      <h3>Industry Standards Compliance</h3>
+
+      <h4>Actionable Audit Steps (AAS)</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Issue to Check</th>
+            <th>Fix/Solution</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>AAS-1</strong></td>
+            <td>Text remains invisible (FOIT)</td>
+            <td>Change @font-face to use <code>font-display: swap</code></td>
+            <td><span style="color: #e74c3c">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>AAS-2</strong></td>
+            <td>Large layout shift from font swapping (CLS)</td>
+            <td>Preload fonts + implement metric-matching fallbacks</td>
+            <td><span style="color: #e74c3c">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>AAS-3</strong></td>
+            <td>Inefficient font file formats</td>
+            <td>Use WOFF2 for modern browsers, WOFF for fallback</td>
+            <td><span style="color: #f39c12">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>AAS-4</strong></td>
+            <td>Font loading delays from external domains</td>
+            <td>Self-host font files to eliminate DNS lookups</td>
+            <td><span style="color: #f39c12">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>AAS-5</strong></td>
+            <td>Dramatic metric differences causing CLS</td>
+            <td>Apply size-adjust descriptors to fallback fonts</td>
+            <td><span style="color: #e74c3c">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Browser Compatibility</h4>
+      <ul class="checklist">
+        <li>CSS features supported in target browsers</li>
+        <li>Fallbacks provided for unsupported features</li>
+        <li>Progressive enhancement implemented</li>
+        <li>Cross-browser testing completed</li>
+        <li>Vendor prefixes appropriate for browser support matrix</li>
+      </ul>
+
+      <h4></h4>
+    </section>
+  
+
+</body></html>

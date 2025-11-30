@@ -1,0 +1,138 @@
+/**
+ * Contact Form Styles
+ * Contact form container, progress bar, floating labels, and submit button spinner
+ */
+
+/* Contact Form Container */
+.contact-form {
+  background: rgba(22, 33, 62, 0.5);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  padding: 3rem;
+  border-radius: 15px;
+}
+
+.form-title {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--accent-cyan);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Form Progress Bar */
+.form-progress {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 2px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.form-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+  width: 0%;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px var(--glow-cyan);
+}
+
+/* Floating Labels */
+.form-group.floating-label {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.form-group.floating-label label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: rgba(0, 255, 255, 0.6);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background: transparent;
+  padding: 0 0.25rem;
+  z-index: 1;
+}
+
+.form-group.floating-label input:focus + label,
+.form-group.floating-label input:not(:placeholder-shown) + label,
+.form-group.floating-label textarea:focus + label,
+.form-group.floating-label textarea:not(:placeholder-shown) + label {
+  top: -0.5rem;
+  left: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  background: rgba(22, 33, 62, 0.95);
+  padding: 0 0.5rem;
+}
+
+.form-group.floating-label input,
+.form-group.floating-label textarea {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.form-group.floating-label .required {
+  color: var(--accent-pink);
+}
+
+/* Textarea Footer */
+.textarea-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  min-height: 1.5rem;
+}
+
+.character-counter {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Submit Button Spinner */
+.form-submit {
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-text {
+  transition: opacity 0.3s ease;
+}
+
+.submit-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.submit-spinner svg {
+  width: 100%;
+  height: 100%;
+  animation: spin 1s linear infinite;
+  stroke: currentColor;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.form-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+

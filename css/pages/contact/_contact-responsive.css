@@ -1,0 +1,119 @@
+/**
+ * Contact Page Responsive Styles
+ * Mobile and tablet responsive styles for contact page
+ */
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 4rem 0 2rem 0;
+    padding-bottom: 2rem !important;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 1.5rem;
+  }
+
+  /* Contact info above form on mobile */
+  .contact-info {
+    order: 1;
+  }
+
+  .contact-form {
+    order: 2;
+    padding: 2rem;
+  }
+
+  .contact-item {
+    padding: 1.5rem;
+  }
+
+  .contact-quick-action {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .social-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+  }
+
+  .form-title {
+    font-size: 1.25rem;
+  }
+
+  .map-section {
+    padding: 3rem 0;
+  }
+
+  .map-container {
+    padding: 0 1.5rem;
+  }
+
+  .map-container iframe {
+    height: 350px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem;
+  }
+
+  .testimonial-card {
+    padding: 2rem;
+  }
+
+  .faq-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 3rem 0 1.5rem 0;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .contact-container {
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .contact-item {
+    padding: 1.25rem;
+  }
+
+  .contact-item h3 {
+    font-size: 1rem;
+  }
+
+  .form-title {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+
+  .testimonial-text {
+    font-size: 0.9rem;
+  }
+}
+

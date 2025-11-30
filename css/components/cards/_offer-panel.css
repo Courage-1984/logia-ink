@@ -1,0 +1,295 @@
+/**
+ * Offer Panel Styles
+ * Offer panel component with color variants and add-ons section
+ */
+
+.offer-panel {
+  --panel-accent: var(--accent-cyan);
+  --panel-glow: var(--glow-cyan);
+  position: relative;
+  padding: clamp(2rem, 4vw, 2.75rem);
+  border-radius: 18px;
+  background: linear-gradient(155deg, rgba(22, 33, 62, 0.92) 0%, rgba(10, 10, 10, 0.88) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+}
+
+.offer-panel.is-visible {
+  animation: offerPanelEnter 0.9s ease forwards;
+}
+
+.offer-panel::before,
+.offer-panel::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.offer-panel::before {
+  width: 65%;
+  height: 65%;
+  top: -35%;
+  left: -35%;
+  background: radial-gradient(circle at top left, var(--panel-accent) 0%, transparent 70%);
+  opacity: 0.35;
+}
+
+.offer-panel::after {
+  width: 45%;
+  height: 45%;
+  bottom: -25%;
+  right: -25%;
+  background: radial-gradient(circle at bottom right, var(--panel-glow) 0%, transparent 65%);
+  opacity: 0.25;
+}
+
+.offer-panel:hover {
+  border-color: var(--panel-accent);
+  box-shadow: 0 25px 70px var(--panel-glow);
+  transform: translateY(-6px);
+}
+
+.offer-panel:hover::before,
+.offer-panel:hover::after {
+  opacity: 0.55;
+  transform: scale(1.08);
+}
+
+.offer-panel.offer-panel--cyan {
+  --panel-accent: var(--accent-cyan);
+  --panel-glow: var(--glow-cyan);
+  --offer-enter-x: -80px;
+}
+
+.offer-panel.offer-panel--magenta {
+  --panel-accent: var(--accent-magenta);
+  --panel-glow: var(--glow-magenta);
+  --offer-enter-x: 80px;
+}
+
+.offer-panel.offer-panel--green {
+  --panel-accent: var(--accent-green);
+  --panel-glow: var(--glow-green);
+  --offer-enter-x: -100px;
+}
+
+.offer-panel.offer-panel--blue {
+  --panel-accent: var(--accent-blue);
+  --panel-glow: var(--glow-blue);
+  --offer-enter-x: 100px;
+}
+
+.offer-panel.offer-panel--pink {
+  --panel-accent: var(--accent-pink);
+  --panel-glow: var(--glow-pink);
+  --offer-enter-x: -120px;
+}
+
+.offer-panel.offer-panel--gold {
+  --panel-accent: var(--accent-gold);
+  --panel-glow: var(--glow-gold);
+  --offer-enter-x: 120px;
+}
+
+.offer-panel.offer-panel--magenta:nth-of-type(7) {
+  --offer-enter-x: 70px;
+}
+
+.offer-panel.offer-panel--cyan.offer-panel--right {
+  --offer-enter-x: -70px;
+}
+
+.offer-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding-right: 0.75rem;
+}
+
+.offer-panel__header > div {
+  flex: 1;
+}
+
+.offer-panel__tag {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--panel-accent);
+  margin-bottom: 0.75rem;
+}
+
+.offer-panel__title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.offer-panel__number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  color: var(--panel-accent);
+  opacity: 0.75;
+  letter-spacing: 0.12em;
+  min-width: 2.75rem;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.offer-panel__description {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.75;
+}
+
+.offer-panel__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.offer-panel__list li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.offer-panel__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--panel-accent);
+  box-shadow: 0 0 12px var(--panel-glow);
+}
+
+.offer-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.offer-panel__actions .btn {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.offer-panel__hint {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .offer-grid {
+    gap: 2rem;
+  }
+
+  .offer-panel {
+    padding: 1.75rem;
+  }
+
+  .offer-panel__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Add-ons Section */
+.add-ons-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.add-ons-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: image-set(
+    url('../../assets/images/responsive/backgrounds/enhance-bg-1920w.avif') type('image/avif'),
+    url('../../assets/images/responsive/backgrounds/enhance-bg-1920w.webp') type('image/webp')
+  );
+  /* Fallback for browsers without image-set support */
+  background-image: url('../../assets/images/responsive/backgrounds/enhance-bg-1920w.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.add-ons-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.7), rgba(26, 26, 46, 0.7));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.add-ons-section .container,
+.add-ons-section .service-card {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 1280px) {
+  .add-ons-section::before {
+    background-image: image-set(
+      url('../../assets/images/responsive/backgrounds/enhance-bg-1280w.avif') type('image/avif'),
+      url('../../assets/images/responsive/backgrounds/enhance-bg-1280w.webp') type('image/webp')
+    );
+    background-image: url('../../assets/images/responsive/backgrounds/enhance-bg-1280w.webp');
+  }
+}
+
+@media (max-width: 1024px) {
+  .add-ons-section::before {
+    background-image: image-set(
+      url('../../assets/images/responsive/backgrounds/enhance-bg-1024w.avif') type('image/avif'),
+      url('../../assets/images/responsive/backgrounds/enhance-bg-1024w.webp') type('image/webp')
+    );
+    background-image: url('../../assets/images/responsive/backgrounds/enhance-bg-1024w.webp');
+  }
+}
+
+@media (max-width: 768px) {
+  .add-ons-section::before {
+    background-image: image-set(
+      url('../../assets/images/responsive/backgrounds/enhance-bg-768w.avif') type('image/avif'),
+      url('../../assets/images/responsive/backgrounds/enhance-bg-768w.webp') type('image/webp')
+    );
+    background-image: url('../../assets/images/responsive/backgrounds/enhance-bg-768w.webp');
+  }
+}
+
+@media (max-width: 480px) {
+  .add-ons-section::before {
+    background-image: image-set(
+      url('../../assets/images/responsive/backgrounds/enhance-bg-480w.avif') type('image/avif'),
+      url('../../assets/images/responsive/backgrounds/enhance-bg-480w.webp') type('image/webp')
+    );
+    background-image: url('../../assets/images/responsive/backgrounds/enhance-bg-480w.webp');
+  }
+}
+

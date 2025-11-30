@@ -1,0 +1,4785 @@
+{
+  "total": 391,
+  "byFile": [
+    {
+      "path": "easter-egg\\easter-egg.css",
+      "count": 307,
+      "instances": [
+        {
+          "line": 53,
+          "selector": "overflow: hidden !important;",
+          "property": "overflow",
+          "fullLine": "overflow: hidden !important;"
+        },
+        {
+          "line": 54,
+          "selector": "position: fixed !important;",
+          "property": "position",
+          "fullLine": "position: fixed !important;"
+        },
+        {
+          "line": 55,
+          "selector": "width: 100% !important;",
+          "property": "width",
+          "fullLine": "width: 100% !important;"
+        },
+        {
+          "line": 56,
+          "selector": "height: 100% !important;",
+          "property": "height",
+          "fullLine": "height: 100% !important;"
+        },
+        {
+          "line": 87,
+          "selector": "visibility: hidden !important;",
+          "property": "visibility",
+          "fullLine": "visibility: hidden !important;"
+        },
+        {
+          "line": 88,
+          "selector": "opacity: 0 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0 !important;"
+        },
+        {
+          "line": 89,
+          "selector": "pointer-events: none !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: none !important;"
+        },
+        {
+          "line": 94,
+          "selector": "opacity: 0 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0 !important;"
+        },
+        {
+          "line": 95,
+          "selector": "pointer-events: none !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: none !important;"
+        },
+        {
+          "line": 96,
+          "selector": "z-index: -1 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: -1 !important;"
+        },
+        {
+          "line": 124,
+          "selector": "position: fixed !important;",
+          "property": "position",
+          "fullLine": "position: fixed !important;"
+        },
+        {
+          "line": 125,
+          "selector": "top: 0 !important;",
+          "property": "top",
+          "fullLine": "top: 0 !important;"
+        },
+        {
+          "line": 126,
+          "selector": "left: 0 !important;",
+          "property": "left",
+          "fullLine": "left: 0 !important;"
+        },
+        {
+          "line": 127,
+          "selector": "width: 100vw !important;",
+          "property": "width",
+          "fullLine": "width: 100vw !important;"
+        },
+        {
+          "line": 128,
+          "selector": "height: 100vh !important;",
+          "property": "height",
+          "fullLine": "height: 100vh !important;"
+        },
+        {
+          "line": 129,
+          "selector": "z-index: 99998 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: 99998 !important;"
+        },
+        {
+          "line": 132,
+          "selector": "background: transparent !important; /* Transparent background, not black */",
+          "property": "background",
+          "fullLine": "background: transparent !important; /* Transparent background, not black */"
+        },
+        {
+          "line": 134,
+          "selector": "margin: 0 !important;",
+          "property": "margin",
+          "fullLine": "margin: 0 !important;"
+        },
+        {
+          "line": 135,
+          "selector": "padding: 0 !important;",
+          "property": "padding",
+          "fullLine": "padding: 0 !important;"
+        },
+        {
+          "line": 136,
+          "selector": "overflow: hidden !important;",
+          "property": "overflow",
+          "fullLine": "overflow: hidden !important;"
+        },
+        {
+          "line": 140,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 141,
+          "selector": "pointer-events: all !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: all !important;"
+        },
+        {
+          "line": 142,
+          "selector": "display: block !important;",
+          "property": "display",
+          "fullLine": "display: block !important;"
+        },
+        {
+          "line": 143,
+          "selector": "z-index: 99999 !important; /* Higher than vortex to ensure it's on top */",
+          "property": "z-index",
+          "fullLine": "z-index: 99999 !important; /* Higher than vortex to ensure it's on top */"
+        },
+        {
+          "line": 144,
+          "selector": "background: transparent !important; /* Remove dark background */",
+          "property": "background",
+          "fullLine": "background: transparent !important; /* Remove dark background */"
+        },
+        {
+          "line": 156,
+          "selector": "cursor: default !important;",
+          "property": "cursor",
+          "fullLine": "cursor: default !important;"
+        },
+        {
+          "line": 160,
+          "selector": "cursor: inherit !important;",
+          "property": "cursor",
+          "fullLine": "cursor: inherit !important;"
+        },
+        {
+          "line": 164,
+          "selector": "cursor: default !important;",
+          "property": "cursor",
+          "fullLine": "cursor: default !important;"
+        },
+        {
+          "line": 168,
+          "selector": "cursor: crosshair !important;",
+          "property": "cursor",
+          "fullLine": "cursor: crosshair !important;"
+        },
+        {
+          "line": 179,
+          "selector": "cursor: default !important;",
+          "property": "cursor",
+          "fullLine": "cursor: default !important;"
+        },
+        {
+          "line": 184,
+          "selector": "cursor: default !important;",
+          "property": "cursor",
+          "fullLine": "cursor: default !important;"
+        },
+        {
+          "line": 188,
+          "selector": "cursor: crosshair !important;",
+          "property": "cursor",
+          "fullLine": "cursor: crosshair !important;"
+        },
+        {
+          "line": 193,
+          "selector": "cursor: pointer !important;",
+          "property": "cursor",
+          "fullLine": "cursor: pointer !important;"
+        },
+        {
+          "line": 203,
+          "selector": "cursor: default !important;",
+          "property": "cursor",
+          "fullLine": "cursor: default !important;"
+        },
+        {
+          "line": 208,
+          "selector": "cursor: default !important;",
+          "property": "cursor",
+          "fullLine": "cursor: default !important;"
+        },
+        {
+          "line": 212,
+          "selector": "cursor: crosshair !important;",
+          "property": "cursor",
+          "fullLine": "cursor: crosshair !important;"
+        },
+        {
+          "line": 213,
+          "selector": "pointer-events: all !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: all !important;"
+        },
+        {
+          "line": 218,
+          "selector": "cursor: pointer !important;",
+          "property": "cursor",
+          "fullLine": "cursor: pointer !important;"
+        },
+        {
+          "line": 223,
+          "selector": "position: fixed !important;",
+          "property": "position",
+          "fullLine": "position: fixed !important;"
+        },
+        {
+          "line": 224,
+          "selector": "top: 50vh !important;",
+          "property": "top",
+          "fullLine": "top: 50vh !important;"
+        },
+        {
+          "line": 225,
+          "selector": "left: 50vw !important;",
+          "property": "left",
+          "fullLine": "left: 50vw !important;"
+        },
+        {
+          "line": 226,
+          "selector": "transform: translate(-50%, -50%) !important;",
+          "property": "transform",
+          "fullLine": "transform: translate(-50%, -50%) !important;"
+        },
+        {
+          "line": 227,
+          "selector": "z-index: 999999 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: 999999 !important;"
+        },
+        {
+          "line": 228,
+          "selector": "display: none !important;",
+          "property": "display",
+          "fullLine": "display: none !important;"
+        },
+        {
+          "line": 229,
+          "selector": "flex-direction: column !important;",
+          "property": "flex-direction",
+          "fullLine": "flex-direction: column !important;"
+        },
+        {
+          "line": 230,
+          "selector": "align-items: center !important;",
+          "property": "align-items",
+          "fullLine": "align-items: center !important;"
+        },
+        {
+          "line": 231,
+          "selector": "justify-content: center !important;",
+          "property": "justify-content",
+          "fullLine": "justify-content: center !important;"
+        },
+        {
+          "line": 232,
+          "selector": "gap: 2.5rem !important;",
+          "property": "gap",
+          "fullLine": "gap: 2.5rem !important;"
+        },
+        {
+          "line": 233,
+          "selector": "pointer-events: none !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: none !important;"
+        },
+        {
+          "line": 234,
+          "selector": "width: auto !important;",
+          "property": "width",
+          "fullLine": "width: auto !important;"
+        },
+        {
+          "line": 235,
+          "selector": "height: auto !important;",
+          "property": "height",
+          "fullLine": "height: auto !important;"
+        },
+        {
+          "line": 236,
+          "selector": "margin: 0 !important;",
+          "property": "margin",
+          "fullLine": "margin: 0 !important;"
+        },
+        {
+          "line": 237,
+          "selector": "padding: 0 !important;",
+          "property": "padding",
+          "fullLine": "padding: 0 !important;"
+        },
+        {
+          "line": 241,
+          "selector": "display: flex !important;",
+          "property": "display",
+          "fullLine": "display: flex !important;"
+        },
+        {
+          "line": 245,
+          "selector": "width: 100px !important;",
+          "property": "width",
+          "fullLine": "width: 100px !important;"
+        },
+        {
+          "line": 246,
+          "selector": "height: 100px !important;",
+          "property": "height",
+          "fullLine": "height: 100px !important;"
+        },
+        {
+          "line": 247,
+          "selector": "border: 5px solid rgba(0, 255, 255, 0.1) !important;",
+          "property": "border",
+          "fullLine": "border: 5px solid rgba(0, 255, 255, 0.1) !important;"
+        },
+        {
+          "line": 248,
+          "selector": "border-top: 5px solid var(--accent-cyan) !important;",
+          "property": "border-top",
+          "fullLine": "border-top: 5px solid var(--accent-cyan) !important;"
+        },
+        {
+          "line": 249,
+          "selector": "border-right: 5px solid var(--accent-magenta) !important;",
+          "property": "border-right",
+          "fullLine": "border-right: 5px solid var(--accent-magenta) !important;"
+        },
+        {
+          "line": 250,
+          "selector": "border-radius: 50% !important;",
+          "property": "border-radius",
+          "fullLine": "border-radius: 50% !important;"
+        },
+        {
+          "line": 251,
+          "selector": "animation: galaxySpin 1s linear infinite !important;",
+          "property": "animation",
+          "fullLine": "animation: galaxySpin 1s linear infinite !important;"
+        },
+        {
+          "line": 255,
+          "selector": "inset 0 0 20px rgba(0, 255, 255, 0.1) !important;",
+          "property": "unknown",
+          "fullLine": "inset 0 0 20px rgba(0, 255, 255, 0.1) !important;"
+        },
+        {
+          "line": 256,
+          "selector": "position: relative !important;",
+          "property": "position",
+          "fullLine": "position: relative !important;"
+        },
+        {
+          "line": 263,
+          "selector": "color: var(--accent-cyan) !important;",
+          "property": "color",
+          "fullLine": "color: var(--accent-cyan) !important;"
+        },
+        {
+          "line": 264,
+          "selector": "font-family: 'Orbitron', sans-serif !important;",
+          "property": "font-family",
+          "fullLine": "font-family: 'Orbitron', sans-serif !important;"
+        },
+        {
+          "line": 265,
+          "selector": "font-size: 1.8rem !important;",
+          "property": "font-size",
+          "fullLine": "font-size: 1.8rem !important;"
+        },
+        {
+          "line": 266,
+          "selector": "font-weight: 700 !important;",
+          "property": "font-weight",
+          "fullLine": "font-weight: 700 !important;"
+        },
+        {
+          "line": 269,
+          "selector": "0 0 30px var(--glow-cyan) !important;",
+          "property": "unknown",
+          "fullLine": "0 0 30px var(--glow-cyan) !important;"
+        },
+        {
+          "line": 270,
+          "selector": "animation: galaxyPulse 2s ease-in-out infinite !important;",
+          "property": "animation",
+          "fullLine": "animation: galaxyPulse 2s ease-in-out infinite !important;"
+        },
+        {
+          "line": 271,
+          "selector": "letter-spacing: 4px !important;",
+          "property": "letter-spacing",
+          "fullLine": "letter-spacing: 4px !important;"
+        },
+        {
+          "line": 272,
+          "selector": "text-align: center !important;",
+          "property": "text-align",
+          "fullLine": "text-align: center !important;"
+        },
+        {
+          "line": 273,
+          "selector": "white-space: nowrap !important;",
+          "property": "white-space",
+          "fullLine": "white-space: nowrap !important;"
+        },
+        {
+          "line": 314,
+          "selector": "bottom: 2rem !important;",
+          "property": "bottom",
+          "fullLine": "bottom: 2rem !important;"
+        },
+        {
+          "line": 315,
+          "selector": "left: 50% !important;",
+          "property": "left",
+          "fullLine": "left: 50% !important;"
+        },
+        {
+          "line": 316,
+          "selector": "transform: translateX(-50%) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important;"
+        },
+        {
+          "line": 317,
+          "selector": "top: auto !important;",
+          "property": "top",
+          "fullLine": "top: auto !important;"
+        },
+        {
+          "line": 318,
+          "selector": "right: auto !important;",
+          "property": "right",
+          "fullLine": "right: auto !important;"
+        },
+        {
+          "line": 319,
+          "selector": "z-index: 2147483647 !important; /* Maximum z-index for fullscreen compatibility */",
+          "property": "z-index",
+          "fullLine": "z-index: 2147483647 !important; /* Maximum z-index for fullscreen compatibility */"
+        },
+        {
+          "line": 320,
+          "selector": "display: none !important;",
+          "property": "display",
+          "fullLine": "display: none !important;"
+        },
+        {
+          "line": 321,
+          "selector": "opacity: 0 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0 !important;"
+        },
+        {
+          "line": 323,
+          "selector": "pointer-events: none !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: none !important;"
+        },
+        {
+          "line": 324,
+          "selector": "visibility: hidden !important;",
+          "property": "visibility",
+          "fullLine": "visibility: hidden !important;"
+        },
+        {
+          "line": 325,
+          "selector": "width: 0 !important;",
+          "property": "width",
+          "fullLine": "width: 0 !important;"
+        },
+        {
+          "line": 326,
+          "selector": "height: 0 !important;",
+          "property": "height",
+          "fullLine": "height: 0 !important;"
+        },
+        {
+          "line": 327,
+          "selector": "overflow: visible !important; /* Changed from hidden to visible for tooltips */",
+          "property": "overflow",
+          "fullLine": "overflow: visible !important; /* Changed from hidden to visible for tooltips */"
+        },
+        {
+          "line": 334,
+          "selector": "z-index: 2147483647 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: 2147483647 !important;"
+        },
+        {
+          "line": 335,
+          "selector": "position: fixed !important;",
+          "property": "position",
+          "fullLine": "position: fixed !important;"
+        },
+        {
+          "line": 336,
+          "selector": "display: flex !important;",
+          "property": "display",
+          "fullLine": "display: flex !important;"
+        },
+        {
+          "line": 337,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 338,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 339,
+          "selector": "pointer-events: all !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: all !important;"
+        },
+        {
+          "line": 340,
+          "selector": "bottom: 2rem !important;",
+          "property": "bottom",
+          "fullLine": "bottom: 2rem !important;"
+        },
+        {
+          "line": 341,
+          "selector": "left: 50% !important;",
+          "property": "left",
+          "fullLine": "left: 50% !important;"
+        },
+        {
+          "line": 342,
+          "selector": "transform: translateX(-50%) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important;"
+        },
+        {
+          "line": 343,
+          "selector": "top: auto !important;",
+          "property": "top",
+          "fullLine": "top: auto !important;"
+        },
+        {
+          "line": 344,
+          "selector": "right: auto !important;",
+          "property": "right",
+          "fullLine": "right: auto !important;"
+        },
+        {
+          "line": 351,
+          "selector": "z-index: 2147483647 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: 2147483647 !important;"
+        },
+        {
+          "line": 352,
+          "selector": "position: fixed !important;",
+          "property": "position",
+          "fullLine": "position: fixed !important;"
+        },
+        {
+          "line": 353,
+          "selector": "display: flex !important;",
+          "property": "display",
+          "fullLine": "display: flex !important;"
+        },
+        {
+          "line": 354,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 355,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 356,
+          "selector": "pointer-events: all !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: all !important;"
+        },
+        {
+          "line": 357,
+          "selector": "bottom: 2rem !important;",
+          "property": "bottom",
+          "fullLine": "bottom: 2rem !important;"
+        },
+        {
+          "line": 358,
+          "selector": "left: 50% !important;",
+          "property": "left",
+          "fullLine": "left: 50% !important;"
+        },
+        {
+          "line": 359,
+          "selector": "transform: translateX(-50%) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important;"
+        },
+        {
+          "line": 360,
+          "selector": "top: auto !important;",
+          "property": "top",
+          "fullLine": "top: auto !important;"
+        },
+        {
+          "line": 361,
+          "selector": "right: auto !important;",
+          "property": "right",
+          "fullLine": "right: auto !important;"
+        },
+        {
+          "line": 369,
+          "selector": "z-index: 2147483647 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: 2147483647 !important;"
+        },
+        {
+          "line": 370,
+          "selector": "position: fixed !important;",
+          "property": "position",
+          "fullLine": "position: fixed !important;"
+        },
+        {
+          "line": 371,
+          "selector": "display: flex !important;",
+          "property": "display",
+          "fullLine": "display: flex !important;"
+        },
+        {
+          "line": 372,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 373,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 374,
+          "selector": "pointer-events: all !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: all !important;"
+        },
+        {
+          "line": 375,
+          "selector": "bottom: 2rem !important;",
+          "property": "bottom",
+          "fullLine": "bottom: 2rem !important;"
+        },
+        {
+          "line": 376,
+          "selector": "left: 50% !important;",
+          "property": "left",
+          "fullLine": "left: 50% !important;"
+        },
+        {
+          "line": 377,
+          "selector": "transform: translateX(-50%) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important;"
+        },
+        {
+          "line": 378,
+          "selector": "top: auto !important;",
+          "property": "top",
+          "fullLine": "top: auto !important;"
+        },
+        {
+          "line": 379,
+          "selector": "right: auto !important;",
+          "property": "right",
+          "fullLine": "right: auto !important;"
+        },
+        {
+          "line": 386,
+          "selector": "display: flex !important;",
+          "property": "display",
+          "fullLine": "display: flex !important;"
+        },
+        {
+          "line": 387,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 388,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 389,
+          "selector": "pointer-events: all !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: all !important;"
+        },
+        {
+          "line": 390,
+          "selector": "width: auto !important;",
+          "property": "width",
+          "fullLine": "width: auto !important;"
+        },
+        {
+          "line": 391,
+          "selector": "height: auto !important;",
+          "property": "height",
+          "fullLine": "height: auto !important;"
+        },
+        {
+          "line": 392,
+          "selector": "overflow: visible !important;",
+          "property": "overflow",
+          "fullLine": "overflow: visible !important;"
+        },
+        {
+          "line": 393,
+          "selector": "bottom: 2rem !important;",
+          "property": "bottom",
+          "fullLine": "bottom: 2rem !important;"
+        },
+        {
+          "line": 394,
+          "selector": "left: 50% !important;",
+          "property": "left",
+          "fullLine": "left: 50% !important;"
+        },
+        {
+          "line": 395,
+          "selector": "transform: translateX(-50%) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important;"
+        },
+        {
+          "line": 396,
+          "selector": "top: auto !important;",
+          "property": "top",
+          "fullLine": "top: auto !important;"
+        },
+        {
+          "line": 397,
+          "selector": "right: auto !important;",
+          "property": "right",
+          "fullLine": "right: auto !important;"
+        },
+        {
+          "line": 404,
+          "selector": "display: flex !important;",
+          "property": "display",
+          "fullLine": "display: flex !important;"
+        },
+        {
+          "line": 405,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 406,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 407,
+          "selector": "pointer-events: all !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: all !important;"
+        },
+        {
+          "line": 408,
+          "selector": "width: auto !important;",
+          "property": "width",
+          "fullLine": "width: auto !important;"
+        },
+        {
+          "line": 409,
+          "selector": "height: auto !important;",
+          "property": "height",
+          "fullLine": "height: auto !important;"
+        },
+        {
+          "line": 410,
+          "selector": "overflow: visible !important;",
+          "property": "overflow",
+          "fullLine": "overflow: visible !important;"
+        },
+        {
+          "line": 411,
+          "selector": "bottom: 2rem !important;",
+          "property": "bottom",
+          "fullLine": "bottom: 2rem !important;"
+        },
+        {
+          "line": 412,
+          "selector": "left: 50% !important;",
+          "property": "left",
+          "fullLine": "left: 50% !important;"
+        },
+        {
+          "line": 413,
+          "selector": "transform: translateX(-50%) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important;"
+        },
+        {
+          "line": 414,
+          "selector": "top: auto !important;",
+          "property": "top",
+          "fullLine": "top: auto !important;"
+        },
+        {
+          "line": 415,
+          "selector": "right: auto !important;",
+          "property": "right",
+          "fullLine": "right: auto !important;"
+        },
+        {
+          "line": 423,
+          "selector": "display: flex !important;",
+          "property": "display",
+          "fullLine": "display: flex !important;"
+        },
+        {
+          "line": 424,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 425,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 426,
+          "selector": "pointer-events: all !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: all !important;"
+        },
+        {
+          "line": 427,
+          "selector": "width: auto !important;",
+          "property": "width",
+          "fullLine": "width: auto !important;"
+        },
+        {
+          "line": 428,
+          "selector": "height: auto !important;",
+          "property": "height",
+          "fullLine": "height: auto !important;"
+        },
+        {
+          "line": 429,
+          "selector": "overflow: visible !important;",
+          "property": "overflow",
+          "fullLine": "overflow: visible !important;"
+        },
+        {
+          "line": 430,
+          "selector": "bottom: 2rem !important;",
+          "property": "bottom",
+          "fullLine": "bottom: 2rem !important;"
+        },
+        {
+          "line": 431,
+          "selector": "left: 50% !important;",
+          "property": "left",
+          "fullLine": "left: 50% !important;"
+        },
+        {
+          "line": 432,
+          "selector": "transform: translateX(-50%) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important;"
+        },
+        {
+          "line": 433,
+          "selector": "top: auto !important;",
+          "property": "top",
+          "fullLine": "top: auto !important;"
+        },
+        {
+          "line": 434,
+          "selector": "right: auto !important;",
+          "property": "right",
+          "fullLine": "right: auto !important;"
+        },
+        {
+          "line": 439,
+          "selector": "display: flex !important;",
+          "property": "display",
+          "fullLine": "display: flex !important;"
+        },
+        {
+          "line": 440,
+          "selector": "flex-direction: row !important;",
+          "property": "flex-direction",
+          "fullLine": "flex-direction: row !important;"
+        },
+        {
+          "line": 441,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 442,
+          "selector": "pointer-events: all !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: all !important;"
+        },
+        {
+          "line": 443,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 444,
+          "selector": "width: auto !important;",
+          "property": "width",
+          "fullLine": "width: auto !important;"
+        },
+        {
+          "line": 445,
+          "selector": "height: auto !important;",
+          "property": "height",
+          "fullLine": "height: auto !important;"
+        },
+        {
+          "line": 446,
+          "selector": "overflow: visible !important;",
+          "property": "overflow",
+          "fullLine": "overflow: visible !important;"
+        },
+        {
+          "line": 447,
+          "selector": "position: fixed !important;",
+          "property": "position",
+          "fullLine": "position: fixed !important;"
+        },
+        {
+          "line": 448,
+          "selector": "bottom: 2rem !important;",
+          "property": "bottom",
+          "fullLine": "bottom: 2rem !important;"
+        },
+        {
+          "line": 449,
+          "selector": "left: 50% !important;",
+          "property": "left",
+          "fullLine": "left: 50% !important;"
+        },
+        {
+          "line": 450,
+          "selector": "transform: translateX(-50%) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important;"
+        },
+        {
+          "line": 451,
+          "selector": "top: auto !important;",
+          "property": "top",
+          "fullLine": "top: auto !important;"
+        },
+        {
+          "line": 452,
+          "selector": "right: auto !important;",
+          "property": "right",
+          "fullLine": "right: auto !important;"
+        },
+        {
+          "line": 453,
+          "selector": "z-index: 2147483647 !important; /* Maximum z-index for fullscreen */",
+          "property": "z-index",
+          "fullLine": "z-index: 2147483647 !important; /* Maximum z-index for fullscreen */"
+        },
+        {
+          "line": 454,
+          "selector": "margin: 0 !important;",
+          "property": "margin",
+          "fullLine": "margin: 0 !important;"
+        },
+        {
+          "line": 455,
+          "selector": "padding: 0 !important;",
+          "property": "padding",
+          "fullLine": "padding: 0 !important;"
+        },
+        {
+          "line": 459,
+          "selector": "display: flex !important;",
+          "property": "display",
+          "fullLine": "display: flex !important;"
+        },
+        {
+          "line": 460,
+          "selector": "flex-direction: row !important;",
+          "property": "flex-direction",
+          "fullLine": "flex-direction: row !important;"
+        },
+        {
+          "line": 461,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 462,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 463,
+          "selector": "width: auto !important;",
+          "property": "width",
+          "fullLine": "width: auto !important;"
+        },
+        {
+          "line": 464,
+          "selector": "height: auto !important;",
+          "property": "height",
+          "fullLine": "height: auto !important;"
+        },
+        {
+          "line": 465,
+          "selector": "position: relative !important;",
+          "property": "position",
+          "fullLine": "position: relative !important;"
+        },
+        {
+          "line": 466,
+          "selector": "top: auto !important;",
+          "property": "top",
+          "fullLine": "top: auto !important;"
+        },
+        {
+          "line": 467,
+          "selector": "left: auto !important;",
+          "property": "left",
+          "fullLine": "left: auto !important;"
+        },
+        {
+          "line": 468,
+          "selector": "z-index: 1 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: 1 !important;"
+        },
+        {
+          "line": 469,
+          "selector": "gap: 12px !important;",
+          "property": "gap",
+          "fullLine": "gap: 12px !important;"
+        },
+        {
+          "line": 476,
+          "selector": "display: none !important;",
+          "property": "display",
+          "fullLine": "display: none !important;"
+        },
+        {
+          "line": 477,
+          "selector": "visibility: hidden !important;",
+          "property": "visibility",
+          "fullLine": "visibility: hidden !important;"
+        },
+        {
+          "line": 478,
+          "selector": "opacity: 0 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0 !important;"
+        },
+        {
+          "line": 479,
+          "selector": "pointer-events: none !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: none !important;"
+        },
+        {
+          "line": 485,
+          "selector": "display: none !important;",
+          "property": "display",
+          "fullLine": "display: none !important;"
+        },
+        {
+          "line": 486,
+          "selector": "visibility: hidden !important;",
+          "property": "visibility",
+          "fullLine": "visibility: hidden !important;"
+        },
+        {
+          "line": 487,
+          "selector": "opacity: 0 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0 !important;"
+        },
+        {
+          "line": 488,
+          "selector": "pointer-events: none !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: none !important;"
+        },
+        {
+          "line": 489,
+          "selector": "width: 0 !important;",
+          "property": "width",
+          "fullLine": "width: 0 !important;"
+        },
+        {
+          "line": 490,
+          "selector": "height: 0 !important;",
+          "property": "height",
+          "fullLine": "height: 0 !important;"
+        },
+        {
+          "line": 491,
+          "selector": "overflow: hidden !important;",
+          "property": "overflow",
+          "fullLine": "overflow: hidden !important;"
+        },
+        {
+          "line": 492,
+          "selector": "margin: 0 !important;",
+          "property": "margin",
+          "fullLine": "margin: 0 !important;"
+        },
+        {
+          "line": 493,
+          "selector": "padding: 0 !important;",
+          "property": "padding",
+          "fullLine": "padding: 0 !important;"
+        },
+        {
+          "line": 494,
+          "selector": "border: none !important;",
+          "property": "border",
+          "fullLine": "border: none !important;"
+        },
+        {
+          "line": 495,
+          "selector": "position: absolute !important;",
+          "property": "position",
+          "fullLine": "position: absolute !important;"
+        },
+        {
+          "line": 496,
+          "selector": "top: -9999px !important;",
+          "property": "top",
+          "fullLine": "top: -9999px !important;"
+        },
+        {
+          "line": 497,
+          "selector": "left: -9999px !important;",
+          "property": "left",
+          "fullLine": "left: -9999px !important;"
+        },
+        {
+          "line": 498,
+          "selector": "z-index: -1 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: -1 !important;"
+        },
+        {
+          "line": 502,
+          "selector": "width: auto !important;",
+          "property": "width",
+          "fullLine": "width: auto !important;"
+        },
+        {
+          "line": 503,
+          "selector": "height: auto !important;",
+          "property": "height",
+          "fullLine": "height: auto !important;"
+        },
+        {
+          "line": 504,
+          "selector": "border: none !important;",
+          "property": "border",
+          "fullLine": "border: none !important;"
+        },
+        {
+          "line": 505,
+          "selector": "background: transparent !important;",
+          "property": "background",
+          "fullLine": "background: transparent !important;"
+        },
+        {
+          "line": 506,
+          "selector": "border-radius: 0 !important;",
+          "property": "border-radius",
+          "fullLine": "border-radius: 0 !important;"
+        },
+        {
+          "line": 507,
+          "selector": "color: var(--accent-cyan) !important;",
+          "property": "color",
+          "fullLine": "color: var(--accent-cyan) !important;"
+        },
+        {
+          "line": 508,
+          "selector": "cursor: pointer !important;",
+          "property": "cursor",
+          "fullLine": "cursor: pointer !important;"
+        },
+        {
+          "line": 509,
+          "selector": "display: flex !important;",
+          "property": "display",
+          "fullLine": "display: flex !important;"
+        },
+        {
+          "line": 510,
+          "selector": "align-items: center !important;",
+          "property": "align-items",
+          "fullLine": "align-items: center !important;"
+        },
+        {
+          "line": 511,
+          "selector": "justify-content: center !important;",
+          "property": "justify-content",
+          "fullLine": "justify-content: center !important;"
+        },
+        {
+          "line": 512,
+          "selector": "flex-direction: row !important;",
+          "property": "flex-direction",
+          "fullLine": "flex-direction: row !important;"
+        },
+        {
+          "line": 513,
+          "selector": "gap: 12px !important;",
+          "property": "gap",
+          "fullLine": "gap: 12px !important;"
+        },
+        {
+          "line": 514,
+          "selector": "padding: 0 !important;",
+          "property": "padding",
+          "fullLine": "padding: 0 !important;"
+        },
+        {
+          "line": 515,
+          "selector": "box-shadow: none !important;",
+          "property": "box-shadow",
+          "fullLine": "box-shadow: none !important;"
+        },
+        {
+          "line": 516,
+          "selector": "position: relative !important;",
+          "property": "position",
+          "fullLine": "position: relative !important;"
+        },
+        {
+          "line": 517,
+          "selector": "z-index: 1 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: 1 !important;"
+        },
+        {
+          "line": 518,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 519,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 520,
+          "selector": "backdrop-filter: none !important;",
+          "property": "backdrop-filter",
+          "fullLine": "backdrop-filter: none !important;"
+        },
+        {
+          "line": 521,
+          "selector": "overflow: visible !important; /* Ensure tooltips are visible */",
+          "property": "overflow",
+          "fullLine": "overflow: visible !important; /* Ensure tooltips are visible */"
+        },
+        {
+          "line": 525,
+          "selector": "width: 12px !important;",
+          "property": "width",
+          "fullLine": "width: 12px !important;"
+        },
+        {
+          "line": 526,
+          "selector": "height: 12px !important;",
+          "property": "height",
+          "fullLine": "height: 12px !important;"
+        },
+        {
+          "line": 527,
+          "selector": "border-radius: 50% !important;",
+          "property": "border-radius",
+          "fullLine": "border-radius: 50% !important;"
+        },
+        {
+          "line": 528,
+          "selector": "display: block !important;",
+          "property": "display",
+          "fullLine": "display: block !important;"
+        },
+        {
+          "line": 529,
+          "selector": "flex-shrink: 0 !important;",
+          "property": "flex-shrink",
+          "fullLine": "flex-shrink: 0 !important;"
+        },
+        {
+          "line": 530,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 531,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 532,
+          "selector": "position: relative !important;",
+          "property": "position",
+          "fullLine": "position: relative !important;"
+        },
+        {
+          "line": 533,
+          "selector": "margin: 0 !important;",
+          "property": "margin",
+          "fullLine": "margin: 0 !important;"
+        },
+        {
+          "line": 534,
+          "selector": "padding: 0 !important;",
+          "property": "padding",
+          "fullLine": "padding: 0 !important;"
+        },
+        {
+          "line": 535,
+          "selector": "cursor: pointer !important;",
+          "property": "cursor",
+          "fullLine": "cursor: pointer !important;"
+        },
+        {
+          "line": 538,
+          "selector": "box-shadow 0.3s ease !important;",
+          "property": "unknown",
+          "fullLine": "box-shadow 0.3s ease !important;"
+        },
+        {
+          "line": 543,
+          "selector": "position: relative !important; /* Required for absolute positioning of tooltip */",
+          "property": "position",
+          "fullLine": "position: relative !important; /* Required for absolute positioning of tooltip */"
+        },
+        {
+          "line": 544,
+          "selector": "overflow: visible !important;",
+          "property": "overflow",
+          "fullLine": "overflow: visible !important;"
+        },
+        {
+          "line": 548,
+          "selector": "content: attr(data-tooltip) !important;",
+          "property": "content",
+          "fullLine": "content: attr(data-tooltip) !important;"
+        },
+        {
+          "line": 549,
+          "selector": "position: fixed !important; /* Fixed to viewport */",
+          "property": "position",
+          "fullLine": "position: fixed !important; /* Fixed to viewport */"
+        },
+        {
+          "line": 552,
+          "selector": ") !important; /* ABOVE dots: menu bottom (2rem) + dot height (12px) + gap (12px) */",
+          "property": "unknown",
+          "fullLine": ") !important; /* ABOVE dots: menu bottom (2rem) + dot height (12px) + gap (12px) */"
+        },
+        {
+          "line": 553,
+          "selector": "left: 50% !important; /* Center horizontally */",
+          "property": "left",
+          "fullLine": "left: 50% !important; /* Center horizontally */"
+        },
+        {
+          "line": 554,
+          "selector": "transform: translateX(-50%) !important; /* Center the tooltip itself */",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important; /* Center the tooltip itself */"
+        },
+        {
+          "line": 555,
+          "selector": "top: auto !important;",
+          "property": "top",
+          "fullLine": "top: auto !important;"
+        },
+        {
+          "line": 556,
+          "selector": "right: auto !important;",
+          "property": "right",
+          "fullLine": "right: auto !important;"
+        },
+        {
+          "line": 557,
+          "selector": "background: rgba(10, 10, 10, 0.95) !important;",
+          "property": "background",
+          "fullLine": "background: rgba(10, 10, 10, 0.95) !important;"
+        },
+        {
+          "line": 558,
+          "selector": "color: var(--text-primary) !important;",
+          "property": "color",
+          "fullLine": "color: var(--text-primary) !important;"
+        },
+        {
+          "line": 559,
+          "selector": "padding: 0.5rem 0.75rem !important;",
+          "property": "padding",
+          "fullLine": "padding: 0.5rem 0.75rem !important;"
+        },
+        {
+          "line": 560,
+          "selector": "padding-left: 0.75rem !important;",
+          "property": "padding-left",
+          "fullLine": "padding-left: 0.75rem !important;"
+        },
+        {
+          "line": 561,
+          "selector": "padding-right: 0.75rem !important;",
+          "property": "padding-right",
+          "fullLine": "padding-right: 0.75rem !important;"
+        },
+        {
+          "line": 562,
+          "selector": "padding-top: 0.5rem !important;",
+          "property": "padding-top",
+          "fullLine": "padding-top: 0.5rem !important;"
+        },
+        {
+          "line": 563,
+          "selector": "padding-bottom: 0.5rem !important;",
+          "property": "padding-bottom",
+          "fullLine": "padding-bottom: 0.5rem !important;"
+        },
+        {
+          "line": 564,
+          "selector": "border-radius: 6px !important;",
+          "property": "border-radius",
+          "fullLine": "border-radius: 6px !important;"
+        },
+        {
+          "line": 565,
+          "selector": "font-size: 0.75rem !important;",
+          "property": "font-size",
+          "fullLine": "font-size: 0.75rem !important;"
+        },
+        {
+          "line": 566,
+          "selector": "font-family: 'Rajdhani', sans-serif !important;",
+          "property": "font-family",
+          "fullLine": "font-family: 'Rajdhani', sans-serif !important;"
+        },
+        {
+          "line": 567,
+          "selector": "font-weight: 600 !important;",
+          "property": "font-weight",
+          "fullLine": "font-weight: 600 !important;"
+        },
+        {
+          "line": 568,
+          "selector": "white-space: nowrap !important;",
+          "property": "white-space",
+          "fullLine": "white-space: nowrap !important;"
+        },
+        {
+          "line": 569,
+          "selector": "opacity: 0 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0 !important;"
+        },
+        {
+          "line": 570,
+          "selector": "visibility: hidden !important;",
+          "property": "visibility",
+          "fullLine": "visibility: hidden !important;"
+        },
+        {
+          "line": 571,
+          "selector": "pointer-events: none !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: none !important;"
+        },
+        {
+          "line": 574,
+          "selector": "visibility 0.3s ease !important;",
+          "property": "unknown",
+          "fullLine": "visibility 0.3s ease !important;"
+        },
+        {
+          "line": 575,
+          "selector": "z-index: 2147483647 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: 2147483647 !important;"
+        },
+        {
+          "line": 576,
+          "selector": "border: 1px solid var(--accent-cyan) !important;",
+          "property": "border",
+          "fullLine": "border: 1px solid var(--accent-cyan) !important;"
+        },
+        {
+          "line": 579,
+          "selector": "0 4px 12px rgba(0, 0, 0, 0.5) !important;",
+          "property": "unknown",
+          "fullLine": "0 4px 12px rgba(0, 0, 0, 0.5) !important;"
+        },
+        {
+          "line": 580,
+          "selector": "backdrop-filter: blur(10px) !important;",
+          "property": "backdrop-filter",
+          "fullLine": "backdrop-filter: blur(10px) !important;"
+        },
+        {
+          "line": 581,
+          "selector": "min-width: max-content !important;",
+          "property": "min-width",
+          "fullLine": "min-width: max-content !important;"
+        },
+        {
+          "line": 582,
+          "selector": "width: auto !important;",
+          "property": "width",
+          "fullLine": "width: auto !important;"
+        },
+        {
+          "line": 583,
+          "selector": "max-width: none !important;",
+          "property": "max-width",
+          "fullLine": "max-width: none !important;"
+        },
+        {
+          "line": 584,
+          "selector": "margin: 0 !important;",
+          "property": "margin",
+          "fullLine": "margin: 0 !important;"
+        },
+        {
+          "line": 585,
+          "selector": "margin-left: 0 !important;",
+          "property": "margin-left",
+          "fullLine": "margin-left: 0 !important;"
+        },
+        {
+          "line": 586,
+          "selector": "margin-right: auto !important;",
+          "property": "margin-right",
+          "fullLine": "margin-right: auto !important;"
+        },
+        {
+          "line": 587,
+          "selector": "margin-top: 0 !important;",
+          "property": "margin-top",
+          "fullLine": "margin-top: 0 !important;"
+        },
+        {
+          "line": 588,
+          "selector": "margin-bottom: 0 !important;",
+          "property": "margin-bottom",
+          "fullLine": "margin-bottom: 0 !important;"
+        },
+        {
+          "line": 589,
+          "selector": "box-sizing: border-box !important;",
+          "property": "box-sizing",
+          "fullLine": "box-sizing: border-box !important;"
+        },
+        {
+          "line": 593,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 594,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 595,
+          "selector": "transform: translateX(-50%) !important; /* Keep centered on hover */",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important; /* Keep centered on hover */"
+        },
+        {
+          "line": 596,
+          "selector": "bottom: calc(2rem + 12px + 12px) !important; /* ABOVE dots */",
+          "property": "bottom",
+          "fullLine": "bottom: calc(2rem + 12px + 12px) !important; /* ABOVE dots */"
+        },
+        {
+          "line": 597,
+          "selector": "left: 50% !important; /* Center horizontally */",
+          "property": "left",
+          "fullLine": "left: 50% !important; /* Center horizontally */"
+        },
+        {
+          "line": 598,
+          "selector": "right: auto !important;",
+          "property": "right",
+          "fullLine": "right: auto !important;"
+        },
+        {
+          "line": 599,
+          "selector": "top: auto !important;",
+          "property": "top",
+          "fullLine": "top: auto !important;"
+        },
+        {
+          "line": 605,
+          "selector": "position: fixed !important;",
+          "property": "position",
+          "fullLine": "position: fixed !important;"
+        },
+        {
+          "line": 606,
+          "selector": "bottom: calc(2rem + 12px + 6px) !important; /* Position above dots, just below tooltip */",
+          "property": "bottom",
+          "fullLine": "bottom: calc(2rem + 12px + 6px) !important; /* Position above dots, just below tooltip */"
+        },
+        {
+          "line": 607,
+          "selector": "left: 50% !important;",
+          "property": "left",
+          "fullLine": "left: 50% !important;"
+        },
+        {
+          "line": 608,
+          "selector": "transform: translateX(-50%) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important;"
+        },
+        {
+          "line": 609,
+          "selector": "width: 0 !important;",
+          "property": "width",
+          "fullLine": "width: 0 !important;"
+        },
+        {
+          "line": 610,
+          "selector": "height: 0 !important;",
+          "property": "height",
+          "fullLine": "height: 0 !important;"
+        },
+        {
+          "line": 611,
+          "selector": "border-left: 6px solid transparent !important;",
+          "property": "border-left",
+          "fullLine": "border-left: 6px solid transparent !important;"
+        },
+        {
+          "line": 612,
+          "selector": "border-right: 6px solid transparent !important;",
+          "property": "border-right",
+          "fullLine": "border-right: 6px solid transparent !important;"
+        },
+        {
+          "line": 613,
+          "selector": "border-top: 6px solid var(--accent-cyan) !important; /* Arrow pointing DOWN to dot */",
+          "property": "border-top",
+          "fullLine": "border-top: 6px solid var(--accent-cyan) !important; /* Arrow pointing DOWN to dot */"
+        },
+        {
+          "line": 614,
+          "selector": "border-bottom: none !important;",
+          "property": "border-bottom",
+          "fullLine": "border-bottom: none !important;"
+        },
+        {
+          "line": 615,
+          "selector": "opacity: 0 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0 !important;"
+        },
+        {
+          "line": 616,
+          "selector": "visibility: hidden !important;",
+          "property": "visibility",
+          "fullLine": "visibility: hidden !important;"
+        },
+        {
+          "line": 617,
+          "selector": "pointer-events: none !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: none !important;"
+        },
+        {
+          "line": 620,
+          "selector": "visibility 0.3s ease !important;",
+          "property": "unknown",
+          "fullLine": "visibility 0.3s ease !important;"
+        },
+        {
+          "line": 621,
+          "selector": "z-index: 2147483647 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: 2147483647 !important;"
+        },
+        {
+          "line": 625,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 626,
+          "selector": "visibility: visible !important;",
+          "property": "visibility",
+          "fullLine": "visibility: visible !important;"
+        },
+        {
+          "line": 627,
+          "selector": "transform: translateX(-50%) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50%) !important;"
+        },
+        {
+          "line": 632,
+          "selector": "background: var(--accent-cyan) !important;",
+          "property": "background",
+          "fullLine": "background: var(--accent-cyan) !important;"
+        },
+        {
+          "line": 636,
+          "selector": "0 0 35px rgba(0, 255, 255, 0.4) !important;",
+          "property": "unknown",
+          "fullLine": "0 0 35px rgba(0, 255, 255, 0.4) !important;"
+        },
+        {
+          "line": 640,
+          "selector": "transform: scale(1.3) !important;",
+          "property": "transform",
+          "fullLine": "transform: scale(1.3) !important;"
+        },
+        {
+          "line": 644,
+          "selector": "0 0 50px rgba(0, 255, 255, 0.6) !important;",
+          "property": "unknown",
+          "fullLine": "0 0 50px rgba(0, 255, 255, 0.6) !important;"
+        },
+        {
+          "line": 649,
+          "selector": "background: var(--accent-magenta) !important;",
+          "property": "background",
+          "fullLine": "background: var(--accent-magenta) !important;"
+        },
+        {
+          "line": 653,
+          "selector": "0 0 35px rgba(255, 0, 255, 0.4) !important;",
+          "property": "unknown",
+          "fullLine": "0 0 35px rgba(255, 0, 255, 0.4) !important;"
+        },
+        {
+          "line": 657,
+          "selector": "transform: scale(1.3) !important;",
+          "property": "transform",
+          "fullLine": "transform: scale(1.3) !important;"
+        },
+        {
+          "line": 661,
+          "selector": "0 0 50px rgba(255, 0, 255, 0.6) !important;",
+          "property": "unknown",
+          "fullLine": "0 0 50px rgba(255, 0, 255, 0.6) !important;"
+        },
+        {
+          "line": 666,
+          "selector": "background: var(--accent-green) !important;",
+          "property": "background",
+          "fullLine": "background: var(--accent-green) !important;"
+        },
+        {
+          "line": 670,
+          "selector": "0 0 35px rgba(0, 255, 0, 0.4) !important;",
+          "property": "unknown",
+          "fullLine": "0 0 35px rgba(0, 255, 0, 0.4) !important;"
+        },
+        {
+          "line": 674,
+          "selector": "transform: scale(1.3) !important;",
+          "property": "transform",
+          "fullLine": "transform: scale(1.3) !important;"
+        },
+        {
+          "line": 678,
+          "selector": "0 0 50px rgba(0, 255, 0, 0.6) !important;",
+          "property": "unknown",
+          "fullLine": "0 0 50px rgba(0, 255, 0, 0.6) !important;"
+        }
+      ]
+    },
+    {
+      "path": "components\\cards\\_card-sections.css",
+      "count": 38,
+      "instances": [
+        {
+          "line": 347,
+          "selector": "overflow: visible !important;",
+          "property": "overflow",
+          "fullLine": "overflow: visible !important;"
+        },
+        {
+          "line": 354,
+          "selector": "content: '' !important;",
+          "property": "content",
+          "fullLine": "content: '' !important;"
+        },
+        {
+          "line": 355,
+          "selector": "position: absolute !important;",
+          "property": "position",
+          "fullLine": "position: absolute !important;"
+        },
+        {
+          "line": 356,
+          "selector": "inset: -3px !important;",
+          "property": "inset",
+          "fullLine": "inset: -3px !important;"
+        },
+        {
+          "line": 357,
+          "selector": "border-radius: 13px !important;",
+          "property": "border-radius",
+          "fullLine": "border-radius: 13px !important;"
+        },
+        {
+          "line": 358,
+          "selector": "padding: 3px !important;",
+          "property": "padding",
+          "fullLine": "padding: 3px !important;"
+        },
+        {
+          "line": 367,
+          "selector": ") !important;",
+          "property": "unknown",
+          "fullLine": ") !important;"
+        },
+        {
+          "line": 370,
+          "selector": "linear-gradient(#fff 0 0) !important;",
+          "property": "unknown",
+          "fullLine": "linear-gradient(#fff 0 0) !important;"
+        },
+        {
+          "line": 371,
+          "selector": "-webkit-mask-composite: xor !important;",
+          "property": "-webkit-mask-composite",
+          "fullLine": "-webkit-mask-composite: xor !important;"
+        },
+        {
+          "line": 374,
+          "selector": "linear-gradient(#fff 0 0) !important;",
+          "property": "unknown",
+          "fullLine": "linear-gradient(#fff 0 0) !important;"
+        },
+        {
+          "line": 375,
+          "selector": "mask-composite: exclude !important;",
+          "property": "mask-composite",
+          "fullLine": "mask-composite: exclude !important;"
+        },
+        {
+          "line": 376,
+          "selector": "opacity: 0 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0 !important;"
+        },
+        {
+          "line": 377,
+          "selector": "transition: opacity 0.35s ease !important;",
+          "property": "transition",
+          "fullLine": "transition: opacity 0.35s ease !important;"
+        },
+        {
+          "line": 378,
+          "selector": "z-index: 9999 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: 9999 !important;"
+        },
+        {
+          "line": 379,
+          "selector": "pointer-events: none !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: none !important;"
+        },
+        {
+          "line": 380,
+          "selector": "animation: rotateGradient 3.5s linear infinite !important;",
+          "property": "animation",
+          "fullLine": "animation: rotateGradient 3.5s linear infinite !important;"
+        },
+        {
+          "line": 381,
+          "selector": "animation-play-state: paused !important;",
+          "property": "animation-play-state",
+          "fullLine": "animation-play-state: paused !important;"
+        },
+        {
+          "line": 394,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 395,
+          "selector": "animation-play-state: running !important;",
+          "property": "animation-play-state",
+          "fullLine": "animation-play-state: running !important;"
+        },
+        {
+          "line": 421,
+          "selector": "overflow: visible !important;",
+          "property": "overflow",
+          "fullLine": "overflow: visible !important;"
+        },
+        {
+          "line": 428,
+          "selector": "content: '' !important;",
+          "property": "content",
+          "fullLine": "content: '' !important;"
+        },
+        {
+          "line": 429,
+          "selector": "position: absolute !important;",
+          "property": "position",
+          "fullLine": "position: absolute !important;"
+        },
+        {
+          "line": 430,
+          "selector": "inset: -3px !important;",
+          "property": "inset",
+          "fullLine": "inset: -3px !important;"
+        },
+        {
+          "line": 431,
+          "selector": "border-radius: 13px !important;",
+          "property": "border-radius",
+          "fullLine": "border-radius: 13px !important;"
+        },
+        {
+          "line": 432,
+          "selector": "padding: 3px !important;",
+          "property": "padding",
+          "fullLine": "padding: 3px !important;"
+        },
+        {
+          "line": 441,
+          "selector": ") !important;",
+          "property": "unknown",
+          "fullLine": ") !important;"
+        },
+        {
+          "line": 444,
+          "selector": "linear-gradient(#fff 0 0) !important;",
+          "property": "unknown",
+          "fullLine": "linear-gradient(#fff 0 0) !important;"
+        },
+        {
+          "line": 445,
+          "selector": "-webkit-mask-composite: xor !important;",
+          "property": "-webkit-mask-composite",
+          "fullLine": "-webkit-mask-composite: xor !important;"
+        },
+        {
+          "line": 448,
+          "selector": "linear-gradient(#fff 0 0) !important;",
+          "property": "unknown",
+          "fullLine": "linear-gradient(#fff 0 0) !important;"
+        },
+        {
+          "line": 449,
+          "selector": "mask-composite: exclude !important;",
+          "property": "mask-composite",
+          "fullLine": "mask-composite: exclude !important;"
+        },
+        {
+          "line": 450,
+          "selector": "opacity: 0 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0 !important;"
+        },
+        {
+          "line": 451,
+          "selector": "transition: opacity 0.35s ease !important;",
+          "property": "transition",
+          "fullLine": "transition: opacity 0.35s ease !important;"
+        },
+        {
+          "line": 452,
+          "selector": "z-index: 9999 !important;",
+          "property": "z-index",
+          "fullLine": "z-index: 9999 !important;"
+        },
+        {
+          "line": 453,
+          "selector": "pointer-events: none !important;",
+          "property": "pointer-events",
+          "fullLine": "pointer-events: none !important;"
+        },
+        {
+          "line": 454,
+          "selector": "animation: rotateGradient 3.5s linear infinite !important;",
+          "property": "animation",
+          "fullLine": "animation: rotateGradient 3.5s linear infinite !important;"
+        },
+        {
+          "line": 455,
+          "selector": "animation-play-state: paused !important;",
+          "property": "animation-play-state",
+          "fullLine": "animation-play-state: paused !important;"
+        },
+        {
+          "line": 468,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 469,
+          "selector": "animation-play-state: running !important;",
+          "property": "animation-play-state",
+          "fullLine": "animation-play-state: running !important;"
+        }
+      ]
+    },
+    {
+      "path": "components\\navigation.css",
+      "count": 12,
+      "instances": [
+        {
+          "line": 143,
+          "selector": "display: inline-block !important;",
+          "property": "display",
+          "fullLine": "display: inline-block !important;"
+        },
+        {
+          "line": 144,
+          "selector": "position: static !important;",
+          "property": "position",
+          "fullLine": "position: static !important;"
+        },
+        {
+          "line": 145,
+          "selector": "width: 0 !important;",
+          "property": "width",
+          "fullLine": "width: 0 !important;"
+        },
+        {
+          "line": 146,
+          "selector": "height: 0 !important;",
+          "property": "height",
+          "fullLine": "height: 0 !important;"
+        },
+        {
+          "line": 147,
+          "selector": "border-left: 5px solid transparent !important;",
+          "property": "border-left",
+          "fullLine": "border-left: 5px solid transparent !important;"
+        },
+        {
+          "line": 148,
+          "selector": "border-right: 5px solid transparent !important;",
+          "property": "border-right",
+          "fullLine": "border-right: 5px solid transparent !important;"
+        },
+        {
+          "line": 149,
+          "selector": "border-top: 6px solid var(--accent-cyan) !important;",
+          "property": "border-top",
+          "fullLine": "border-top: 6px solid var(--accent-cyan) !important;"
+        },
+        {
+          "line": 150,
+          "selector": "border-bottom: none !important;",
+          "property": "border-bottom",
+          "fullLine": "border-bottom: none !important;"
+        },
+        {
+          "line": 151,
+          "selector": "background: none !important;",
+          "property": "background",
+          "fullLine": "background: none !important;"
+        },
+        {
+          "line": 152,
+          "selector": "bottom: auto !important;",
+          "property": "bottom",
+          "fullLine": "bottom: auto !important;"
+        },
+        {
+          "line": 153,
+          "selector": "left: auto !important;",
+          "property": "left",
+          "fullLine": "left: auto !important;"
+        },
+        {
+          "line": 156,
+          "selector": "opacity: 0.9 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0.9 !important;"
+        }
+      ]
+    },
+    {
+      "path": "pages\\about.css",
+      "count": 9,
+      "instances": [
+        {
+          "line": 59,
+          "selector": "transform: translateX(-50px) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(-50px) !important;"
+        },
+        {
+          "line": 62,
+          "selector": "transform 0.6s ease !important;",
+          "property": "unknown",
+          "fullLine": "transform 0.6s ease !important;"
+        },
+        {
+          "line": 66,
+          "selector": "transform: translateX(50px) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(50px) !important;"
+        },
+        {
+          "line": 70,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 71,
+          "selector": "transform: translateX(0) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateX(0) !important;"
+        },
+        {
+          "line": 355,
+          "selector": "flex-direction: column !important;",
+          "property": "flex-direction",
+          "fullLine": "flex-direction: column !important;"
+        },
+        {
+          "line": 356,
+          "selector": "align-items: flex-start !important;",
+          "property": "align-items",
+          "fullLine": "align-items: flex-start !important;"
+        },
+        {
+          "line": 363,
+          "selector": "margin-right: 0 !important;",
+          "property": "margin-right",
+          "fullLine": "margin-right: 0 !important;"
+        },
+        {
+          "line": 364,
+          "selector": "margin-left: 0 !important;",
+          "property": "margin-left",
+          "fullLine": "margin-left: 0 !important;"
+        }
+      ]
+    },
+    {
+      "path": "utils\\responsive.css",
+      "count": 7,
+      "instances": [
+        {
+          "line": 386,
+          "selector": "grid-template-columns: 1fr !important;",
+          "property": "grid-template-columns",
+          "fullLine": "grid-template-columns: 1fr !important;"
+        },
+        {
+          "line": 491,
+          "selector": "grid-template-columns: 1fr !important;",
+          "property": "grid-template-columns",
+          "fullLine": "grid-template-columns: 1fr !important;"
+        },
+        {
+          "line": 774,
+          "selector": "animation-duration: 0.3s !important;",
+          "property": "animation-duration",
+          "fullLine": "animation-duration: 0.3s !important;"
+        },
+        {
+          "line": 775,
+          "selector": "transition-duration: 0.2s !important;",
+          "property": "transition-duration",
+          "fullLine": "transition-duration: 0.2s !important;"
+        },
+        {
+          "line": 781,
+          "selector": "transform: none !important;",
+          "property": "transform",
+          "fullLine": "transform: none !important;"
+        },
+        {
+          "line": 786,
+          "selector": "transform: translateY(0) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateY(0) !important;"
+        },
+        {
+          "line": 787,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        }
+      ]
+    },
+    {
+      "path": "components\\hero.css",
+      "count": 4,
+      "instances": [
+        {
+          "line": 89,
+          "selector": "animation: ripple-wave 8s ease-in-out infinite !important;",
+          "property": "animation",
+          "fullLine": "animation: ripple-wave 8s ease-in-out infinite !important;"
+        },
+        {
+          "line": 253,
+          "selector": "animation: float 15s infinite ease-in-out !important;",
+          "property": "animation",
+          "fullLine": "animation: float 15s infinite ease-in-out !important;"
+        },
+        {
+          "line": 350,
+          "selector": "animation: textReveal 1s ease forwards !important;",
+          "property": "animation",
+          "fullLine": "animation: textReveal 1s ease forwards !important;"
+        },
+        {
+          "line": 375,
+          "selector": "animation: fadeIn 1s ease forwards !important;",
+          "property": "animation",
+          "fullLine": "animation: fadeIn 1s ease forwards !important;"
+        }
+      ]
+    },
+    {
+      "path": "pages\\projects.css",
+      "count": 3,
+      "instances": [
+        {
+          "line": 328,
+          "selector": "width: 100% !important;",
+          "property": "width",
+          "fullLine": "width: 100% !important;"
+        },
+        {
+          "line": 364,
+          "selector": "opacity: 0 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0 !important;"
+        },
+        {
+          "line": 378,
+          "selector": "display: none !important;",
+          "property": "display",
+          "fullLine": "display: none !important;"
+        }
+      ]
+    },
+    {
+      "path": "pages\\contact.css",
+      "count": 3,
+      "instances": [
+        {
+          "line": 11,
+          "selector": "padding-bottom: 3rem !important;",
+          "property": "padding-bottom",
+          "fullLine": "padding-bottom: 3rem !important;"
+        },
+        {
+          "line": 671,
+          "selector": "padding-bottom: 2rem !important;",
+          "property": "padding-bottom",
+          "fullLine": "padding-bottom: 2rem !important;"
+        },
+        {
+          "line": 743,
+          "selector": "padding-bottom: 1.5rem !important;",
+          "property": "padding-bottom",
+          "fullLine": "padding-bottom: 1.5rem !important;"
+        }
+      ]
+    },
+    {
+      "path": "components\\cta.css",
+      "count": 3,
+      "instances": [
+        {
+          "line": 18,
+          "selector": "background-size: cover !important;",
+          "property": "background-size",
+          "fullLine": "background-size: cover !important;"
+        },
+        {
+          "line": 19,
+          "selector": "background-position: center !important;",
+          "property": "background-position",
+          "fullLine": "background-position: center !important;"
+        },
+        {
+          "line": 20,
+          "selector": "background-repeat: no-repeat !important;",
+          "property": "background-repeat",
+          "fullLine": "background-repeat: no-repeat !important;"
+        }
+      ]
+    },
+    {
+      "path": "utils\\animations.css",
+      "count": 2,
+      "instances": [
+        {
+          "line": 399,
+          "selector": "opacity: 1 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 1 !important;"
+        },
+        {
+          "line": 400,
+          "selector": "transform: translateY(0) !important;",
+          "property": "transform",
+          "fullLine": "transform: translateY(0) !important;"
+        }
+      ]
+    },
+    {
+      "path": "utils\\cursor.css",
+      "count": 1,
+      "instances": [
+        {
+          "line": 34,
+          "selector": "cursor: none !important;",
+          "property": "cursor",
+          "fullLine": "cursor: none !important;"
+        }
+      ]
+    },
+    {
+      "path": "components\\cards\\_project-card.css",
+      "count": 1,
+      "instances": [
+        {
+          "line": 75,
+          "selector": "opacity: 0.6 !important;",
+          "property": "opacity",
+          "fullLine": "opacity: 0.6 !important;"
+        }
+      ]
+    },
+    {
+      "path": "components\\cards\\_card-base.css",
+      "count": 1,
+      "instances": [
+        {
+          "line": 10,
+          "selector": "padding-top: 3rem !important;",
+          "property": "padding-top",
+          "fullLine": "padding-top: 3rem !important;"
+        }
+      ]
+    }
+  ],
+  "categories": {
+    "override": [],
+    "responsive": [],
+    "utility": [],
+    "component": [],
+    "animation": [
+      {
+        "line": 774,
+        "selector": "animation-duration: 0.3s !important;",
+        "property": "animation-duration",
+        "fullLine": "animation-duration: 0.3s !important;"
+      },
+      {
+        "line": 251,
+        "selector": "animation: galaxySpin 1s linear infinite !important;",
+        "property": "animation",
+        "fullLine": "animation: galaxySpin 1s linear infinite !important;"
+      },
+      {
+        "line": 270,
+        "selector": "animation: galaxyPulse 2s ease-in-out infinite !important;",
+        "property": "animation",
+        "fullLine": "animation: galaxyPulse 2s ease-in-out infinite !important;"
+      },
+      {
+        "line": 89,
+        "selector": "animation: ripple-wave 8s ease-in-out infinite !important;",
+        "property": "animation",
+        "fullLine": "animation: ripple-wave 8s ease-in-out infinite !important;"
+      },
+      {
+        "line": 253,
+        "selector": "animation: float 15s infinite ease-in-out !important;",
+        "property": "animation",
+        "fullLine": "animation: float 15s infinite ease-in-out !important;"
+      },
+      {
+        "line": 350,
+        "selector": "animation: textReveal 1s ease forwards !important;",
+        "property": "animation",
+        "fullLine": "animation: textReveal 1s ease forwards !important;"
+      },
+      {
+        "line": 375,
+        "selector": "animation: fadeIn 1s ease forwards !important;",
+        "property": "animation",
+        "fullLine": "animation: fadeIn 1s ease forwards !important;"
+      },
+      {
+        "line": 380,
+        "selector": "animation: rotateGradient 3.5s linear infinite !important;",
+        "property": "animation",
+        "fullLine": "animation: rotateGradient 3.5s linear infinite !important;"
+      },
+      {
+        "line": 381,
+        "selector": "animation-play-state: paused !important;",
+        "property": "animation-play-state",
+        "fullLine": "animation-play-state: paused !important;"
+      },
+      {
+        "line": 395,
+        "selector": "animation-play-state: running !important;",
+        "property": "animation-play-state",
+        "fullLine": "animation-play-state: running !important;"
+      },
+      {
+        "line": 454,
+        "selector": "animation: rotateGradient 3.5s linear infinite !important;",
+        "property": "animation",
+        "fullLine": "animation: rotateGradient 3.5s linear infinite !important;"
+      },
+      {
+        "line": 455,
+        "selector": "animation-play-state: paused !important;",
+        "property": "animation-play-state",
+        "fullLine": "animation-play-state: paused !important;"
+      },
+      {
+        "line": 469,
+        "selector": "animation-play-state: running !important;",
+        "property": "animation-play-state",
+        "fullLine": "animation-play-state: running !important;"
+      }
+    ],
+    "other": [
+      {
+        "line": 386,
+        "selector": "grid-template-columns: 1fr !important;",
+        "property": "grid-template-columns",
+        "fullLine": "grid-template-columns: 1fr !important;"
+      },
+      {
+        "line": 491,
+        "selector": "grid-template-columns: 1fr !important;",
+        "property": "grid-template-columns",
+        "fullLine": "grid-template-columns: 1fr !important;"
+      },
+      {
+        "line": 775,
+        "selector": "transition-duration: 0.2s !important;",
+        "property": "transition-duration",
+        "fullLine": "transition-duration: 0.2s !important;"
+      },
+      {
+        "line": 781,
+        "selector": "transform: none !important;",
+        "property": "transform",
+        "fullLine": "transform: none !important;"
+      },
+      {
+        "line": 786,
+        "selector": "transform: translateY(0) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateY(0) !important;"
+      },
+      {
+        "line": 787,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 34,
+        "selector": "cursor: none !important;",
+        "property": "cursor",
+        "fullLine": "cursor: none !important;"
+      },
+      {
+        "line": 399,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 400,
+        "selector": "transform: translateY(0) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateY(0) !important;"
+      },
+      {
+        "line": 328,
+        "selector": "width: 100% !important;",
+        "property": "width",
+        "fullLine": "width: 100% !important;"
+      },
+      {
+        "line": 364,
+        "selector": "opacity: 0 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0 !important;"
+      },
+      {
+        "line": 378,
+        "selector": "display: none !important;",
+        "property": "display",
+        "fullLine": "display: none !important;"
+      },
+      {
+        "line": 11,
+        "selector": "padding-bottom: 3rem !important;",
+        "property": "padding-bottom",
+        "fullLine": "padding-bottom: 3rem !important;"
+      },
+      {
+        "line": 671,
+        "selector": "padding-bottom: 2rem !important;",
+        "property": "padding-bottom",
+        "fullLine": "padding-bottom: 2rem !important;"
+      },
+      {
+        "line": 743,
+        "selector": "padding-bottom: 1.5rem !important;",
+        "property": "padding-bottom",
+        "fullLine": "padding-bottom: 1.5rem !important;"
+      },
+      {
+        "line": 59,
+        "selector": "transform: translateX(-50px) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50px) !important;"
+      },
+      {
+        "line": 62,
+        "selector": "transform 0.6s ease !important;",
+        "property": "unknown",
+        "fullLine": "transform 0.6s ease !important;"
+      },
+      {
+        "line": 66,
+        "selector": "transform: translateX(50px) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(50px) !important;"
+      },
+      {
+        "line": 70,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 71,
+        "selector": "transform: translateX(0) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(0) !important;"
+      },
+      {
+        "line": 355,
+        "selector": "flex-direction: column !important;",
+        "property": "flex-direction",
+        "fullLine": "flex-direction: column !important;"
+      },
+      {
+        "line": 356,
+        "selector": "align-items: flex-start !important;",
+        "property": "align-items",
+        "fullLine": "align-items: flex-start !important;"
+      },
+      {
+        "line": 363,
+        "selector": "margin-right: 0 !important;",
+        "property": "margin-right",
+        "fullLine": "margin-right: 0 !important;"
+      },
+      {
+        "line": 364,
+        "selector": "margin-left: 0 !important;",
+        "property": "margin-left",
+        "fullLine": "margin-left: 0 !important;"
+      },
+      {
+        "line": 53,
+        "selector": "overflow: hidden !important;",
+        "property": "overflow",
+        "fullLine": "overflow: hidden !important;"
+      },
+      {
+        "line": 54,
+        "selector": "position: fixed !important;",
+        "property": "position",
+        "fullLine": "position: fixed !important;"
+      },
+      {
+        "line": 55,
+        "selector": "width: 100% !important;",
+        "property": "width",
+        "fullLine": "width: 100% !important;"
+      },
+      {
+        "line": 56,
+        "selector": "height: 100% !important;",
+        "property": "height",
+        "fullLine": "height: 100% !important;"
+      },
+      {
+        "line": 87,
+        "selector": "visibility: hidden !important;",
+        "property": "visibility",
+        "fullLine": "visibility: hidden !important;"
+      },
+      {
+        "line": 88,
+        "selector": "opacity: 0 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0 !important;"
+      },
+      {
+        "line": 89,
+        "selector": "pointer-events: none !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: none !important;"
+      },
+      {
+        "line": 94,
+        "selector": "opacity: 0 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0 !important;"
+      },
+      {
+        "line": 95,
+        "selector": "pointer-events: none !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: none !important;"
+      },
+      {
+        "line": 96,
+        "selector": "z-index: -1 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: -1 !important;"
+      },
+      {
+        "line": 124,
+        "selector": "position: fixed !important;",
+        "property": "position",
+        "fullLine": "position: fixed !important;"
+      },
+      {
+        "line": 125,
+        "selector": "top: 0 !important;",
+        "property": "top",
+        "fullLine": "top: 0 !important;"
+      },
+      {
+        "line": 126,
+        "selector": "left: 0 !important;",
+        "property": "left",
+        "fullLine": "left: 0 !important;"
+      },
+      {
+        "line": 127,
+        "selector": "width: 100vw !important;",
+        "property": "width",
+        "fullLine": "width: 100vw !important;"
+      },
+      {
+        "line": 128,
+        "selector": "height: 100vh !important;",
+        "property": "height",
+        "fullLine": "height: 100vh !important;"
+      },
+      {
+        "line": 129,
+        "selector": "z-index: 99998 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: 99998 !important;"
+      },
+      {
+        "line": 132,
+        "selector": "background: transparent !important; /* Transparent background, not black */",
+        "property": "background",
+        "fullLine": "background: transparent !important; /* Transparent background, not black */"
+      },
+      {
+        "line": 134,
+        "selector": "margin: 0 !important;",
+        "property": "margin",
+        "fullLine": "margin: 0 !important;"
+      },
+      {
+        "line": 135,
+        "selector": "padding: 0 !important;",
+        "property": "padding",
+        "fullLine": "padding: 0 !important;"
+      },
+      {
+        "line": 136,
+        "selector": "overflow: hidden !important;",
+        "property": "overflow",
+        "fullLine": "overflow: hidden !important;"
+      },
+      {
+        "line": 140,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 141,
+        "selector": "pointer-events: all !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: all !important;"
+      },
+      {
+        "line": 142,
+        "selector": "display: block !important;",
+        "property": "display",
+        "fullLine": "display: block !important;"
+      },
+      {
+        "line": 143,
+        "selector": "z-index: 99999 !important; /* Higher than vortex to ensure it's on top */",
+        "property": "z-index",
+        "fullLine": "z-index: 99999 !important; /* Higher than vortex to ensure it's on top */"
+      },
+      {
+        "line": 144,
+        "selector": "background: transparent !important; /* Remove dark background */",
+        "property": "background",
+        "fullLine": "background: transparent !important; /* Remove dark background */"
+      },
+      {
+        "line": 156,
+        "selector": "cursor: default !important;",
+        "property": "cursor",
+        "fullLine": "cursor: default !important;"
+      },
+      {
+        "line": 160,
+        "selector": "cursor: inherit !important;",
+        "property": "cursor",
+        "fullLine": "cursor: inherit !important;"
+      },
+      {
+        "line": 164,
+        "selector": "cursor: default !important;",
+        "property": "cursor",
+        "fullLine": "cursor: default !important;"
+      },
+      {
+        "line": 168,
+        "selector": "cursor: crosshair !important;",
+        "property": "cursor",
+        "fullLine": "cursor: crosshair !important;"
+      },
+      {
+        "line": 179,
+        "selector": "cursor: default !important;",
+        "property": "cursor",
+        "fullLine": "cursor: default !important;"
+      },
+      {
+        "line": 184,
+        "selector": "cursor: default !important;",
+        "property": "cursor",
+        "fullLine": "cursor: default !important;"
+      },
+      {
+        "line": 188,
+        "selector": "cursor: crosshair !important;",
+        "property": "cursor",
+        "fullLine": "cursor: crosshair !important;"
+      },
+      {
+        "line": 193,
+        "selector": "cursor: pointer !important;",
+        "property": "cursor",
+        "fullLine": "cursor: pointer !important;"
+      },
+      {
+        "line": 203,
+        "selector": "cursor: default !important;",
+        "property": "cursor",
+        "fullLine": "cursor: default !important;"
+      },
+      {
+        "line": 208,
+        "selector": "cursor: default !important;",
+        "property": "cursor",
+        "fullLine": "cursor: default !important;"
+      },
+      {
+        "line": 212,
+        "selector": "cursor: crosshair !important;",
+        "property": "cursor",
+        "fullLine": "cursor: crosshair !important;"
+      },
+      {
+        "line": 213,
+        "selector": "pointer-events: all !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: all !important;"
+      },
+      {
+        "line": 218,
+        "selector": "cursor: pointer !important;",
+        "property": "cursor",
+        "fullLine": "cursor: pointer !important;"
+      },
+      {
+        "line": 223,
+        "selector": "position: fixed !important;",
+        "property": "position",
+        "fullLine": "position: fixed !important;"
+      },
+      {
+        "line": 224,
+        "selector": "top: 50vh !important;",
+        "property": "top",
+        "fullLine": "top: 50vh !important;"
+      },
+      {
+        "line": 225,
+        "selector": "left: 50vw !important;",
+        "property": "left",
+        "fullLine": "left: 50vw !important;"
+      },
+      {
+        "line": 226,
+        "selector": "transform: translate(-50%, -50%) !important;",
+        "property": "transform",
+        "fullLine": "transform: translate(-50%, -50%) !important;"
+      },
+      {
+        "line": 227,
+        "selector": "z-index: 999999 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: 999999 !important;"
+      },
+      {
+        "line": 228,
+        "selector": "display: none !important;",
+        "property": "display",
+        "fullLine": "display: none !important;"
+      },
+      {
+        "line": 229,
+        "selector": "flex-direction: column !important;",
+        "property": "flex-direction",
+        "fullLine": "flex-direction: column !important;"
+      },
+      {
+        "line": 230,
+        "selector": "align-items: center !important;",
+        "property": "align-items",
+        "fullLine": "align-items: center !important;"
+      },
+      {
+        "line": 231,
+        "selector": "justify-content: center !important;",
+        "property": "justify-content",
+        "fullLine": "justify-content: center !important;"
+      },
+      {
+        "line": 232,
+        "selector": "gap: 2.5rem !important;",
+        "property": "gap",
+        "fullLine": "gap: 2.5rem !important;"
+      },
+      {
+        "line": 233,
+        "selector": "pointer-events: none !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: none !important;"
+      },
+      {
+        "line": 234,
+        "selector": "width: auto !important;",
+        "property": "width",
+        "fullLine": "width: auto !important;"
+      },
+      {
+        "line": 235,
+        "selector": "height: auto !important;",
+        "property": "height",
+        "fullLine": "height: auto !important;"
+      },
+      {
+        "line": 236,
+        "selector": "margin: 0 !important;",
+        "property": "margin",
+        "fullLine": "margin: 0 !important;"
+      },
+      {
+        "line": 237,
+        "selector": "padding: 0 !important;",
+        "property": "padding",
+        "fullLine": "padding: 0 !important;"
+      },
+      {
+        "line": 241,
+        "selector": "display: flex !important;",
+        "property": "display",
+        "fullLine": "display: flex !important;"
+      },
+      {
+        "line": 245,
+        "selector": "width: 100px !important;",
+        "property": "width",
+        "fullLine": "width: 100px !important;"
+      },
+      {
+        "line": 246,
+        "selector": "height: 100px !important;",
+        "property": "height",
+        "fullLine": "height: 100px !important;"
+      },
+      {
+        "line": 247,
+        "selector": "border: 5px solid rgba(0, 255, 255, 0.1) !important;",
+        "property": "border",
+        "fullLine": "border: 5px solid rgba(0, 255, 255, 0.1) !important;"
+      },
+      {
+        "line": 248,
+        "selector": "border-top: 5px solid var(--accent-cyan) !important;",
+        "property": "border-top",
+        "fullLine": "border-top: 5px solid var(--accent-cyan) !important;"
+      },
+      {
+        "line": 249,
+        "selector": "border-right: 5px solid var(--accent-magenta) !important;",
+        "property": "border-right",
+        "fullLine": "border-right: 5px solid var(--accent-magenta) !important;"
+      },
+      {
+        "line": 250,
+        "selector": "border-radius: 50% !important;",
+        "property": "border-radius",
+        "fullLine": "border-radius: 50% !important;"
+      },
+      {
+        "line": 255,
+        "selector": "inset 0 0 20px rgba(0, 255, 255, 0.1) !important;",
+        "property": "unknown",
+        "fullLine": "inset 0 0 20px rgba(0, 255, 255, 0.1) !important;"
+      },
+      {
+        "line": 256,
+        "selector": "position: relative !important;",
+        "property": "position",
+        "fullLine": "position: relative !important;"
+      },
+      {
+        "line": 263,
+        "selector": "color: var(--accent-cyan) !important;",
+        "property": "color",
+        "fullLine": "color: var(--accent-cyan) !important;"
+      },
+      {
+        "line": 264,
+        "selector": "font-family: 'Orbitron', sans-serif !important;",
+        "property": "font-family",
+        "fullLine": "font-family: 'Orbitron', sans-serif !important;"
+      },
+      {
+        "line": 265,
+        "selector": "font-size: 1.8rem !important;",
+        "property": "font-size",
+        "fullLine": "font-size: 1.8rem !important;"
+      },
+      {
+        "line": 266,
+        "selector": "font-weight: 700 !important;",
+        "property": "font-weight",
+        "fullLine": "font-weight: 700 !important;"
+      },
+      {
+        "line": 269,
+        "selector": "0 0 30px var(--glow-cyan) !important;",
+        "property": "unknown",
+        "fullLine": "0 0 30px var(--glow-cyan) !important;"
+      },
+      {
+        "line": 271,
+        "selector": "letter-spacing: 4px !important;",
+        "property": "letter-spacing",
+        "fullLine": "letter-spacing: 4px !important;"
+      },
+      {
+        "line": 272,
+        "selector": "text-align: center !important;",
+        "property": "text-align",
+        "fullLine": "text-align: center !important;"
+      },
+      {
+        "line": 273,
+        "selector": "white-space: nowrap !important;",
+        "property": "white-space",
+        "fullLine": "white-space: nowrap !important;"
+      },
+      {
+        "line": 314,
+        "selector": "bottom: 2rem !important;",
+        "property": "bottom",
+        "fullLine": "bottom: 2rem !important;"
+      },
+      {
+        "line": 315,
+        "selector": "left: 50% !important;",
+        "property": "left",
+        "fullLine": "left: 50% !important;"
+      },
+      {
+        "line": 316,
+        "selector": "transform: translateX(-50%) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important;"
+      },
+      {
+        "line": 317,
+        "selector": "top: auto !important;",
+        "property": "top",
+        "fullLine": "top: auto !important;"
+      },
+      {
+        "line": 318,
+        "selector": "right: auto !important;",
+        "property": "right",
+        "fullLine": "right: auto !important;"
+      },
+      {
+        "line": 319,
+        "selector": "z-index: 2147483647 !important; /* Maximum z-index for fullscreen compatibility */",
+        "property": "z-index",
+        "fullLine": "z-index: 2147483647 !important; /* Maximum z-index for fullscreen compatibility */"
+      },
+      {
+        "line": 320,
+        "selector": "display: none !important;",
+        "property": "display",
+        "fullLine": "display: none !important;"
+      },
+      {
+        "line": 321,
+        "selector": "opacity: 0 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0 !important;"
+      },
+      {
+        "line": 323,
+        "selector": "pointer-events: none !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: none !important;"
+      },
+      {
+        "line": 324,
+        "selector": "visibility: hidden !important;",
+        "property": "visibility",
+        "fullLine": "visibility: hidden !important;"
+      },
+      {
+        "line": 325,
+        "selector": "width: 0 !important;",
+        "property": "width",
+        "fullLine": "width: 0 !important;"
+      },
+      {
+        "line": 326,
+        "selector": "height: 0 !important;",
+        "property": "height",
+        "fullLine": "height: 0 !important;"
+      },
+      {
+        "line": 327,
+        "selector": "overflow: visible !important; /* Changed from hidden to visible for tooltips */",
+        "property": "overflow",
+        "fullLine": "overflow: visible !important; /* Changed from hidden to visible for tooltips */"
+      },
+      {
+        "line": 334,
+        "selector": "z-index: 2147483647 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: 2147483647 !important;"
+      },
+      {
+        "line": 335,
+        "selector": "position: fixed !important;",
+        "property": "position",
+        "fullLine": "position: fixed !important;"
+      },
+      {
+        "line": 336,
+        "selector": "display: flex !important;",
+        "property": "display",
+        "fullLine": "display: flex !important;"
+      },
+      {
+        "line": 337,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 338,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 339,
+        "selector": "pointer-events: all !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: all !important;"
+      },
+      {
+        "line": 340,
+        "selector": "bottom: 2rem !important;",
+        "property": "bottom",
+        "fullLine": "bottom: 2rem !important;"
+      },
+      {
+        "line": 341,
+        "selector": "left: 50% !important;",
+        "property": "left",
+        "fullLine": "left: 50% !important;"
+      },
+      {
+        "line": 342,
+        "selector": "transform: translateX(-50%) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important;"
+      },
+      {
+        "line": 343,
+        "selector": "top: auto !important;",
+        "property": "top",
+        "fullLine": "top: auto !important;"
+      },
+      {
+        "line": 344,
+        "selector": "right: auto !important;",
+        "property": "right",
+        "fullLine": "right: auto !important;"
+      },
+      {
+        "line": 351,
+        "selector": "z-index: 2147483647 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: 2147483647 !important;"
+      },
+      {
+        "line": 352,
+        "selector": "position: fixed !important;",
+        "property": "position",
+        "fullLine": "position: fixed !important;"
+      },
+      {
+        "line": 353,
+        "selector": "display: flex !important;",
+        "property": "display",
+        "fullLine": "display: flex !important;"
+      },
+      {
+        "line": 354,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 355,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 356,
+        "selector": "pointer-events: all !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: all !important;"
+      },
+      {
+        "line": 357,
+        "selector": "bottom: 2rem !important;",
+        "property": "bottom",
+        "fullLine": "bottom: 2rem !important;"
+      },
+      {
+        "line": 358,
+        "selector": "left: 50% !important;",
+        "property": "left",
+        "fullLine": "left: 50% !important;"
+      },
+      {
+        "line": 359,
+        "selector": "transform: translateX(-50%) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important;"
+      },
+      {
+        "line": 360,
+        "selector": "top: auto !important;",
+        "property": "top",
+        "fullLine": "top: auto !important;"
+      },
+      {
+        "line": 361,
+        "selector": "right: auto !important;",
+        "property": "right",
+        "fullLine": "right: auto !important;"
+      },
+      {
+        "line": 369,
+        "selector": "z-index: 2147483647 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: 2147483647 !important;"
+      },
+      {
+        "line": 370,
+        "selector": "position: fixed !important;",
+        "property": "position",
+        "fullLine": "position: fixed !important;"
+      },
+      {
+        "line": 371,
+        "selector": "display: flex !important;",
+        "property": "display",
+        "fullLine": "display: flex !important;"
+      },
+      {
+        "line": 372,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 373,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 374,
+        "selector": "pointer-events: all !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: all !important;"
+      },
+      {
+        "line": 375,
+        "selector": "bottom: 2rem !important;",
+        "property": "bottom",
+        "fullLine": "bottom: 2rem !important;"
+      },
+      {
+        "line": 376,
+        "selector": "left: 50% !important;",
+        "property": "left",
+        "fullLine": "left: 50% !important;"
+      },
+      {
+        "line": 377,
+        "selector": "transform: translateX(-50%) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important;"
+      },
+      {
+        "line": 378,
+        "selector": "top: auto !important;",
+        "property": "top",
+        "fullLine": "top: auto !important;"
+      },
+      {
+        "line": 379,
+        "selector": "right: auto !important;",
+        "property": "right",
+        "fullLine": "right: auto !important;"
+      },
+      {
+        "line": 386,
+        "selector": "display: flex !important;",
+        "property": "display",
+        "fullLine": "display: flex !important;"
+      },
+      {
+        "line": 387,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 388,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 389,
+        "selector": "pointer-events: all !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: all !important;"
+      },
+      {
+        "line": 390,
+        "selector": "width: auto !important;",
+        "property": "width",
+        "fullLine": "width: auto !important;"
+      },
+      {
+        "line": 391,
+        "selector": "height: auto !important;",
+        "property": "height",
+        "fullLine": "height: auto !important;"
+      },
+      {
+        "line": 392,
+        "selector": "overflow: visible !important;",
+        "property": "overflow",
+        "fullLine": "overflow: visible !important;"
+      },
+      {
+        "line": 393,
+        "selector": "bottom: 2rem !important;",
+        "property": "bottom",
+        "fullLine": "bottom: 2rem !important;"
+      },
+      {
+        "line": 394,
+        "selector": "left: 50% !important;",
+        "property": "left",
+        "fullLine": "left: 50% !important;"
+      },
+      {
+        "line": 395,
+        "selector": "transform: translateX(-50%) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important;"
+      },
+      {
+        "line": 396,
+        "selector": "top: auto !important;",
+        "property": "top",
+        "fullLine": "top: auto !important;"
+      },
+      {
+        "line": 397,
+        "selector": "right: auto !important;",
+        "property": "right",
+        "fullLine": "right: auto !important;"
+      },
+      {
+        "line": 404,
+        "selector": "display: flex !important;",
+        "property": "display",
+        "fullLine": "display: flex !important;"
+      },
+      {
+        "line": 405,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 406,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 407,
+        "selector": "pointer-events: all !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: all !important;"
+      },
+      {
+        "line": 408,
+        "selector": "width: auto !important;",
+        "property": "width",
+        "fullLine": "width: auto !important;"
+      },
+      {
+        "line": 409,
+        "selector": "height: auto !important;",
+        "property": "height",
+        "fullLine": "height: auto !important;"
+      },
+      {
+        "line": 410,
+        "selector": "overflow: visible !important;",
+        "property": "overflow",
+        "fullLine": "overflow: visible !important;"
+      },
+      {
+        "line": 411,
+        "selector": "bottom: 2rem !important;",
+        "property": "bottom",
+        "fullLine": "bottom: 2rem !important;"
+      },
+      {
+        "line": 412,
+        "selector": "left: 50% !important;",
+        "property": "left",
+        "fullLine": "left: 50% !important;"
+      },
+      {
+        "line": 413,
+        "selector": "transform: translateX(-50%) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important;"
+      },
+      {
+        "line": 414,
+        "selector": "top: auto !important;",
+        "property": "top",
+        "fullLine": "top: auto !important;"
+      },
+      {
+        "line": 415,
+        "selector": "right: auto !important;",
+        "property": "right",
+        "fullLine": "right: auto !important;"
+      },
+      {
+        "line": 423,
+        "selector": "display: flex !important;",
+        "property": "display",
+        "fullLine": "display: flex !important;"
+      },
+      {
+        "line": 424,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 425,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 426,
+        "selector": "pointer-events: all !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: all !important;"
+      },
+      {
+        "line": 427,
+        "selector": "width: auto !important;",
+        "property": "width",
+        "fullLine": "width: auto !important;"
+      },
+      {
+        "line": 428,
+        "selector": "height: auto !important;",
+        "property": "height",
+        "fullLine": "height: auto !important;"
+      },
+      {
+        "line": 429,
+        "selector": "overflow: visible !important;",
+        "property": "overflow",
+        "fullLine": "overflow: visible !important;"
+      },
+      {
+        "line": 430,
+        "selector": "bottom: 2rem !important;",
+        "property": "bottom",
+        "fullLine": "bottom: 2rem !important;"
+      },
+      {
+        "line": 431,
+        "selector": "left: 50% !important;",
+        "property": "left",
+        "fullLine": "left: 50% !important;"
+      },
+      {
+        "line": 432,
+        "selector": "transform: translateX(-50%) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important;"
+      },
+      {
+        "line": 433,
+        "selector": "top: auto !important;",
+        "property": "top",
+        "fullLine": "top: auto !important;"
+      },
+      {
+        "line": 434,
+        "selector": "right: auto !important;",
+        "property": "right",
+        "fullLine": "right: auto !important;"
+      },
+      {
+        "line": 439,
+        "selector": "display: flex !important;",
+        "property": "display",
+        "fullLine": "display: flex !important;"
+      },
+      {
+        "line": 440,
+        "selector": "flex-direction: row !important;",
+        "property": "flex-direction",
+        "fullLine": "flex-direction: row !important;"
+      },
+      {
+        "line": 441,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 442,
+        "selector": "pointer-events: all !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: all !important;"
+      },
+      {
+        "line": 443,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 444,
+        "selector": "width: auto !important;",
+        "property": "width",
+        "fullLine": "width: auto !important;"
+      },
+      {
+        "line": 445,
+        "selector": "height: auto !important;",
+        "property": "height",
+        "fullLine": "height: auto !important;"
+      },
+      {
+        "line": 446,
+        "selector": "overflow: visible !important;",
+        "property": "overflow",
+        "fullLine": "overflow: visible !important;"
+      },
+      {
+        "line": 447,
+        "selector": "position: fixed !important;",
+        "property": "position",
+        "fullLine": "position: fixed !important;"
+      },
+      {
+        "line": 448,
+        "selector": "bottom: 2rem !important;",
+        "property": "bottom",
+        "fullLine": "bottom: 2rem !important;"
+      },
+      {
+        "line": 449,
+        "selector": "left: 50% !important;",
+        "property": "left",
+        "fullLine": "left: 50% !important;"
+      },
+      {
+        "line": 450,
+        "selector": "transform: translateX(-50%) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important;"
+      },
+      {
+        "line": 451,
+        "selector": "top: auto !important;",
+        "property": "top",
+        "fullLine": "top: auto !important;"
+      },
+      {
+        "line": 452,
+        "selector": "right: auto !important;",
+        "property": "right",
+        "fullLine": "right: auto !important;"
+      },
+      {
+        "line": 453,
+        "selector": "z-index: 2147483647 !important; /* Maximum z-index for fullscreen */",
+        "property": "z-index",
+        "fullLine": "z-index: 2147483647 !important; /* Maximum z-index for fullscreen */"
+      },
+      {
+        "line": 454,
+        "selector": "margin: 0 !important;",
+        "property": "margin",
+        "fullLine": "margin: 0 !important;"
+      },
+      {
+        "line": 455,
+        "selector": "padding: 0 !important;",
+        "property": "padding",
+        "fullLine": "padding: 0 !important;"
+      },
+      {
+        "line": 459,
+        "selector": "display: flex !important;",
+        "property": "display",
+        "fullLine": "display: flex !important;"
+      },
+      {
+        "line": 460,
+        "selector": "flex-direction: row !important;",
+        "property": "flex-direction",
+        "fullLine": "flex-direction: row !important;"
+      },
+      {
+        "line": 461,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 462,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 463,
+        "selector": "width: auto !important;",
+        "property": "width",
+        "fullLine": "width: auto !important;"
+      },
+      {
+        "line": 464,
+        "selector": "height: auto !important;",
+        "property": "height",
+        "fullLine": "height: auto !important;"
+      },
+      {
+        "line": 465,
+        "selector": "position: relative !important;",
+        "property": "position",
+        "fullLine": "position: relative !important;"
+      },
+      {
+        "line": 466,
+        "selector": "top: auto !important;",
+        "property": "top",
+        "fullLine": "top: auto !important;"
+      },
+      {
+        "line": 467,
+        "selector": "left: auto !important;",
+        "property": "left",
+        "fullLine": "left: auto !important;"
+      },
+      {
+        "line": 468,
+        "selector": "z-index: 1 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: 1 !important;"
+      },
+      {
+        "line": 469,
+        "selector": "gap: 12px !important;",
+        "property": "gap",
+        "fullLine": "gap: 12px !important;"
+      },
+      {
+        "line": 476,
+        "selector": "display: none !important;",
+        "property": "display",
+        "fullLine": "display: none !important;"
+      },
+      {
+        "line": 477,
+        "selector": "visibility: hidden !important;",
+        "property": "visibility",
+        "fullLine": "visibility: hidden !important;"
+      },
+      {
+        "line": 478,
+        "selector": "opacity: 0 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0 !important;"
+      },
+      {
+        "line": 479,
+        "selector": "pointer-events: none !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: none !important;"
+      },
+      {
+        "line": 485,
+        "selector": "display: none !important;",
+        "property": "display",
+        "fullLine": "display: none !important;"
+      },
+      {
+        "line": 486,
+        "selector": "visibility: hidden !important;",
+        "property": "visibility",
+        "fullLine": "visibility: hidden !important;"
+      },
+      {
+        "line": 487,
+        "selector": "opacity: 0 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0 !important;"
+      },
+      {
+        "line": 488,
+        "selector": "pointer-events: none !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: none !important;"
+      },
+      {
+        "line": 489,
+        "selector": "width: 0 !important;",
+        "property": "width",
+        "fullLine": "width: 0 !important;"
+      },
+      {
+        "line": 490,
+        "selector": "height: 0 !important;",
+        "property": "height",
+        "fullLine": "height: 0 !important;"
+      },
+      {
+        "line": 491,
+        "selector": "overflow: hidden !important;",
+        "property": "overflow",
+        "fullLine": "overflow: hidden !important;"
+      },
+      {
+        "line": 492,
+        "selector": "margin: 0 !important;",
+        "property": "margin",
+        "fullLine": "margin: 0 !important;"
+      },
+      {
+        "line": 493,
+        "selector": "padding: 0 !important;",
+        "property": "padding",
+        "fullLine": "padding: 0 !important;"
+      },
+      {
+        "line": 494,
+        "selector": "border: none !important;",
+        "property": "border",
+        "fullLine": "border: none !important;"
+      },
+      {
+        "line": 495,
+        "selector": "position: absolute !important;",
+        "property": "position",
+        "fullLine": "position: absolute !important;"
+      },
+      {
+        "line": 496,
+        "selector": "top: -9999px !important;",
+        "property": "top",
+        "fullLine": "top: -9999px !important;"
+      },
+      {
+        "line": 497,
+        "selector": "left: -9999px !important;",
+        "property": "left",
+        "fullLine": "left: -9999px !important;"
+      },
+      {
+        "line": 498,
+        "selector": "z-index: -1 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: -1 !important;"
+      },
+      {
+        "line": 502,
+        "selector": "width: auto !important;",
+        "property": "width",
+        "fullLine": "width: auto !important;"
+      },
+      {
+        "line": 503,
+        "selector": "height: auto !important;",
+        "property": "height",
+        "fullLine": "height: auto !important;"
+      },
+      {
+        "line": 504,
+        "selector": "border: none !important;",
+        "property": "border",
+        "fullLine": "border: none !important;"
+      },
+      {
+        "line": 505,
+        "selector": "background: transparent !important;",
+        "property": "background",
+        "fullLine": "background: transparent !important;"
+      },
+      {
+        "line": 506,
+        "selector": "border-radius: 0 !important;",
+        "property": "border-radius",
+        "fullLine": "border-radius: 0 !important;"
+      },
+      {
+        "line": 507,
+        "selector": "color: var(--accent-cyan) !important;",
+        "property": "color",
+        "fullLine": "color: var(--accent-cyan) !important;"
+      },
+      {
+        "line": 508,
+        "selector": "cursor: pointer !important;",
+        "property": "cursor",
+        "fullLine": "cursor: pointer !important;"
+      },
+      {
+        "line": 509,
+        "selector": "display: flex !important;",
+        "property": "display",
+        "fullLine": "display: flex !important;"
+      },
+      {
+        "line": 510,
+        "selector": "align-items: center !important;",
+        "property": "align-items",
+        "fullLine": "align-items: center !important;"
+      },
+      {
+        "line": 511,
+        "selector": "justify-content: center !important;",
+        "property": "justify-content",
+        "fullLine": "justify-content: center !important;"
+      },
+      {
+        "line": 512,
+        "selector": "flex-direction: row !important;",
+        "property": "flex-direction",
+        "fullLine": "flex-direction: row !important;"
+      },
+      {
+        "line": 513,
+        "selector": "gap: 12px !important;",
+        "property": "gap",
+        "fullLine": "gap: 12px !important;"
+      },
+      {
+        "line": 514,
+        "selector": "padding: 0 !important;",
+        "property": "padding",
+        "fullLine": "padding: 0 !important;"
+      },
+      {
+        "line": 515,
+        "selector": "box-shadow: none !important;",
+        "property": "box-shadow",
+        "fullLine": "box-shadow: none !important;"
+      },
+      {
+        "line": 516,
+        "selector": "position: relative !important;",
+        "property": "position",
+        "fullLine": "position: relative !important;"
+      },
+      {
+        "line": 517,
+        "selector": "z-index: 1 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: 1 !important;"
+      },
+      {
+        "line": 518,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 519,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 520,
+        "selector": "backdrop-filter: none !important;",
+        "property": "backdrop-filter",
+        "fullLine": "backdrop-filter: none !important;"
+      },
+      {
+        "line": 521,
+        "selector": "overflow: visible !important; /* Ensure tooltips are visible */",
+        "property": "overflow",
+        "fullLine": "overflow: visible !important; /* Ensure tooltips are visible */"
+      },
+      {
+        "line": 525,
+        "selector": "width: 12px !important;",
+        "property": "width",
+        "fullLine": "width: 12px !important;"
+      },
+      {
+        "line": 526,
+        "selector": "height: 12px !important;",
+        "property": "height",
+        "fullLine": "height: 12px !important;"
+      },
+      {
+        "line": 527,
+        "selector": "border-radius: 50% !important;",
+        "property": "border-radius",
+        "fullLine": "border-radius: 50% !important;"
+      },
+      {
+        "line": 528,
+        "selector": "display: block !important;",
+        "property": "display",
+        "fullLine": "display: block !important;"
+      },
+      {
+        "line": 529,
+        "selector": "flex-shrink: 0 !important;",
+        "property": "flex-shrink",
+        "fullLine": "flex-shrink: 0 !important;"
+      },
+      {
+        "line": 530,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 531,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 532,
+        "selector": "position: relative !important;",
+        "property": "position",
+        "fullLine": "position: relative !important;"
+      },
+      {
+        "line": 533,
+        "selector": "margin: 0 !important;",
+        "property": "margin",
+        "fullLine": "margin: 0 !important;"
+      },
+      {
+        "line": 534,
+        "selector": "padding: 0 !important;",
+        "property": "padding",
+        "fullLine": "padding: 0 !important;"
+      },
+      {
+        "line": 535,
+        "selector": "cursor: pointer !important;",
+        "property": "cursor",
+        "fullLine": "cursor: pointer !important;"
+      },
+      {
+        "line": 538,
+        "selector": "box-shadow 0.3s ease !important;",
+        "property": "unknown",
+        "fullLine": "box-shadow 0.3s ease !important;"
+      },
+      {
+        "line": 543,
+        "selector": "position: relative !important; /* Required for absolute positioning of tooltip */",
+        "property": "position",
+        "fullLine": "position: relative !important; /* Required for absolute positioning of tooltip */"
+      },
+      {
+        "line": 544,
+        "selector": "overflow: visible !important;",
+        "property": "overflow",
+        "fullLine": "overflow: visible !important;"
+      },
+      {
+        "line": 548,
+        "selector": "content: attr(data-tooltip) !important;",
+        "property": "content",
+        "fullLine": "content: attr(data-tooltip) !important;"
+      },
+      {
+        "line": 549,
+        "selector": "position: fixed !important; /* Fixed to viewport */",
+        "property": "position",
+        "fullLine": "position: fixed !important; /* Fixed to viewport */"
+      },
+      {
+        "line": 552,
+        "selector": ") !important; /* ABOVE dots: menu bottom (2rem) + dot height (12px) + gap (12px) */",
+        "property": "unknown",
+        "fullLine": ") !important; /* ABOVE dots: menu bottom (2rem) + dot height (12px) + gap (12px) */"
+      },
+      {
+        "line": 553,
+        "selector": "left: 50% !important; /* Center horizontally */",
+        "property": "left",
+        "fullLine": "left: 50% !important; /* Center horizontally */"
+      },
+      {
+        "line": 554,
+        "selector": "transform: translateX(-50%) !important; /* Center the tooltip itself */",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important; /* Center the tooltip itself */"
+      },
+      {
+        "line": 555,
+        "selector": "top: auto !important;",
+        "property": "top",
+        "fullLine": "top: auto !important;"
+      },
+      {
+        "line": 556,
+        "selector": "right: auto !important;",
+        "property": "right",
+        "fullLine": "right: auto !important;"
+      },
+      {
+        "line": 557,
+        "selector": "background: rgba(10, 10, 10, 0.95) !important;",
+        "property": "background",
+        "fullLine": "background: rgba(10, 10, 10, 0.95) !important;"
+      },
+      {
+        "line": 558,
+        "selector": "color: var(--text-primary) !important;",
+        "property": "color",
+        "fullLine": "color: var(--text-primary) !important;"
+      },
+      {
+        "line": 559,
+        "selector": "padding: 0.5rem 0.75rem !important;",
+        "property": "padding",
+        "fullLine": "padding: 0.5rem 0.75rem !important;"
+      },
+      {
+        "line": 560,
+        "selector": "padding-left: 0.75rem !important;",
+        "property": "padding-left",
+        "fullLine": "padding-left: 0.75rem !important;"
+      },
+      {
+        "line": 561,
+        "selector": "padding-right: 0.75rem !important;",
+        "property": "padding-right",
+        "fullLine": "padding-right: 0.75rem !important;"
+      },
+      {
+        "line": 562,
+        "selector": "padding-top: 0.5rem !important;",
+        "property": "padding-top",
+        "fullLine": "padding-top: 0.5rem !important;"
+      },
+      {
+        "line": 563,
+        "selector": "padding-bottom: 0.5rem !important;",
+        "property": "padding-bottom",
+        "fullLine": "padding-bottom: 0.5rem !important;"
+      },
+      {
+        "line": 564,
+        "selector": "border-radius: 6px !important;",
+        "property": "border-radius",
+        "fullLine": "border-radius: 6px !important;"
+      },
+      {
+        "line": 565,
+        "selector": "font-size: 0.75rem !important;",
+        "property": "font-size",
+        "fullLine": "font-size: 0.75rem !important;"
+      },
+      {
+        "line": 566,
+        "selector": "font-family: 'Rajdhani', sans-serif !important;",
+        "property": "font-family",
+        "fullLine": "font-family: 'Rajdhani', sans-serif !important;"
+      },
+      {
+        "line": 567,
+        "selector": "font-weight: 600 !important;",
+        "property": "font-weight",
+        "fullLine": "font-weight: 600 !important;"
+      },
+      {
+        "line": 568,
+        "selector": "white-space: nowrap !important;",
+        "property": "white-space",
+        "fullLine": "white-space: nowrap !important;"
+      },
+      {
+        "line": 569,
+        "selector": "opacity: 0 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0 !important;"
+      },
+      {
+        "line": 570,
+        "selector": "visibility: hidden !important;",
+        "property": "visibility",
+        "fullLine": "visibility: hidden !important;"
+      },
+      {
+        "line": 571,
+        "selector": "pointer-events: none !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: none !important;"
+      },
+      {
+        "line": 574,
+        "selector": "visibility 0.3s ease !important;",
+        "property": "unknown",
+        "fullLine": "visibility 0.3s ease !important;"
+      },
+      {
+        "line": 575,
+        "selector": "z-index: 2147483647 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: 2147483647 !important;"
+      },
+      {
+        "line": 576,
+        "selector": "border: 1px solid var(--accent-cyan) !important;",
+        "property": "border",
+        "fullLine": "border: 1px solid var(--accent-cyan) !important;"
+      },
+      {
+        "line": 579,
+        "selector": "0 4px 12px rgba(0, 0, 0, 0.5) !important;",
+        "property": "unknown",
+        "fullLine": "0 4px 12px rgba(0, 0, 0, 0.5) !important;"
+      },
+      {
+        "line": 580,
+        "selector": "backdrop-filter: blur(10px) !important;",
+        "property": "backdrop-filter",
+        "fullLine": "backdrop-filter: blur(10px) !important;"
+      },
+      {
+        "line": 581,
+        "selector": "min-width: max-content !important;",
+        "property": "min-width",
+        "fullLine": "min-width: max-content !important;"
+      },
+      {
+        "line": 582,
+        "selector": "width: auto !important;",
+        "property": "width",
+        "fullLine": "width: auto !important;"
+      },
+      {
+        "line": 583,
+        "selector": "max-width: none !important;",
+        "property": "max-width",
+        "fullLine": "max-width: none !important;"
+      },
+      {
+        "line": 584,
+        "selector": "margin: 0 !important;",
+        "property": "margin",
+        "fullLine": "margin: 0 !important;"
+      },
+      {
+        "line": 585,
+        "selector": "margin-left: 0 !important;",
+        "property": "margin-left",
+        "fullLine": "margin-left: 0 !important;"
+      },
+      {
+        "line": 586,
+        "selector": "margin-right: auto !important;",
+        "property": "margin-right",
+        "fullLine": "margin-right: auto !important;"
+      },
+      {
+        "line": 587,
+        "selector": "margin-top: 0 !important;",
+        "property": "margin-top",
+        "fullLine": "margin-top: 0 !important;"
+      },
+      {
+        "line": 588,
+        "selector": "margin-bottom: 0 !important;",
+        "property": "margin-bottom",
+        "fullLine": "margin-bottom: 0 !important;"
+      },
+      {
+        "line": 589,
+        "selector": "box-sizing: border-box !important;",
+        "property": "box-sizing",
+        "fullLine": "box-sizing: border-box !important;"
+      },
+      {
+        "line": 593,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 594,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 595,
+        "selector": "transform: translateX(-50%) !important; /* Keep centered on hover */",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important; /* Keep centered on hover */"
+      },
+      {
+        "line": 596,
+        "selector": "bottom: calc(2rem + 12px + 12px) !important; /* ABOVE dots */",
+        "property": "bottom",
+        "fullLine": "bottom: calc(2rem + 12px + 12px) !important; /* ABOVE dots */"
+      },
+      {
+        "line": 597,
+        "selector": "left: 50% !important; /* Center horizontally */",
+        "property": "left",
+        "fullLine": "left: 50% !important; /* Center horizontally */"
+      },
+      {
+        "line": 598,
+        "selector": "right: auto !important;",
+        "property": "right",
+        "fullLine": "right: auto !important;"
+      },
+      {
+        "line": 599,
+        "selector": "top: auto !important;",
+        "property": "top",
+        "fullLine": "top: auto !important;"
+      },
+      {
+        "line": 605,
+        "selector": "position: fixed !important;",
+        "property": "position",
+        "fullLine": "position: fixed !important;"
+      },
+      {
+        "line": 606,
+        "selector": "bottom: calc(2rem + 12px + 6px) !important; /* Position above dots, just below tooltip */",
+        "property": "bottom",
+        "fullLine": "bottom: calc(2rem + 12px + 6px) !important; /* Position above dots, just below tooltip */"
+      },
+      {
+        "line": 607,
+        "selector": "left: 50% !important;",
+        "property": "left",
+        "fullLine": "left: 50% !important;"
+      },
+      {
+        "line": 608,
+        "selector": "transform: translateX(-50%) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important;"
+      },
+      {
+        "line": 609,
+        "selector": "width: 0 !important;",
+        "property": "width",
+        "fullLine": "width: 0 !important;"
+      },
+      {
+        "line": 610,
+        "selector": "height: 0 !important;",
+        "property": "height",
+        "fullLine": "height: 0 !important;"
+      },
+      {
+        "line": 611,
+        "selector": "border-left: 6px solid transparent !important;",
+        "property": "border-left",
+        "fullLine": "border-left: 6px solid transparent !important;"
+      },
+      {
+        "line": 612,
+        "selector": "border-right: 6px solid transparent !important;",
+        "property": "border-right",
+        "fullLine": "border-right: 6px solid transparent !important;"
+      },
+      {
+        "line": 613,
+        "selector": "border-top: 6px solid var(--accent-cyan) !important; /* Arrow pointing DOWN to dot */",
+        "property": "border-top",
+        "fullLine": "border-top: 6px solid var(--accent-cyan) !important; /* Arrow pointing DOWN to dot */"
+      },
+      {
+        "line": 614,
+        "selector": "border-bottom: none !important;",
+        "property": "border-bottom",
+        "fullLine": "border-bottom: none !important;"
+      },
+      {
+        "line": 615,
+        "selector": "opacity: 0 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0 !important;"
+      },
+      {
+        "line": 616,
+        "selector": "visibility: hidden !important;",
+        "property": "visibility",
+        "fullLine": "visibility: hidden !important;"
+      },
+      {
+        "line": 617,
+        "selector": "pointer-events: none !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: none !important;"
+      },
+      {
+        "line": 620,
+        "selector": "visibility 0.3s ease !important;",
+        "property": "unknown",
+        "fullLine": "visibility 0.3s ease !important;"
+      },
+      {
+        "line": 621,
+        "selector": "z-index: 2147483647 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: 2147483647 !important;"
+      },
+      {
+        "line": 625,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 626,
+        "selector": "visibility: visible !important;",
+        "property": "visibility",
+        "fullLine": "visibility: visible !important;"
+      },
+      {
+        "line": 627,
+        "selector": "transform: translateX(-50%) !important;",
+        "property": "transform",
+        "fullLine": "transform: translateX(-50%) !important;"
+      },
+      {
+        "line": 632,
+        "selector": "background: var(--accent-cyan) !important;",
+        "property": "background",
+        "fullLine": "background: var(--accent-cyan) !important;"
+      },
+      {
+        "line": 636,
+        "selector": "0 0 35px rgba(0, 255, 255, 0.4) !important;",
+        "property": "unknown",
+        "fullLine": "0 0 35px rgba(0, 255, 255, 0.4) !important;"
+      },
+      {
+        "line": 640,
+        "selector": "transform: scale(1.3) !important;",
+        "property": "transform",
+        "fullLine": "transform: scale(1.3) !important;"
+      },
+      {
+        "line": 644,
+        "selector": "0 0 50px rgba(0, 255, 255, 0.6) !important;",
+        "property": "unknown",
+        "fullLine": "0 0 50px rgba(0, 255, 255, 0.6) !important;"
+      },
+      {
+        "line": 649,
+        "selector": "background: var(--accent-magenta) !important;",
+        "property": "background",
+        "fullLine": "background: var(--accent-magenta) !important;"
+      },
+      {
+        "line": 653,
+        "selector": "0 0 35px rgba(255, 0, 255, 0.4) !important;",
+        "property": "unknown",
+        "fullLine": "0 0 35px rgba(255, 0, 255, 0.4) !important;"
+      },
+      {
+        "line": 657,
+        "selector": "transform: scale(1.3) !important;",
+        "property": "transform",
+        "fullLine": "transform: scale(1.3) !important;"
+      },
+      {
+        "line": 661,
+        "selector": "0 0 50px rgba(255, 0, 255, 0.6) !important;",
+        "property": "unknown",
+        "fullLine": "0 0 50px rgba(255, 0, 255, 0.6) !important;"
+      },
+      {
+        "line": 666,
+        "selector": "background: var(--accent-green) !important;",
+        "property": "background",
+        "fullLine": "background: var(--accent-green) !important;"
+      },
+      {
+        "line": 670,
+        "selector": "0 0 35px rgba(0, 255, 0, 0.4) !important;",
+        "property": "unknown",
+        "fullLine": "0 0 35px rgba(0, 255, 0, 0.4) !important;"
+      },
+      {
+        "line": 674,
+        "selector": "transform: scale(1.3) !important;",
+        "property": "transform",
+        "fullLine": "transform: scale(1.3) !important;"
+      },
+      {
+        "line": 678,
+        "selector": "0 0 50px rgba(0, 255, 0, 0.6) !important;",
+        "property": "unknown",
+        "fullLine": "0 0 50px rgba(0, 255, 0, 0.6) !important;"
+      },
+      {
+        "line": 143,
+        "selector": "display: inline-block !important;",
+        "property": "display",
+        "fullLine": "display: inline-block !important;"
+      },
+      {
+        "line": 144,
+        "selector": "position: static !important;",
+        "property": "position",
+        "fullLine": "position: static !important;"
+      },
+      {
+        "line": 145,
+        "selector": "width: 0 !important;",
+        "property": "width",
+        "fullLine": "width: 0 !important;"
+      },
+      {
+        "line": 146,
+        "selector": "height: 0 !important;",
+        "property": "height",
+        "fullLine": "height: 0 !important;"
+      },
+      {
+        "line": 147,
+        "selector": "border-left: 5px solid transparent !important;",
+        "property": "border-left",
+        "fullLine": "border-left: 5px solid transparent !important;"
+      },
+      {
+        "line": 148,
+        "selector": "border-right: 5px solid transparent !important;",
+        "property": "border-right",
+        "fullLine": "border-right: 5px solid transparent !important;"
+      },
+      {
+        "line": 149,
+        "selector": "border-top: 6px solid var(--accent-cyan) !important;",
+        "property": "border-top",
+        "fullLine": "border-top: 6px solid var(--accent-cyan) !important;"
+      },
+      {
+        "line": 150,
+        "selector": "border-bottom: none !important;",
+        "property": "border-bottom",
+        "fullLine": "border-bottom: none !important;"
+      },
+      {
+        "line": 151,
+        "selector": "background: none !important;",
+        "property": "background",
+        "fullLine": "background: none !important;"
+      },
+      {
+        "line": 152,
+        "selector": "bottom: auto !important;",
+        "property": "bottom",
+        "fullLine": "bottom: auto !important;"
+      },
+      {
+        "line": 153,
+        "selector": "left: auto !important;",
+        "property": "left",
+        "fullLine": "left: auto !important;"
+      },
+      {
+        "line": 156,
+        "selector": "opacity: 0.9 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0.9 !important;"
+      },
+      {
+        "line": 18,
+        "selector": "background-size: cover !important;",
+        "property": "background-size",
+        "fullLine": "background-size: cover !important;"
+      },
+      {
+        "line": 19,
+        "selector": "background-position: center !important;",
+        "property": "background-position",
+        "fullLine": "background-position: center !important;"
+      },
+      {
+        "line": 20,
+        "selector": "background-repeat: no-repeat !important;",
+        "property": "background-repeat",
+        "fullLine": "background-repeat: no-repeat !important;"
+      },
+      {
+        "line": 75,
+        "selector": "opacity: 0.6 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0.6 !important;"
+      },
+      {
+        "line": 347,
+        "selector": "overflow: visible !important;",
+        "property": "overflow",
+        "fullLine": "overflow: visible !important;"
+      },
+      {
+        "line": 354,
+        "selector": "content: '' !important;",
+        "property": "content",
+        "fullLine": "content: '' !important;"
+      },
+      {
+        "line": 355,
+        "selector": "position: absolute !important;",
+        "property": "position",
+        "fullLine": "position: absolute !important;"
+      },
+      {
+        "line": 356,
+        "selector": "inset: -3px !important;",
+        "property": "inset",
+        "fullLine": "inset: -3px !important;"
+      },
+      {
+        "line": 357,
+        "selector": "border-radius: 13px !important;",
+        "property": "border-radius",
+        "fullLine": "border-radius: 13px !important;"
+      },
+      {
+        "line": 358,
+        "selector": "padding: 3px !important;",
+        "property": "padding",
+        "fullLine": "padding: 3px !important;"
+      },
+      {
+        "line": 367,
+        "selector": ") !important;",
+        "property": "unknown",
+        "fullLine": ") !important;"
+      },
+      {
+        "line": 370,
+        "selector": "linear-gradient(#fff 0 0) !important;",
+        "property": "unknown",
+        "fullLine": "linear-gradient(#fff 0 0) !important;"
+      },
+      {
+        "line": 371,
+        "selector": "-webkit-mask-composite: xor !important;",
+        "property": "-webkit-mask-composite",
+        "fullLine": "-webkit-mask-composite: xor !important;"
+      },
+      {
+        "line": 374,
+        "selector": "linear-gradient(#fff 0 0) !important;",
+        "property": "unknown",
+        "fullLine": "linear-gradient(#fff 0 0) !important;"
+      },
+      {
+        "line": 375,
+        "selector": "mask-composite: exclude !important;",
+        "property": "mask-composite",
+        "fullLine": "mask-composite: exclude !important;"
+      },
+      {
+        "line": 376,
+        "selector": "opacity: 0 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0 !important;"
+      },
+      {
+        "line": 377,
+        "selector": "transition: opacity 0.35s ease !important;",
+        "property": "transition",
+        "fullLine": "transition: opacity 0.35s ease !important;"
+      },
+      {
+        "line": 378,
+        "selector": "z-index: 9999 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: 9999 !important;"
+      },
+      {
+        "line": 379,
+        "selector": "pointer-events: none !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: none !important;"
+      },
+      {
+        "line": 394,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 421,
+        "selector": "overflow: visible !important;",
+        "property": "overflow",
+        "fullLine": "overflow: visible !important;"
+      },
+      {
+        "line": 428,
+        "selector": "content: '' !important;",
+        "property": "content",
+        "fullLine": "content: '' !important;"
+      },
+      {
+        "line": 429,
+        "selector": "position: absolute !important;",
+        "property": "position",
+        "fullLine": "position: absolute !important;"
+      },
+      {
+        "line": 430,
+        "selector": "inset: -3px !important;",
+        "property": "inset",
+        "fullLine": "inset: -3px !important;"
+      },
+      {
+        "line": 431,
+        "selector": "border-radius: 13px !important;",
+        "property": "border-radius",
+        "fullLine": "border-radius: 13px !important;"
+      },
+      {
+        "line": 432,
+        "selector": "padding: 3px !important;",
+        "property": "padding",
+        "fullLine": "padding: 3px !important;"
+      },
+      {
+        "line": 441,
+        "selector": ") !important;",
+        "property": "unknown",
+        "fullLine": ") !important;"
+      },
+      {
+        "line": 444,
+        "selector": "linear-gradient(#fff 0 0) !important;",
+        "property": "unknown",
+        "fullLine": "linear-gradient(#fff 0 0) !important;"
+      },
+      {
+        "line": 445,
+        "selector": "-webkit-mask-composite: xor !important;",
+        "property": "-webkit-mask-composite",
+        "fullLine": "-webkit-mask-composite: xor !important;"
+      },
+      {
+        "line": 448,
+        "selector": "linear-gradient(#fff 0 0) !important;",
+        "property": "unknown",
+        "fullLine": "linear-gradient(#fff 0 0) !important;"
+      },
+      {
+        "line": 449,
+        "selector": "mask-composite: exclude !important;",
+        "property": "mask-composite",
+        "fullLine": "mask-composite: exclude !important;"
+      },
+      {
+        "line": 450,
+        "selector": "opacity: 0 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 0 !important;"
+      },
+      {
+        "line": 451,
+        "selector": "transition: opacity 0.35s ease !important;",
+        "property": "transition",
+        "fullLine": "transition: opacity 0.35s ease !important;"
+      },
+      {
+        "line": 452,
+        "selector": "z-index: 9999 !important;",
+        "property": "z-index",
+        "fullLine": "z-index: 9999 !important;"
+      },
+      {
+        "line": 453,
+        "selector": "pointer-events: none !important;",
+        "property": "pointer-events",
+        "fullLine": "pointer-events: none !important;"
+      },
+      {
+        "line": 468,
+        "selector": "opacity: 1 !important;",
+        "property": "opacity",
+        "fullLine": "opacity: 1 !important;"
+      },
+      {
+        "line": 10,
+        "selector": "padding-top: 3rem !important;",
+        "property": "padding-top",
+        "fullLine": "padding-top: 3rem !important;"
+      }
+    ]
+  }
+}

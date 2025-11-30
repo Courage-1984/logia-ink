@@ -1,0 +1,115 @@
+/**
+ * Card Animations
+ * Keyframe animations for card components
+ */
+
+/* Animate stroke color through project colors with smooth transitions */
+@keyframes iconGradientShift {
+  0% {
+    stroke: var(--accent-cyan);
+    filter: drop-shadow(0 0 15px var(--glow-cyan));
+  }
+
+  20% {
+    stroke: var(--accent-magenta);
+    filter: drop-shadow(0 0 15px var(--glow-magenta));
+  }
+
+  40% {
+    stroke: var(--accent-green);
+    filter: drop-shadow(0 0 15px var(--glow-green));
+  }
+
+  60% {
+    stroke: var(--accent-blue);
+    filter: drop-shadow(0 0 15px var(--glow-blue));
+  }
+
+  80% {
+    stroke: var(--accent-pink);
+    filter: drop-shadow(0 0 15px var(--glow-pink));
+  }
+
+  100% {
+    stroke: var(--accent-cyan);
+    filter: drop-shadow(0 0 15px var(--glow-cyan));
+  }
+}
+
+@keyframes offerPanelEnter {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--offer-enter-x, 0), 40px, 0) scale(0.96);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(calc(var(--offer-enter-x, 0) * 0.25), -6px, 0) scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes cardScaleGrow {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes testimonialGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotateGradient {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
+
+@keyframes starFade {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Icon Pulse Animation */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+}
+

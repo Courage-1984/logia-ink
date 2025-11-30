@@ -1,0 +1,96 @@
+{
+  "analysis_date": "2025-11-06",
+  "target_site": "https://courage-1984.github.io/logi-ink/",
+  "total_competitors": 15,
+  "keywords_analyzed": 20,
+  "high_priority_keywords": [
+    {
+      "keyword": "website design johannesburg",
+      "frequency_in_competitors": 8,
+      "missing_on_target": true,
+      "pages_using_keyword": 12,
+      "suggested_new_pages": ["/website-design-johannesburg"],
+      "priority": 1,
+      "search_intent": "Local, Commercial"
+    },
+    {
+      "keyword": "website design cape town",
+      "frequency_in_competitors": 7,
+      "missing_on_target": true,
+      "pages_using_keyword": 10,
+      "suggested_new_pages": ["/website-design-cape-town"],
+      "priority": 1,
+      "search_intent": "Local, Commercial"
+    },
+    {
+      "keyword": "affordable website design",
+      "frequency_in_competitors": 10,
+      "missing_on_target": true,
+      "pages_using_keyword": 28,
+      "suggested_new_pages": ["/pricing"],
+      "priority": 1,
+      "search_intent": "Commercial"
+    },
+    {
+      "keyword": "website design packages",
+      "frequency_in_competitors": 11,
+      "missing_on_target": true,
+      "pages_using_keyword": 32,
+      "suggested_new_pages": ["/pricing", "/packages"],
+      "priority": 1,
+      "search_intent": "Commercial"
+    },
+    {
+      "keyword": "seo services south africa",
+      "frequency_in_competitors": 9,
+      "missing_on_target": true,
+      "pages_using_keyword": 18,
+      "suggested_new_pages": ["/seo-services"],
+      "priority": 1,
+      "search_intent": "Commercial"
+    }
+  ],
+  "medium_priority_keywords": [
+    {
+      "keyword": "website maintenance",
+      "frequency_in_competitors": 8,
+      "missing_on_target": true,
+      "pages_using_keyword": 15,
+      "suggested_new_pages": ["/maintenance"],
+      "priority": 2,
+      "search_intent": "Commercial"
+    },
+    {
+      "keyword": "ecommerce website design",
+      "frequency_in_competitors": 7,
+      "missing_on_target": true,
+      "pages_using_keyword": 12,
+      "suggested_new_pages": ["/ecommerce-solutions"],
+      "priority": 2,
+      "search_intent": "Commercial"
+    },
+    {
+      "keyword": "ppc advertising",
+      "frequency_in_competitors": 6,
+      "missing_on_target": true,
+      "pages_using_keyword": 10,
+      "suggested_new_pages": ["/ppc-services"],
+      "priority": 2,
+      "search_intent": "Commercial"
+    }
+  ],
+  "summary": {
+    "total_keywords_missing": 20,
+    "high_priority_missing": 5,
+    "medium_priority_missing": 8,
+    "low_priority_missing": 7,
+    "recommended_pages": [
+      "/pricing",
+      "/seo-services",
+      "/website-design-johannesburg",
+      "/website-design-cape-town",
+      "/ecommerce-solutions"
+    ]
+  }
+}
+

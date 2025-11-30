@@ -1,0 +1,196 @@
+/**
+ * Form Input Variants
+ * Checkbox, radio, range, progress, and select input styles
+ */
+
+/* Checkbox Styling */
+input[type='checkbox'] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  border-radius: 4px;
+  background: rgba(10, 10, 10, 0.5);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+input[type='checkbox']:hover {
+  border-color: #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+input[type='checkbox']:checked {
+  background: #00ffff;
+  border-color: #00ffff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+input[type='checkbox']:checked::before {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--bg-primary);
+  font-weight: 900;
+  font-size: 14px;
+}
+
+/* Radio Button Styling */
+input[type='radio'] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+input[type='radio']:hover {
+  border-color: #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+input[type='radio']:checked {
+  background: transparent;
+  border-color: #00ffff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+input[type='radio']:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+/* Range Slider Styling */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: rgba(10, 10, 10, 0.5);
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #00ffff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #00ffff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+input[type='range']::-moz-range-thumb:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 6px;
+  background: rgba(0, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+input[type='range']::-moz-range-track {
+  height: 6px;
+  background: rgba(0, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+/* Progress Bar Styling */
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border: none;
+  background: rgba(10, 10, 10, 0.5);
+  border-radius: 4px;
+}
+
+progress::-webkit-progress-bar {
+  background: rgba(10, 10, 10, 0.5);
+  border-radius: 4px;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(90deg, #00ffff, #00cccc);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(90deg, #00ffff, #00cccc);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Select Dropdown Styling */
+select {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(10, 10, 10, 0.5);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 5px;
+  color: var(--text-primary);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2300ffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  padding-right: 3rem;
+  transition: all 0.3s ease;
+}
+
+select:hover {
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+

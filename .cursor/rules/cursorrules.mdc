@@ -1,0 +1,1170 @@
+---
+alwaysApply: true
+---
+
+# ⚠️ CRITICAL: READ THIS FILE FIRST ⚠️
+
+## 🚨 MANDATORY FIRST STEP FOR ALL AGENTS 🚨
+
+**BEFORE PROCEEDING WITH ANY USER PROMPT, TASK, OR REQUEST:**
+
+1. **YOU MUST READ THIS ENTIRE FILE FIRST** (`.cursor/rules/cursorrules.mdc`)
+2. **DO NOT make any changes, edits, or execute any commands until you have fully read and understood this file**
+3. **This file contains the complete project structure, conventions, and rules that MUST be followed**
+4. **Ignoring this file will result in incorrect implementations that don't match the project's architecture**
+5. **NEVER DELETE ./.old/**
+
+**This file is the SOURCE OF TRUTH for:**
+
+- Project structure and file organization
+- CSS architecture and module system
+- JavaScript architecture and module patterns
+- HTML structure and component guidelines
+- Naming conventions and code standards
+- Component locations and class names
+- Color palette and design tokens
+- Responsive breakpoints
+- Animation guidelines
+- Performance considerations
+
+**If you haven't read this file yet, STOP and read it NOW before continuing.**
+
+**Always choose the correct MCP tool based on the task:**
+
+- If the task involves web research, scraping, competitor analysis → use firecrawl-mcp.
+- If the task involves debugging or inspecting a live webpage → use chrome-devtools.
+- If the task involves library usage, dependencies, setup, or coding examples → use context7.
+
+The agent should not hallucinate or invent information when a corresponding MCP tool can provide real data.
+
+---
+
+# Logi-Ink Project Rules & Structure
+
+## IMPORTANT: Update This File
+
+**Whenever you make structural changes to the project, update this file (`.cursor/rules/cursorrules.mdc`) accordingly.**
+
+---
+
+## Project Structure
+
+### Root Directory
+
+```
+logi-ink/
+├── .cursor/              # Cursor IDE configuration
+│   └── rules/
+│       └── cursorrules.mdc # This file - Project rules and structure guide
+├── docs/                 # Documentation files
+│   ├── BUILD_AND_DEPLOY.md
+│   ├── QUICK_START.md
+│   ├── STYLE_GUIDE.md
+│   ├── project_commands.md # Quick command reference
+│   ├── IMAGE_GENERATION_PROMPTS.md
+│   ├── VIDEO_BACKGROUND_GUIDE.md
+│   ├── README.md          # Documentation index
+│   ├── TODO.md            # Pending analytics/documentation follow-ups
+│   └── research/          # Research and analysis files (optional)
+├── tests/                # Test files
+│   ├── e2e/
+│   │   └── smoke.spec.js
+│   ├── test-fonts.html
+│   └── test-service-worker.html
+├── scripts/              # Build and optimization scripts
+│   ├── optimize-images.js
+│   ├── optimize-video.js
+│   ├── convert-poster-formats.js
+│   ├── generate-responsive-images.js
+│   ├── generate-sitemap.js
+│   ├── generate-seo-meta.js
+│   ├── generate-structured-data.js
+│   ├── subset-fonts.js
+│   ├── subset-fonts-with-glyphhanger.sh
+│   ├── subset-fonts-with-glyphhanger.ps1
+│   ├── test-fonts.ps1
+│   ├── update-html-seo.js
+│   ├── inline-critical-css.js
+│   ├── generate-media-inventory.js
+│   ├── generate-dashboard-reports.js
+│   ├── generate-coverage-report.js
+│   ├── generate-performance-timeline.js
+│   ├── generate-pwmetrics-report.js
+│   ├── run-pa11y-report.js
+│   ├── find-chrome-path.js
+│   └── optimize-video copy.js
+├── partials/             # Reusable HTML components (included at build time)
+│   ├── navbar.html       # Navigation component
+│   └── footer.html       # Footer component
+├── reports/              # CI artefact placeholders (copied into dist/reports)
+│   ├── bundle-report.html
+│   ├── bundle-stats.json
+│   ├── coverage/
+│   │   └── index.html
+│   ├── lighthouse-report.html
+│   ├── media-inventory.html
+│   ├── performance-timeline.html
+│   ├── pwa-audit.html
+│   ├── seo-audit.html
+│   └── stats.html
+├── robots.txt            # Search engine crawling rules
+├── sitemap.xml           # Sitemap for search engines (generated)
+├── .htaccess             # Apache security headers configuration
+├── _headers              # Netlify/Vercel security headers
+├── nginx.conf.example    # Nginx security headers example
+├── index.html            # Homepage (entry point)
+├── about.html            # About page (entry point)
+├── services.html         # Services page (entry point) ✅ EXISTS
+├── projects.html         # Projects page (entry point)
+├── pricing.html          # Pricing landing page (entry point)
+├── seo-services.html     # SEO services landing page (entry point)
+├── reports.html          # Operational reports dashboard (entry point)
+├── contact.html          # Contact page (entry point)
+├── README.md             # Project documentation
+├── package.json          # Node.js dependencies and scripts
+├── vite.config.js        # Vite build configuration
+├── vite-plugin-html-include.js # Custom Vite plugin for HTML includes
+├── .gitignore            # Git ignore rules
+├── logo.png              # Main logo file
+├── favicon.ico           # Favicon (ICO fallback for legacy browsers)
+├── favicon.svg           # SVG favicon (modern browsers, scalable)
+├── favicon-64x64.png     # 64x64 favicon (high-DPI displays)
+├── favicon-48x48.png     # 48x48 favicon
+├── favicon-32x32.png     # 32x32 favicon
+├── favicon-16x16.png     # 16x16 favicon
+├── apple-touch-icon.png  # Apple touch icon (180x180)
+├── android-chrome-192x192.png # Android Chrome icon (192x192)
+├── android-chrome-512x512.png # Android Chrome icon (512x512)
+├── safari-pinned-tab.svg # Safari pinned tab icon
+├── mstile-70x70.png      # Windows tile (small)
+├── mstile-150x150.png    # Windows tile (medium)
+├── mstile-310x150.png    # Windows tile (wide)
+├── mstile-310x310.png    # Windows tile (large)
+├── browserconfig.xml     # Windows tile configuration
+├── lighthouserc.json     # Lighthouse CI configuration (main, full categories)
+├── lighthouserc.pwa.json # Lighthouse CI configuration (PWA-only category)
+├── pwmetrics.config.cjs  # PWMetrics configuration (optional tooling)
+├── pa11y.config.json     # Pa11y configuration
+├── css/                  # Modular CSS files
+│   ├── main.css          # Main entry point
+│   ├── variables.css     # CSS custom properties
+│   ├── base.css          # Base/reset styles
+│   ├── fonts.css         # Self-hosted font declarations
+│   ├── critical.css      # Critical CSS (above-the-fold)
+│   ├── components/       # 20 component CSS files
+│   ├── pages/            # Page-specific styles (3 files)
+│   ├── easter-egg/       # ✅ EXISTS - Galaxy easter egg styles (dedicated folder)
+│   │   └── easter-egg.css # ✅ EXISTS - Black hole vortex and Milky Way scene styles
+│   └── utils/            # Utility styles (9 files)
+├── css/legacy/           # Legacy CSS files (backup)
+│   └── styles.css        # Original monolithic CSS
+├── js/                   # Modular JavaScript files
+│   ├── main.js           # Main entry point
+│   ├── core/             # Core functionality modules (10 modules)
+│   │   ├── navigation.js
+│   │   ├── scroll.js
+│   │   ├── scroll-manager.js
+│   │   ├── animations.js
+│   │   ├── cursor.js
+│   │   ├── mouse-tilt.js
+│   │   ├── easter-egg.js
+│   │   ├── page-transitions.js
+│   │   └── service-worker.js
+│   ├── utils/            # Utility modules (8 files)
+│   │   ├── accessibility.js
+│   │   ├── env.js
+│   │   ├── error-handler.js
+│   │   ├── interactions.js
+│   │   ├── performance.js
+│   │   ├── ripples-lazyload.js
+│   │   ├── three-loader.js
+│   │   └── toast.js
+│   └── pages/            # Page-specific scripts (2 files)
+│       ├── contact.js
+│       └── services.js
+├── js/legacy/            # Legacy JavaScript files (backup)
+│   └── script.js         # Original monolithic JS
+├── partials/             # Reusable HTML components
+├── assets/               # Static assets
+│   ├── fonts/            # Self-hosted fonts (WOFF2, subsetted)
+│   │   ├── Orbitron/     # Orbitron font family
+│   │   └── Rajdhani/     # Rajdhani font family
+│   ├── images/
+│   │   ├── backgrounds/  # Background images
+│   │   ├── banners/      # Banner images
+│   │   ├── logos/        # Logo images
+│   │   └── responsive/   # ✅ EXISTS - Responsive image variants (AVIF/WebP)
+│   ├── audio/            # ✅ EXISTS - Audio assets
+│   │   └── space-ambience-optimized.ogg # Space ambience for easter egg
+│   └── video/
+│       └── optimized/    # Pre-processed hero/background loops
+├── dist/                 # Production build output (generated by Vite)
+├── sw.js                 # Service worker (PWA/offline support)
+├── site.webmanifest      # PWA manifest
+├── robots.txt            # Search engine crawling rules
+├── sitemap.xml           # Sitemap for search engines (generated)
+├── .htaccess             # Apache security headers configuration
+├── _headers              # Netlify/Vercel security headers
+├── nginx.conf.example    # Nginx security headers example
+├── eslint.config.js      # ESLint configuration (ESLint v9 flat config)
+├── playwright.config.js  # Playwright smoke suite configuration
+├── .editorconfig         # Editor configuration
+├── .prettierrc           # Prettier configuration
+├── .prettierignore       # Prettier ignore rules
+├── .nvmrc                # Node.js version specification
+├── .gitattributes        # Git line ending normalization
+├── .npmrc                # npm configuration
+├── .vscode/              # VS Code workspace settings
+│   ├── settings.json
+│   └── extensions.json
+└── CHANGELOG.md          # Version history and changes
+```
+
+---
+
+## CSS Architecture (Modular)
+
+### Current Status
+
+- **Variables & Base:** ✅ Complete (`variables.css`, `base.css`)
+- **Components:** ✅ Complete (20 component files)
+- **Pages:** ✅ Complete (`about.css`, `contact.css`, `projects.css`)
+- **Utils:** ✅ Complete (10 utility files)
+- **Legacy:** ✅ Migrated - Files moved to `css/legacy/` for reference
+
+**Migration Status:** ✅ **COMPLETE** - All CSS has been successfully migrated to modular structure. Legacy files are in `css/legacy/` for reference.
+
+### Main Entry Point
+
+- **`css/main.css`** - Main CSS file that imports all modules
+  - **DO NOT edit this file directly** - It only contains @import statements
+  - All CSS should be in component/module files
+  - All CSS files are complete and imported
+
+### CSS Module Structure
+
+```
+css/
+├── main.css              # ✅ Main entry point (imports all modules)
+├── variables.css         # ✅ CSS custom properties (colors, spacing, etc.)
+├── base.css              # ✅ Reset, typography, foundational styles
+├── components/           # ✅ 20 Reusable UI components
+│   ├── navigation.css    # ✅ Navbar and navigation styles
+│   ├── hero.css          # ✅ Hero section styles
+│   ├── buttons.css       # ✅ Button styles and variants
+│   ├── cards.css         # ✅ Service and project card styles
+│   ├── footer.css        # ✅ Footer styles
+│   ├── forms.css         # ✅ Form elements and validation states
+│   ├── cta.css           # ✅ Call-to-action section styles
+│   ├── parallax.css      # ✅ Parallax section styles
+│   ├── back-to-top.css   # ✅ Back-to-top button styles
+│   ├── modals.css        # ✅ Modal/dialog styles
+│   ├── alerts.css        # ✅ Alert/notification styles
+│   ├── badges.css        # ✅ Badge/label styles
+│   ├── tables.css        # ✅ Table styles
+│   ├── tabs.css          # ✅ Tab component styles
+│   ├── accordions.css    # ✅ Accordion/collapsible styles
+│   ├── tooltips.css      # ✅ Tooltip styles
+│   ├── typography.css    # ✅ Typography utilities (code, blockquote, etc.)
+│   ├── breadcrumbs.css   # ✅ Breadcrumb navigation styles
+│   ├── toast.css         # ✅ Toast notification styles
+│   └── service-worker.css # ✅ Service worker update notification styles
+├── pages/                # ✅ Page-specific styles (4 files)
+│   ├── contact.css       # ✅ Contact page styles
+│   ├── projects.css       # ✅ Projects page styles
+│   ├── about.css          # ✅ About page styles
+│   └── reports.css        # ✅ Reports dashboard styles
+└── utils/                # ✅ 9 Utility styles and effects
+    ├── animations.css    # ✅ All @keyframes and animation utilities
+    ├── cursor.css        # ✅ Custom cursor and scroll progress
+    ├── 3d-effects.css    # ✅ 3D transform effects
+    ├── fluid-effects.css # ✅ Fluid morphing effects
+    ├── responsive.css    # ✅ All @media queries (MUST BE LAST)
+    ├── loading.css       # ✅ Loading spinners and overlays
+    ├── empty-state.css   # ✅ Empty state styles
+    ├── dividers.css      # ✅ Divider/separator styles
+    └── skip-link.css     # ✅ Skip link accessibility styles
+├── easter-egg/           # ✅ Galaxy easter egg styles (dedicated folder)
+│   └── easter-egg.css    # ✅ Black hole vortex and Milky Way scene styles
+```
+
+**Note:** All CSS files are complete and migrated. Legacy `styles.css` is in `css/legacy/` for reference.
+
+### CSS Import Order (Important!)
+
+1. Variables (must be first - defines CSS custom properties)
+2. Base styles (foundational styles)
+3. Components (reusable UI elements)
+4. Page-specific styles
+5. Animations & Effects
+6. Responsive (must be last - overrides for mobile/tablet)
+
+### CSS Naming Conventions
+
+- Use BEM-like naming: `.component`, `.component__element`, `.component--modifier`
+- Use kebab-case for class names: `.service-card`, `.project-image`
+- Prefix utility classes: `.scroll-reveal-3d`, `.fade-in-up`
+- Use semantic names that describe purpose, not appearance
+
+---
+
+## JavaScript Architecture (Modular ES6)
+
+### Current Status
+
+- **✅ Complete:** All JavaScript modules are fully implemented and functional
+- **✅ Migration:** JavaScript migration from legacy `script.js` is complete
+- **All modules exist and are working:** core modules, utils, and page-specific modules
+
+### Main Entry Point
+
+- **`js/main.js`** - Main JavaScript file that imports and initializes all modules
+  - Uses ES6 modules (`import`/`export`)
+  - Initializes all core modules on DOMContentLoaded
+  - Conditionally loads page-specific modules
+  - **Note:** JavaScript architecture is complete and functional
+
+### JavaScript Module Structure
+
+```
+js/
+├── main.js               # ✅ EXISTS - Main entry point (imports and initializes all modules)
+├── core/                 # ✅ EXISTS - Core functionality modules (10 modules)
+│   ├── navigation.js     # ✅ EXISTS - Navbar scroll effects, mobile menu toggle
+│   ├── scroll.js         # ✅ EXISTS - Scroll progress, parallax, smooth scroll, back-to-top
+│   ├── scroll-manager.js # ✅ EXISTS - Centralized scroll event handler
+│   ├── animations.js     # ✅ EXISTS - Scroll-triggered animations, reveals, fade-ins
+│   ├── cursor.js         # ✅ EXISTS - Custom cursor follow and dot effects
+│   ├── mouse-tilt.js      # ✅ EXISTS - 3D tilt effects on cards (desktop only)
+│   ├── page-transitions.js # ✅ EXISTS - Page transition animations
+│   ├── service-worker.js # ✅ EXISTS - Service worker registration and updates
+│   └── three-hero.js     # ✅ EXISTS - Three.js hero background animations (different per page)
+├── easter-egg/           # ✅ EXISTS - Galaxy easter egg feature (dedicated folder)
+│   ├── easter-egg.js     # ✅ EXISTS - Easter egg trigger/initialization
+│   ├── runtime.js        # ✅ EXISTS - Milky Way 3D scene runtime (single wrapper UI hiding/restoration, navbar/footer handling)
+│   ├── celestial-textures.js # ✅ EXISTS - Procedural texture generation (THREE parameter, MIN_POLE_SCALE_THRESHOLD, pole-aware scaling, seamless noise, quadratic feature scaling)
+│   ├── texture-wrapping.js # ✅ EXISTS - Seamless texture wrapping utilities (featherPoles, isSafeForPolePlacement, multi-pixel blending)
+│   ├── procedural-noise.js # ✅ EXISTS - Procedural noise generation (fractal, seamless, 3D noise)
+│   ├── celestial-mechanics.js # ✅ EXISTS - Orbital mechanics (calculateKeplerianOrbitalSpeedApproximation, calculateLagrangePoints module purity, deltaTime support)
+│   ├── camera-controls.js # ✅ EXISTS - Camera animation and orbital controls (optimized THREE checks)
+│   ├── galaxy-generator.js # ✅ EXISTS - Multi-layer galaxy generation (spatial hash grid optimization for O(1) neighbor lookup)
+│   ├── star-field.js     # ✅ EXISTS - Background star field generation with twinkling (color buffer updates)
+│   ├── lighting-atmosphere.js # ✅ EXISTS - Dynamic lighting and atmospheric glow (initial camera position parameter)
+│   ├── nebula-clouds.js  # ✅ EXISTS - Nebula, star-forming regions, and interstellar medium
+│   ├── particle-effects.js # ✅ EXISTS - Asteroid belts, comets, solar wind (frame-rate independent with deltaTime, squared distance checks), space dust, space stations
+│   └── post-processing.js # ✅ EXISTS - Post-processing effects (recursive raycasting, standardized imports, bloom, depth of field, motion blur)
+├── utils/                # ✅ EXISTS - Utility modules (11 files)
+│   ├── accessibility.js  # ✅ EXISTS - Accessibility utilities (focus management, ARIA announcements)
+│   ├── env.js            # ✅ EXISTS - Environment detection helpers (browser-safe)
+│   ├── error-handler.js  # ✅ EXISTS - Centralized error handling and logging
+│   ├── interactions.js   # ✅ EXISTS - Button hover effects, card interactions
+│   ├── performance.js    # ✅ EXISTS - Web Vitals tracking and performance monitoring
+│   ├── ripples-lazyload.js # ✅ EXISTS - Background video lazy loader (with loading="lazy" for videos)
+│   ├── three-loader.js   # ✅ EXISTS - Dynamic Three.js loader with SRI support
+│   ├── toast.js          # ✅ EXISTS - Toast notification system
+│   ├── dynamic-prefetch.js # ✅ EXISTS - Dynamic resource hints (prefetch on link hover/focus)
+│   ├── web-worker-helper.js # ✅ EXISTS - Web Worker utilities for offloading heavy computations
+│   └── lazy-background-images.js # ✅ EXISTS - Lazy loads CSS background images when sections are near viewport (AVIF/WebP support)
+└── pages/                # ✅ EXISTS - Page-specific modules (4 files)
+    ├── contact.js        # ✅ EXISTS - Contact form handling
+    ├── services.js        # ✅ EXISTS - Service modals handling
+    ├── projects.js        # ✅ EXISTS - Project details modal handling
+    └── reports.js        # ✅ EXISTS - Reports dashboard tabs & lazy loading
+```
+
+**Note:** All JavaScript modules are fully implemented and functional. The modular ES6 architecture is complete. Three.js hero backgrounds are initialized automatically based on page (particles for index, geometric shapes for services, torus grid for projects).
+
+### JavaScript Patterns
+
+- Each module exports an initialization function: `export function initModuleName()`
+- Modules are independent and can work standalone
+- Main.js imports and calls all init functions
+- Use DOMContentLoaded or check for element existence before initialization
+- Always check if elements exist before querying: `if (!element) return;`
+
+### Example Module Structure
+
+```javascript
+/**
+ * Module Name
+ * Brief description of what this module does
+ */
+
+export function initModuleName() {
+  // Check for required elements
+  const element = document.querySelector('.element');
+  if (!element) return;
+
+  // Module functionality
+  // ...
+}
+```
+
+---
+
+## HTML Structure
+
+### HTML Files
+
+- Each page is a separate HTML file in the root
+- All pages should include:
+  - **Security Headers** - Meta tags for X-Frame-Options, CSP, etc.
+  - **SEO Meta Tags** - Open Graph, Twitter Cards, descriptions
+  - **Structured Data** - JSON-LD schemas (Organization, WebSite, etc.)
+  - **Resource Hints** - Modulepreload for critical ES modules (`main.js`, `core/navigation.js`), preconnect for third-party resources (Plausible analytics)
+  - **Font Preload** - Preload critical fonts (Orbitron Regular, Rajdhani Regular) with `crossorigin="anonymous"`
+  - **Favicons** - Complete favicon block with SVG, PNG sizes, ICO fallback, Apple Touch Icon, Windows Tiles, Safari Pinned Tab, and Web App Manifest (see template below)
+  - **Accessibility** - Skip link, ARIA live region
+  - **Main Content ID** - `<main id="main-content">` wrapper
+  - Navigation - Use `<!-- include partials/navbar.html -->` (processed at build time)
+  - Cursor effects (scroll progress, custom cursor)
+  - Footer - Use `<!-- include partials/footer.html -->` (processed at build time)
+  - Script tag pointing to `js/main.js` with `type="module"`
+  - **Analytics Loading** - Plausible analytics script loaded after page load event (reduces impact on Core Web Vitals)
+  - **Inline page-transition preload script** – inserted near the top of `<head>` so blur/fade animations don't flash when navigating between pages. Use the snippet below on every entry point.
+
+### HTML Partials (Reusable Components)
+
+```
+partials/
+├── navbar.html           # ✅ EXISTS - Navigation component (included at build time)
+└── footer.html           # ✅ EXISTS - Footer component (included at build time)
+```
+
+**Note:** Navigation and footer are modularized and included via the HTML include system. Use `<!-- include partials/navbar.html -->` and `<!-- include partials/footer.html -->` in HTML files. The Vite plugin (`vite-plugin-html-include.js`) processes these includes at build time. Active navigation states are handled dynamically by `js/core/navigation.js`, so no page-specific variants are needed.
+
+**Legacy template files (deprecated, can be deleted):**
+
+- `seo-meta.html` - SEO meta tags are hardcoded in HTML files
+- `security-headers.html` - Security headers are hardcoded in HTML files
+- `structured-data.html` - Structured data is hardcoded in HTML files
+- `accessibility.html` - Accessibility features are hardcoded in HTML files and handled by `js/utils/accessibility.js`
+
+### Assets Structure
+
+```
+assets/
+├── fonts/                # Self-hosted fonts (WOFF2, subsetted)
+│   ├── Orbitron/        # Orbitron font family
+│   └── Rajdhani/        # Rajdhani font family
+├── images/
+│   ├── backgrounds/      # Background images
+│   ├── banners/          # Banner images
+│   ├── logos/            # Logo images
+│   ├── portfolio/        # Portfolio project images
+│   └── responsive/       # Responsive image variants (AVIF/WebP)
+├── audio/                # Audio assets
+│   └── space-ambience-optimized.ogg # Space ambience for easter egg
+└── video/
+    └── optimized/        # Pre-processed hero/background loops
+```
+
+**Note:** Navigation and footer are included via the HTML include system. Use `<!-- include partials/navbar.html -->` and `<!-- include partials/footer.html -->` in HTML files. The custom Vite plugin (`vite-plugin-html-include.js`) processes these includes at build time, replacing the comments with the actual file contents. This ensures consistent navigation and footer across all pages while maintaining a single source of truth.
+
+### HTML Template Structure
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Title - Logi-Ink</title>
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <!-- ... more security headers ... -->
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Page description" />
+    <!-- Open Graph tags -->
+    <!-- Twitter Card tags -->
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        ...
+      }
+    </script>
+
+    <!-- Preload critical fonts (self-hosted WOFF2 - Subsetted) -->
+    <link
+      rel="preload"
+      href="./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+
+    <!-- Modulepreload for critical ES modules -->
+    <link rel="modulepreload" href="./js/main.js" />
+    <link rel="modulepreload" href="./js/core/navigation.js" />
+
+    <!-- Preconnect for third-party resources -->
+    <link rel="preconnect" href="https://plausible.io" crossorigin />
+
+    <!-- Favicons -->
+    <!-- SVG favicon (modern browsers) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- PNG favicons (ordered from largest to smallest) -->
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <!-- ICO fallback (legacy browsers) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <!-- Windows Tiles -->
+    <meta name="msapplication-TileColor" content="#00ffff" />
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <!-- Safari Pinned Tab -->
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00ffff" />
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- ... -->
+  </head>
+  <body>
+    <!-- Accessibility: Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ARIA Live Region for announcements -->
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+    <!-- include partials/navbar.html -->
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Page Content -->
+    </main>
+
+    <!-- include partials/footer.html -->
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top"></a>
+
+    <script type="module" src="js/main.js"></script>
+
+    <!-- Load analytics after page load to reduce impact on Core Web Vitals -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = 'https://plausible.io/js/script.js';
+        script.setAttribute('data-domain', 'logi-ink.com');
+        document.head.appendChild(script);
+      });
+    </script>
+  </body>
+</html>
+```
+
+### Page Transition Preload Snippet
+
+Paste this snippet immediately after the CSP meta tag (or before SEO meta) in each page's `<head>` block:
+
+```html
+<script>
+  if (sessionStorage.getItem('logiInk:pendingTransition')) {
+    document.documentElement.classList.add('page-transition-preload');
+    sessionStorage.removeItem('logiInk:pendingTransition');
+  }
+</script>
+```
+
+> ⚠️ Required for every entry page. Without it, the blur/fade transition will flash on load because the new sessionStorage-driven transition system depends on the preload class being applied before the body paints.
+
+---
+
+## Color Palette & Design Tokens
+
+### Primary Colors
+
+- `--bg-primary: #0a0a0a` - Deep Black (main background)
+- `--bg-secondary: #1a1a2e` - Dark Blue-Black (cards, sections)
+- `--bg-tertiary: #16213e` - Navy Blue (tertiary backgrounds)
+
+### Accent Colors
+
+- `--accent-cyan: #00ffff` - Electric Cyan (primary accent, primary buttons)
+- `--accent-magenta: #ff00ff` - Hot Magenta (secondary accent)
+- `--accent-green: #00ff00` - Electric Green (success states)
+- `--accent-blue: #0066ff` - Electric Blue (info states)
+- `--accent-pink: #ff0080` - Hot Pink (error states)
+- `--accent-gold: #ffb347` - Neon Gold (iteration highlights)
+
+### Text Colors
+
+- `--text-primary: #ffffff` - White (primary text)
+- `--text-secondary: #b0b0b0` - Light Gray (secondary text)
+- `--text-muted: #666666` - Gray (muted text)
+
+### Glow Variables
+
+- Each accent color has a corresponding glow variable: `--glow-cyan`, `--glow-magenta`, etc.
+- Defined in `css/variables.css`
+
+**All colors should use CSS variables - never hardcode hex values!**
+
+---
+
+## Typography
+
+### Font Families
+
+- **Headings & Display:** `'Orbitron', sans-serif`
+- **Body Text & UI:** `'Rajdhani', sans-serif`
+
+### Font Loading Strategy
+
+- **Critical fonts** (Orbitron Regular, Rajdhani Regular): Use `font-display: swap` for faster display
+- **Non-critical variants** (Bold, Black, Light, SemiBold): Use `font-display: optional` to prevent layout shift
+- Fonts are preloaded in HTML head with `crossorigin="anonymous"`
+- Defined in `css/fonts.css` with appropriate `font-display` values
+
+### Font Sizes
+
+- Use `clamp()` for responsive typography
+- Hero titles: `clamp(3rem, 8vw, 6rem)`
+- Section titles: `clamp(2rem, 5vw, 3.5rem)`
+- Body text: `1rem` base size
+
+---
+
+## Responsive Breakpoints
+
+### Breakpoints (defined in `css/utils/responsive.css`)
+
+- **Mobile:** `max-width: 768px`
+- **Tablet:** `769px - 1024px`
+- **Desktop:** `min-width: 1025px`
+- **Small Mobile:** `max-width: 480px`
+
+### Mobile-First Approach
+
+- Base styles are for mobile
+- Use `min-width` media queries for larger screens
+- Test on actual devices when possible
+
+---
+
+## Component Guidelines
+
+### Buttons
+
+- Use `.btn` base class
+- Variants: `.btn-primary`, `.btn-secondary`, `.btn-outline`
+- Size modifiers: `.btn-large`
+- Always include hover and focus states
+
+### Cards
+
+- Service cards: `.service-card`
+- Project cards: `.project-card` or `.project-card-large`
+- Always include hover effects
+- Use `.mouse-tilt-container` for 3D tilt effects
+
+### Forms
+
+- Use `.form-group` wrapper for each input
+- Always include labels
+- Include error/success states: `.form-group.error`, `.form-group.success`
+- Use `.form-submit` for submit buttons
+
+---
+
+## Animation Guidelines
+
+### Scroll Animations
+
+- Use `.fade-in-up` class for elements that fade in on scroll
+- Use `.scroll-reveal-3d` for 3D reveal effects
+- Use `.text-reveal` for text reveal animations
+- Animations should be subtle and performant
+
+### Hover Effects
+
+- Keep hover effects smooth (0.3s transitions)
+- Use transform for performance (translateY, scale)
+- Add glow effects on hover for interactive elements
+
+### Performance
+
+- Use `transform` and `opacity` for animations (GPU-accelerated)
+- Avoid animating `width`, `height`, `top`, `left` (causes reflow)
+- Use `will-change` sparingly
+
+---
+
+## Code Quality Standards
+
+### General
+
+- Use consistent indentation (2 or 4 spaces - check existing code)
+- Add comments for complex logic
+- Use semantic HTML elements
+- Follow accessibility best practices (ARIA labels, alt text, etc.)
+
+### CSS
+
+- One rule per line
+- Use meaningful class names
+- Group related properties
+- Use CSS variables for values used multiple times
+- Keep specificity low (avoid !important)
+
+### JavaScript
+
+- Use ES6+ features (const/let, arrow functions, modules)
+- Check for element existence before querying
+- Use event delegation when appropriate
+- Keep functions small and focused (single responsibility)
+- Add JSDoc comments for exported functions
+
+### Code Commenting:
+
+# Commenting and Code Style Standards
+
+When writing or modifying code:
+
+1. **Comment with purpose, not redundancy**
+   - Only comment _why_ something is done if it is not obvious from the code.
+   - Do not comment what the code does if it is already clear from the code itself.
+   - Comments should clarify intent, rationale, edge cases, assumptions, and decisions.
+
+2. **Function, Class, and Module Headers**
+   Every function, class, or module must include a short header comment describing:
+   - What it is responsible for
+   - Its inputs and outputs
+   - Any side effects or external dependencies
+
+   Example:
+   // Fetches user details from the DB and caches the result for 5 minutes.
+   // Returns null if no user is found.
+
+3. **Document Non-Obvious Logic**
+   When code includes:
+
+- Complex logic
+- Performance optimizations
+- Workarounds for library quirks
+- Assumptions that must remain true
+  Always include a short explanatory comment.
+
+4. **Consistent Style and Naming**
+
+- Use descriptive, intention-revealing variable and function names.
+- Avoid abbreviations unless widely recognized (e.g., `id`, `url`, `env`).
+- Functions should do one thing, and their name should reflect it.
+
+5. **Use TODO / NOTE / FIXME Standard Tags**
+   / TODO: Implement pagination.
+   // NOTE: This function assumes dates are UTC.
+   // FIXME: Rewrite for performance; currently O(n^2).
+
+6. **No Dead or Commented-Out Code**
+   If code is removed, remove it fully. Do not leave commented-out blocks.
+   If code must be kept for reference, explain why and for how long.
+
+7. **Style Consistency**
+   Match the project's existing:
+
+- Formatting
+- Indentation
+- Naming conventions
+- Folder organization
+
+If new code introduces a new pattern, update the documentation and architecture notes accordingly.
+
+8. **Always Re-Check `./.cursor/rules/cursorrules.mdc`**
+   Before committing or submitting code:
+
+- Confirm code comments, naming, and structure align with these standards.
+- Update this rules file if the standards evolve.
+
+---
+
+## File Organization Rules
+
+### Adding New Components
+
+1. Create CSS file in `css/components/component-name.css`
+2. Import it in `css/main.css`
+3. If it needs JS, create module in `js/core/` or `js/utils/`
+4. Export init function and import in `js/main.js`
+5. **Update this file** (`.cursor/rules/cursorrules.mdc`) with the new component
+
+### Adding New Pages
+
+1. Create HTML file in root
+2. Create page-specific CSS in `css/pages/page-name.css` if needed
+3. Create page-specific JS in `js/pages/page-name.js` if needed
+4. Import CSS in `css/main.css`
+5. Conditionally initialize JS in `js/main.js`
+6. Include the **page-transition preload script** in the `<head>` (see snippet above)
+7. **Update this file** (`.cursor/rules/cursorrules.mdc`) with the new page
+
+### Modifying Existing Files
+
+- Keep changes focused and isolated
+- If a component grows too large, consider splitting it
+- Update comments if behavior changes significantly
+- **Update this file** (`.cursor/rules/cursorrules.mdc`) if structure changes
+
+---
+
+## Common Tasks
+
+### Adding a New Service Card
+
+1. Add HTML in services.html or index.html
+2. Use `.service-card` class structure
+3. Styles are already defined in `css/components/cards.css`
+4. JavaScript interactions in `js/utils/interactions.js`
+
+### Adding a New Project
+
+1. Add HTML in projects.html
+2. Use `.project-card` class structure
+3. Add project image to `assets/images/projects/`
+4. Styles in `css/components/cards.css`
+
+### Modifying Colors
+
+1. **Only modify `css/variables.css`**
+2. Update the CSS variable value
+3. All components will automatically use the new color
+
+### Adding a New Animation
+
+1. Add CSS animation in `css/utils/animations.css`
+2. If it needs JS triggers, add to `js/core/animations.js`
+3. Document the animation in comments
+
+### Running Automated QA
+
+1. Ensure Playwright browsers are installed with `npx playwright install` (one-time setup)
+2. Run the smoke suite with `npm run test:e2e` (builds the site before executing tests)
+3. The suite covers primary navigation, mobile navigation drawer, back-to-top + scroll progress, services modals (including Escape handling), contact form validation (happy path and failures), and service worker registration
+
+---
+
+## Performance Considerations
+
+### CSS
+
+- Use `@import` for organization (will be bundled in production)
+- Minimize use of complex selectors
+- Use CSS containment where appropriate
+
+### JavaScript
+
+- Modules are loaded as ES6 modules (browsers handle optimization)
+- Consider lazy loading for page-specific modules
+- Debounce scroll/resize event handlers
+
+### Assets
+
+- Optimize images before adding to `assets/`
+- Use appropriate formats (WebP/AVIF with fallbacks)
+- Lazy load images below the fold with `loading="lazy"`
+- Add `fetchpriority="high"` to LCP candidates (hero images, above-the-fold)
+- Add `fetchpriority="low"` to below-the-fold images
+- Use `decoding="async"` for non-critical images, `decoding="sync"` for LCP candidates
+- Videos should use `loading="lazy"` for below-the-fold content
+
+---
+
+## Browser Support
+
+### Target Browsers
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+### Modern Features Used
+
+- CSS Variables (Custom Properties)
+- ES6 Modules
+- CSS Grid & Flexbox
+- Intersection Observer API
+- CSS Animations & Transforms
+
+### Fallbacks
+
+- CSS Grid falls back to Flexbox (automatic)
+- Older browsers without ES6 modules will need a bundler
+- CSS Variables need fallback values for very old browsers
+
+---
+
+## Debugging Tips
+
+### CSS Issues
+
+- Check browser DevTools for computed styles
+- Verify CSS variables are defined in `variables.css`
+- Check import order in `main.css`
+- Look for specificity conflicts
+
+### JavaScript Issues
+
+- Check browser console for errors
+- Verify modules are loaded (Network tab)
+- Check if elements exist before querying
+- Use `console.log` for debugging (remove before commit)
+
+### Layout Issues
+
+- Check container widths and max-widths
+- Verify responsive breakpoints
+- Test on different screen sizes
+- Check for CSS Grid/Flexbox conflicts
+
+---
+
+## Git Workflow (if using version control)
+
+### Commit Messages
+
+- Use descriptive commit messages
+- Mention which files/components were changed
+- Reference issue numbers if applicable
+
+### Before Committing
+
+- Test all pages
+- Check responsive layouts
+- Verify JavaScript functionality
+- **Update `.cursor/rules/cursorrules.mdc` if structure changed**
+
+---
+
+## Future Improvements
+
+### Potential Enhancements
+
+- Build system (Vite, Webpack, or Parcel) for bundling
+- CSS preprocessor (Sass/SCSS) for better organization
+- Template engine for HTML partials (Handlebars, Nunjucks)
+- Component-based architecture (React, Vue, or Web Components)
+- Image optimization pipeline
+- Critical CSS extraction
+- Service Worker for offline support
+
+### Build System
+
+- **Vite** is configured for development and production builds
+- CSS and JS are automatically bundled and minified during production build
+- **Vite plugins** for asset copying:
+  - `copy-favicons` - Copies favicon files to dist root
+  - `copy-videos` - Copies optimized video files to `dist/assets/video/optimized/`
+  - `copy-audio` - Copies audio files to `dist/assets/audio/`
+  - `copy-static-reports` - Copies reports directory to `dist/reports/`
+- Image optimization scripts available (`npm run optimize-images`)
+- Responsive image generation available (`npm run responsive-images`)
+- Font subsetting script available (`npm run subset-fonts`)
+- Critical CSS inlining script available (`npm run inline-critical-css`)
+- Sitemap generation script available (`npm run generate-sitemap`)
+
+### Performance Optimizations
+
+- ✅ **Service Worker / PWA** - Offline support and faster repeat visits
+- ✅ **Self-Hosted Fonts** - Subsetted WOFF2 fonts for faster loading
+- ✅ **Critical CSS** - Inlined above-the-fold styles
+- ✅ **Image Optimization** - Manual optimization via `npm run optimize-images` and `npm run responsive-images` scripts (Sharp-based)
+- ✅ **Code Splitting** - Manual chunks for better caching
+- ✅ **CSS Purging** - PurgeCSS is disabled (no CSS purging)
+- ✅ **CSS Minification** - Disabled in Vite config (`cssMinify: false`)
+- ✅ **CSS Code Splitting** - Disabled in Vite config (`cssCodeSplit: false`)
+- ✅ **Compression** - Gzip and Brotli compression
+- ✅ **Bundle Analysis** - Visual bundle analysis (`dist/stats.html`)
+- ✅ **Web Vitals Tracking** - Performance monitoring (LCP, CLS, INP) via `web-vitals` → Plausible
+- ✅ **Dynamic Three.js Loading** - Loads only when needed (easter egg, pre-loaded for faster activation)
+- ✅ **Hero Video Lazy-Load** - `ripples-lazyload.js` selects the optimal background video source per device/connection, with `loading="lazy"` for below-the-fold videos
+- ✅ **Dynamic Resource Hints** - `dynamic-prefetch.js` prefetches pages on link hover/focus instead of static prefetch
+- ✅ **Web Worker Utilities** - `web-worker-helper.js` provides utilities for offloading heavy computations
+- ✅ **Optimized Font Loading** - `font-display: swap` for critical fonts, `font-display: optional` for non-critical variants
+- ✅ **Image Fetch Priority** - `fetchpriority` attributes for LCP optimization
+- ✅ **Image Decoding** - `decoding` attributes to prevent main thread blocking
+- ✅ **Service Worker Cache Strategy** - Stale-while-revalidate for hashed assets, cache-first for static assets
+- ✅ **Modulepreload** - Critical ES modules preloaded for faster parsing
+- ✅ **Analytics Optimization** - Plausible loads after page load to reduce Core Web Vitals impact
+- ✅ **Error Handling** - Centralized error handling with graceful degradation
+- ✅ **Mobile Performance** - Optimized animations and effects for mobile devices
+- ✅ **Texture Loading Optimization** - Lower initial resolution (0.5x) for faster galaxy loading, texture caching
+- ✅ **Optimized Particle Generation** - Pre-calculated random values, optimized loops for galaxy generation
+- ✅ **Modular Texture System** - Separated texture wrapping and noise generation for maintainability
+
+### Current Limitations
+
+- HTML partials are manually included (copy/paste)
+- Automated coverage limited to Playwright smoke tests (consider broader unit/integration suites)
+- No template engine (consider Handlebars/Nunjucks for HTML partials)
+
+## Security & SEO Features
+
+### Security Headers
+
+- ✅ **Meta Tags** - Security headers in HTML (X-Frame-Options, CSP, etc.)
+- ✅ **Content Security Policy** - CSP meta tags on all pages
+- ✅ **Server Configuration** - `.htaccess` (Apache), `_headers` (Netlify/Vercel), `nginx.conf.example` (Nginx)
+- ✅ **Subresource Integrity** - SRI infrastructure ready for CDN resources
+- ✅ **Documentation** - See `docs/SERVER_SECURITY_HEADERS.md` for configuration
+
+### SEO Optimization
+
+- ✅ **Meta Tags** - Open Graph, Twitter Cards, descriptions on all pages
+- ✅ **Structured Data** - JSON-LD schemas (Organization, WebSite, Service, BreadcrumbList, FAQPage, ContactPage)
+- ✅ **Canonical URLs** - Added to all pages for SEO
+- ✅ **Sitemap** - Auto-generated `sitemap.xml` (run `npm run generate-sitemap`)
+- ✅ **Robots.txt** - Search engine crawling rules
+- ✅ **Plausible Analytics** - Privacy-first analytics script loaded after page load event (reduces Core Web Vitals impact), with preconnect for early connection
+- ✅ **Favicons** - Comprehensive favicon implementation with SVG, multiple PNG sizes (16x16, 32x32, 48x48, 64x64), ICO fallback, Apple Touch Icon, Windows Tiles (browserconfig.xml), Safari Pinned Tab, and Web App Manifest integration
+- ✅ **Documentation** - See `docs/SEO_AND_SECURITY_IMPLEMENTATION.md` for details
+
+### Accessibility
+
+- ✅ **Skip Links** - Keyboard navigation skip to content
+- ✅ **ARIA Live Regions** - Screen reader announcements
+- ✅ **Focus Management** - Keyboard navigation and focus trapping
+- ✅ **ARIA Labels** - Enhanced ARIA labels and roles throughout
+- ✅ **Keyboard Navigation** - Full keyboard support with focus management
+- ✅ **Reduced Motion** - Respects `prefers-reduced-motion` media query
+- ✅ **Accessibility Utilities** - `js/utils/accessibility.js` for enhanced accessibility
+
+### Scripts & Tools
+
+- ✅ **optimize-images.js** - Lossy compression and reporting for existing assets
+- ✅ **optimize-video.js** - Transcode hero loops and generate poster frames
+- ✅ **convert-poster-formats.js** - Convert poster frames to multiple formats
+- ✅ **generate-responsive-images.js** - Produce AVIF/WebP responsive sets with HTML snippets
+- ✅ **inline-critical-css.js** - Extract and inline above-the-fold styles post-build
+- ✅ **subset-fonts.js** / `subset-fonts-with-glyphhanger.*` - Font usage analysis & subsetting helpers
+- ✅ **generate-sitemap.js** - Regenerate sitemap.xml
+- ✅ **generate-seo-meta.js** - SEO meta tags helper
+- ✅ **generate-structured-data.js** - Structured data helper
+- ✅ **generate-media-inventory.js** - Produces reports/media-inventory.{html,json}
+- ✅ **generate-dashboard-reports.js** - Orchestrate preview, Lighthouse (main + PWA) and Pa11y, sync HTML reports
+- ✅ **generate-coverage-report.js** - Regenerate synthetic route coverage snapshot
+- ✅ **generate-performance-timeline.js** - Build performance timeline from latest Lighthouse JSON
+- ✅ **generate-pwmetrics-report.js** - Run PWMetrics and emit reports
+- ✅ **run-pa11y-report.js** - Run Pa11y accessibility audit
+- ✅ **update-html-seo.js** - Batch-update SEO metadata in HTML files
+- ✅ **find-chrome-path.js** - Helper to find Chrome executable path
+- ✅ **accessibility.js** - Accessibility utilities module
+- ✅ **easter-egg/** - Dedicated folder for galaxy easter egg feature (13 modules)
+  - `easter-egg.js` - Trigger/initialization
+  - `runtime.js` - Milky Way 3D scene runtime (UI hiding/restoration with single wrapper approach, navbar/footer handling)
+  - `celestial-textures.js` - Procedural texture generation for sun, planets, moons (THREE parameter support, MIN_POLE_SCALE_THRESHOLD constant, pole-aware scaling, seamless noise, quadratic feature scaling, advanced blending)
+  - `texture-wrapping.js` - Seamless texture wrapping utilities (featherPoles for pole distortion, isSafeForPolePlacement, multi-pixel blending)
+  - `procedural-noise.js` - Procedural noise generation (fractal, seamless, 3D noise support)
+  - `celestial-mechanics.js` - Orbital mechanics (calculateKeplerianOrbitalSpeedApproximation, calculateLagrangePoints returns plain objects for module purity, deltaTime support, frame-rate independent)
+  - `camera-controls.js` - Camera animation and orbital controls (removed redundant THREE checks)
+  - `galaxy-generator.js` - Multi-layer galaxy generation with density wave theory (spatial hash grid optimization for O(1) neighbor lookup)
+  - `star-field.js` - Background star field generation with twinkling (color buffer update notifications)
+  - `lighting-atmosphere.js` - Dynamic lighting and atmospheric glow effects (initial camera position parameter to prevent first-frame glitches)
+  - `nebula-clouds.js` - Nebula, star-forming regions, and interstellar medium
+  - `particle-effects.js` - Asteroid belts, comets, solar wind (frame-rate independent with deltaTime, squared distance checks), space dust, space stations
+  - `post-processing.js` - Post-processing effects (recursive raycasting for accurate DoF, standardized ES module imports, bloom, depth of field, motion blur)
+
+### NPM Scripts (reporting helpers)
+
+- `npm run reports:lighthouse` – runs Lighthouse CI using `lighthouserc.json` (HTML + JSON into `.lighthouseci`).
+- `npm run reports:pa11y` – runs Pa11y and emits `reports/seo-pa11y.html`.
+- `npm run reports:coverage` – regenerates the synthetic route coverage snapshot at `reports/coverage/index.html`.
+- `npm run reports:performance` – regenerates `reports/performance-timeline.html` from the latest Lighthouse JSON.
+- `npm run reports:media` – rebuilds media inventory HTML/JSON.
+- `npm run reports:dashboard` – orchestrates preview, Lighthouse (main + PWA) and Pa11y, and syncs HTML reports into `reports/`.
+- `npm run reports:all` – end-to-end refresh: build → `reports:dashboard` → `reports:media` → `test:e2e:only` → `reports:coverage` → `reports:performance` → final build.
+
+---
+
+## Getting Help
+
+### Documentation Files
+
+- **`README.md`** - Project overview, quick start guide, and setup instructions
+- **`docs/BUILD_AND_DEPLOY.md`** - Build and deployment guide
+- **`docs/QUICK_START.md`** - Quick reference guide
+- **`docs/project_commands.md`** - Common commands and tasks reference
+- **`docs/STYLE_GUIDE.md`** - Design system, component markup, and accessibility notes
+- **`docs/README.md`** - Documentation index + navigation
+- **`docs/TODO.md`** - Outstanding analytics/documentation follow-ups
+- **`docs/IMAGE_GENERATION_PROMPTS.md`** - Creative direction prompts for imagery
+- **`docs/VIDEO_BACKGROUND_GUIDE.md`** - Workflow for sourcing and optimising hero videos
+- **`docs/PERFORMANCE_OPTIMIZATION_ANALYSIS.md`** - Performance optimization recommendations and analysis
+- **`docs/AUDIO_CDN_RECOMMENDATIONS.md`** - Audio asset optimization and CDN recommendations
+- **This file (`.cursor/rules/cursorrules.mdc`)** - Project structure and conventions (MUST READ FIRST)
+
+### When Stuck
+
+1. Check relevant documentation file
+2. Look at existing similar components for examples
+3. Check browser console for errors
+4. Verify file paths and imports are correct
+5. Review `.cursor/rules/cursorrules.mdc` for project structure and conventions
+
+---
+
+## Quick Reference
+
+### File Locations
+
+- **Navigation styles:** `css/components/navigation.css`
+- **Navigation JS:** `js/core/navigation.js`
+- **Color variables:** `css/variables.css`
+- **Responsive styles:** `css/utils/responsive.css`
+- **Button styles:** `css/components/buttons.css`
+- **Card styles:** `css/components/cards.css` (includes `offer-panel` layout for services page)
+
+### Common Classes
+
+- `.container` - Main content container (max-width: 1400px)
+- `.section-title` - Section heading style
+- `.btn-primary` - Primary button style
+- `.service-card` - Service card component
+- `.project-card` - Project card component
+- `.scroll-reveal-3d` - 3D scroll reveal animation
+
+### Common IDs
+
+- `#navbar` - Navigation bar
+- `#navMenu` - Navigation menu (mobile)
+- `#hamburger` - Mobile menu toggle
+- `#contactForm` - Contact form
+
+---
+
+## 🚨 REMINDER: READ THIS FILE FIRST 🚨
+
+**If you're an AI agent reading this:**
+
+- **You MUST read this entire file before starting ANY task**
+- **This file contains ALL project rules, structure, and conventions**
+- **Do NOT proceed with user requests until you've fully understood this file**
+- **This file is your PRIMARY reference for ALL decisions about file structure, naming, and code organization**
+
+---
+
+**Last Updated:** 2025-01-27 (Documentation audit: updated file counts, added missing scripts, corrected utils count from 10 to 11, added lazy-background-images.js, added convert-poster script documentation)
+**Migration Status:** ✅ Complete - All CSS/JS migrated, build system configured, HTML includes implemented
+**Component Count:** 20 CSS components, 9 core JS modules (including three-hero), 11 JS utils (accessibility.js, env.js, error-handler.js, interactions.js, performance.js, ripples-lazyload.js, three-loader.js, toast.js, dynamic-prefetch.js, web-worker-helper.js, lazy-background-images.js), 1 JS easter-egg folder (13 modules: easter-egg.js, runtime.js, celestial-textures.js, texture-wrapping.js, procedural-noise.js, celestial-mechanics.js, camera-controls.js, galaxy-generator.js, star-field.js, lighting-atmosphere.js, nebula-clouds.js, particle-effects.js, post-processing.js), 4 JS pages, 4 CSS pages, 9 utility CSS files, 1 CSS easter-egg folder, 2 HTML partials (navbar, footer)
+**Performance:** ✅ Service Worker (optimized cache strategy: stale-while-revalidate for hashed assets, cache-first for static), Self-Hosted Fonts (optimized font-display: swap for critical, optional for non-critical), Critical CSS, Image Optimization (fetchpriority, decoding attributes), Code Splitting, CSS Purging (disabled), CSS Minification (disabled), CSS Code Splitting (disabled), Compression (Gzip/Brotli), Web Vitals Tracking (LCP, CLS, INP via `web-vitals` → Plausible), Dynamic Three.js Loading (pre-loaded), Error Handling, Mobile Performance, Texture Loading Optimization, Optimized Particle Generation, Dynamic Resource Hints (prefetch on hover/focus), Modulepreload for critical ES modules, Analytics loaded after page load, Video lazy loading
+**Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact), Canonical URLs, Accessibility Features, Sitemap, Robots.txt, Comprehensive Favicon Implementation (SVG, PNG sizes, ICO, Apple Touch, Windows Tiles, Safari Pinned Tab)
+**Configuration Files:** ✅ ESLint v9 (flat config), Prettier, EditorConfig, Git Attributes, VS Code Settings, browserconfig.xml
+**Recent Updates:** ✅ HTML include system (Vite plugin for processing `<!-- include partials/... -->` comments at build time), modularized navbar and footer partials, comprehensive favicon implementation (SVG, 64x64/48x48/32x32/16x16 PNG, ICO fallback, Apple Touch Icon, Windows Tiles with browserconfig.xml, Safari Pinned Tab), sessionStorage-backed page transitions with preload snippet, error handling, performance tracking, Three.js optimization, CSP, SRI, accessibility enhancements, mobile performance, **texture modularization** (texture-wrapping.js, procedural-noise.js), **galaxy loading optimizations** (reduced texture resolution, pre-loading, optimized particle generation with spatial hash grid for O(1) neighbor lookup), **orbital inclinations** (realistic planet orbits), **improved seamless texture wrapping** (featherPoles for pole distortion, isSafeForPolePlacement, multi-pixel blending, pole-aware feature placement), **easter egg organization** (moved to dedicated `js/easter-egg/` and `css/easter-egg/` folders), **celestial texture improvements** (THREE parameter support, MIN_POLE_SCALE_THRESHOLD constant, pole-aware radius scaling for equirectangular distortion correction, seamless noise for path generation, quadratic feature count scaling for consistent density, advanced blending modes), **celestial mechanics improvements** (calculateKeplerianOrbitalSpeedApproximation, calculateLagrangePoints module purity, deltaTime support, frame-rate independent), **runtime improvements** (single wrapper UI hiding/restoration approach, explicit navbar/footer handling), **post-processing improvements** (recursive raycasting for accurate DoF, standardized ES module imports), **lighting improvements** (initial camera position parameter), **particle effects improvements** (frame-rate independent with deltaTime, squared distance checks), **camera controls improvements** (removed redundant THREE checks), **audio assets support** (Vite plugin for copying audio files during build, space ambience audio file for easter egg feature), **performance optimizations** (font-display strategy optimization, image fetchpriority/decoding attributes, service worker cache strategy optimization, dynamic resource hints, modulepreload, analytics loading after page load, video lazy loading, Web Worker utilities)
+**Remember:** Always update this file when making structural changes to the project!

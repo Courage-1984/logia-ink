@@ -1,0 +1,81 @@
+[
+  {
+    "title": "Website Design Packages & Pricing | Logi-Ink",
+    "suggested_slug": "/pricing",
+    "priority": 1,
+    "effort": "high",
+    "search_intent": "Commercial - Users ready to purchase website design services",
+    "h1": "Affordable Website Design Packages Starting from R[X]",
+    "meta_description": "Transparent website design pricing packages. Choose from our affordable packages starting from R[X]. Includes hosting, domain, and support. Get a quote today.",
+    "target_keywords": [
+      "website design packages",
+      "affordable website design",
+      "website design pricing",
+      "web design packages south africa"
+    ],
+    "rationale": "93% of competitors show pricing transparency. This is a critical conversion factor and high-priority gap."
+  },
+  {
+    "title": "Professional SEO Services South Africa | Logi-Ink",
+    "suggested_slug": "/seo-services",
+    "priority": 1,
+    "effort": "medium",
+    "search_intent": "Commercial - Users researching SEO services",
+    "h1": "SEO Services to Grow Your Business Online",
+    "meta_description": "Expert SEO services in South Africa. Improve your search rankings, drive organic traffic, and grow your business. Monthly SEO packages available.",
+    "target_keywords": [
+      "SEO services south africa",
+      "search engine optimization",
+      "local SEO",
+      "SEO company"
+    ],
+    "rationale": "9 out of 15 competitors have dedicated SEO service pages. High search volume and commercial intent."
+  },
+  {
+    "title": "Website Design Johannesburg | Professional Web Design Services",
+    "suggested_slug": "/website-design-johannesburg",
+    "priority": 1,
+    "effort": "medium",
+    "search_intent": "Local, Commercial - Users searching for local services",
+    "h1": "Professional Website Design in Johannesburg",
+    "meta_description": "Expert website design services in Johannesburg. Custom, responsive websites for businesses. Affordable packages with free hosting. Get started today.",
+    "target_keywords": [
+      "website design johannesburg",
+      "web design johannesburg",
+      "website designer johannesburg"
+    ],
+    "rationale": "12 out of 15 competitors target location-based keywords. Massive local SEO opportunity."
+  },
+  {
+    "title": "Website Design Cape Town | Professional Web Design Services",
+    "suggested_slug": "/website-design-cape-town",
+    "priority": 1,
+    "effort": "medium",
+    "search_intent": "Local, Commercial - Users searching for local services",
+    "h1": "Professional Website Design in Cape Town",
+    "meta_description": "Expert website design services in Cape Town. Custom, responsive websites for businesses. Affordable packages with free hosting. Get started today.",
+    "target_keywords": [
+      "website design cape town",
+      "web design cape town",
+      "website designer cape town"
+    ],
+    "rationale": "Second major city target. High search volume for local services. Quick win for local SEO."
+  },
+  {
+    "title": "E-commerce Website Design | Online Store Development | Logi-Ink",
+    "suggested_slug": "/ecommerce-solutions",
+    "priority": 2,
+    "effort": "medium",
+    "search_intent": "Commercial - Users looking to build online stores",
+    "h1": "Professional E-commerce Website Design & Development",
+    "meta_description": "Custom e-commerce website design and development. Build your online store with our expert team. Payment integration, inventory management, and more.",
+    "target_keywords": [
+      "ecommerce website design",
+      "online store development",
+      "ecommerce solutions",
+      "woocommerce website"
+    ],
+    "rationale": "7 out of 15 competitors have dedicated e-commerce pages. Growing market segment with commercial intent."
+  }
+]
+

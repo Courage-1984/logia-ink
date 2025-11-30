@@ -1,0 +1,20 @@
+/**
+ * Dividers Utility
+ * Divider and separator styling
+ * 
+ * Extracted from styles.css (lines: 3400-3418)
+ */
+
+/* Divider/Separator */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  margin: 3rem 0;
+}
+
+.divider-vertical {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--accent-cyan), transparent);
+  margin: 0 2rem;
+}

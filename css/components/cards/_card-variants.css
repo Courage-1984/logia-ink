@@ -1,0 +1,136 @@
+/**
+ * Card Variants
+ * Color variant hover effects for different card types
+ */
+
+/* Our Process section - custom hover colors matching each step number */
+.service-card.mouse-tilt-container.process-card-cyan:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 10px 40px var(--glow-cyan);
+}
+
+.service-card.mouse-tilt-container.process-card-magenta:hover {
+  border-color: var(--accent-magenta);
+  box-shadow: 0 10px 40px var(--glow-magenta);
+}
+
+.service-card.mouse-tilt-container.process-card-green:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 10px 40px var(--glow-green);
+}
+
+.service-card.mouse-tilt-container.process-card-blue:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 10px 40px var(--glow-blue);
+}
+
+.service-card.mouse-tilt-container.process-card-pink:hover {
+  border-color: var(--accent-pink);
+  box-shadow: 0 10px 40px var(--glow-pink);
+}
+
+.service-card.mouse-tilt-container.process-card-gold:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 10px 40px var(--glow-gold);
+}
+
+/* Our Impact section - custom hover colors matching each card's number color */
+.service-card.mouse-tilt-container.impact-card-cyan:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 10px 40px var(--glow-cyan);
+}
+
+.service-card.mouse-tilt-container.impact-card-magenta:hover {
+  border-color: var(--accent-magenta);
+  box-shadow: 0 10px 40px var(--glow-magenta);
+}
+
+.service-card.mouse-tilt-container.impact-card-green:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 10px 40px var(--glow-green);
+}
+
+.service-card.mouse-tilt-container.impact-card-blue:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 10px 40px var(--glow-blue);
+}
+
+/* Success Stories section - custom hover colors matching each card's number color */
+.service-card.mouse-tilt-container.success-card-cyan:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 10px 40px var(--glow-cyan);
+}
+
+.service-card.mouse-tilt-container.success-card-magenta:hover {
+  border-color: var(--accent-magenta);
+  box-shadow: 0 10px 40px var(--glow-magenta);
+}
+
+.service-card.mouse-tilt-container.success-card-green:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 10px 40px var(--glow-green);
+}
+
+/* FAQ section - custom hover colors matching each card's heading color */
+.service-card.mouse-tilt-container.faq-card-cyan:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 10px 40px var(--glow-cyan);
+}
+
+.service-card.mouse-tilt-container.faq-card-magenta:hover {
+  border-color: var(--accent-magenta);
+  box-shadow: 0 10px 40px var(--glow-magenta);
+}
+
+.service-card.mouse-tilt-container.faq-card-green:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 10px 40px var(--glow-green);
+}
+
+.service-card.mouse-tilt-container.faq-card-blue:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 10px 40px var(--glow-blue);
+}
+
+/* Project Impact section - custom hover colors matching each card's number color */
+.service-card.mouse-tilt-container.project-impact-cyan:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 10px 40px var(--glow-cyan);
+}
+
+.service-card.mouse-tilt-container.project-impact-magenta:hover {
+  border-color: var(--accent-magenta);
+  box-shadow: 0 10px 40px var(--glow-magenta);
+}
+
+.service-card.mouse-tilt-container.project-impact-green:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 10px 40px var(--glow-green);
+}
+
+.service-card.mouse-tilt-container.project-impact-blue:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 10px 40px var(--glow-blue);
+}
+
+/* Our Achievements section - custom hover colors matching each card's number color */
+.service-card.mouse-tilt-container.achievement-card-cyan:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 10px 40px var(--glow-cyan);
+}
+
+.service-card.mouse-tilt-container.achievement-card-magenta:hover {
+  border-color: var(--accent-magenta);
+  box-shadow: 0 10px 40px var(--glow-magenta);
+}
+
+.service-card.mouse-tilt-container.achievement-card-green:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 10px 40px var(--glow-green);
+}
+
+.service-card.mouse-tilt-container.achievement-card-blue:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 10px 40px var(--glow-blue);
+}
+
