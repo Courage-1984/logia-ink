@@ -7,6 +7,7 @@
  */
 
 import { loadThreeJS } from '../utils/three-loader.js';
+import { isMobileDevice } from '../utils/env.js';
 
 let heroScene = null;
 let heroRenderer = null;
@@ -20,6 +21,11 @@ async function initThreeJSHero() {
   const canvas = document.getElementById('threejs-hero-canvas');
   if (!canvas) return;
 
+  // Disable Three.js on mobile devices for better performance
+  if (isMobileDevice()) {
+    return;
+  }
+
   try {
     const THREE = await loadThreeJS();
     if (!THREE) return;
@@ -28,7 +34,8 @@ async function initThreeJSHero() {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
+    // Limit pixel ratio on mobile (though we disable on mobile, keep this for tablets)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     // Create particles
     const particlesGeometry = new THREE.BufferGeometry();
@@ -83,6 +90,11 @@ async function initThreeJSServices() {
   const canvas = document.getElementById('threejs-services-canvas');
   if (!canvas) return;
 
+  // Disable Three.js on mobile devices for better performance
+  if (isMobileDevice()) {
+    return;
+  }
+
   try {
     const THREE = await loadThreeJS();
     if (!THREE) return;
@@ -91,7 +103,8 @@ async function initThreeJSServices() {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
+    // Limit pixel ratio on mobile (though we disable on mobile, keep this for tablets)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     // Create floating geometric shapes
     const shapes = [];
@@ -150,6 +163,11 @@ async function initThreeJSServices() {
 async function initThreeJSProjects() {
   const canvas = document.getElementById('threejs-projects-canvas');
   if (!canvas) return;
+
+  // Disable Three.js on mobile devices for better performance
+  if (isMobileDevice()) {
+    return;
+  }
 
   try {
     const THREE = await loadThreeJS();
@@ -267,6 +285,25 @@ async function initThreeJSProjects() {
  * Defers Three.js loading until after page is interactive to reduce initial load
  */
 export async function initThreeHero() {
+  // Check mobile FIRST before doing anything else
+  if (isMobileDevice()) {
+    // Hide canvas elements on mobile
+    const canvases = [
+      document.getElementById('threejs-hero-canvas'),
+      document.getElementById('threejs-services-canvas'),
+      document.getElementById('threejs-projects-canvas')
+    ].filter(Boolean);
+
+    canvases.forEach(canvas => {
+      if (canvas) {
+        canvas.style.display = 'none';
+        canvas.style.visibility = 'hidden';
+      }
+    });
+
+    return; // Exit early on mobile
+  }
+
   const heroCanvas = document.getElementById('threejs-hero-canvas');
   const servicesCanvas = document.getElementById('threejs-services-canvas');
   const projectsCanvas = document.getElementById('threejs-projects-canvas');
@@ -276,23 +313,28 @@ export async function initThreeHero() {
   // Defer loading until page is interactive to reduce initial JavaScript load
   // This allows critical resources to load first
   const initAnimation = async () => {
-  // Wait for Three.js to be available
-  if (typeof window === 'undefined' || !window.THREE) {
-    try {
-      await loadThreeJS();
-    } catch (error) {
-      console.warn('Three.js not available for hero backgrounds:', error);
+    // Double-check mobile before initializing (in case viewport changed)
+    if (isMobileDevice()) {
       return;
     }
-  }
+
+    // Wait for Three.js to be available
+    if (typeof window === 'undefined' || !window.THREE) {
+      try {
+        await loadThreeJS();
+      } catch (error) {
+        console.warn('Three.js not available for hero backgrounds:', error);
+        return;
+      }
+    }
 
     // Initialize appropriate animation
     if (heroCanvas) {
-    await initThreeJSHero();
+      await initThreeJSHero();
     } else if (servicesCanvas) {
-    await initThreeJSServices();
+      await initThreeJSServices();
     } else if (projectsCanvas) {
-    await initThreeJSProjects();
+      await initThreeJSProjects();
     }
   };
 

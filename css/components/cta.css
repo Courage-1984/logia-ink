@@ -86,6 +86,20 @@
     0 0 100px rgba(0, 255, 255, 0.2);
 }
 
+/* Disable portal glow animation on mobile for better performance */
+@media (max-width: 768px) {
+  .portal-glow {
+    animation: none !important;
+    opacity: 0.5;
+  }
+}
+
+/* Also disable via class-based approach (more reliable) */
+.is-mobile .portal-glow {
+  animation: none !important;
+  opacity: 0.5;
+}
+
 /* Dark Overlay for Text Readability */
 .cta-section::before {
   content: '';
@@ -122,6 +136,22 @@
   animation: fluidGradient 15s ease infinite;
   z-index: 1;
   pointer-events: none;
+}
+
+/* Disable fluid gradient animation on mobile for better performance */
+@media (max-width: 768px) {
+  .cta-section::after {
+    animation: none !important;
+    background-size: 100% 100% !important;
+    opacity: 0.3;
+  }
+}
+
+/* Also disable via class-based approach (more reliable) */
+.is-mobile .cta-section::after {
+  animation: none !important;
+  background-size: 100% 100% !important;
+  opacity: 0.3;
 }
 
 /* Ensure Content is Above Overlays */

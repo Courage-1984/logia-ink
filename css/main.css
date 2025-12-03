@@ -53,5 +53,11 @@
 @import './utils/dividers.css';
 @import './utils/skip-link.css';
 
-/* 6. Responsive Styles - Must come last */
+/* 6. Responsive Utilities - Must come before responsive.css */
+@import './utils/_responsive-breakpoints.css';
+@import './utils/_responsive-images.css';
+@import './utils/_fluid-typography.css';
+@import './utils/_performance-optimizations.css';
+
+/* 7. Responsive Styles - Must come last */
 @import './utils/responsive.css';

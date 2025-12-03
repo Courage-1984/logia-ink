@@ -1,0 +1,190 @@
+/**
+ * Card Container Queries
+ * Component-level responsiveness using CSS Container Queries
+ *
+ * Container queries allow cards to adapt based on their container size,
+ * not just the viewport size. This makes components more reusable and flexible.
+ *
+ * Browser Support: Safari 16+, Chrome 105+, Firefox 110+
+ * Fallback: Media queries in responsive.css handle older browsers
+ */
+
+/* ============================================
+   SERVICE CARD CONTAINER QUERIES
+   ============================================ */
+
+/* Establish containment context for service cards container */
+.services-grid,
+.services-preview,
+.offer-grid {
+  container-type: inline-size;
+  container-name: card-container;
+}
+
+/* Service card adapts to container width */
+.service-card {
+  /* Base styles apply to all sizes */
+}
+
+/* Small container (narrow cards) */
+@container card-container (max-width: 320px) {
+  .service-card {
+    padding: var(--space-6);
+  }
+
+  .service-card h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Medium container (standard cards) */
+@container card-container (min-width: 321px) and (max-width: 480px) {
+  .service-card {
+    padding: var(--space-8);
+  }
+
+  .service-card h3 {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Large container (wide cards) */
+@container card-container (min-width: 481px) {
+  .service-card {
+    padding: var(--space-10);
+  }
+
+  .service-card h3 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .service-icon {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* ============================================
+   PROJECT CARD CONTAINER QUERIES
+   ============================================ */
+
+/* Establish containment context for project cards */
+.projects-grid,
+.projects-preview {
+  container-type: inline-size;
+  container-name: project-container;
+}
+
+/* Project card adapts to container width */
+.project-card {
+  /* Base styles apply to all sizes */
+}
+
+@container project-container (max-width: 400px) {
+  .project-image {
+    height: 200px;
+  }
+
+  .project-content {
+    padding: var(--space-6);
+  }
+
+  .project-content h3 {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@container project-container (min-width: 401px) and (max-width: 600px) {
+  .project-image {
+    height: 250px;
+  }
+
+  .project-content {
+    padding: var(--space-8);
+  }
+}
+
+@container project-container (min-width: 601px) {
+  .project-image {
+    height: 300px;
+  }
+
+  .project-content {
+    padding: var(--space-10);
+  }
+
+  .project-content h3 {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* ============================================
+   OFFER PANEL CONTAINER QUERIES
+   ============================================ */
+
+.offer-panel {
+  container-type: inline-size;
+  container-name: offer-panel;
+}
+
+@container offer-panel (max-width: 400px) {
+  .offer-panel {
+    padding: var(--space-6);
+  }
+
+  .offer-panel h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+  }
+}
+
+@container offer-panel (min-width: 401px) {
+  .offer-panel {
+    padding: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .offer-panel h3 {
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  }
+}
+
+/* ============================================
+   MODAL CONTAINER QUERIES
+   ============================================ */
+
+.modal-content {
+  container-type: inline-size;
+  container-name: modal;
+}
+
+@container modal (max-width: 480px) {
+  .modal-content {
+    padding: var(--space-6);
+    margin: var(--space-4);
+  }
+
+  .modal-content h2 {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@container modal (min-width: 481px) and (max-width: 768px) {
+  .modal-content {
+    padding: var(--space-8);
+  }
+}
+
+@container modal (min-width: 769px) {
+  .modal-content {
+    padding: var(--space-10);
+  }
+
+  .modal-content h2 {
+    font-size: var(--font-size-3xl);
+  }
+}
+

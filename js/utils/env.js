@@ -88,3 +88,41 @@ export function isServiceWorkerDisabled() {
 export function getEnvironmentMode() {
   return detectMode();
 }
+
+/**
+ * Detect if the current device is a mobile device.
+ * Uses a combination of user agent detection and screen size to determine mobile devices.
+ * More aggressive detection to catch all mobile devices.
+ * @returns {boolean} True if the device is likely a mobile device
+ */
+export function isMobileDevice() {
+  if (typeof window === 'undefined') {
+    return false;
+  }
+
+  // Check user agent for mobile devices (more comprehensive regex)
+  const userAgent = window.navigator?.userAgent || '';
+  const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS|FxiOS/i;
+  const isMobileUA = mobileRegex.test(userAgent);
+
+  // Check screen size (mobile devices typically have smaller screens)
+  // Consider devices with max width 768px or touch capability as mobile
+  const hasTouchScreen = 'ontouchstart' in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
+  const viewportWidth = window.innerWidth || window.screen.width || 0;
+  const screenWidth = window.screen.width || 0;
+  const isSmallScreen = viewportWidth <= 768 || screenWidth <= 768;
+
+  // More aggressive: Device is mobile if:
+  // 1. Matches mobile user agent, OR
+  // 2. Has touch screen AND small screen, OR
+  // 3. Just has small screen (fallback for desktop browsers in mobile view)
+  const isMobile = isMobileUA || (hasTouchScreen && isSmallScreen) || (viewportWidth <= 768);
+
+  // Add class to document for CSS-based disabling
+  if (isMobile && typeof document !== 'undefined') {
+    document.documentElement.classList.add('is-mobile');
+    document.body?.classList.add('is-mobile');
+  }
+
+  return isMobile;
+}

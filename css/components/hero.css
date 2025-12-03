@@ -94,6 +94,22 @@
   visibility: visible;
 }
 
+/* Disable ripple wave animation on mobile for better performance */
+@media (max-width: 768px) {
+  .hero-background::before {
+    animation: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
+/* Also disable via class-based approach (more reliable) */
+.is-mobile .hero-background::before {
+  animation: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
 /* Keyframes for hero animations - defined here to ensure they're available */
 @keyframes ripple-wave {
   0%,

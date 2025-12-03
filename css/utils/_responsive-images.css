@@ -1,0 +1,134 @@
+/**
+ * Responsive Images Utilities
+ * Modern responsive image handling with aspect-ratio and object-fit
+ */
+
+/* ============================================
+   RESPONSIVE IMAGE CONTAINERS
+   ============================================ */
+
+.responsive-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+/* Aspect ratio containers */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-2 {
+  aspect-ratio: 3 / 2;
+}
+
+.aspect-21-9 {
+  aspect-ratio: 21 / 9;
+}
+
+/* ============================================
+   RESPONSIVE IMAGE STYLES
+   ============================================ */
+
+.responsive-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Lazy loading placeholder */
+.responsive-image-wrapper img[loading='lazy'] {
+  background: var(--bg-secondary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.responsive-image-wrapper img[loading='lazy'].loaded {
+  opacity: 1;
+}
+
+/* ============================================
+   RESPONSIVE IMAGE SIZES
+   ============================================ */
+
+/* Hero images */
+.hero-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+    height: 100vh;
+    object-position: center;
+  }
+}
+
+/* Card images */
+.card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* Thumbnail images */
+.thumbnail-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* ============================================
+   PICTURE ELEMENT SUPPORT
+   ============================================ */
+
+picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================
+   BACKGROUND IMAGE UTILITIES
+   ============================================ */
+
+.bg-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-contain {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Responsive background images */
+@media (max-width: 768px) {
+  .bg-cover,
+  .bg-contain {
+    background-attachment: scroll;
+  }
+}
+

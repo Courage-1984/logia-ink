@@ -12,6 +12,9 @@
 @import './_offer-panel.css';
 @import './_project-card.css';
 
+/* Container queries for component-level responsiveness */
+@import './_card-container-queries.css';
+
 /* Card variants */
 @import './_card-variants.css';
 

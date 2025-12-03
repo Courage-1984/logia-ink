@@ -1,4 +1,4 @@
-import { isDevelopmentEnv } from '../utils/env.js';
+import { isDevelopmentEnv, isMobileDevice } from '../utils/env.js';
 import { createSunTexture, createMoonTexture, createPlanetTexture } from './celestial-textures.js';
 import { generateMultiLayerGalaxy } from './galaxy-generator.js';
 import { generateMultiLayerStarField, updateStarTwinkling } from './star-field.js';
@@ -1466,11 +1466,17 @@ function animateMilkyWay() {
     milkyWayScene.userData.centerStars.rotation.x += 0.0003;
   }
 
-  // Update star field twinkling
+  // Update star field twinkling (disabled on mobile for better performance)
+  // On mobile, skip twinkling updates entirely to prevent glitchy/fast animations
   if (milkyWayScene && milkyWayScene.userData.starLayers) {
-    milkyWayScene.userData.starLayers.forEach(layer => {
-      updateStarTwinkling(layer.points, animationTime);
-    });
+    const isMobile = isMobileDevice();
+    if (!isMobile) {
+      // Only update twinkling on desktop
+      milkyWayScene.userData.starLayers.forEach(layer => {
+        updateStarTwinkling(layer.points, animationTime, undefined, false);
+      });
+    }
+    // On mobile, skip twinkling entirely (stars remain static)
   }
 
   // Update lighting based on sun position

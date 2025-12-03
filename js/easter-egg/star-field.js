@@ -163,8 +163,9 @@ export function generateMultiLayerStarField(THREE, baseParameters = {}) {
  * @param {THREE.Points} starField - Star field points object
  * @param {number} time - Current time in seconds
  * @param {number} deltaTime - Time elapsed since last frame (in seconds)
+ * @param {boolean} isMobile - Whether the device is mobile (reduces twinkling speed)
  */
-export function updateStarTwinkling(starField, time, deltaTime = 0.016) {
+export function updateStarTwinkling(starField, time, deltaTime = 0.016, isMobile = false) {
   if (!starField || !starField.geometry) {
     return;
   }
@@ -191,14 +192,19 @@ export function updateStarTwinkling(starField, time, deltaTime = 0.016) {
 
   const baseColors = starField.userData.baseColors;
 
+  // Reduce twinkling speed on mobile for better performance
+  const speedMultiplier = isMobile ? 0.3 : 1.0;
+
   for (let i = 0; i < colorArray.length; i += 3) {
     const starIndex = i / 3;
     const phase = phaseArray[starIndex];
-    const speed = speedArray[starIndex];
+    const speed = speedArray[starIndex] * speedMultiplier;
 
     // Twinkling effect using sine wave with delta time for frame-rate independence
     // Use time-based animation for consistent twinkling regardless of frame rate
-    const twinkle = Math.sin(time * speed + phase) * 0.3 + 0.7; // Oscillates between 0.4 and 1.0
+    // On mobile, reduce the twinkling intensity for better performance
+    const twinkleIntensity = isMobile ? 0.15 : 0.3;
+    const twinkle = Math.sin(time * speed + phase) * twinkleIntensity + (1 - twinkleIntensity * 0.5); // Oscillates between 0.4-1.0 (desktop) or 0.775-1.0 (mobile)
 
     // Apply twinkling to base colors
     colorArray[i] = baseColors[i] * twinkle;

@@ -34,6 +34,14 @@ let easterEggModule = null;
 // Initialize all modules when DOM is ready
 // Use requestIdleCallback or setTimeout to avoid blocking initial render
 const initOnReady = () => {
+  // CRITICAL: Initialize mobile detection FIRST to add is-mobile class early
+  // This ensures CSS-based disabling works immediately
+  if (typeof window !== 'undefined') {
+    import('./utils/env.js').then(({ isMobileDevice }) => {
+      isMobileDevice(); // This adds the is-mobile class
+    });
+  }
+
   // Initialize error handling first (catches errors from other modules)
   initErrorHandler();
 

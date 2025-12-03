@@ -1,0 +1,83 @@
+/**
+ * Responsive Breakpoints System
+ * Modern breakpoint definitions using CSS custom properties
+ *
+ * Breakpoint Strategy:
+ * - Mobile-first approach (min-width media queries)
+ * - Container queries for component-level responsiveness
+ * - Fluid typography with clamp() and container query units
+ *
+ * Breakpoints:
+ * - xs: 0px (base/mobile)
+ * - sm: 640px (small tablets, large phones)
+ * - md: 768px (tablets)
+ * - lg: 1024px (small desktops)
+ * - xl: 1280px (desktops)
+ * - 2xl: 1536px (large desktops)
+ */
+
+:root {
+  /* Breakpoint values (for reference in comments, not used directly) */
+  --bp-xs: 0px;
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+
+  /* Container query breakpoints (for @container queries) */
+  --container-sm: 320px;
+  --container-md: 480px;
+  --container-lg: 640px;
+  --container-xl: 800px;
+}
+
+/* ============================================
+   RESPONSIVE UTILITY CLASSES
+   ============================================ */
+
+/* Hide on mobile, show on larger screens */
+.hide-mobile {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .hide-mobile {
+    display: block;
+  }
+}
+
+/* Show on mobile, hide on larger screens */
+.show-mobile {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .show-mobile {
+    display: none;
+  }
+}
+
+/* Responsive text alignment */
+@media (min-width: 768px) {
+  .text-left-md {
+    text-align: left;
+  }
+
+  .text-center-md {
+    text-align: center;
+  }
+
+  .text-right-md {
+    text-align: right;
+  }
+}
+
+/* Responsive spacing utilities */
+@media (min-width: 1024px) {
+  .container-fluid {
+    max-width: 100%;
+    padding: 0 var(--space-8);
+  }
+}
+

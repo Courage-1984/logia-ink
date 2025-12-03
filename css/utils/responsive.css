@@ -2,15 +2,15 @@
  * Responsive Styles Utility
  * All responsive breakpoints and media queries
  *
- * Extracted from styles.css (lines: 1182-end)
- *
  * ⚠️ IMPORTANT: This file MUST be imported last in main.css
  *
- * Breakpoints:
- * - Tablet: 769px - 1024px
- * - Mobile: max-width 768px
- * - Small Mobile: max-width 480px
- * - Print: Print media queries
+ * Enhanced Breakpoint System (Mobile-First):
+ * - xs: 0px (base/mobile) - default styles
+ * - sm: 640px (small tablets, large phones)
+ * - md: 768px (tablets)
+ * - lg: 1024px (small desktops)
+ * - xl: 1280px (desktops)
+ * - 2xl: 1536px (large desktops)
  *
  * 📝 NOTE: Font-size values in this file are intentionally hardcoded
  * for fine-tuned responsive adjustments. These values (e.g., 0.9rem, 0.95rem, 1.2rem)
@@ -19,13 +19,39 @@
  *
  * 📝 NOTE: Some spacing values remain hardcoded for breakpoint-specific adjustments.
  * Values inside clamp() functions are intentional for responsive spacing.
+ *
+ * 📝 NOTE: Container queries are used for component-level responsiveness.
+ * Media queries are used for viewport-level layout changes.
  */
 
 /* ============================================
-   TABLET STYLES (769px - 1024px)
+   SMALL TABLETS / LARGE PHONES (640px+)
    ============================================ */
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--space-6);
+  }
+
+  .hero-content {
+    padding: 0 var(--space-6);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .btn {
+    padding: 0.95rem var(--space-8);
+  }
+}
+
+/* ============================================
+   TABLET STYLES (768px - 1023px)
+   ============================================ */
+
+@media (min-width: 768px) {
   .nav-container {
     padding: 0 1.5rem;
   }
@@ -122,10 +148,69 @@
 }
 
 /* ============================================
-   MOBILE STYLES (max-width: 768px)
+   DESKTOP STYLES (1024px+)
    ============================================ */
 
-@media (max-width: 768px) {
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--space-8);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   LARGE DESKTOP STYLES (1280px+)
+   ============================================ */
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1400px;
+    padding: 0 var(--space-10);
+  }
+
+  .hero-content {
+    max-width: 1200px;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+}
+
+/* ============================================
+   EXTRA LARGE DESKTOP STYLES (1536px+)
+   ============================================ */
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1600px;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 7vw, 6rem);
+  }
+}
+
+/* ============================================
+   MOBILE STYLES (Base - Mobile First)
+   ============================================ */
+
+/* Base mobile styles are defined first (mobile-first approach) */
+/* These styles apply to all screen sizes and are overridden for larger screens */
+
+/* ============================================
+   MOBILE OVERRIDES (max-width: 767px)
+   ============================================ */
+
+@media (max-width: 767px) {
   /* Navigation */
   .nav-container {
     padding: 0 1rem;
@@ -587,10 +672,10 @@
 }
 
 /* ============================================
-   SMALL MOBILE STYLES (max-width: 480px)
+   SMALL MOBILE STYLES (max-width: 639px)
    ============================================ */
 
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   .container {
     padding: 0 0.75rem;
   }

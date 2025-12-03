@@ -1,0 +1,166 @@
+/**
+ * Performance Optimizations for Responsive Design
+ * Reduces repaints, optimizes animations, and improves mobile performance
+ */
+
+/* ============================================
+   CONTAINMENT FOR PERFORMANCE
+   ============================================ */
+
+/* Enable containment on containers to improve performance */
+.container,
+section,
+.hero,
+.services-grid,
+.projects-grid {
+  contain: layout style;
+}
+
+/* Strong containment for isolated components */
+.service-card,
+.project-card,
+.modal-content {
+  contain: layout style paint;
+}
+
+/* ============================================
+   WILL-CHANGE OPTIMIZATION
+   ============================================ */
+
+/* Only apply will-change to elements that are actively animating */
+/* Removed from static elements - only use during active animations */
+
+/* ============================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
+  }
+
+  /* Disable expensive transforms on mobile */
+  .card-3d,
+  .mouse-tilt-container {
+    transform: none !important;
+    will-change: auto !important;
+  }
+
+  /* Simplify scroll reveals on mobile */
+  .scroll-reveal-3d {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    will-change: auto !important;
+  }
+
+  /* Reduce particle effects on mobile */
+  .particles {
+    display: none;
+  }
+
+  /* Simplify cursor effects on mobile */
+  .cursor-follow,
+  .cursor-dot {
+    display: none;
+  }
+
+  /* Optimize background attachments */
+  .parallax-background,
+  .cta-section {
+    background-attachment: scroll !important;
+  }
+
+  /* Reduce backdrop filters (expensive on mobile) */
+  * {
+    backdrop-filter: none !important;
+  }
+}
+
+/* ============================================
+   REDUCE REPAINTS
+   ============================================ */
+
+/* Use transform instead of position changes */
+.animate-transform {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optimize opacity transitions */
+.animate-opacity {
+  will-change: opacity;
+}
+
+/* ============================================
+   CONTENT VISIBILITY
+   ============================================ */
+
+/* Use content-visibility for off-screen content */
+@media (max-width: 768px) {
+  section:not(:target) {
+    content-visibility: auto;
+    contain-intrinsic-size: 200px;
+  }
+}
+
+/* ============================================
+   IMAGE OPTIMIZATION
+   ============================================ */
+
+/* Optimize image rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Lazy load images below the fold */
+img[loading='lazy'] {
+  content-visibility: auto;
+}
+
+/* ============================================
+   FONT LOADING OPTIMIZATION
+   ============================================ */
+
+/* Prevent font layout shifts */
+body {
+  font-display: swap;
+}
+
+/* ============================================
+   SCROLL OPTIMIZATION
+   ============================================ */
+
+/* Smooth scrolling with performance consideration */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Optimize scroll performance */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION SUPPORT
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
