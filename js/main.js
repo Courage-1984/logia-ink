@@ -17,10 +17,16 @@ import { initInteractions } from './utils/interactions.js';
 import { initBackgroundVideoLazyLoad } from './utils/ripples-lazyload.js';
 import { initLazyBackgroundImages } from './utils/lazy-background-images.js';
 import { initPageTransitions } from './core/page-transitions.js';
-import { registerServiceWorker } from './core/service-worker.js';
+import { registerServiceWorker, autoUnregisterServiceWorkers } from './core/service-worker.js';
 import { initAccessibility } from './utils/accessibility.js';
 import { initErrorHandler } from './utils/error-handler.js';
 import { initDynamicPrefetch } from './utils/dynamic-prefetch.js';
+
+// CRITICAL: Auto-unregister service workers immediately (before page loads)
+// This prevents service worker from interfering with CSS loading and causing FOUC
+if (typeof window !== 'undefined') {
+  autoUnregisterServiceWorkers();
+}
 
 // Lazy load easter egg module (lightweight initialization - heavy 3D loads on activation)
 let easterEggModule = null;
@@ -130,22 +136,24 @@ deferNonCritical(async () => {
 
 // Lazy load page-specific modules (defer until needed)
 deferNonCritical(async () => {
-  if (window.location.pathname.includes('contact.html')) {
+  const pathname = window.location.pathname;
+  // Check for clean URLs or .html URLs (for backwards compatibility)
+  if (pathname.includes('/contact') || pathname.includes('contact.html')) {
     const { initContactForm } = await import('./pages/contact.js');
     initContactForm();
   }
 
-  if (window.location.pathname.includes('services.html')) {
+  if (pathname.includes('/services') || pathname.includes('services.html')) {
     const { initServiceModals } = await import('./pages/services.js');
     initServiceModals();
   }
 
-  if (window.location.pathname.includes('projects.html')) {
+  if (pathname.includes('/projects') || pathname.includes('projects.html')) {
     const { initProjectsPage } = await import('./pages/projects.js');
     initProjectsPage();
   }
 
-  if (window.location.pathname.includes('reports.html')) {
+  if (pathname.includes('/reports') || pathname.includes('reports.html')) {
     const { initReportsPage } = await import('./pages/reports.js');
     initReportsPage();
   }

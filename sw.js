@@ -10,8 +10,22 @@
  */
 
 const CACHE_NAME = 'logi-ink-v1';
-const STATIC_CACHE_NAME = 'logi-ink-static-v3'; // Increment version to force cache update (updated logo path and added 48x48 favicon)
-const RUNTIME_CACHE_NAME = 'logi-ink-runtime-v2';
+const STATIC_CACHE_NAME = 'logi-ink-static-v4'; // Increment version to force cache update (fixed CSS MIME type handling)
+const RUNTIME_CACHE_NAME = 'logi-ink-runtime-v3'; // Increment version to force cache update (fixed CSS MIME type handling)
+
+// Check if we're in development or preview mode (skip service worker entirely)
+const isDevOrPreview = (url) => {
+  return (
+    url.hostname === 'localhost' ||
+    url.hostname === '127.0.0.1' ||
+    url.hostname === '[::1]' ||
+    url.port === '3000' ||
+    url.port === '5173' ||
+    url.port === '8080' ||
+    url.port === '4173' || // Vite preview default port
+    url.port === '4176'    // Vite preview alternate port
+  );
+};
 
 // Get base path from self.location (handles /logi-ink/ base path)
 const BASE_PATH = self.location.pathname.replace(/\/sw\.js$/, '').replace(/\/$/, '') || '/';
@@ -64,6 +78,15 @@ const STATIC_ASSETS = [
 
 // Install event - cache static assets
 self.addEventListener('install', event => {
+  // Skip installation in development or preview mode
+  const url = new URL(self.location.href);
+  if (isDevOrPreview(url)) {
+    console.log('[Service Worker] Skipping installation in development/preview mode');
+    // Skip waiting and activate immediately
+    self.skipWaiting();
+    return;
+  }
+
   console.log('[Service Worker] Installing...');
 
   event.waitUntil(
@@ -127,6 +150,14 @@ self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
 
+  // Skip service worker in development/preview mode (localhost, 127.0.0.1, or dev/preview server ports)
+  // This prevents interference with Vite's dev server, HMR, and preview server
+  if (isDevOrPreview(url)) {
+    // In development/preview, let all requests pass through to the server
+    // Don't intercept at all - prevents corrupted content errors
+    return;
+  }
+
   // Skip non-GET requests
   if (request.method !== 'GET') {
     return;
@@ -159,6 +190,10 @@ self.addEventListener('fetch', event => {
     // Hashed assets (CSS/JS with content hashes): Stale-while-revalidate
     // Ensures users get cached content immediately while updating in background
     event.respondWith(staleWhileRevalidate(request));
+  } else if (isCSS(request.url)) {
+    // CSS files: Stale-while-revalidate with explicit MIME type
+    // Ensures correct content-type header
+    event.respondWith(staleWhileRevalidateWithMIME(request, 'text/css'));
   } else if (isStaticAsset(request.url)) {
     // Truly static assets (images, fonts): Cache-first strategy
     // These don't change, so cache-first is optimal
@@ -286,6 +321,62 @@ async function staleWhileRevalidate(request) {
 }
 
 /**
+ * Stale-while-revalidate strategy with explicit MIME type
+ * Ensures correct content-type header for CSS files
+ */
+async function staleWhileRevalidateWithMIME(request, mimeType) {
+  const cache = await caches.open(RUNTIME_CACHE_NAME);
+  const cached = await cache.match(request);
+
+  // Update cache in background (don't wait)
+  const fetchPromise = fetch(request)
+    .then(response => {
+      if (response && response.status === 200) {
+        // Ensure correct MIME type
+        const headers = new Headers(response.headers);
+        headers.set('Content-Type', mimeType);
+        const modifiedResponse = new Response(response.body, {
+          status: response.status,
+          statusText: response.statusText,
+          headers: headers
+        });
+        cache.put(request, modifiedResponse.clone());
+        console.log('[Service Worker] Updated cache with MIME type:', request.url, mimeType);
+        return modifiedResponse;
+      }
+      return response;
+    })
+    .catch(error => {
+      console.log('[Service Worker] Background update failed:', request.url, error);
+      // Return cached if available, or undefined
+      return cached;
+    });
+
+  // Return cached immediately if available, otherwise wait for network
+  if (cached) {
+    // Ensure cached response has correct MIME type
+    const headers = new Headers(cached.headers);
+    if (headers.get('Content-Type') !== mimeType) {
+      headers.set('Content-Type', mimeType);
+      const modifiedCached = new Response(cached.body, {
+        status: cached.status,
+        statusText: cached.statusText,
+        headers: headers
+      });
+      // Don't await fetchPromise - let it update in background
+      fetchPromise.catch(() => {}); // Suppress errors
+      return modifiedCached;
+    }
+    // Don't await fetchPromise - let it update in background
+    fetchPromise.catch(() => {}); // Suppress errors
+    return cached;
+  }
+
+  // No cache, wait for network
+  return fetchPromise;
+}
+
+/**
  * Check if URL is a hashed asset (CSS/JS with content hashes)
  * These should use stale-while-revalidate for better freshness
  */
@@ -320,6 +411,13 @@ function isStaticAsset(url) {
   }
 
   return false;
+}
+
+/**
+ * Check if URL is a CSS file
+ */
+function isCSS(url) {
+  return url.endsWith('.css') || url.match(/\.css(\?|$)/);
 }
 
 /**

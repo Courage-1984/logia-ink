@@ -5,6 +5,7 @@
  * It should be inlined in the <head> of HTML files.
  *
  * Includes:
+ * - Critical @font-face declarations (prevent FOUC)
  * - Complete CSS Variables (all design tokens)
  * - Base reset and typography
  * - Navigation styles (always visible)
@@ -15,6 +16,25 @@
  *
  * Remaining CSS should be loaded asynchronously.
  */
+
+/* ============================================
+   0. Critical Font Declarations (Must come first - prevent FOUC)
+   ============================================ */
+@font-face {
+  font-family: 'Orbitron';
+  src: url('../assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* Critical font - use swap for faster display */
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('../assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* Critical font - use swap for faster display */
+}
 
 /* ============================================
    1. CSS Variables (Must come first - COMPLETE SET)
@@ -146,6 +166,19 @@ h6 {
 
 .skip-link:focus {
   top: 0;
+}
+
+/* Screen Reader Only - for ARIA live region */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* Scroll Progress Indicator */
@@ -560,7 +593,7 @@ h6 {
   margin-top: var(--space-8);
   z-index: 10;
   contain: layout style;
-  will-change: transform;
+  /* will-change removed - animation handles optimization */
 }
 
 .mouse {

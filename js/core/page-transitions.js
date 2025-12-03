@@ -54,8 +54,8 @@ function handleIncomingTransition() {
 export function initPageTransitions() {
   handleIncomingTransition();
 
-  // Handle navigation clicks
-  document.querySelectorAll('a[href$=".html"]').forEach(link => {
+  // Handle navigation clicks (all internal links, not just .html)
+  document.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href') || '';
 
     // Skip external links, anchors, downloads, or custom targets
@@ -68,9 +68,29 @@ export function initPageTransitions() {
     if (link.getAttribute('target') && link.getAttribute('target') !== '_self') {
       return;
     }
+    // Skip asset links (CSS, JS, images, etc.)
+    if (href.startsWith('/assets/') || href.includes('.')) {
+      return;
+    }
 
     link.addEventListener('click', event => {
-      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      // Get current path (clean URL)
+      let currentPath = window.location.pathname.split('/').pop() || '';
+      if (currentPath.endsWith('.html')) {
+        currentPath = currentPath.replace('.html', '');
+      }
+      if (currentPath === '') {
+        currentPath = '/';
+      }
+
+      // Normalize href for comparison
+      let normalizedHref = href;
+      if (normalizedHref.endsWith('.html')) {
+        normalizedHref = normalizedHref.replace('.html', '');
+      }
+      if (normalizedHref === '' || normalizedHref === 'index.html') {
+        normalizedHref = '/';
+      }
 
       // Skip modified clicks, middle clicks, or same-page navigation
       if (
@@ -80,8 +100,8 @@ export function initPageTransitions() {
         event.ctrlKey ||
         event.shiftKey ||
         event.altKey ||
-        href === currentPath ||
-        (href === 'index.html' && (currentPath === '' || currentPath === 'index.html'))
+        normalizedHref === currentPath ||
+        (normalizedHref === '/' && currentPath === '/')
       ) {
         return;
       }

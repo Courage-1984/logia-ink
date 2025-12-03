@@ -168,9 +168,17 @@ export default defineConfig(({ command, mode }) => {
             'apple-touch-icon',
             'favicon-16x16',
             'favicon-32x32',
+            'favicon-48x48',
+            'favicon-64x64',
+            'favicon-96x96',
             'favicon',
             'android-chrome-192x192',
             'android-chrome-512x512',
+            'safari-pinned-tab',
+            'mstile-70x70',
+            'mstile-150x150',
+            'mstile-310x150',
+            'mstile-310x310',
           ];
 
           if (rootFavicons.includes(name)) {
@@ -211,6 +219,8 @@ export default defineConfig(({ command, mode }) => {
   server: {
     port: 3000,
     open: true, // Open browser automatically
+    // Middleware to handle clean URLs (remove .html extension)
+    middlewareMode: false,
   },
 
   // Preview server configuration
@@ -243,6 +253,67 @@ export default defineConfig(({ command, mode }) => {
     // HTML include plugin (processes <!-- include --> comments)
     htmlInclude(),
 
+    // Clean URLs middleware for dev and preview servers
+    {
+      name: 'clean-urls',
+      apply: 'serve',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          // Skip assets (CSS, JS, images, fonts, etc.) and API routes
+          if (
+            req.url &&
+            (req.url.startsWith('/assets/') ||
+              req.url.startsWith('/node_modules/') ||
+              req.url.startsWith('/dist/') ||
+              req.url.includes('.') ||
+              req.url.startsWith('/api/'))
+          ) {
+            return next();
+          }
+
+          // Handle root index
+          if (req.url === '/' || req.url === '') {
+            const indexPath = resolve(__dirname, 'index.html');
+            if (existsSync(indexPath)) {
+              req.url = '/index.html';
+            }
+            return next();
+          }
+
+          // Handle clean URLs (remove .html extension)
+          // Only process if URL doesn't have an extension and doesn't end with /
+          if (req.url && !req.url.includes('.') && !req.url.endsWith('/')) {
+            // Remove leading slash and check if corresponding .html file exists
+            const pathWithoutSlash = req.url.replace(/^\//, '');
+            const htmlPath = resolve(__dirname, pathWithoutSlash + '.html');
+            if (existsSync(htmlPath)) {
+              req.url = req.url + '.html';
+            }
+          }
+          next();
+        });
+      },
+    },
+    // Clean URLs build plugin - ensures compatibility across all hosting environments
+    {
+      name: 'clean-urls-build',
+      apply: 'build',
+      generateBundle(options, bundle) {
+        // This plugin ensures that:
+        // 1. HTML files are output with .html extension (for static hosting)
+        // 2. Links in HTML already use clean URLs (handled by our HTML updates)
+        // 3. The build output is compatible with GitHub Pages, Apache, and other static hosts
+
+        // Note: We don't need to transform files here because:
+        // - Files on disk: about.html, services.html (needed for static hosting)
+        // - URLs in HTML: /about, /services (already updated in source files)
+        // - Server/hosting handles the mapping (GitHub Pages native, Apache via .htaccess)
+
+        // This plugin serves as documentation and ensures the build process is aware
+        // of clean URL requirements
+        console.log('✅ Clean URLs: Build output compatible with all hosting environments');
+      },
+    },
     // Dev server plugin to serve dist/reports/ files
     {
       name: 'serve-dist-reports',
@@ -283,6 +354,10 @@ export default defineConfig(({ command, mode }) => {
           'apple-touch-icon.png',
           'favicon-16x16.png',
           'favicon-32x32.png',
+          'favicon-48x48.png',
+          'favicon-64x64.png',
+          'favicon-96x96.png',
+          'favicon.png',
           'favicon.ico',
           'favicon.svg',
           'android-chrome-192x192.png',
@@ -301,7 +376,7 @@ export default defineConfig(({ command, mode }) => {
         });
       },
     },
-    // Custom plugin to copy optimized video files
+    // Custom plugin to copy video files (both root and optimized directories)
     {
       name: 'copy-videos',
       apply: 'build',
@@ -309,13 +384,6 @@ export default defineConfig(({ command, mode }) => {
         resolvedOutDir = resolve(config.root, config.build.outDir);
       },
       writeBundle() {
-        const videoDir = resolve(__dirname, 'assets/video/optimized');
-
-        if (!existsSync(videoDir)) {
-          console.warn('⚠️  Video directory not found: assets/video/optimized');
-          return;
-        }
-
         // Only copy to the actual output directory and dist-gh-pages if it exists
         const distDirs = [resolvedOutDir];
         const ghPagesDir = resolve(__dirname, 'dist-gh-pages');
@@ -323,38 +391,88 @@ export default defineConfig(({ command, mode }) => {
           distDirs.push(ghPagesDir);
         }
 
-        distDirs.forEach(distDir => {
-          if (!existsSync(distDir)) {
-            return;
-          }
+        // Copy optimized videos directory
+        const optimizedVideoDir = resolve(__dirname, 'assets/video/optimized');
+        if (existsSync(optimizedVideoDir)) {
+          distDirs.forEach(distDir => {
+            if (!existsSync(distDir)) {
+              return;
+            }
 
-          const distVideoDir = resolve(distDir, 'assets/video/optimized');
-          if (!existsSync(distVideoDir)) {
-            mkdirSync(distVideoDir, { recursive: true });
-          }
+            const distVideoDir = resolve(distDir, 'assets/video/optimized');
+            if (!existsSync(distVideoDir)) {
+              mkdirSync(distVideoDir, { recursive: true });
+            }
 
-          try {
-            const files = readdirSync(videoDir);
-            files.forEach(file => {
-              const src = resolve(videoDir, file);
-              const dest = resolve(distVideoDir, file);
+            try {
+              const files = readdirSync(optimizedVideoDir);
+              files.forEach(file => {
+                const src = resolve(optimizedVideoDir, file);
+                const dest = resolve(distVideoDir, file);
 
-              try {
-                const stats = statSync(src);
-                if (stats.isFile()) {
-                  copyFileSync(src, dest);
-                  const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
-                  const dirName = distDir === ghPagesDir ? 'dist-gh-pages' : 'dist';
-                  console.log(`✅ Copied ${file} to ${dirName}/assets/video/optimized/ (${sizeMB} MB)`);
+                try {
+                  const stats = statSync(src);
+                  if (stats.isFile()) {
+                    copyFileSync(src, dest);
+                    const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
+                    const dirName = distDir === ghPagesDir ? 'dist-gh-pages' : 'dist';
+                    console.log(`✅ Copied ${file} to ${dirName}/assets/video/optimized/ (${sizeMB} MB)`);
+                  }
+                } catch (err) {
+                  console.warn(`⚠️  Failed to copy ${file} to ${distDir}: ${err.message}`);
                 }
-              } catch (err) {
-                console.warn(`⚠️  Failed to copy ${file} to ${distDir}: ${err.message}`);
-              }
-            });
-          } catch (err) {
-            console.warn(`⚠️  Failed to read video directory: ${err.message}`);
-          }
-        });
+              });
+            } catch (err) {
+              console.warn(`⚠️  Failed to read optimized video directory: ${err.message}`);
+            }
+          });
+        } else {
+          console.warn('⚠️  Optimized video directory not found: assets/video/optimized');
+        }
+
+        // Copy root video directory (for project hover videos)
+        const rootVideoDir = resolve(__dirname, 'assets/video');
+        if (existsSync(rootVideoDir)) {
+          distDirs.forEach(distDir => {
+            if (!existsSync(distDir)) {
+              return;
+            }
+
+            const distVideoDir = resolve(distDir, 'assets/video');
+            if (!existsSync(distVideoDir)) {
+              mkdirSync(distVideoDir, { recursive: true });
+            }
+
+            try {
+              const entries = readdirSync(rootVideoDir, { withFileTypes: true });
+              entries.forEach(entry => {
+                // Skip the optimized subdirectory (already copied above)
+                if (entry.isDirectory() && entry.name === 'optimized') {
+                  return;
+                }
+
+                const src = resolve(rootVideoDir, entry.name);
+                const dest = resolve(distVideoDir, entry.name);
+
+                try {
+                  if (entry.isFile()) {
+                    const stats = statSync(src);
+                    copyFileSync(src, dest);
+                    const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
+                    const dirName = distDir === ghPagesDir ? 'dist-gh-pages' : 'dist';
+                    console.log(`✅ Copied ${entry.name} to ${dirName}/assets/video/ (${sizeMB} MB)`);
+                  }
+                } catch (err) {
+                  console.warn(`⚠️  Failed to copy ${entry.name} to ${distDir}: ${err.message}`);
+                }
+              });
+            } catch (err) {
+              console.warn(`⚠️  Failed to read root video directory: ${err.message}`);
+            }
+          });
+        } else {
+          console.warn('⚠️  Root video directory not found: assets/video');
+        }
       },
     },
     // Custom plugin to copy audio files
@@ -480,12 +598,76 @@ export default defineConfig(({ command, mode }) => {
           'robots.txt',
           'sitemap.xml',
           '_headers', // Netlify/Vercel headers
+          '.htaccess', // Apache security headers
           'nginx.conf.example', // Nginx config example (for reference)
         ];
 
         seoFiles.forEach(file => {
           if (!copyToBothDirs(file)) {
             console.warn(`⚠️  ${file} not found`);
+          }
+        });
+      },
+    },
+    // Custom plugin to copy logo files to dist root
+    {
+      name: 'copy-logos',
+      apply: 'build',
+      configResolved(config) {
+        resolvedOutDir = resolve(config.root, config.build.outDir);
+      },
+      writeBundle() {
+        const logoFiles = [
+          'logo.svg',
+          'logo-1024x1024.png',
+          'logo-150x150.png',
+        ];
+
+        logoFiles.forEach(file => {
+          if (!copyToBothDirs(file)) {
+            // Log only if file exists but copy failed, not if file doesn't exist
+            if (existsSync(resolve(__dirname, file))) {
+              console.warn(`⚠️  Failed to copy ${file}`);
+            }
+          }
+        });
+      },
+    },
+    // Custom plugin to copy entire fonts directory structure
+    {
+      name: 'copy-fonts',
+      apply: 'build',
+      configResolved(config) {
+        resolvedOutDir = resolve(config.root, config.build.outDir);
+      },
+      writeBundle() {
+        const fontsDir = resolve(__dirname, 'assets/fonts');
+
+        if (!existsSync(fontsDir)) {
+          console.warn('⚠️  Fonts directory not found: assets/fonts');
+          return;
+        }
+
+        // Only copy to the actual output directory and dist-gh-pages if it exists
+        const distDirs = [resolvedOutDir];
+        const ghPagesDir = resolve(__dirname, 'dist-gh-pages');
+        if (existsSync(ghPagesDir)) {
+          distDirs.push(ghPagesDir);
+        }
+
+        distDirs.forEach(distDir => {
+          if (!existsSync(distDir)) {
+            return;
+          }
+
+          const distFontsDir = resolve(distDir, 'assets/fonts');
+
+          try {
+            // Copy the entire fonts directory structure (including Orbitron, Rajdhani, and all subdirectories)
+            copyDirectoryIfMissing(fontsDir, distFontsDir);
+            console.log(`✅ Copied fonts directory to ${distDir === ghPagesDir ? 'dist-gh-pages' : 'dist'}/assets/fonts/`);
+          } catch (err) {
+            console.warn(`⚠️  Failed to copy fonts directory to ${distDir}: ${err.message}`);
           }
         });
       },

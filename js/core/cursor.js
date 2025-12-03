@@ -37,8 +37,12 @@ export function initCursor() {
   document.addEventListener(
     'mouseenter',
     e => {
-      if (e.target.matches('a, button, input, textarea, select')) {
-      cursorDot.style.transform = 'scale(1.5)';
+      // Check if target is an Element and has matches method
+      const target = e.target;
+      if (target && target.nodeType === Node.ELEMENT_NODE && target.matches) {
+        if (target.matches('a, button, input, textarea, select')) {
+          cursorDot.style.transform = 'scale(1.5)';
+        }
       }
     },
     { passive: true, capture: true }
@@ -47,8 +51,12 @@ export function initCursor() {
   document.addEventListener(
     'mouseleave',
     e => {
-      if (e.target.matches('a, button, input, textarea, select')) {
-      cursorDot.style.transform = 'scale(1)';
+      // Check if target is an Element and has matches method
+      const target = e.target;
+      if (target && target.nodeType === Node.ELEMENT_NODE && target.matches) {
+        if (target.matches('a, button, input, textarea, select')) {
+          cursorDot.style.transform = 'scale(1)';
+        }
       }
     },
     { passive: true, capture: true }

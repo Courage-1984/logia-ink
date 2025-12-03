@@ -60,6 +60,7 @@
     "vite-plugin-compression": "^0.5.1"
   },
   "dependencies": {
+    "html-to-image": "^1.11.13",
     "web-vitals": "^5.1.0"
   }
 }

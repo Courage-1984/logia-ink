@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0044)https://www.genspark.ai/api/files/s/K6FsSoof -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <style>
@@ -152,7 +152,7 @@ Arguments: {"problem": "Large CSS bundle with potential unused styles"}
 Use tool: scrape
 Arguments: {"url": "https://web.dev/fast/#optimize-your-css", "formats": ["markdown"]}
 </code></pre>
-<hr>
+<hr>Export Quality
 <h2>3. Complete CSS &amp; Font Audit Workflow</h2>
 <h3>Phase 1: Discovery &amp; Inventory</h3>
 <p>📋 <strong>Objective:</strong> Create a comprehensive inventory of all CSS and font assets in your project.</p>
@@ -289,10 +289,10 @@ Arguments: {
       action: 'startCoverage',
       options: { css: true, js: false }
     });
-  
+
     // Simulate user interactions
     document.querySelectorAll('a, button').forEach(el =&gt; el.click());
-  
+
     // Get coverage report
     const coverage = await window.chrome.runtime.sendMessage({
       action: 'stopCoverage'
@@ -324,7 +324,7 @@ Arguments: {
   "script": `
     const browsers = ['chromium', 'firefox', 'webkit'];
     const results = {};
-  
+
     for (const browserName of browsers) {
       const browser = await playwright[browserName].launch();
       const page = await browser.newPage();
@@ -381,11 +381,11 @@ Arguments: {
       specificity[3] = (selector.match(/^[\\w-]+|\\s[\\w-]+/g) || []).length;
       return specificity.join('');
     }
-  
+
     // Analyze all stylesheets
     const sheets = Array.from(document.styleSheets);
     const specificityReport = [];
-  
+
     sheets.forEach(sheet =&gt; {
       try {
         Array.from(sheet.cssRules).forEach(rule =&gt; {
@@ -519,13 +519,13 @@ Arguments: {
   "script": `
     const testResults = {};
     const browsers = ['chromium', 'firefox', 'webkit'];
-  
+
     for (const browserName of browsers) {
       const browser = await playwright[browserName].launch();
       const page = await browser.newPage();
       await page.goto('http://localhost:3000');
       await page.waitForLoadState('networkidle');
-    
+
       // Check for layout issues
       const layoutIssues = await page.evaluate(() =&gt; {
         return Array.from(document.querySelectorAll('*')).filter(el =&gt; {
@@ -533,7 +533,7 @@ Arguments: {
           return style.width === '0px' &amp;&amp; style.height === '0px' &amp;&amp; el.children.length &gt; 0;
         }).length;
       });
-    
+
       testResults[browserName] = {
         layoutIssues,
         loadTime: await page.evaluate(() =&gt; performance.now())
@@ -605,7 +605,7 @@ Arguments: {
       totalRules: 0,
       loadTimes: []
     };
-  
+
     // Performance timing for CSS resources
     const resources = performance.getEntriesByType('resource');
     cssAnalysis.loadTimes = resources
@@ -616,7 +616,7 @@ Arguments: {
         transferSize: r.transferSize,
         encodedBodySize: r.encodedBodySize
       }));
-  
+
     // Count total CSS rules
     Array.from(document.styleSheets).forEach(sheet =&gt; {
       try {
@@ -630,7 +630,7 @@ Arguments: {
         console.warn('Cannot access stylesheet rules:', e);
       }
     });
-  
+
     return cssAnalysis;
   `
 }
@@ -648,7 +648,7 @@ Arguments: {
       loadingStrategy: {},
       renderingMetrics: {}
     };
-  
+
     // Check font-display values
     Array.from(document.styleSheets).forEach(sheet =&gt; {
       try {
@@ -666,14 +666,14 @@ Arguments: {
         console.warn('Cannot access font rules:', e);
       }
     });
-  
+
     // Check for font preloading
     const fontPreloads = Array.from(document.querySelectorAll('link[rel="preload"][as="font"]'));
     fontAnalysis.preloadedFonts = fontPreloads.map(link =&gt; ({
       href: link.href,
       crossorigin: link.crossOrigin
     }));
-  
+
     return fontAnalysis;
   `
 }
@@ -686,14 +686,14 @@ Arguments: {
   "script": `
     const browser = await playwright.chromium.launch();
     const page = await browser.newPage();
-  
+
     // Start CSS coverage
     await page.coverage.startCSSCoverage();
-  
+
     // Navigate to application
     await page.goto('http://localhost:3000');
     await page.waitForLoadState('networkidle');
-  
+
     // Simulate user interactions to trigger dynamic styles
     const interactionPlan = [
       () =&gt; page.hover('[data-testid="menu-button"]'),
@@ -702,21 +702,21 @@ Arguments: {
       () =&gt; page.click('button[type="submit"]'),
       () =&gt; page.evaluate(() =&gt; window.scrollTo(0, document.body.scrollHeight))
     ];
-  
+
     for (const interaction of interactionPlan) {
       await interaction();
       await page.waitForTimeout(500);
     }
-  
+
     // Stop coverage and analyze
     const coverage = await page.coverage.stopCSSCoverage();
     const coverageReport = coverage.map(entry =&gt; {
-      const usedBytes = entry.ranges.reduce((used, range) =&gt; 
+      const usedBytes = entry.ranges.reduce((used, range) =&gt;
         used + (range.end - range.start), 0
       );
       const totalBytes = entry.text.length;
       const usagePercentage = (usedBytes / totalBytes) * 100;
-    
+
       return {
         url: entry.url,
         totalBytes,
@@ -726,7 +726,7 @@ Arguments: {
         unusedRanges: entry.ranges
       };
     });
-  
+
     await browser.close();
     return coverageReport;
   `,
@@ -905,7 +905,7 @@ Arguments: {
       width: window.innerWidth,
       height: window.innerHeight
     };
-  
+
     // Find elements in critical path
     const criticalElements = Array.from(document.querySelectorAll('*'))
       .filter(el =&gt; {
@@ -918,7 +918,7 @@ Arguments: {
         id: el.id,
         position: el.getBoundingClientRect()
       }));
-  
+
     return { viewport, criticalElements };
   `
 }
@@ -937,7 +937,7 @@ Arguments: {
     // Analyze font preloading
     const fontPreloads = Array.from(document.querySelectorAll('link[rel="preload"][as="font"]'));
     const fontFaces = [];
-  
+
     // Check @font-face declarations
     Array.from(document.styleSheets).forEach(sheet =&gt; {
       try {
@@ -956,7 +956,7 @@ Arguments: {
         console.warn('Cannot access stylesheet:', e);
       }
     });
-  
+
     return {
       preloadedFonts: fontPreloads.map(link =&gt; ({
         href: link.href,
@@ -964,7 +964,7 @@ Arguments: {
       })),
       declaredFonts: fontFaces,
       recommendations: {
-        missingPreloads: fontFaces.filter(font =&gt; 
+        missingPreloads: fontFaces.filter(font =&gt;
           !fontPreloads.some(preload =&gt; preload.href.includes(font.family))
         )
       }
@@ -981,11 +981,11 @@ Arguments: {
   "script": `
     const browser = await playwright.chromium.launch();
     const page = await browser.newPage();
-  
+
     // Start CSS coverage
     await page.coverage.startCSSCoverage();
     await page.goto('http://localhost:3000');
-  
+
     // Test various application states
     const testStates = [
       { action: 'hover', selector: '.interactive-element' },
@@ -994,7 +994,7 @@ Arguments: {
       { action: 'scroll', position: { x: 0, y: 1000 } },
       { action: 'resize', viewport: { width: 768, height: 1024 } }
     ];
-  
+
     for (const test of testStates) {
       switch (test.action) {
         case 'hover':
@@ -1015,13 +1015,13 @@ Arguments: {
       }
       await page.waitForTimeout(1000);
     }
-  
+
     const coverage = await page.coverage.stopCSSCoverage();
     await browser.close();
-  
+
     return coverage.map(entry =&gt; ({
       url: entry.url,
-      usedPercentage: (entry.ranges.reduce((sum, range) =&gt; 
+      usedPercentage: (entry.ranges.reduce((sum, range) =&gt;
         sum + (range.end - range.start), 0) / entry.text.length) * 100
     }));
   `
@@ -1121,17 +1121,17 @@ Arguments: {
   "script": `
     const results = [];
     const runs = 5;
-  
+
     for (let i = 0; i &lt; runs; i++) {
       const browser = await playwright.chromium.launch();
       const page = await browser.newPage();
-    
+
       // Clear cache between runs
       await page.context().clearCookies();
-    
+
       const startTime = Date.now();
       await page.goto('http://localhost:3000', { waitUntil: 'networkidle' });
-    
+
       const metrics = await page.evaluate(() =&gt; ({
         fcp: performance.getEntriesByType('paint')
           .find(entry =&gt; entry.name === 'first-contentful-paint')?.startTime,
@@ -1139,16 +1139,16 @@ Arguments: {
         cls: performance.getEntriesByType('layout-shift')
           .reduce((sum, entry) =&gt; sum + entry.value, 0)
       }));
-    
+
       results.push({
         run: i + 1,
         loadTime: Date.now() - startTime,
         ...metrics
       });
-    
+
       await browser.close();
     }
-  
+
     // Calculate averages
     const averages = {
       loadTime: results.reduce((sum, r) =&gt; sum + r.loadTime, 0) / runs,
@@ -1156,7 +1156,7 @@ Arguments: {
       lcp: results.reduce((sum, r) =&gt; sum + (r.lcp || 0), 0) / runs,
       cls: results.reduce((sum, r) =&gt; sum + (r.cls || 0), 0) / runs
     };
-  
+
     return { individual: results, averages };
   `,
   "timeout": 120000
@@ -1242,11 +1242,11 @@ Arguments: {
       criticalCSS: 14000, // 14KB
       totalFonts: 200000 // 200KB
     };
-  
+
     const browser = await playwright.chromium.launch();
     const page = await browser.newPage();
     await page.goto('http://localhost:3000');
-  
+
     const resources = await page.evaluate(() =&gt; {
       return performance.getEntriesByType('resource')
         .filter(r =&gt; r.name.includes('.css') || r.name.includes('font'))
@@ -1256,14 +1256,14 @@ Arguments: {
           type: r.name.includes('.css') ? 'css' : 'font'
         }));
     });
-  
+
     const totals = {
       css: resources.filter(r =&gt; r.type === 'css')
         .reduce((sum, r) =&gt; sum + r.size, 0),
       fonts: resources.filter(r =&gt; r.type === 'font')
         .reduce((sum, r) =&gt; sum + r.size, 0)
     };
-  
+
     const violations = [];
     if (totals.css &gt; budget.totalCSS) {
       violations.push('CSS budget exceeded');
@@ -1271,7 +1271,7 @@ Arguments: {
     if (totals.fonts &gt; budget.totalFonts) {
       violations.push('Font budget exceeded');
     }
-  
+
     await browser.close();
     return { totals, budget, violations };
   `

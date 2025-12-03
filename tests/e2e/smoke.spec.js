@@ -28,7 +28,7 @@ test.describe('Logi-Ink Smoke Suite', () => {
 
     // For Services, we need to open the dropdown first, then click "All Services"
     // Hover over Services link to open dropdown (desktop) or click to toggle (mobile)
-    const servicesParentLink = page.locator('nav.navbar .nav-item-dropdown > a.nav-link[href="services.html"]').first();
+    const servicesParentLink = page.locator('nav.navbar .nav-item-dropdown > a.nav-link[href="/services"]').first();
     await servicesParentLink.waitFor({ state: 'visible' });
 
     // Hover to open dropdown (works on desktop)
@@ -39,23 +39,23 @@ test.describe('Logi-Ink Smoke Suite', () => {
     await dropdownMenu.waitFor({ state: 'visible', timeout: 5_000 });
 
     // Click on "All Services" dropdown link
-    const servicesLink = page.locator('nav.navbar a.dropdown-link[href="services.html"]').first();
+    const servicesLink = page.locator('nav.navbar a.dropdown-link[href="/services"]').first();
     await servicesLink.waitFor({ state: 'visible' });
     await servicesLink.click({ force: true, timeout: 10_000 });
-    await page.waitForURL('**/services.html', { timeout: 15_000 });
+    await page.waitForURL('**/services', { timeout: 15_000 });
 
     await expect(page.locator('main')).toContainText('What We Offer');
 
-    const contactLink = page.locator('nav.navbar a[href="contact.html"]').first();
+    const contactLink = page.locator('nav.navbar a[href="/contact"]').first();
     await contactLink.waitFor({ state: 'visible' });
     await contactLink.click({ force: true, timeout: 10_000 });
-    await page.waitForURL('**/contact.html', { timeout: 15_000 });
+    await page.waitForURL('**/contact', { timeout: 15_000 });
 
     await expect(page.locator('#contactForm')).toBeVisible();
   });
 
   test('service modals open and close via the services grid', async ({ page }) => {
-    await page.goto('/services.html');
+    await page.goto('/services');
     await page.waitForLoadState('networkidle');
 
     const firstOfferPanel = page.locator('.offer-panel[data-modal="modal-web-dev"]').first();
@@ -77,7 +77,7 @@ test.describe('Logi-Ink Smoke Suite', () => {
   });
 
   test('contact form completes happy-path submission', async ({ page }) => {
-    await page.goto('/contact.html');
+    await page.goto('/contact');
 
     await page.evaluate(() => {
       window.Math.random = () => 0.5;
@@ -107,10 +107,10 @@ test.describe('Logi-Ink Smoke Suite', () => {
     await expect(navMenu).toHaveClass(/active/);
     await expect(hamburger).toHaveAttribute('aria-expanded', 'true');
 
-    await navMenu.locator('a[href="projects.html"]').click();
-    await page.waitForURL('**/projects.html', { timeout: 15_000 });
+    await navMenu.locator('a[href="/projects"]').click();
+    await page.waitForURL('**/projects', { timeout: 15_000 });
 
-    await expect(page.locator('.navbar .nav-link.active')).toHaveAttribute('href', 'projects.html');
+    await expect(page.locator('.navbar .nav-link.active')).toHaveAttribute('href', '/projects');
   });
 
   test('back to top control resets scroll position', async ({ page }) => {
@@ -142,7 +142,7 @@ test.describe('Logi-Ink Smoke Suite', () => {
   });
 
   test('contact form surfaces validation errors on invalid submission', async ({ page }) => {
-    await page.goto('/contact.html');
+    await page.goto('/contact');
     await page.waitForLoadState('networkidle');
 
     await page.fill('#name', 'Playwright Invalid');
@@ -194,7 +194,7 @@ test.describe('Logi-Ink Smoke Suite', () => {
   });
 
   test('about page loads and displays content', async ({ page }) => {
-    await page.goto('/about.html');
+    await page.goto('/about');
     await page.waitForLoadState('networkidle');
 
     await expect(page.locator('main')).toBeVisible();
@@ -203,7 +203,7 @@ test.describe('Logi-Ink Smoke Suite', () => {
   });
 
   test('projects page displays project cards and opens modals', async ({ page }) => {
-    await page.goto('/projects.html');
+    await page.goto('/projects');
     await page.waitForLoadState('networkidle');
 
     await expect(page.locator('main')).toBeVisible();
@@ -225,7 +225,7 @@ test.describe('Logi-Ink Smoke Suite', () => {
   });
 
   test('pricing page displays pricing packages', async ({ page }) => {
-    await page.goto('/pricing.html');
+    await page.goto('/pricing');
     await page.waitForLoadState('networkidle');
 
     await expect(page.locator('main')).toBeVisible();
@@ -235,7 +235,7 @@ test.describe('Logi-Ink Smoke Suite', () => {
   });
 
   test('seo-services page loads and displays content', async ({ page }) => {
-    await page.goto('/seo-services.html');
+    await page.goto('/seo-services');
     await page.waitForLoadState('networkidle');
 
     await expect(page.locator('main')).toBeVisible();
@@ -244,7 +244,7 @@ test.describe('Logi-Ink Smoke Suite', () => {
   });
 
   test('reports page tabs switch correctly', async ({ page }) => {
-    await page.goto('/reports.html');
+    await page.goto('/reports');
     await page.waitForLoadState('networkidle');
 
     await expect(page.locator('main')).toBeVisible();
@@ -260,7 +260,7 @@ test.describe('Logi-Ink Smoke Suite', () => {
   });
 
   test('reports page tabs support keyboard navigation', async ({ page }) => {
-    await page.goto('/reports.html');
+    await page.goto('/reports');
     await page.waitForLoadState('networkidle');
 
     const tabButtons = page.locator('[data-report-tabs] .tab-button');

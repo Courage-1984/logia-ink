@@ -42,7 +42,7 @@
   height: 100%;
   /* Performance optimizations */
   contain: layout style paint;
-  will-change: contents;
+  /* will-change removed - only needed during active transitions */
 }
 
 .section-video-background video {
@@ -58,7 +58,7 @@
   object-fit: cover;
   object-position: center;
   /* Performance optimizations */
-  will-change: opacity;
+  /* will-change removed - only needed during active transitions */
   backface-visibility: hidden;
   transform-style: preserve-3d;
   opacity: 0;

@@ -225,7 +225,8 @@ For CSS background images, use media queries:
 4. **Asset Copying:**
    - Images are copied (pre-optimize with `npm run optimize-images` or `npm run responsive-images`)
    - Fonts are copied
-   - Favicons are copied
+   - Favicons are copied (all sizes: SVG, PNG, ICO, Apple Touch, Android Chrome, Safari pinned tab, Windows tiles)
+   - Logos are copied (logo.svg, logo-1024x1024.png, logo-150x150.png)
    - Videos are copied from `assets/video/optimized/`
 
 ### Build Output Structure
@@ -338,7 +339,7 @@ Run the smoke suite prior to shipping major content or interaction changes.
 
    > If you trigger deployments via GitHub Actions, run the `build:gh-pages` script (or set `VITE_BASE_PATH=/logi-ink/`) before publishing the `dist/` folder.
 
-### Option 2: Traditional Web Hosting (FTP)
+### Option 2: Traditional Web Hosting (FTP/Apache)
 
 1. **Build the project:**
    ```bash
@@ -346,14 +347,21 @@ Run the smoke suite prior to shipping major content or interaction changes.
    ```
 
 2. **Upload `dist/` contents:**
-   - Upload all files from `dist/` to your web server
+   - Upload all files from `dist/` to your `public_html` folder via FTP
    - Ensure `index.html` is in the root directory
    - Maintain directory structure
+   - **Important:** Upload `.htaccess` file (included in build) for clean URLs
 
-3. **Configure server:**
-   - Set up redirects for clean URLs (if needed)
+3. **Clean URLs (Already Configured):**
+   - All internal links use clean URLs (e.g., `/about` instead of `/about.html`)
+   - `.htaccess` includes rewrite rules for Apache servers
+   - Old URLs with `.html` automatically redirect to clean URLs (301 redirect)
+   - Works automatically in dev, preview, GitHub Pages, and Apache servers
+
+4. **Configure server:**
+   - Ensure `mod_rewrite` is enabled (most hosts have this by default)
    - Configure HTTPS
-   - Set up caching headers
+   - Set up caching headers (already in `.htaccess`)
 
 ### Option 3: Docker (Advanced)
 
@@ -379,6 +387,40 @@ Build and run:
 docker build -t logi-ink .
 docker run -p 80:80 logi-ink
 ```
+
+---
+
+## 🔗 Clean URLs
+
+The project uses clean URLs (without `.html` extensions) across all environments:
+
+- **Links:** All internal links use clean URLs (e.g., `/about`, `/services`)
+- **Files:** HTML files on disk still have `.html` extension (required for static hosting)
+- **URL Rewriting:** Handled automatically by hosting environment
+
+### How It Works
+
+1. **Dev/Preview:** Vite middleware rewrites clean URLs to `.html` files
+2. **GitHub Pages:** Native support (no configuration needed)
+3. **Apache/FTP:** `.htaccess` rewrite rules handle the mapping
+4. **Netlify/Vercel:** Built-in clean URL support
+
+### Testing Clean URLs
+
+```bash
+# Dev
+npm run dev
+# Visit http://localhost:3000/about ✅
+
+# Preview
+npm run build && npm run preview
+# Visit http://localhost:4173/about ✅
+
+# Production (Apache)
+# Upload dist/ to public_html, visit https://yourdomain.com/about ✅
+```
+
+**Note:** Old URLs with `.html` extensions automatically redirect to clean URLs (301 redirect) to preserve SEO value.
 
 ---
 

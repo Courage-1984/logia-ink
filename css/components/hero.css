@@ -89,7 +89,7 @@
   animation: ripple-wave 8s ease-in-out infinite !important;
   pointer-events: none;
   z-index: 0;
-  will-change: transform, opacity;
+  /* will-change removed - animation handles optimization */
   opacity: 1;
   visibility: visible;
 }
@@ -125,7 +125,7 @@
   opacity: 0.45;
   filter: blur(90px);
   mix-blend-mode: screen;
-  will-change: transform, opacity;
+  /* will-change removed - animation handles optimization */
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-duration: 26s;
@@ -251,7 +251,7 @@
     700px 150px var(--accent-blue),
     900px 250px var(--accent-pink);
   animation: float 15s infinite ease-in-out !important;
-  will-change: transform;
+  /* will-change removed - only needed during active animations */
   opacity: 1;
   visibility: visible;
 }
@@ -400,7 +400,7 @@
   z-index: 10;
   /* Prevent layout shifts */
   contain: layout style;
-  will-change: transform;
+  /* will-change removed - only needed during active animations */
 }
 
 @keyframes bounce {

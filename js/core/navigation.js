@@ -106,15 +106,32 @@ export function initNavigation() {
   // Set active nav link based on current page
   const setActiveNavLinkByPage = () => {
     const navLinks = document.querySelectorAll('.nav-link');
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    // Get current page path (clean URL, no .html extension)
+    let currentPage = window.location.pathname.split('/').pop() || '';
+    // Normalize: remove .html if present, handle empty as home
+    if (currentPage.endsWith('.html')) {
+      currentPage = currentPage.replace('.html', '');
+    }
+    if (currentPage === '') {
+      currentPage = '/';
+    }
 
     navLinks.forEach(link => {
-      const href = link.getAttribute('href');
+      const href = link.getAttribute('href') || '';
       // Remove active class first
       link.classList.remove('active');
 
+      // Normalize href for comparison (remove .html if present)
+      let normalizedHref = href;
+      if (normalizedHref.endsWith('.html')) {
+        normalizedHref = normalizedHref.replace('.html', '');
+      }
+      if (normalizedHref === '' || normalizedHref === 'index.html') {
+        normalizedHref = '/';
+      }
+
       // Check if this link matches the current page
-      if (href === currentPage || (currentPage === '' && (href === 'index.html' || href === '/'))) {
+      if (normalizedHref === currentPage || (currentPage === '/' && (normalizedHref === '/' || normalizedHref === 'index.html'))) {
         link.classList.add('active');
       }
     });
@@ -157,8 +174,12 @@ export function initNavigation() {
     });
 
     // Handle home page (when at top of page)
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const isHomePage = currentPage === 'index.html' || currentPage === '';
+    let currentPage = window.location.pathname.split('/').pop() || '';
+    // Normalize: remove .html if present
+    if (currentPage.endsWith('.html')) {
+      currentPage = currentPage.replace('.html', '');
+    }
+    const isHomePage = currentPage === '' || currentPage === 'index';
 
     if (isHomePage && scrollPosition < 100 && !current) {
       // Use overall page scroll progress for home
@@ -176,10 +197,11 @@ export function initNavigation() {
 
       // Only update scroll progress if this link is active
       if (link.classList.contains('active')) {
-        const href = link.getAttribute('href');
+        const href = link.getAttribute('href') || '';
+        const normalizedHref = href.replace('.html', '') || '/';
         const isHomeLink =
-          href === 'index.html' ||
-          href === '/' ||
+          normalizedHref === '/' ||
+          normalizedHref === 'index' ||
           (link.textContent && link.textContent.trim().toLowerCase() === 'home');
 
         // Update scroll progress for home page or section links

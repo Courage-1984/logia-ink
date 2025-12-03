@@ -14,10 +14,12 @@ This directory contains documentation for the Logi-Ink project.
 - **[project_commands.md](./project_commands.md)** – Common npm scripts and usage notes
 - **[IMAGE_GENERATION_PROMPTS.md](./IMAGE_GENERATION_PROMPTS.md)** – Creative prompts for generating on-brand imagery
 - **[VIDEO_BACKGROUND_GUIDE.md](./VIDEO_BACKGROUND_GUIDE.md)** – Workflow for producing and optimising hero/background video loops
+- **[SOCIAL_MEDIA_IMAGE_GENERATORS.md](./SOCIAL_MEDIA_IMAGE_GENERATORS.md)** – Guide for using HTML generators to create OG and Twitter Card images
 - **[PERFORMANCE_OPTIMIZATION_ANALYSIS.md](./PERFORMANCE_OPTIMIZATION_ANALYSIS.md)** – Performance optimization recommendations and analysis
 - **[AUDIO_CDN_RECOMMENDATIONS.md](./AUDIO_CDN_RECOMMENDATIONS.md)** – Audio asset optimization and CDN recommendations
-- **[documentation-audit-progress.md](./documentation-audit-progress.md)** – Snapshot of outstanding documentation follow-ups
 - **`research/`** – Competitive analyses and supporting research artefacts
+
+**Note:** Clean URLs documentation is integrated into `BUILD_AND_DEPLOY.md` under the "Clean URLs" section.
 
 ## 🚀 Quick Links
 

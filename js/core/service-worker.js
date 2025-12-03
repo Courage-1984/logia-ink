@@ -10,6 +10,81 @@ let registration = null;
 /**
  * Register service worker
  */
+/**
+ * Automatically unregister service workers in development or when outdated
+ * This runs immediately when the module loads (before DOM is ready)
+ * to prevent service worker from interfering with page load
+ */
+export async function autoUnregisterServiceWorkers() {
+  if (typeof window === 'undefined' || !('serviceWorker' in navigator)) {
+    return;
+  }
+
+  try {
+    const registrations = await navigator.serviceWorker.getRegistrations();
+
+    if (registrations.length === 0) {
+      return;
+    }
+
+    // Check if we're in development mode or preview mode
+    const isDev = isDevelopmentEnv();
+    const isPreview = typeof window !== 'undefined' &&
+      (window.location.port === '4173' || window.location.port === '4176');
+
+    // Check service worker version by detecting outdated cache names
+    // If service worker is outdated, unregister it
+    let shouldUnregister = isDev || isPreview;
+
+    // If not in dev/preview, check if service worker version matches
+    if (!isDev && !isPreview) {
+      // Try to detect outdated service workers by checking cache names
+      const cacheNames = await caches.keys();
+      const hasOutdatedCache = cacheNames.some(name =>
+        name.includes('static-v3') || // Old cache version (before CSS MIME fix)
+        name.includes('runtime-v2')    // Old cache version (before CSS MIME fix)
+      );
+
+      if (hasOutdatedCache) {
+        shouldUnregister = true;
+        console.warn('[Service Worker] Detected outdated cache version, unregistering...');
+      }
+    }
+
+    if (shouldUnregister) {
+      console.log(`[Service Worker] Auto-unregistering ${registrations.length} service worker(s)...`);
+
+      // Unregister all service workers
+      for (const registration of registrations) {
+        await registration.unregister();
+      }
+
+      // Clear all caches
+      const cacheNames = await caches.keys();
+      for (const cacheName of cacheNames) {
+        await caches.delete(cacheName);
+      }
+
+      if (isDev || isPreview) {
+        const mode = isPreview ? 'preview mode' : 'development mode';
+        console.info(`[Service Worker] ✅ Unregistered in ${mode}`);
+      } else {
+        console.info('[Service Worker] ✅ Unregistered outdated service worker');
+        // Reload page to ensure clean state (only once per session)
+        if (!sessionStorage.getItem('sw-auto-unregistered')) {
+          sessionStorage.setItem('sw-auto-unregistered', 'true');
+          setTimeout(() => {
+            window.location.reload();
+          }, 100);
+        }
+      }
+    }
+  } catch (error) {
+    console.warn('[Service Worker] Error during auto-unregistration:', error);
+    // Don't throw - site should still work
+  }
+}
+
 export function registerServiceWorker() {
   // Allow builds (like GitHub Pages) to opt out of service worker caching
   if (isServiceWorkerDisabled()) {
@@ -51,10 +126,33 @@ export function registerServiceWorker() {
     return;
   }
 
-  // Skip service worker registration during development to avoid caching issues
-  if (isDevelopmentEnv()) {
+  // Automatically unregister service workers in development or preview mode
+  const isPreview = typeof window !== 'undefined' &&
+    (window.location.port === '4173' || window.location.port === '4176' ||
+     (window.location.hostname === 'localhost' && (window.location.port === '4173' || window.location.port === '4176')));
+
+  if (isDevelopmentEnv() || isPreview) {
+    // Auto-unregister any existing service workers in development/preview
+    autoUnregisterServiceWorkers();
+
+    // Also try to unregister directly (more aggressive for Firefox)
+    if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(registrations => {
+        registrations.forEach(registration => {
+          registration.unregister().then(() => {
+            console.log('[Service Worker] Force unregistered existing worker');
+          }).catch(err => {
+            console.warn('[Service Worker] Error unregistering:', err);
+          });
+        });
+      }).catch(err => {
+        console.warn('[Service Worker] Error getting registrations:', err);
+      });
+    }
+
     if (typeof window !== 'undefined') {
-      console.info('[Service Worker] Skipping registration in development mode');
+      const mode = isPreview ? 'preview mode' : 'development mode';
+      console.info(`[Service Worker] Skipping registration in ${mode} (auto-unregistered existing workers)`);
     }
     return;
   }

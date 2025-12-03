@@ -210,17 +210,21 @@ The galaxy easter egg is organized in a dedicated folder for better maintainabil
 
 ### Adding a New Page
 
-1. Create the HTML file at the repository root.
-2. Add page-specific CSS in `css/pages/` if needed (use subdirectory with `index.css` for complex pages like contact/projects).
-3. Add page-specific JS in `js/pages/` if required.
-4. Import the CSS in `css/main.css` using `@import './pages/page-name.css'` syntax.
-5. Conditionally initialise the JS in `js/main.js`.
-6. Include the page-transition preload snippet in `<head>` (see `.cursor/rules/cursorrules.mdc`).
-7. Link CSS in HTML: `<link rel="stylesheet" href="css/main.css" />` (CSS is also imported in `js/main.js` for Vite compatibility).
-8. Use HTML includes for navigation and footer:
-   - Add `<!-- include partials/navbar.html -->` where navigation should appear
-   - Add `<!-- include partials/footer.html -->` where footer should appear
-   - Active navigation states are handled automatically by `js/core/navigation.js`
+1. Create the HTML file at the repository root (e.g., `new-page.html`).
+2. **Use clean URLs:** All internal links should use clean URLs (e.g., `/new-page`, not `/new-page.html`).
+3. **Update SEO metadata:** Use clean URLs in canonical, Open Graph, and Twitter Card URLs.
+4. Add page-specific CSS in `css/pages/` if needed (use subdirectory with `index.css` for complex pages like contact/projects).
+5. Add page-specific JS in `js/pages/` if required (check for clean URL pathname, e.g., `pathname.includes('/new-page')`).
+6. Import the CSS in `css/main.css` using `@import './pages/page-name.css'` syntax.
+7. Conditionally initialise the JS in `js/main.js`.
+8. Include the page-transition preload snippet in `<head>` (see `.cursor/rules/cursorrules.mdc`).
+9. Link CSS in HTML: `<link rel="stylesheet" href="css/main.css" />` (CSS is also imported in `js/main.js` for Vite compatibility).
+10. Use HTML includes for navigation and footer:
+    - Add `<!-- include partials/navbar.html -->` where navigation should appear
+    - Add `<!-- include partials/footer.html -->` where footer should appear
+    - Active navigation states are handled automatically by `js/core/navigation.js`
+11. Update `scripts/generate-sitemap.js` to include the new page with clean URL.
+12. Regenerate sitemap: `npm run generate-sitemap`.
 
 ---
 

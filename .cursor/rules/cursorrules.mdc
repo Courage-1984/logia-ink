@@ -57,14 +57,17 @@ logi-ink/
 │   └── rules/
 │       └── cursorrules.mdc # This file - Project rules and structure guide
 ├── docs/                 # Documentation files
-│   ├── BUILD_AND_DEPLOY.md
+│   ├── BUILD_AND_DEPLOY.md # Build, deploy, and clean URLs guide
 │   ├── QUICK_START.md
 │   ├── STYLE_GUIDE.md
 │   ├── project_commands.md # Quick command reference
 │   ├── IMAGE_GENERATION_PROMPTS.md
 │   ├── VIDEO_BACKGROUND_GUIDE.md
 │   ├── README.md          # Documentation index
-│   ├── TODO.md            # Pending analytics/documentation follow-ups
+│   ├── TODO.MD            # Pending analytics/documentation follow-ups
+│   ├── PERFORMANCE_OPTIMIZATION_ANALYSIS.md
+│   ├── AUDIO_CDN_RECOMMENDATIONS.md
+│   ├── SOCIAL_MEDIA_IMAGE_GENERATORS.md
 │   └── research/          # Research and analysis files (optional)
 ├── tests/                # Test files
 │   ├── e2e/
@@ -122,12 +125,16 @@ logi-ink/
 ├── contact.html          # Contact page (entry point)
 ├── README.md             # Project documentation
 ├── package.json          # Node.js dependencies and scripts
-├── vite.config.js        # Vite build configuration
+├── vite.config.js        # Vite build configuration (includes clean URLs middleware)
 ├── vite-plugin-html-include.js # Custom Vite plugin for HTML includes
 ├── .gitignore            # Git ignore rules
-├── logo.png              # Main logo file
+├── logo.svg              # Main logo file (SVG, scalable)
+├── logo-1024x1024.png   # Logo (1024x1024, high-res)
+├── logo-150x150.png     # Logo (150x150, standard)
 ├── favicon.ico           # Favicon (ICO fallback for legacy browsers)
 ├── favicon.svg           # SVG favicon (modern browsers, scalable)
+├── favicon.png           # Generic favicon PNG (extra)
+├── favicon-96x96.png     # 96x96 favicon (extra)
 ├── favicon-64x64.png     # 64x64 favicon (high-DPI displays)
 ├── favicon-48x48.png     # 48x48 favicon
 ├── favicon-32x32.png     # 32x32 favicon
@@ -435,10 +442,14 @@ export function initModuleName() {
 ### HTML Files
 
 - Each page is a separate HTML file in the root
+- **Clean URLs:** All internal links use clean URLs without `.html` extensions (e.g., `/about` instead of `/about.html`)
+  - Files on disk: `about.html`, `services.html` (required for static hosting)
+  - Links in HTML: `/about`, `/services` (clean URLs)
+  - URL rewriting handled by Vite middleware (dev/preview), `.htaccess` (Apache), or native support (GitHub Pages, Netlify, Vercel)
 - All pages should include:
   - **Security Headers** - Meta tags for X-Frame-Options, CSP, etc.
-  - **SEO Meta Tags** - Open Graph, Twitter Cards, descriptions
-  - **Structured Data** - JSON-LD schemas (Organization, WebSite, etc.)
+  - **SEO Meta Tags** - Open Graph, Twitter Cards, descriptions (use clean URLs in `og:url`, `twitter:url`, canonical)
+  - **Structured Data** - JSON-LD schemas (Organization, WebSite, etc.) with clean URLs
   - **Resource Hints** - Modulepreload for critical ES modules (`main.js`, `core/navigation.js`), preconnect for third-party resources (Plausible analytics)
   - **Font Preload** - Preload critical fonts (Orbitron Regular, Rajdhani Regular) with `crossorigin="anonymous"`
   - **Favicons** - Complete favicon block with SVG, PNG sizes, ICO fallback, Apple Touch Icon, Windows Tiles, Safari Pinned Tab, and Web App Manifest (see template below)
@@ -844,13 +855,16 @@ If new code introduces a new pattern, update the documentation and architecture 
 
 ### Adding New Pages
 
-1. Create HTML file in root
-2. Create page-specific CSS in `css/pages/page-name.css` if needed
-3. Create page-specific JS in `js/pages/page-name.js` if needed
-4. Import CSS in `css/main.css`
-5. Conditionally initialize JS in `js/main.js`
-6. Include the **page-transition preload script** in the `<head>` (see snippet above)
-7. **Update this file** (`.cursor/rules/cursorrules.mdc`) with the new page
+1. Create HTML file in root (e.g., `new-page.html`)
+2. **Use clean URLs in all links:** Link to `/new-page` (not `/new-page.html`)
+3. **Update SEO metadata:** Use clean URLs in canonical, Open Graph, and Twitter Card URLs
+4. Create page-specific CSS in `css/pages/page-name.css` if needed
+5. Create page-specific JS in `js/pages/page-name.js` if needed
+6. Import CSS in `css/main.css`
+7. Conditionally initialize JS in `js/main.js` (check for clean URL pathname)
+8. Include the **page-transition preload script** in the `<head>` (see snippet above)
+9. Update `scripts/generate-sitemap.js` to include the new page with clean URL
+10. **Update this file** (`.cursor/rules/cursorrules.mdc`) with the new page
 
 ### Modifying Existing Files
 
@@ -1007,7 +1021,8 @@ If new code introduces a new pattern, update the documentation and architecture 
 - **Vite** is configured for development and production builds
 - CSS and JS are automatically bundled and minified during production build
 - **Vite plugins** for asset copying:
-  - `copy-favicons` - Copies favicon files to dist root
+  - `copy-favicons` - Copies all favicon files (SVG, PNG sizes, ICO, Apple Touch, Android Chrome, Safari pinned tab, Windows tiles, browserconfig.xml, site.webmanifest) to dist root
+  - `copy-logos` - Copies logo files (logo.svg, logo-1024x1024.png, logo-150x150.png) to dist root
   - `copy-videos` - Copies optimized video files to `dist/assets/video/optimized/`
   - `copy-audio` - Copies audio files to `dist/assets/audio/`
   - `copy-static-reports` - Copies reports directory to `dist/reports/`
@@ -1065,12 +1080,13 @@ If new code introduces a new pattern, update the documentation and architecture 
 ### SEO Optimization
 
 - ✅ **Meta Tags** - Open Graph, Twitter Cards, descriptions on all pages
-- ✅ **Structured Data** - JSON-LD schemas (Organization, WebSite, Service, BreadcrumbList, FAQPage, ContactPage)
+- ✅ **Structured Data** - JSON-LD schemas (Organization with logo.svg, WebSite, Service, BreadcrumbList, FAQPage, ContactPage)
 - ✅ **Canonical URLs** - Added to all pages for SEO
 - ✅ **Sitemap** - Auto-generated `sitemap.xml` (run `npm run generate-sitemap`)
 - ✅ **Robots.txt** - Search engine crawling rules
 - ✅ **Plausible Analytics** - Privacy-first analytics script loaded after page load event (reduces Core Web Vitals impact), with preconnect for early connection
-- ✅ **Favicons** - Comprehensive favicon implementation with SVG, multiple PNG sizes (16x16, 32x32, 48x48, 64x64), ICO fallback, Apple Touch Icon, Windows Tiles (browserconfig.xml), Safari Pinned Tab, and Web App Manifest integration
+- ✅ **Favicons** - Comprehensive favicon implementation with SVG, multiple PNG sizes (16x16, 32x32, 48x48, 64x64, 96x96), ICO fallback, Apple Touch Icon, Windows Tiles (browserconfig.xml), Safari Pinned Tab, and Web App Manifest integration. All favicon files are automatically copied to dist root during builds.
+- ✅ **Logos** - Logo files (logo.svg, logo-1024x1024.png, logo-150x150.png) are automatically copied to dist root during builds. Structured data references logo.svg.
 - ✅ **Documentation** - See `docs/SEO_AND_SECURITY_IMPLEMENTATION.md` for details
 
 ### Accessibility
@@ -1135,16 +1151,17 @@ If new code introduces a new pattern, update the documentation and architecture 
 ### Documentation Files
 
 - **`README.md`** - Project overview, quick start guide, and setup instructions
-- **`docs/BUILD_AND_DEPLOY.md`** - Build and deployment guide
+- **`docs/BUILD_AND_DEPLOY.md`** - Build, deployment, and clean URLs guide
 - **`docs/QUICK_START.md`** - Quick reference guide
 - **`docs/project_commands.md`** - Common commands and tasks reference
 - **`docs/STYLE_GUIDE.md`** - Design system, component markup, and accessibility notes
 - **`docs/README.md`** - Documentation index + navigation
-- **`docs/TODO.md`** - Outstanding analytics/documentation follow-ups
+- **`docs/TODO.MD`** - Outstanding analytics/documentation follow-ups
 - **`docs/IMAGE_GENERATION_PROMPTS.md`** - Creative direction prompts for imagery
 - **`docs/VIDEO_BACKGROUND_GUIDE.md`** - Workflow for sourcing and optimising hero videos
 - **`docs/PERFORMANCE_OPTIMIZATION_ANALYSIS.md`** - Performance optimization recommendations and analysis
 - **`docs/AUDIO_CDN_RECOMMENDATIONS.md`** - Audio asset optimization and CDN recommendations
+- **`docs/SOCIAL_MEDIA_IMAGE_GENERATORS.md`** - Guide for generating OG and Twitter Card images
 - **This file (`.cursor/rules/cursorrules.mdc`)** - Project structure and conventions (MUST READ FIRST)
 
 ### When Stuck
@@ -1197,11 +1214,11 @@ If new code introduces a new pattern, update the documentation and architecture 
 
 ---
 
-**Last Updated:** 2025-01-30 (CSS import syntax updated to modern `@import` without `url()`, CSS imported in js/main.js for Vite compatibility, fixed circular CSS variable references, updated component structure to reflect cards/forms/contact/projects subdirectories with index files, removed verbose HTML include plugin logging)
+**Last Updated:** 2025-01-30 (Clean URLs implementation: all internal links now use clean URLs without .html extensions, Vite middleware for dev/preview, .htaccess rewrite rules for Apache, updated sitemap and SEO metadata, JavaScript modules updated to handle clean URLs)
 **Migration Status:** ✅ Complete - All CSS/JS migrated, build system configured, HTML includes implemented
 **Component Count:** 20 CSS components, 9 core JS modules (including three-hero), 11 JS utils (accessibility.js, env.js, error-handler.js, interactions.js, performance.js, ripples-lazyload.js, three-loader.js, toast.js, dynamic-prefetch.js, web-worker-helper.js, lazy-background-images.js), 1 JS easter-egg folder (13 modules: easter-egg.js, runtime.js, celestial-textures.js, texture-wrapping.js, procedural-noise.js, celestial-mechanics.js, camera-controls.js, galaxy-generator.js, star-field.js, lighting-atmosphere.js, nebula-clouds.js, particle-effects.js, post-processing.js), 4 JS pages, 4 CSS pages, 9 utility CSS files, 1 CSS easter-egg folder, 2 HTML partials (navbar, footer)
 **Performance:** ✅ Service Worker (optimized cache strategy: stale-while-revalidate for hashed assets, cache-first for static), Self-Hosted Fonts (optimized font-display: swap for critical, optional for non-critical), Critical CSS, Image Optimization (fetchpriority, decoding attributes), Code Splitting, CSS Purging (disabled), CSS Minification (disabled), CSS Code Splitting (disabled), Compression (Gzip/Brotli), Web Vitals Tracking (LCP, CLS, INP via `web-vitals` → Plausible), Dynamic Three.js Loading (pre-loaded), Error Handling, Mobile Performance, Texture Loading Optimization, Optimized Particle Generation, Dynamic Resource Hints (prefetch on hover/focus), Modulepreload for critical ES modules, Analytics loaded after page load, Video lazy loading
-**Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact), Canonical URLs, Accessibility Features, Sitemap, Robots.txt, Comprehensive Favicon Implementation (SVG, PNG sizes, ICO, Apple Touch, Windows Tiles, Safari Pinned Tab)
+**Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact, Organization logo.svg), Canonical URLs, Accessibility Features, Sitemap, Robots.txt, Comprehensive Favicon Implementation (SVG, PNG sizes including extras, ICO, Apple Touch, Windows Tiles, Safari Pinned Tab), Logo Files (logo.svg, logo-1024x1024.png, logo-150x150.png)
 **Configuration Files:** ✅ ESLint v9 (flat config), Prettier, EditorConfig, Git Attributes, VS Code Settings, browserconfig.xml
-**Recent Updates:** ✅ **CSS import syntax modernization** (changed from `@import url()` to `@import` for Vite compatibility), **CSS import in JS** (added `import '../css/main.css'` to js/main.js to ensure Vite processes nested imports), **CSS variables fix** (removed circular references, all accent colors now have actual hex values), **Component modularization** (cards, forms, contact, and projects pages now use subdirectories with index.css files for better organization), **HTML include plugin** (removed verbose logging for cleaner dev output), HTML include system (Vite plugin for processing `<!-- include partials/... -->` comments at build time), modularized navbar and footer partials, comprehensive favicon implementation, sessionStorage-backed page transitions, error handling, performance tracking, Three.js optimization, CSP, SRI, accessibility enhancements, mobile performance, texture modularization, galaxy loading optimizations, orbital inclinations, improved seamless texture wrapping, easter egg organization, celestial texture improvements, celestial mechanics improvements, runtime improvements, post-processing improvements, lighting improvements, particle effects improvements, camera controls improvements, audio assets support, performance optimizations
+**Recent Updates:** ✅ **Clean URLs** (all internal links use clean URLs without .html extensions, Vite middleware for dev/preview, .htaccess for Apache, GitHub Pages native support, updated sitemap and SEO metadata), **CSS import syntax modernization** (changed from `@import url()` to `@import` for Vite compatibility), **CSS import in JS** (added `import '../css/main.css'` to js/main.js to ensure Vite processes nested imports), **CSS variables fix** (removed circular references, all accent colors now have actual hex values), **Component modularization** (cards, forms, contact, and projects pages now use subdirectories with index.css files for better organization), **HTML include plugin** (removed verbose logging for cleaner dev output), HTML include system (Vite plugin for processing `<!-- include partials/... -->` comments at build time), modularized navbar and footer partials, comprehensive favicon implementation, sessionStorage-backed page transitions, error handling, performance tracking, Three.js optimization, CSP, SRI, accessibility enhancements, mobile performance, texture modularization, galaxy loading optimizations, orbital inclinations, improved seamless texture wrapping, easter egg organization, celestial texture improvements, celestial mechanics improvements, runtime improvements, post-processing improvements, lighting improvements, particle effects improvements, camera controls improvements, audio assets support, performance optimizations
 **Remember:** Always update this file when making structural changes to the project!

@@ -49,17 +49,15 @@
   color: rgba(0, 255, 255, 0.4);
 }
 
-@supports selector(::-webkit-input-placeholder) {
-  ::-webkit-input-placeholder {
-    color: rgba(0, 255, 255, 0.4);
-  }
+/* Placeholder styling - Firefox doesn't support testing pseudo-elements in @supports selector() */
+/* Using direct selectors with fallbacks */
+::-webkit-input-placeholder {
+  color: rgba(0, 255, 255, 0.4);
 }
 
-@supports selector(::-moz-placeholder) {
-  ::-moz-placeholder {
-    color: rgba(0, 255, 255, 0.4);
-    opacity: 1;
-  }
+::-moz-placeholder {
+  color: rgba(0, 255, 255, 0.4);
+  opacity: 1;
 }
 
 /* Textarea Resize Handle Styling */

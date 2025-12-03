@@ -32,7 +32,7 @@
   background-size: 100% 16vh;
   background-position: 0 0;
   animation: particlesContactRain 18s linear infinite;
-  will-change: background-position;
+  /* will-change removed - animation handles optimization */
 }
 
 .particles-contact::after {
