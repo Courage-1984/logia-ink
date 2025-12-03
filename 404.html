@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00ffff" />
+    <title>404 - Page Not Found | Logi-Ink</title>
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io; frame-src https://www.google.com;"
+    />
+
+    <!-- Preconnect for third-party resources -->
+    <link rel="preconnect" href="https://plausible.io" crossorigin />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="msapplication-TileColor" content="#00ffff" />
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00ffff" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="stylesheet" href="css/main.css" />
+
+    <style>
+      /* Minimal inline styles for 404 page while routing is handled */
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg-primary, #0a0a0a);
+        color: var(--text-primary, #ffffff);
+        font-family: 'Rajdhani', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+      }
+      .error-container {
+        padding: 2rem;
+      }
+      .error-code {
+        font-size: 6rem;
+        font-weight: bold;
+        color: var(--accent-cyan, #00ffff);
+        margin-bottom: 1rem;
+        font-family: 'Orbitron', sans-serif;
+      }
+      .error-message {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      .error-link {
+        color: var(--accent-cyan, #00ffff);
+        text-decoration: none;
+        border-bottom: 2px solid var(--accent-cyan, #00ffff);
+        transition: opacity 0.3s;
+      }
+      .error-link:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="error-container">
+      <div class="error-code">404</div>
+      <div class="error-message">Page Not Found</div>
+      <p>Redirecting to the correct page...</p>
+    </div>
+
+    <script>
+      // GitHub Pages 404.html routing handler for clean URLs
+      // This script handles routing when GitHub Pages serves a 404 for clean URLs like /projects
+
+      (function() {
+        // Known routes mapping clean URLs to HTML files (relative to root)
+        const routePaths = [
+          '/',
+          '/about',
+          '/services',
+          '/projects',
+          '/contact',
+          '/pricing',
+          '/seo-services',
+          '/reports',
+        ];
+
+        // Get the current pathname, removing any query strings or hashes
+        const pathname = window.location.pathname;
+
+        // Normalize pathname: remove trailing slashes (except root)
+        const normalizedPath = pathname === '/' ? '/' : pathname.replace(/\/$/, '');
+
+        // Extract the route from the pathname (handles both root and subdirectory deployments)
+        // For root: /projects -> /projects
+        // For subdirectory: /logia-ink/projects -> /projects
+        let route = normalizedPath;
+        const basePath = document.querySelector('base')?.getAttribute('href') || '';
+
+        // If there's a base path, remove it from the route
+        if (basePath && basePath !== '/' && normalizedPath.startsWith(basePath)) {
+          route = normalizedPath.slice(basePath.length - 1); // -1 to keep the leading /
+        }
+
+        // Check if this route matches a known route
+        const isKnownRoute = routePaths.includes(route);
+
+        if (isKnownRoute) {
+          // Determine the HTML file to load
+          // For root route, use index.html, otherwise use route name + .html
+          const htmlFile = route === '/' ? 'index.html' : route.slice(1) + '.html';
+
+          // Load the HTML file and replace the document
+          fetch(htmlFile)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`Failed to load ${htmlFile}`);
+              }
+              return response.text();
+            })
+            .then(html => {
+              // Replace the entire document with the loaded HTML
+              document.open();
+              document.write(html);
+              document.close();
+            })
+            .catch(error => {
+              // If loading fails, show 404 message
+              console.error('Error loading page:', error);
+              show404Message();
+            });
+        } else {
+          // Unknown route - show 404 message
+          show404Message();
+        }
+
+        function show404Message() {
+          const container = document.querySelector('.error-container');
+          if (container) {
+            container.innerHTML = `
+              <div class="error-code">404</div>
+              <div class="error-message">Page Not Found</div>
+              <p>The page you're looking for doesn't exist.</p>
+              <p><a href="${basePath || '/'}" class="error-link">Return to Homepage</a></p>
+            `;
+          }
+        }
+      })();
+    </script>
+
+    <!-- Load analytics after page load to reduce impact on Core Web Vitals -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = 'https://plausible.io/js/script.js';
+        script.setAttribute('data-domain', 'logi-ink.com');
+        document.head.appendChild(script);
+      });
+    </script>
+  </body>
+</html>

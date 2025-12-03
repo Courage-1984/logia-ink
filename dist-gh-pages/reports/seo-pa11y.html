@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Audit Report - All Pages</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #e0e0e0;
+      background: #0a0a0a;
+      padding: 2rem;
+    }
+    .header {
+      background: #1a1a2e;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+    .header h1 {
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .summary-item {
+      background: rgba(0, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+    .summary-item strong {
+      display: block;
+      color: #00ffff;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .page-report {
+      background: #1a1a2e;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+    .page-report.pass { border-color: rgba(0, 255, 0, 0.3); }
+    .page-report.fail { border-color: rgba(255, 0, 0, 0.3); }
+    .page-report.warning { border-color: rgba(255, 255, 0, 0.3); }
+    .page-report h2 {
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+    .page-report p {
+      margin: 0.5rem 0;
+      color: #b0b0b0;
+    }
+    .page-report a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+    .page-report a:hover {
+      text-decoration: underline;
+    }
+    .issue-summary {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .issue-count {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .issue-count.error {
+      background: rgba(255, 0, 0, 0.2);
+      color: #ff6666;
+      border: 1px solid rgba(255, 0, 0, 0.3);
+    }
+    .issue-count.warning {
+      background: rgba(255, 255, 0, 0.2);
+      color: #ffff66;
+      border: 1px solid rgba(255, 255, 0, 0.3);
+    }
+    .issue-count.notice {
+      background: rgba(0, 255, 255, 0.2);
+      color: #66ffff;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+    }
+    .issues-details {
+      margin-top: 1rem;
+    }
+    .issues-details summary {
+      cursor: pointer;
+      color: #00ffff;
+      padding: 0.5rem;
+      background: rgba(0, 255, 255, 0.1);
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .issues-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    .issues-table th,
+    .issues-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    }
+    .issues-table th {
+      background: rgba(0, 255, 255, 0.1);
+      color: #00ffff;
+      font-weight: bold;
+    }
+    .issues-table code {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    .badge {
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.85em;
+      font-weight: bold;
+    }
+    .badge-error {
+      background: rgba(255, 0, 0, 0.2);
+      color: #ff6666;
+    }
+    .badge-warning {
+      background: rgba(255, 255, 0, 0.2);
+      color: #ffff66;
+    }
+    .badge-notice {
+      background: rgba(0, 255, 255, 0.2);
+      color: #66ffff;
+    }
+    .no-issues {
+      color: #00ff00;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .error {
+      color: #ff6666;
+    }
+    .timestamp {
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Accessibility Audit Report - All Pages</h1>
+    <p class="timestamp">Generated: 11/17/2025, 2:50:35 AM</p>
+    <div class="summary">
+      <div class="summary-item">
+        <strong>8</strong>
+        <span>Pages Audited</span>
+      </div>
+      <div class="summary-item">
+        <strong>8</strong>
+        <span>Pages Passed</span>
+      </div>
+      <div class="summary-item">
+        <strong>0</strong>
+        <span>Pages Failed</span>
+      </div>
+      <div class="summary-item">
+        <strong>0</strong>
+        <span>Total Errors</span>
+      </div>
+      <div class="summary-item">
+        <strong>0</strong>
+        <span>Total Warnings</span>
+      </div>
+    </div>
+  </div>
+
+  
+      <section class="page-report pass">
+        <h2>Home ✅ Passed</h2>
+        <p><strong>URL:</strong> <a href="http://127.0.0.1:4173//" target="_blank">http://127.0.0.1:4173//</a></p>
+        <p><strong>Document Title:</strong> Logi-Ink - Digital Innovation & Creative Solutions</p>
+
+        <div class="issue-summary">
+          <span class="issue-count error">0 errors</span>
+          <span class="issue-count warning">0 warnings</span>
+          <span class="issue-count notice">0 notices</span>
+        </div>
+
+        <p class="no-issues">✅ No accessibility issues found!</p>
+      </section>
+    
+      <section class="page-report pass">
+        <h2>About ✅ Passed</h2>
+        <p><strong>URL:</strong> <a href="http://127.0.0.1:4173//about.html" target="_blank">http://127.0.0.1:4173//about.html</a></p>
+        <p><strong>Document Title:</strong> About Us - Logi-Ink</p>
+
+        <div class="issue-summary">
+          <span class="issue-count error">0 errors</span>
+          <span class="issue-count warning">0 warnings</span>
+          <span class="issue-count notice">0 notices</span>
+        </div>
+
+        <p class="no-issues">✅ No accessibility issues found!</p>
+      </section>
+    
+      <section class="page-report pass">
+        <h2>Contact ✅ Passed</h2>
+        <p><strong>URL:</strong> <a href="http://127.0.0.1:4173//contact.html" target="_blank">http://127.0.0.1:4173//contact.html</a></p>
+        <p><strong>Document Title:</strong> Contact Us - Logi-Ink</p>
+
+        <div class="issue-summary">
+          <span class="issue-count error">0 errors</span>
+          <span class="issue-count warning">0 warnings</span>
+          <span class="issue-count notice">0 notices</span>
+        </div>
+
+        <p class="no-issues">✅ No accessibility issues found!</p>
+      </section>
+    
+      <section class="page-report pass">
+        <h2>Pricing ✅ Passed</h2>
+        <p><strong>URL:</strong> <a href="http://127.0.0.1:4173//pricing.html" target="_blank">http://127.0.0.1:4173//pricing.html</a></p>
+        <p><strong>Document Title:</strong> Website Design Packages & Pricing | Logi-Ink</p>
+
+        <div class="issue-summary">
+          <span class="issue-count error">0 errors</span>
+          <span class="issue-count warning">0 warnings</span>
+          <span class="issue-count notice">0 notices</span>
+        </div>
+
+        <p class="no-issues">✅ No accessibility issues found!</p>
+      </section>
+    
+      <section class="page-report pass">
+        <h2>Services ✅ Passed</h2>
+        <p><strong>URL:</strong> <a href="http://127.0.0.1:4173//services.html" target="_blank">http://127.0.0.1:4173//services.html</a></p>
+        <p><strong>Document Title:</strong> Services - Logi-Ink</p>
+
+        <div class="issue-summary">
+          <span class="issue-count error">0 errors</span>
+          <span class="issue-count warning">0 warnings</span>
+          <span class="issue-count notice">0 notices</span>
+        </div>
+
+        <p class="no-issues">✅ No accessibility issues found!</p>
+      </section>
+    
+      <section class="page-report pass">
+        <h2>SEO Services ✅ Passed</h2>
+        <p><strong>URL:</strong> <a href="http://127.0.0.1:4173//seo-services.html" target="_blank">http://127.0.0.1:4173//seo-services.html</a></p>
+        <p><strong>Document Title:</strong> Professional SEO Services South Africa | Logi-Ink</p>
+
+        <div class="issue-summary">
+          <span class="issue-count error">0 errors</span>
+          <span class="issue-count warning">0 warnings</span>
+          <span class="issue-count notice">0 notices</span>
+        </div>
+
+        <p class="no-issues">✅ No accessibility issues found!</p>
+      </section>
+    
+      <section class="page-report pass">
+        <h2>Projects ✅ Passed</h2>
+        <p><strong>URL:</strong> <a href="http://127.0.0.1:4173//projects.html" target="_blank">http://127.0.0.1:4173//projects.html</a></p>
+        <p><strong>Document Title:</strong> Projects - Logi-Ink</p>
+
+        <div class="issue-summary">
+          <span class="issue-count error">0 errors</span>
+          <span class="issue-count warning">0 warnings</span>
+          <span class="issue-count notice">0 notices</span>
+        </div>
+
+        <p class="no-issues">✅ No accessibility issues found!</p>
+      </section>
+    
+      <section class="page-report pass">
+        <h2>Reports ✅ Passed</h2>
+        <p><strong>URL:</strong> <a href="http://127.0.0.1:4173//reports.html" target="_blank">http://127.0.0.1:4173//reports.html</a></p>
+        <p><strong>Document Title:</strong> Operational Reports Dashboard - Logi-Ink</p>
+
+        <div class="issue-summary">
+          <span class="issue-count error">0 errors</span>
+          <span class="issue-count warning">0 warnings</span>
+          <span class="issue-count notice">0 notices</span>
+        </div>
+
+        <p class="no-issues">✅ No accessibility issues found!</p>
+      </section>
+    
+</body>
+</html>

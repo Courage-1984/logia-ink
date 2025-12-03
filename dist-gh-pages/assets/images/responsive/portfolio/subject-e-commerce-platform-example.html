@@ -1,0 +1,25 @@
+<!-- Responsive image example for subject-e-commerce-platform.png -->
+<picture>
+  <!-- AVIF format (best compression, modern browsers) -->
+  <source
+    type="image/avif"
+    srcset="subject-e-commerce-platform-480w.avif 480w,
+    subject-e-commerce-platform-768w.avif 768w,
+    subject-e-commerce-platform-1024w.avif 1024w"
+    sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1280px) 1280px, 1920px"
+  >
+  <!-- WebP format (fallback for older browsers) -->
+  <source
+    type="image/webp"
+    srcset="subject-e-commerce-platform-480w.webp 480w,
+    subject-e-commerce-platform-768w.webp 768w,
+    subject-e-commerce-platform-1024w.webp 1024w"
+    sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1280px) 1280px, 1920px"
+  >
+  <!-- Original format (final fallback) -->
+  <img
+    src="subject-e-commerce-platform.png"
+    alt="Description"
+    loading="lazy"
+  >
+</picture>
