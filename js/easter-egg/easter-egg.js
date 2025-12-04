@@ -74,31 +74,12 @@ function setupLogoTrigger() {
   }
 
 function setupFooterTrigger() {
-  const footerBottom = document.querySelector('.footer-bottom');
-  if (!footerBottom) {
+  const triggerText = document.querySelector('.footer-easter-egg-trigger');
+  if (!triggerText || triggerText.dataset.easterEggBound === 'true') {
     return;
   }
 
-    const footerText = footerBottom.querySelector('p');
-  if (!footerText || footerText.querySelector('.footer-easter-egg-trigger')) {
-    return;
-  }
-
-      const triggerText = document.createElement('span');
-      triggerText.className = 'footer-easter-egg-trigger';
-      triggerText.textContent = 'Made among the stars';
-      triggerText.setAttribute('aria-label', 'Easter Egg');
-      triggerText.title = 'Click to explore';
-
-      const separator = document.createTextNode(' • ');
-
-      if (footerText.firstChild) {
-        footerText.insertBefore(separator, footerText.firstChild);
-        footerText.insertBefore(triggerText, separator);
-      } else {
-        footerText.appendChild(triggerText);
-        footerText.appendChild(separator);
-      }
+  triggerText.dataset.easterEggBound = 'true';
 
   triggerText.addEventListener('click', event => {
     event.preventDefault();

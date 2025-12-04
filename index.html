@@ -715,6 +715,14 @@
         margin-top: var(--space-8);
         z-index: 10;
         contain: layout style;
+        /* Ensure perfect horizontal centering - no margins/padding that could offset */
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+        /* Center the mouse element within scroll-indicator */
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .mouse {
         width: 30px;
@@ -723,6 +731,12 @@
         border-radius: 15px;
         position: relative;
         box-shadow: 0 0 10px var(--glow-cyan);
+        /* Ensure perfect centering - no margins that could offset */
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
       }
       .wheel {
         width: 4px;
@@ -730,19 +744,30 @@
         background: var(--accent-cyan);
         border-radius: 2px;
         position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
+        /* Prevent layout shifts */
+        contain: layout style;
+        /* Perfect horizontal centering using left/right with auto margins */
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        top: 7px; /* Moved up slightly more */
+        /* Only use transform for vertical animation, not horizontal centering */
+        transform: translateY(0);
         animation: scroll 2s infinite;
         box-shadow: 0 0 5px var(--glow-cyan);
+        /* Ensure no other margins that could offset */
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
       }
       @keyframes scroll {
         0% {
-          top: 10px;
+          transform: translateY(0);
           opacity: 1;
         }
         100% {
-          top: 30px;
+          transform: translateY(17px); /* Reduced further to move animation up */
           opacity: 0;
         }
       }

@@ -152,7 +152,7 @@ if (document.readyState === 'loading') {
 // This ensures cursor is visible immediately on page load
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
-    // Only load if cursor dot element exists and device supports hover
+  // Only load if cursor dot element exists and device supports hover
     if (document.querySelector('.cursor-dot') && window.matchMedia('(hover: hover)').matches) {
       import('./core/cursor.js').then(({ initCursor }) => {
         initCursor();
@@ -163,7 +163,7 @@ if (document.readyState === 'loading') {
   // DOM already loaded, initialize immediately
   if (document.querySelector('.cursor-dot') && window.matchMedia('(hover: hover)').matches) {
     import('./core/cursor.js').then(({ initCursor }) => {
-      initCursor();
+    initCursor();
     });
   }
 }
