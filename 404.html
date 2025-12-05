@@ -23,8 +23,17 @@
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-JlHvqG5_ERiEOnliHJxYr.js"></script>
     <script>
-      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-      plausible.init()
+      ((window.plausible =
+        window.plausible ||
+        function () {
+          (plausible.q = plausible.q || []).push(arguments);
+        }),
+        (plausible.init =
+          plausible.init ||
+          function (i) {
+            plausible.o = i || {};
+          }));
+      plausible.init();
     </script>
 
     <!-- Google tag (gtag.js) - Deferred to load after page is interactive -->
@@ -33,7 +42,9 @@
       window.addEventListener('load', () => {
         // Initialize dataLayer
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() {
+          dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'G-9PFB2D8G1B');
 
@@ -111,7 +122,7 @@
       // GitHub Pages 404.html routing handler for clean URLs
       // This script handles routing when GitHub Pages serves a 404 for clean URLs like /projects
 
-      (function() {
+      (function () {
         // Known routes mapping clean URLs to HTML files (relative to root)
         const routePaths = [
           '/',
@@ -122,6 +133,8 @@
           '/pricing',
           '/seo-services',
           '/reports',
+          '/privacy-policy',
+          '/terms-of-service',
         ];
 
         // Get the current pathname, removing any query strings or hashes
@@ -132,7 +145,7 @@
 
         // Extract the route from the pathname (handles both root and subdirectory deployments)
         // For root: /projects -> /projects
-        // For subdirectory: /logia-ink/projects -> /projects
+        // For subdirectory: /logi-ink/projects -> /projects
         let route = normalizedPath;
         const basePath = document.querySelector('base')?.getAttribute('href') || '';
 
@@ -186,6 +199,5 @@
         }
       })();
     </script>
-
   </body>
 </html>

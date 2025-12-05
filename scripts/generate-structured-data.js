@@ -21,6 +21,9 @@ export const organizationSchema = {
     'Digital Innovation & Creative Solutions - A digital agency specializing in web development, design, and digital transformation.',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: '533 Andries Strydom St',
+    addressLocality: 'Pretoria',
+    postalCode: '0181',
     addressCountry: 'ZA',
   },
   sameAs: [

@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00ffff" />
+    <title>Terms of Service - Logi-Ink</title>
+
+    <!-- Security Headers -->
+    <!-- Note: X-Frame-Options only works via HTTP headers, not meta tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+    <!-- Content Security Policy (basic - enhance via server headers) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com; frame-src https://www.google.com;"
+    />
+
+    <script>
+      if (sessionStorage.getItem('logiInk:pendingTransition')) {
+        document.documentElement.classList.add('page-transition-preload');
+        sessionStorage.removeItem('logiInk:pendingTransition');
+      }
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Logi-Ink Terms of Service. Read our terms and conditions governing the use of our website and services."
+    />
+    <meta
+      name="keywords"
+      content="terms of service, terms and conditions, user agreement, Logi-Ink terms"
+    />
+    <meta name="author" content="Logi-Ink" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://logi-ink.co.za/terms-of-service" />
+    <meta property="og:title" content="Terms of Service - Logi-Ink" />
+    <meta
+      property="og:description"
+      content="Logi-Ink Terms of Service. Read our terms and conditions governing the use of our website and services."
+    />
+    <meta
+      property="og:image"
+      content="https://logi-ink.co.za/assets/images/banners/banner_home.webp"
+    />
+    <meta property="og:site_name" content="Logi-Ink" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://logi-ink.co.za/terms-of-service" />
+    <meta name="twitter:title" content="Terms of Service - Logi-Ink" />
+    <meta
+      name="twitter:description"
+      content="Logi-Ink Terms of Service. Read our terms and conditions governing the use of our website and services."
+    />
+    <meta
+      name="twitter:image"
+      content="https://logi-ink.co.za/assets/images/banners/banner_home.webp"
+    />
+    <meta name="twitter:site" content="@logiink" />
+    <meta name="twitter:creator" content="@logiink" />
+
+    <!-- Preload critical resources -->
+
+    <!-- Preload critical fonts (self-hosted WOFF2 - Subsetted) -->
+    <link
+      rel="preload"
+      href="./assets/fonts/Orbitron/woff2/Orbitron-Regular-subset.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Rajdhani/woff2/Rajdhani-Regular-subset.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+
+    <!-- Modulepreload for critical ES modules -->
+    <link rel="modulepreload" href="./js/main.js" />
+    <link rel="modulepreload" href="./js/core/navigation.js" />
+
+    <!-- Preconnect for third-party resources -->
+    <link rel="preconnect" href="https://plausible.io" crossorigin />
+
+    <!-- Stylesheet (includes self-hosted fonts via @font-face) -->
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- Content Link Styling -->
+    <style>
+      /* Style all links, tel: and mailto: links in content sections with cyan color */
+      .content-wrapper a,
+      .content-wrapper a[href^="tel:"],
+      .content-wrapper a[href^="mailto:"] {
+        color: var(--accent-cyan);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .content-wrapper a:hover,
+      .content-wrapper a[href^="tel:"]:hover,
+      .content-wrapper a[href^="mailto:"]:hover {
+        color: var(--accent-cyan);
+        border-bottom-color: var(--accent-cyan);
+        text-shadow: 0 0 10px var(--glow-cyan);
+      }
+
+      .content-wrapper a:focus-visible,
+      .content-wrapper a[href^="tel:"]:focus-visible,
+      .content-wrapper a[href^="mailto:"]:focus-visible {
+        outline: 2px solid var(--accent-cyan);
+        outline-offset: 2px;
+        box-shadow: 0 0 10px var(--glow-cyan);
+      }
+
+      /* Compact Hero Section for Legal Pages */
+      .hero-section {
+        min-height: auto;
+        height: auto;
+        padding: var(--space-16) 0 var(--space-6) 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-section .hero-background {
+        min-height: 100%;
+        height: 100%;
+      }
+
+      /* Disable rotating/pulsating animations on hero background */
+      .hero-section .hero-background::before {
+        animation: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+      }
+
+      .hero-section .hero-content {
+        text-align: center;
+        padding: var(--space-8) 0;
+      }
+
+      .hero-section .hero-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: var(--space-4);
+        letter-spacing: 2px;
+      }
+
+      .hero-section .hero-subtitle {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        margin-bottom: var(--space-4);
+      }
+
+      .hero-section .hero-description {
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        color: var(--text-muted);
+        margin-bottom: 0;
+      }
+
+      /* Content Section Styling */
+      .section {
+        padding: var(--space-8) 0 var(--space-16) 0;
+      }
+
+      .content-wrapper {
+        padding: 0 var(--space-6);
+      }
+
+      .content-wrapper h2 {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        margin-top: var(--space-12);
+        margin-bottom: var(--space-6);
+        color: var(--accent-cyan);
+        font-weight: var(--font-weight-bold);
+      }
+
+      .content-wrapper h2:first-child {
+        margin-top: 0;
+      }
+
+      .content-wrapper h3 {
+        font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+        margin-top: var(--space-8);
+        margin-bottom: var(--space-4);
+        color: var(--text-primary);
+        font-weight: var(--font-weight-semibold);
+      }
+
+      .content-wrapper p {
+        margin-bottom: var(--space-6);
+        line-height: 1.8;
+        color: var(--text-secondary);
+      }
+
+      .content-wrapper ul,
+      .content-wrapper ol {
+        margin-bottom: var(--space-6);
+        padding-left: var(--space-8);
+        line-height: 1.8;
+      }
+
+      .content-wrapper li {
+        margin-bottom: var(--space-3);
+        color: var(--text-secondary);
+      }
+
+      .content-wrapper strong {
+        color: var(--text-primary);
+        font-weight: var(--font-weight-bold);
+      }
+
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: var(--space-12) 0 var(--space-8) 0;
+        }
+
+        .section {
+          padding: var(--space-12) 0;
+        }
+
+        .content-wrapper {
+          padding: 0 var(--space-4);
+        }
+
+        .content-wrapper h2 {
+          margin-top: var(--space-10);
+        }
+      }
+    </style>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://logi-ink.co.za/terms-of-service" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Logi-Ink",
+        "alternateName": "Logi Ink",
+        "url": "https://logi-ink.co.za/",
+        "logo": "https://logi-ink.co.za/logo.svg",
+        "description": "Digital Innovation & Creative Solutions - A digital agency specializing in web development, design, and digital transformation.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "533 Andries Strydom St",
+          "addressLocality": "Pretoria",
+          "postalCode": "0181",
+          "addressCountry": "ZA"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "email": "info@logi-ink.co.za",
+          "availableLanguage": ["English"],
+          "areaServed": "Worldwide"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/logi-ink",
+          "https://twitter.com/logiink",
+          "https://www.instagram.com/logiink"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Terms of Service - Logi-Ink",
+        "url": "https://logi-ink.co.za/terms-of-service",
+        "description": "Logi-Ink Terms of Service. Read our terms and conditions governing the use of our website and services.",
+        "datePublished": "2025-01-30",
+        "dateModified": "2025-11-30",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Logi-Ink",
+          "url": "https://logi-ink.co.za/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Logi-Ink",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://logi-ink.co.za/logo.svg"
+          }
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://logi-ink.co.za/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Terms of Service",
+              "item": "https://logi-ink.co.za/terms-of-service"
+            }
+          ]
+        }
+      }
+    </script>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="msapplication-TileColor" content="#00ffff" />
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00ffff" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <!-- Accessibility: Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ARIA Live Region for announcements -->
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Mouse Follow Effects -->
+    <div class="cursor-follow"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- include partials/navbar.html -->
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title fade-in-up">Terms of Service</h1>
+            <p class="hero-subtitle fade-in-up" style="animation-delay: 0.1s">
+              Please read these terms carefully
+            </p>
+            <p class="hero-description fade-in-up" style="animation-delay: 0.2s">
+              Last Updated: November 30, 2025
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Terms of Service Content -->
+      <section class="section">
+        <div class="container">
+          <div class="content-wrapper" style="max-width: 900px; margin: 0 auto">
+            <div class="fade-in-up">
+              <h2>1. Agreement to Terms</h2>
+              <p>
+                These Terms of Service ("Terms") constitute a legally binding agreement between you
+                ("User," "you," or "your") and Logi-Ink ("Company," "we," "us," or "our")
+                concerning your access to and use of the website <a href="https://logi-ink.co.za">logi-ink.co.za</a> (the "Site") and our services.
+              </p>
+              <p>
+                By accessing or using our Site, you agree to be bound by these Terms. If you do not
+                agree to these Terms, you may not access or use our Site or services.
+              </p>
+
+              <h2>2. Use of the Site</h2>
+              <h3>2.1 Eligibility</h3>
+              <p>
+                You must be at least 18 years old to use our Site and services. By using our Site,
+                you represent and warrant that you are at least 18 years of age and have the legal
+                capacity to enter into these Terms.
+              </p>
+
+              <h3>2.2 Acceptable Use</h3>
+              <p>You agree to use our Site only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+              <ul>
+                <li>Violate any applicable local, national, or international law or regulation</li>
+                <li>Transmit any material that is defamatory, obscene, offensive, or harmful</li>
+                <li>Infringe upon the intellectual property rights of others</li>
+                <li>Attempt to gain unauthorized access to our Site, servers, or systems</li>
+                <li>Introduce viruses, malware, or other harmful code</li>
+                <li>Interfere with or disrupt the Site or servers</li>
+                <li>Use automated systems (bots, scrapers) to access the Site without permission</li>
+                <li>Impersonate any person or entity or misrepresent your affiliation</li>
+                <li>Collect or harvest information about other users</li>
+                <li>Use the Site for any commercial purpose without our express written consent</li>
+              </ul>
+
+              <h2>3. Services</h2>
+              <h3>3.1 Service Description</h3>
+              <p>
+                Logi-Ink provides digital design and development services, including but not limited
+                to website design, web development, SEO services, digital marketing, and related
+                consulting services (collectively, "Services").
+              </p>
+
+              <h3>3.2 Service Agreements</h3>
+              <p>
+                Specific terms for individual projects or services will be outlined in separate
+                service agreements, proposals, or contracts. In the event of a conflict between
+                these Terms and a specific service agreement, the service agreement shall prevail.
+              </p>
+
+              <h3>3.3 Service Modifications</h3>
+              <p>
+                We reserve the right to modify, suspend, or discontinue any aspect of our Services
+                at any time, with or without notice. We shall not be liable to you or any third
+                party for any modification, suspension, or discontinuance of the Services.
+              </p>
+
+              <h2>4. Intellectual Property Rights</h2>
+              <h3>4.1 Our Content</h3>
+              <p>
+                The Site and its original content, features, and functionality are owned by Logi-Ink
+                and are protected by international copyright, trademark, patent, trade secret, and
+                other intellectual property laws.
+              </p>
+
+              <h3>4.2 Your Content</h3>
+              <p>
+                You retain ownership of any content, materials, or information you provide to us
+                ("Your Content"). By providing Your Content, you grant us a non-exclusive,
+                worldwide, royalty-free license to use, reproduce, modify, and display Your Content
+                solely for the purpose of providing our Services to you.
+              </p>
+
+              <h3>4.3 Work Product</h3>
+              <p>
+                Upon full payment for our Services, ownership of the final work product (excluding
+                third-party materials and our proprietary tools) will transfer to you as specified
+                in the applicable service agreement. We retain the right to use completed projects
+                in our portfolio and marketing materials unless otherwise agreed in writing.
+              </p>
+
+              <h2>5. User Accounts</h2>
+              <h3>5.1 Account Creation</h3>
+              <p>
+                Some features of our Site may require you to create an account. You agree to:
+              </p>
+              <ul>
+                <li>Provide accurate, current, and complete information</li>
+                <li>Maintain and update your information to keep it accurate</li>
+                <li>Maintain the security of your account credentials</li>
+                <li>Accept responsibility for all activities under your account</li>
+                <li>Notify us immediately of any unauthorized access</li>
+              </ul>
+
+              <h3>5.2 Account Termination</h3>
+              <p>
+                We reserve the right to suspend or terminate your account at any time, with or
+                without cause or notice, for any reason, including violation of these Terms.
+              </p>
+
+              <h2>6. Payment Terms</h2>
+              <h3>6.1 Pricing</h3>
+              <p>
+                All prices for our Services are as displayed on our Site or as specified in service
+                agreements. Prices are subject to change without notice, but changes will not affect
+                existing service agreements.
+              </p>
+
+              <h3>6.2 Payment</h3>
+              <p>
+                Payment terms will be specified in individual service agreements. Generally:
+              </p>
+              <ul>
+                <li>Payment is due as specified in the service agreement</li>
+                <li>We accept payment via bank transfer, credit card, or other methods as agreed</li>
+                <li>All prices are in South African Rand (ZAR) unless otherwise specified</li>
+                <li>Late payments may incur interest charges as specified in the service agreement</li>
+              </ul>
+
+              <h3>6.3 Refunds</h3>
+              <p>
+                Refund policies will be specified in individual service agreements. Generally, we
+                do not offer refunds for completed work, but may consider refunds for cancelled
+                projects on a case-by-case basis.
+              </p>
+
+              <h2>7. Warranties and Disclaimers</h2>
+              <h3>7.1 Service Warranties</h3>
+              <p>
+                We warrant that our Services will be performed in a professional and workmanlike
+                manner consistent with industry standards. However, we do not guarantee specific
+                results or outcomes.
+              </p>
+
+              <h3>7.2 Disclaimer of Warranties</h3>
+              <p>
+                THE SITE AND SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF
+                ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES
+                OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+              </p>
+
+              <h3>7.3 Third-Party Services</h3>
+              <p>
+                Our Services may integrate with or rely on third-party services, tools, or
+                platforms. We are not responsible for the availability, functionality, or content
+                of third-party services.
+              </p>
+
+              <h2>8. Limitation of Liability</h2>
+              <p>
+                TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL LOGI-INK, ITS
+                AFFILIATES, AGENTS, DIRECTORS, EMPLOYEES, SUPPLIERS, OR LICENSORS BE LIABLE FOR ANY
+                INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES,
+                INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA, OR
+                OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATING TO THE USE OF, OR INABILITY TO
+                USE, THE SITE OR SERVICES.
+              </p>
+              <p>
+                OUR TOTAL LIABILITY FOR ANY CLAIMS ARISING OUT OF OR RELATING TO THE USE OF OR
+                INABILITY TO USE THE SITE OR SERVICES SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE
+                TWELVE (12) MONTHS PRIOR TO THE EVENT GIVING RISE TO THE LIABILITY.
+              </p>
+
+              <h2>9. Indemnification</h2>
+              <p>
+                You agree to indemnify, defend, and hold harmless Logi-Ink and its officers,
+                directors, employees, agents, and affiliates from and against any and all claims,
+                damages, obligations, losses, liabilities, costs, or debt, and expenses (including
+                but not limited to attorney's fees) arising from:
+              </p>
+              <ul>
+                <li>Your use of the Site or Services</li>
+                <li>Your violation of these Terms</li>
+                <li>Your violation of any third-party right, including intellectual property rights</li>
+                <li>Any content you submit, post, or transmit through the Site</li>
+              </ul>
+
+              <h2>10. Termination</h2>
+              <p>
+                We may terminate or suspend your access to the Site and Services immediately,
+                without prior notice or liability, for any reason, including if you breach these
+                Terms. Upon termination, your right to use the Site and Services will cease
+                immediately.
+              </p>
+              <p>
+                All provisions of these Terms that by their nature should survive termination
+                shall survive termination, including ownership provisions, warranty disclaimers,
+                indemnity, and limitations of liability.
+              </p>
+
+              <h2>11. Dispute Resolution</h2>
+              <h3>11.1 Governing Law</h3>
+              <p>
+                These Terms shall be governed by and construed in accordance with the laws of the
+                Republic of South Africa, without regard to its conflict of law provisions.
+              </p>
+
+              <h3>11.2 Dispute Resolution Process</h3>
+              <p>
+                In the event of any dispute arising out of or relating to these Terms or our
+                Services, the parties agree to first attempt to resolve the dispute through good
+                faith negotiations. If such negotiations are unsuccessful, disputes shall be
+                resolved through binding arbitration in accordance with the rules of the Arbitration
+                Foundation of South Africa, or through the courts of South Africa.
+              </p>
+
+              <h2>12. Changes to Terms</h2>
+              <p>
+                We reserve the right to modify or replace these Terms at any time. If a revision is
+                material, we will provide at least 30 days' notice prior to any new terms taking
+                effect. What constitutes a material change will be determined at our sole
+                discretion.
+              </p>
+              <p>
+                By continuing to access or use our Site after any revisions become effective, you
+                agree to be bound by the revised terms.
+              </p>
+
+              <h2>13. Severability</h2>
+              <p>
+                If any provision of these Terms is held to be invalid or unenforceable by a court,
+                the remaining provisions of these Terms will remain in effect. These Terms
+                constitute the entire agreement between us regarding our Site and Services.
+              </p>
+
+              <h2>14. Contact Information</h2>
+              <p>
+                If you have any questions about these Terms of Service, please contact us:
+              </p>
+              <div style="margin-top: 1.5rem">
+                <p><strong>Logi-Ink</strong></p>
+                <p>
+                  533 Andries Strydom Street<br />
+                  Constantia Park<br />
+                  Pretoria, South Africa
+                </p>
+                <p>
+                  Email: <a href="mailto:info@logi-ink.co.za">info@logi-ink.co.za</a><br />
+                  Phone: <a href="tel:+27795523726">+27 79 552 3726</a>
+                </p>
+              </div>
+
+              <h2>15. Acknowledgment</h2>
+              <p>
+                By using our Site and Services, you acknowledge that you have read, understood, and
+                agree to be bound by these Terms of Service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- include partials/footer.html -->
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top"></a>
+
+    <script type="module" src="js/main.js"></script>
+
+    <!-- Load analytics after page load to reduce impact on Core Web Vitals -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = 'https://plausible.io/js/script.js';
+        script.setAttribute('data-domain', 'logi-ink.co.za');
+        document.head.appendChild(script);
+      });
+    </script>
+  </body>
+</html>

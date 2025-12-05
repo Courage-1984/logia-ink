@@ -3,7 +3,7 @@
 **Date:** 2025-01-30  
 **Current Score:** 84  
 **Target Score:** 95+  
-**Report:** [PageSpeed Insights Analysis](https://pagespeed.web.dev/analysis/https-logia-co-za/v2l42tu8ix?utm_source=search_console&form_factor=mobile&hl=en)
+**Report:** [PageSpeed Insights Analysis](https://pagespeed.web.dev/analysis/https-logi-co-za/v2l42tu8ix?utm_source=search_console&form_factor=mobile&hl=en)
 
 ---
 
@@ -393,7 +393,7 @@ After implementing all fixes:
 
 ## 📚 References
 
-- [PageSpeed Insights Report](https://pagespeed.web.dev/analysis/https-logia-co-za/v2l42tu8ix?utm_source=search_console&form_factor=mobile&hl=en)
+- [PageSpeed Insights Report](https://pagespeed.web.dev/analysis/https-logi-co-za/v2l42tu8ix?utm_source=search_console&form_factor=mobile&hl=en)
 - [Web.dev: Optimize Images](https://web.dev/fast/#optimize-your-images)
 - [Web.dev: Minimize Layout Shift](https://web.dev/cls/)
 - [Web.dev: Reduce JavaScript Execution Time](https://web.dev/reduce-javascript-execution-time/)

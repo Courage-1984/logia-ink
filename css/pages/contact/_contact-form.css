@@ -9,6 +9,18 @@
   border: 1px solid rgba(0, 255, 255, 0.1);
   padding: var(--space-12);
   border-radius: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-form form {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.contact-form form * {
+  pointer-events: auto;
 }
 
 .form-title {
@@ -54,6 +66,7 @@
   background: transparent;
   padding: 0 0.25rem;
   z-index: 1;
+  user-select: none;
 }
 
 .form-group.floating-label input:focus + label,
@@ -72,6 +85,9 @@
 .form-group.floating-label textarea {
   padding-top: var(--space-6);
   padding-bottom: var(--space-4);
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
 }
 
 .form-group.floating-label .required {

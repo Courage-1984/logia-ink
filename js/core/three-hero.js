@@ -13,6 +13,8 @@ let heroScene = null;
 let heroRenderer = null;
 let heroCamera = null;
 let heroAnimationId = null;
+let scrollUpdateRafId = null;
+let isAnimationPaused = false;
 
 /**
  * Initialize Three.js Hero Background for index.html (particles)
@@ -59,13 +61,15 @@ async function initThreeJSHero(THREE) {
     camera.position.z = 5;
 
     function animate() {
-      heroAnimationId = requestAnimationFrame(animate);
-      particlesMesh.rotation.x += 0.001;
-      particlesMesh.rotation.y += 0.001;
-      renderer.render(scene, camera);
-      // Mark canvas as loaded after first render
-      if (!canvas.classList.contains('is-loaded')) {
-        canvas.classList.add('is-loaded');
+      if (!isAnimationPaused) {
+        heroAnimationId = requestAnimationFrame(animate);
+        particlesMesh.rotation.x += 0.001;
+        particlesMesh.rotation.y += 0.001;
+        renderer.render(scene, camera);
+        // Mark canvas as loaded after first render
+        if (!canvas.classList.contains('is-loaded')) {
+          canvas.classList.add('is-loaded');
+        }
       }
     }
 
@@ -132,16 +136,18 @@ async function initThreeJSServices(THREE) {
     camera.position.z = 10;
 
     function animate() {
-      heroAnimationId = requestAnimationFrame(animate);
-      shapes.forEach((shape, i) => {
-        shape.rotation.x += 0.005;
-        shape.rotation.y += 0.005;
-        shape.position.y += Math.sin(Date.now() * 0.001 + i) * 0.001;
-      });
-      renderer.render(scene, camera);
-      // Mark canvas as loaded after first render
-      if (!canvas.classList.contains('is-loaded')) {
-        canvas.classList.add('is-loaded');
+      if (!isAnimationPaused) {
+        heroAnimationId = requestAnimationFrame(animate);
+        shapes.forEach((shape, i) => {
+          shape.rotation.x += 0.005;
+          shape.rotation.y += 0.005;
+          shape.position.y += Math.sin(Date.now() * 0.001 + i) * 0.001;
+        });
+        renderer.render(scene, camera);
+        // Mark canvas as loaded after first render
+        if (!canvas.classList.contains('is-loaded')) {
+          canvas.classList.add('is-loaded');
+        }
       }
     }
 
@@ -218,9 +224,11 @@ async function initThreeJSProjects(THREE) {
 
     // Smooth scroll tracking with requestAnimationFrame
     function updateScroll() {
-      // Smooth interpolation
-      smoothScrollY += (targetScrollY - smoothScrollY) * 0.1;
-      requestAnimationFrame(updateScroll);
+      if (!isAnimationPaused) {
+        // Smooth interpolation
+        smoothScrollY += (targetScrollY - smoothScrollY) * 0.1;
+        scrollUpdateRafId = requestAnimationFrame(updateScroll);
+      }
     }
 
     // Scroll event handler - throttled for performance
@@ -242,31 +250,33 @@ async function initThreeJSProjects(THREE) {
     updateScroll();
 
     function animate() {
-      heroAnimationId = requestAnimationFrame(animate);
-      time += 0.01; // Slow, smooth time progression
+      if (!isAnimationPaused) {
+        heroAnimationId = requestAnimationFrame(animate);
+        time += 0.01; // Slow, smooth time progression
 
-      // Apply smooth parallax to camera position
-      const parallaxOffset = smoothScrollY * 0.0005; // Subtle parallax effect
-      camera.position.y = initialCameraY + parallaxOffset;
+        // Apply smooth parallax to camera position
+        const parallaxOffset = smoothScrollY * 0.0005; // Subtle parallax effect
+        camera.position.y = initialCameraY + parallaxOffset;
 
-      // Subtle rotation based on scroll for depth effect
-      const rotationOffset = smoothScrollY * 0.0001;
-      camera.rotation.z = rotationOffset;
+        // Subtle rotation based on scroll for depth effect
+        const rotationOffset = smoothScrollY * 0.0001;
+        camera.rotation.z = rotationOffset;
 
-      toruses.forEach((torus, i) => {
-        // Much slower rotation
-        torus.rotation.x += 0.002;
-        torus.rotation.y += 0.002;
+        toruses.forEach((torus, i) => {
+          // Much slower rotation
+          torus.rotation.x += 0.002;
+          torus.rotation.y += 0.002;
 
-        // Smooth, time-based z-position animation (no random in loop)
-        const phase = i * 0.5; // Stagger animation per torus
-        torus.position.z = initialZPositions[i] + Math.sin(time + phase) * 0.3;
-      });
+          // Smooth, time-based z-position animation (no random in loop)
+          const phase = i * 0.5; // Stagger animation per torus
+          torus.position.z = initialZPositions[i] + Math.sin(time + phase) * 0.3;
+        });
 
-      renderer.render(scene, camera);
-      // Mark canvas as loaded after first render
-      if (!canvas.classList.contains('is-loaded')) {
-        canvas.classList.add('is-loaded');
+        renderer.render(scene, camera);
+        // Mark canvas as loaded after first render
+        if (!canvas.classList.contains('is-loaded')) {
+          canvas.classList.add('is-loaded');
+        }
       }
     }
 
@@ -340,9 +350,44 @@ export async function initThreeHero() {
 }
 
 /**
+ * Pause Three.js animations (for CPU idle detection)
+ */
+export function pauseThreeHero() {
+  isAnimationPaused = true;
+  if (heroAnimationId) {
+    cancelAnimationFrame(heroAnimationId);
+    heroAnimationId = null;
+  }
+}
+
+/**
+ * Resume Three.js animations
+ */
+export function resumeThreeHero() {
+  if (heroScene && heroRenderer && heroCamera && !isAnimationPaused) {
+    return; // Already running
+  }
+  isAnimationPaused = false;
+  // Restart animation if scene exists
+  if (heroScene && heroRenderer && heroCamera) {
+    const canvas = heroRenderer.domElement;
+    if (canvas) {
+      function animate() {
+        if (!isAnimationPaused) {
+          heroAnimationId = requestAnimationFrame(animate);
+          heroRenderer.render(heroScene, heroCamera);
+        }
+      }
+      animate();
+    }
+  }
+}
+
+/**
  * Clean up Three.js hero animations
  */
 export function cleanupThreeHero() {
+  isAnimationPaused = true;
   if (heroAnimationId) {
     cancelAnimationFrame(heroAnimationId);
     heroAnimationId = null;

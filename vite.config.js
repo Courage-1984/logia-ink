@@ -143,6 +143,8 @@ export default defineConfig(({ command, mode }) => {
         pricing: resolve(__dirname, 'pricing.html'),
         seoServices: resolve(__dirname, 'seo-services.html'),
         reports: resolve(__dirname, 'reports.html'),
+        privacyPolicy: resolve(__dirname, 'privacy-policy.html'),
+        termsOfService: resolve(__dirname, 'terms-of-service.html'),
         sw: resolve(__dirname, 'sw.js'), // Include service worker in build
         // Note: robots.txt and sitemap.xml are copied as static assets
       },

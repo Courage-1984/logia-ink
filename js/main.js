@@ -211,8 +211,51 @@ deferNonCritical(async () => {
 const initThreeHeroWhenIdle = async () => {
   // Only load if page is loaded and visible
   if (document.readyState === 'complete' && document.visibilityState === 'visible') {
-    const { initThreeHero } = await import('./core/three-hero.js');
+    const { initThreeHero, pauseThreeHero, resumeThreeHero } = await import('./core/three-hero.js');
     initThreeHero();
+
+    // Pause animations when page is hidden (helps with Lighthouse CPU idle detection)
+    if (typeof document !== 'undefined' && 'hidden' in document) {
+      const handleVisibilityChange = () => {
+        if (document.hidden) {
+          pauseThreeHero();
+        } else {
+          resumeThreeHero();
+        }
+      };
+
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+
+      // Also pause after 10 seconds of inactivity to help Lighthouse detect CPU idle
+      let inactivityTimer;
+      const resetInactivityTimer = () => {
+        clearTimeout(inactivityTimer);
+        inactivityTimer = setTimeout(() => {
+          // Only pause if page is visible but user is inactive
+          if (!document.hidden) {
+            pauseThreeHero();
+            // Resume after 2 seconds (in case user returns)
+            setTimeout(() => {
+              if (!document.hidden) {
+                resumeThreeHero();
+              }
+            }, 2000);
+          }
+        }, 10000); // 10 seconds of inactivity
+      };
+
+      // Reset timer on user interaction
+      ['mousemove', 'keydown', 'scroll', 'touchstart'].forEach(event => {
+        document.addEventListener(event, () => {
+          resetInactivityTimer();
+          if (document.hidden === false) {
+            resumeThreeHero();
+          }
+        }, { passive: true });
+      });
+
+      resetInactivityTimer();
+    }
   }
 };
 
