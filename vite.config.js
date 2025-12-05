@@ -268,13 +268,37 @@ export default defineConfig(({ command, mode }) => {
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
           // Skip assets (CSS, JS, images, fonts, etc.) and API routes
+          // Check for file extensions or asset paths first
+          if (!req.url) {
+            return next();
+          }
+
+          const url = req.url.split('?')[0]; // Remove query string
+
+          // Skip if URL has a file extension (CSS, JS, images, fonts, etc.)
+          if (url.includes('.')) {
+            const ext = url.split('.').pop().toLowerCase();
+            const assetExtensions = ['css', 'js', 'json', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'avif', 'ico', 'woff', 'woff2', 'ttf', 'otf', 'eot', 'mp4', 'webm', 'ogg', 'mp3', 'wav', 'pdf', 'xml', 'txt', 'map'];
+            if (assetExtensions.includes(ext)) {
+              return next();
+            }
+          }
+
+          // Skip asset directories and API routes
           if (
-            req.url &&
-            (req.url.startsWith('/assets/') ||
-              req.url.startsWith('/node_modules/') ||
-              req.url.startsWith('/dist/') ||
-              req.url.includes('.') ||
-              req.url.startsWith('/api/'))
+            url.startsWith('/assets/') ||
+            url.startsWith('/node_modules/') ||
+            url.startsWith('/dist/') ||
+            url.startsWith('/css/') ||
+            url.startsWith('/js/') ||
+            url.startsWith('/api/') ||
+            url.startsWith('/favicon') ||
+            url.startsWith('/logo') ||
+            url.startsWith('/sw.js') ||
+            url.startsWith('/site.webmanifest') ||
+            url.startsWith('/browserconfig.xml') ||
+            url.startsWith('/robots.txt') ||
+            url.startsWith('/sitemap.xml')
           ) {
             return next();
           }
