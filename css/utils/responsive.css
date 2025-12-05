@@ -453,6 +453,19 @@
     margin-top: var(--space-8);
   }
 
+  /* Projects Page Tags - Mobile */
+  .projects-page .project-tags {
+    top: var(--space-3);
+    right: var(--space-3);
+    max-width: calc(100% - 1.5rem);
+    gap: var(--space-1);
+  }
+
+  .projects-page .project-tag {
+    font-size: 0.65rem;
+    padding: var(--space-1) var(--space-2);
+  }
+
   /* CTA Section */
   .cta-content {
     padding: 0 var(--space-4);

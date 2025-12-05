@@ -356,21 +356,22 @@
 
 .project-modal__section li {
   position: relative;
-  padding-left: 1.var(--space-4);
+  padding-left: var(--space-6);
   color: var(--text-secondary);
-  line-height: 1.35;
+  line-height: 1.5;
 }
 
 .project-modal__section li::before {
   content: '';
   position: absolute;
-  top: 0.6rem;
-  left: 0.18rem;
+  top: 0.5em;
+  left: 0;
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 50%;
   background: var(--accent-cyan);
   box-shadow: 0 0 10px var(--glow-cyan);
+  transform: translateY(-50%);
 }
 
 .project-modal__cta-wrapper {
