@@ -1,0 +1,214 @@
+/**
+ * CLS Prevention Utilities
+ * Prevents Cumulative Layout Shift during page transitions and content loading
+ * Works in conjunction with View Transitions API for smooth transitions
+ */
+
+/* ============================================
+   CSS CONTAINMENT FOR LAYOUT STABILITY
+   ============================================ */
+
+/* Main content container - prevent layout shifts from affecting viewport */
+#main-content {
+  contain: layout style;
+  min-height: 100vh;
+}
+
+/* Hero sections - reserve space to prevent CLS */
+.hero {
+  contain: layout style paint;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+/* Hero background - prevent layout shifts */
+.hero-background {
+  contain: layout style paint;
+  min-height: 100vh;
+  position: absolute;
+  /* Reserve space for Three.js canvas */
+  aspect-ratio: 16 / 9;
+}
+
+/* Three.js canvas containers - reserve space */
+.threejs-canvas,
+#threejs-hero-canvas,
+#threejs-services-canvas,
+#threejs-projects-canvas {
+  contain: layout style paint;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  /* Reserve space even when hidden */
+  visibility: hidden;
+}
+
+.threejs-canvas.is-loaded,
+#threejs-hero-canvas.is-loaded,
+#threejs-services-canvas.is-loaded,
+#threejs-projects-canvas.is-loaded {
+  visibility: visible;
+}
+
+/* ============================================
+   IMAGE CONTAINERS - ASPECT RATIO RESERVATION
+   ============================================ */
+
+/* Ensure all images have reserved space */
+img {
+  aspect-ratio: attr(width) / attr(height);
+  object-fit: cover;
+  display: block;
+}
+
+/* Picture elements - reserve space */
+picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: attr(width) / attr(height);
+  contain: layout style;
+}
+
+/* Responsive image wrappers - prevent CLS */
+.responsive-image-wrapper {
+  contain: layout style paint;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Default aspect ratio */
+  overflow: hidden;
+}
+
+/* ============================================
+   DYNAMIC CONTENT - SPACE RESERVATION
+   ============================================ */
+
+/* Service cards grid - prevent layout shifts */
+.services-grid {
+  contain: layout style;
+  display: grid;
+  /* Grid will reserve space automatically */
+}
+
+/* Project cards - reserve space */
+.project-card,
+.service-card {
+  contain: layout style paint;
+  min-height: 300px; /* Reserve minimum height */
+  aspect-ratio: 4 / 3; /* Default card aspect ratio */
+}
+
+/* ============================================
+   VIEW TRANSITIONS ENHANCEMENT
+   ============================================ */
+
+/* Enhance View Transitions with containment */
+::view-transition-group(root) {
+  contain: layout style paint;
+}
+
+/* Prevent layout shifts during transition */
+::view-transition-old(root),
+::view-transition-new(root) {
+  contain: layout style paint;
+  object-fit: cover;
+}
+
+/* ============================================
+   SKELETON LOADERS - RESERVE SPACE
+   ============================================ */
+
+/* Skeleton loader for images */
+.image-skeleton {
+  aspect-ratio: 16 / 9;
+  background: var(--bg-secondary);
+  contain: layout style paint;
+  display: block;
+  width: 100%;
+}
+
+/* Skeleton loader for cards */
+.card-skeleton {
+  min-height: 300px;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-secondary);
+  contain: layout style paint;
+  border-radius: 8px;
+}
+
+/* ============================================
+   FONTS - PREVENT LAYOUT SHIFTS
+   ============================================ */
+
+/* Ensure fonts don't cause layout shifts */
+h1, h2, h3, h4, h5, h6 {
+  contain: layout style;
+  min-height: 1.2em; /* Reserve space for text */
+}
+
+/* ============================================
+   NAVIGATION - PREVENT LAYOUT SHIFTS
+   ============================================ */
+
+/* Navbar - reserve space */
+.navbar {
+  contain: layout style paint;
+  min-height: 70px;
+  position: fixed;
+  width: 100%;
+}
+
+/* ============================================
+   FOOTER - PREVENT LAYOUT SHIFTS
+   ============================================ */
+
+/* Footer - reserve space */
+footer {
+  contain: layout style;
+  min-height: 200px; /* Reserve minimum height */
+}
+
+/* ============================================
+   MODALS - PREVENT LAYOUT SHIFTS
+   ============================================ */
+
+/* Modal containers - prevent layout shifts */
+.modal {
+  contain: layout style paint;
+  position: fixed;
+  /* Modal positioning doesn't affect layout */
+}
+
+/* ============================================
+   VIDEO ELEMENTS - RESERVE SPACE
+   ============================================ */
+
+/* Video containers - reserve space */
+video {
+  aspect-ratio: attr(width) / attr(height);
+  object-fit: cover;
+  contain: layout style paint;
+}
+
+/* Video background containers */
+.hero-video-background {
+  contain: layout style paint;
+  aspect-ratio: 16 / 9;
+  min-height: 100vh;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Mobile: Adjust aspect ratios */
+  .hero-background {
+    aspect-ratio: 9 / 16; /* Portrait on mobile */
+  }
+
+  .responsive-image-wrapper {
+    aspect-ratio: 1 / 1; /* Square on mobile */
+  }
+}
+

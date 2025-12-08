@@ -24,18 +24,32 @@ body {
 
 /* View Transitions API - Customize transition animations */
 /* The browser handles transitions automatically with @view-transition { navigation: auto; } */
-/* We can customize the default cross-fade animation here */
+/* Enhanced with CLS prevention for smoother transitions */
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.3s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Prevent layout shifts during transition */
+  contain: layout style paint;
+  object-fit: cover;
 }
 
-/* Optional: Customize transition for smoother experience */
+/* Enhanced transition group with containment */
 ::view-transition-group(root) {
   animation-duration: 0.3s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Prevent layout shifts */
+  contain: layout style paint;
+}
+
+/* View transition container - prevent affecting page layout */
+::view-transition {
+  contain: layout style paint;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
 }
 
 /* Typography */

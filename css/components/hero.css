@@ -30,8 +30,10 @@
   height: 100%;
   min-height: 100vh; /* Ensure minimum height to prevent CLS */
   z-index: -1;
-  /* Prevent layout shifts from child elements */
-  contain: layout style;
+  /* Prevent layout shifts from child elements - enhanced containment */
+  contain: layout style paint;
+  /* Reserve space for content */
+  aspect-ratio: 16 / 9;
 }
 
 /* Three.js Canvas - Hidden until ready to prevent visual glitches */

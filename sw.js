@@ -5,8 +5,14 @@
  * Caching Strategy:
  * - Stale-while-revalidate for hashed assets (CSS/JS with content hashes) - ensures users get cached content immediately while updating in background
  * - Cache-first for truly static assets (images, fonts) - these don't change, so cache-first is optimal
- * - Network-first for HTML pages (always get fresh content)
+ * - Network-first for HTML pages (always get fresh content) - ensures View Transitions API CSS rules are always up-to-date
  * - Stale-while-revalidate for other resources
+ *
+ * View Transitions API Compatibility:
+ * - View Transitions API works at the browser level via CSS @view-transition { navigation: auto; }
+ * - No service worker changes needed - View Transitions happen during navigation, which is handled by the browser
+ * - HTML pages use network-first strategy, ensuring fresh HTML with View Transitions CSS rules
+ * - CSS files use stale-while-revalidate, caching View Transitions styles while updating in background
  */
 
 const CACHE_NAME = 'logi-ink-v1';

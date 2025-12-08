@@ -58,6 +58,7 @@
 @import './utils/_responsive-images.css';
 @import './utils/_fluid-typography.css';
 @import './utils/_performance-optimizations.css';
+@import './utils/_cls-prevention.css';
 
 /* 7. Responsive Styles - Must come last */
 @import './utils/responsive.css';
