@@ -1,0 +1,116 @@
+/**
+ * Horizontal Scroll on Scroll Effect Styles
+ * Converts vertical scroll to horizontal scroll for specific sections
+ */
+
+/* Horizontal Scroll Spacer - Provides scroll distance */
+.horizontal-scroll-spacer {
+  height: 200vh; /* 2x viewport height for scroll distance */
+  width: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Horizontal Scroll Container */
+.horizontal-scroll-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.horizontal-scroll-inner {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-6);
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Override grid layout for horizontal scroll sections */
+[data-horizontal-scroll] {
+  position: relative;
+  min-height: 200vh; /* Ensure section has enough height for scroll */
+}
+
+[data-horizontal-scroll] .services-grid {
+  display: block;
+  overflow: visible;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+[data-horizontal-scroll] .services-grid .horizontal-scroll-wrapper {
+  width: 100%;
+}
+
+/* Ensure cards maintain their width in horizontal scroll */
+[data-horizontal-scroll] .service-card {
+  min-width: 280px;
+  width: 280px;
+  flex-shrink: 0;
+}
+
+/* Desktop: Larger card width for better visibility */
+@media (min-width: 1024px) {
+  [data-horizontal-scroll] .service-card {
+    min-width: 320px;
+    width: 320px;
+  }
+}
+
+/* Tablet: Medium card width */
+@media (min-width: 768px) and (max-width: 1023px) {
+  [data-horizontal-scroll] .service-card {
+    min-width: 300px;
+    width: 300px;
+  }
+}
+
+/* Mobile: Full width cards, disable horizontal scroll */
+@media (max-width: 767px) {
+  [data-horizontal-scroll] .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  [data-horizontal-scroll] .horizontal-scroll-wrapper {
+    overflow-x: visible;
+  }
+
+  [data-horizontal-scroll] .horizontal-scroll-inner {
+    flex-direction: column;
+    transform: none !important;
+  }
+
+  [data-horizontal-scroll] .service-card {
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  [data-horizontal-scroll] .horizontal-scroll-inner {
+    transform: none !important;
+    transition: none;
+  }
+
+  [data-horizontal-scroll] .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  [data-horizontal-scroll] .horizontal-scroll-wrapper {
+    overflow-x: visible;
+  }
+
+  [data-horizontal-scroll] .horizontal-scroll-inner {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+

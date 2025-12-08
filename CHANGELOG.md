@@ -5,7 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2025-11-16
+## [Unreleased] - 2025-01-30
+
+### Added
+- **Logo Structured Data for Google Search Results**: Updated all Organization schemas to use ImageObject format with logo-150x150.png for optimal display in Google search results. All pages now include proper logo structured data following Google's recommended format.
 
 ### Changed
 - **Easter Egg Organization**: Moved all galaxy easter egg code to dedicated `js/easter-egg/` folder

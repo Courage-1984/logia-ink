@@ -1,0 +1,219 @@
+/**
+ * Horizontal Scroll on Scroll Effect
+ * Converts vertical scroll to horizontal scroll for specific sections
+ * Respects prefers-reduced-motion and maintains accessibility
+ */
+
+/**
+ * Initialize horizontal scroll effect for sections with data-horizontal-scroll attribute
+ */
+export function initHorizontalScroll() {
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    return; // Disable effect for users who prefer reduced motion
+  }
+
+  // Find all sections with horizontal scroll enabled
+  const sections = document.querySelectorAll('[data-horizontal-scroll]');
+  if (sections.length === 0) return;
+
+  sections.forEach((section) => {
+    const cardContainer = section.querySelector('.services-grid');
+    if (!cardContainer) return;
+
+    // Wrap cards in horizontal scroll container
+    setupHorizontalScrollContainer(section, cardContainer);
+  });
+}
+
+/**
+ * Setup horizontal scroll container and scroll conversion logic
+ */
+function setupHorizontalScrollContainer(section, cardContainer) {
+  // Create wrapper for horizontal scroll
+  const wrapper = document.createElement('div');
+  wrapper.className = 'horizontal-scroll-wrapper';
+  wrapper.style.cssText = 'overflow-x: hidden; width: 100%; position: relative;';
+
+  // Create inner container for cards
+  const innerContainer = document.createElement('div');
+  innerContainer.className = 'horizontal-scroll-inner';
+  innerContainer.style.cssText =
+    'display: flex; flex-direction: row; gap: var(--space-6, 1.5rem); will-change: transform;';
+
+  // Move cards into inner container
+  const cards = Array.from(cardContainer.children);
+  cards.forEach((card) => {
+    // Ensure cards don't shrink
+    card.style.flexShrink = '0';
+    innerContainer.appendChild(card);
+  });
+
+  // Replace cardContainer content with wrapper structure
+  cardContainer.innerHTML = '';
+  wrapper.appendChild(innerContainer);
+  cardContainer.appendChild(wrapper);
+
+  // Create spacer element to provide scroll distance
+  const spacer = document.createElement('div');
+  spacer.className = 'horizontal-scroll-spacer';
+  spacer.style.cssText = 'height: 200vh; width: 1px;'; // 2x viewport height for scroll distance
+  section.appendChild(spacer);
+
+  // Calculate dimensions
+  let scrollStart = 0;
+  let scrollEnd = 0;
+  let maxScroll = 0;
+
+  function updateDimensions() {
+    // Get section position
+    const rect = section.getBoundingClientRect();
+    const sectionTop = rect.top + window.scrollY;
+    const spacerHeight = spacer.offsetHeight;
+    scrollStart = sectionTop;
+    scrollEnd = sectionTop + spacerHeight;
+
+    // Calculate total width needed for horizontal scroll
+    const cardWidth = cards[0]?.offsetWidth || 300;
+    const gap = parseFloat(getComputedStyle(innerContainer).gap) || 24;
+    const totalWidth = cards.length * cardWidth + (cards.length - 1) * gap;
+    const viewportWidth = window.innerWidth;
+    maxScroll = Math.max(0, totalWidth - viewportWidth);
+
+    innerContainer.style.width = `${totalWidth}px`;
+  }
+
+  // Scroll locking state
+  let targetScrollY = window.scrollY;
+  let lastScrollY = window.scrollY;
+
+  // Scroll event handler
+  let rafId = null;
+  function handleScroll() {
+    const currentScrollY = window.scrollY;
+
+    // Check if we're within the section bounds
+    if (currentScrollY < scrollStart) {
+      // Before section - reset transform
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        innerContainer.style.transform = 'translateX(0px)';
+      });
+      lastScrollY = currentScrollY;
+      targetScrollY = currentScrollY;
+      return;
+    }
+
+    if (currentScrollY > scrollEnd) {
+      // After section - set to end
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        innerContainer.style.transform = `translateX(-${maxScroll}px)`;
+      });
+      lastScrollY = currentScrollY;
+      targetScrollY = currentScrollY;
+      return;
+    }
+
+    // We're in the horizontal scroll zone
+    // Calculate scroll progress (0 to 1) within the spacer
+    const scrollProgress = Math.max(
+      0,
+      Math.min(1, (currentScrollY - scrollStart) / (scrollEnd - scrollStart))
+    );
+
+    // If scroll advanced beyond target and we haven't reached the end, lock it
+    if (currentScrollY > targetScrollY && scrollProgress < 1) {
+      // Lock scroll to target position
+      window.scrollTo({
+        top: targetScrollY,
+        behavior: 'auto',
+      });
+    } else {
+      // Update target position
+      targetScrollY = currentScrollY;
+    }
+
+    // Calculate horizontal translation based on current progress
+    const translateX = -scrollProgress * maxScroll;
+
+    // Apply transform
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(() => {
+      innerContainer.style.transform = `translateX(${translateX}px)`;
+    });
+
+    lastScrollY = currentScrollY;
+  }
+
+  // Wheel event handler to intercept scroll attempts and convert to horizontal
+  function handleWheel(e) {
+    const currentScrollY = window.scrollY;
+
+    // Check if we're in the horizontal scroll zone
+    if (currentScrollY >= scrollStart && currentScrollY <= scrollEnd) {
+      const currentProgress = Math.max(
+        0,
+        Math.min(1, (currentScrollY - scrollStart) / (scrollEnd - scrollStart))
+      );
+
+      // If scrolling down and haven't reached the end, convert to horizontal scroll
+      if (e.deltaY > 0 && currentProgress < 1) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Convert vertical scroll delta to horizontal progress
+        const scrollDistance = scrollEnd - scrollStart;
+        const progressIncrement = e.deltaY / scrollDistance;
+        const newProgress = Math.min(1, currentProgress + progressIncrement);
+
+        // Calculate target scroll position
+        targetScrollY = scrollStart + (newProgress * scrollDistance);
+
+        // Update scroll position smoothly
+        window.scrollTo({
+          top: targetScrollY,
+          behavior: 'auto',
+        });
+
+        return false;
+      }
+
+      // If scrolling up, allow normal scroll
+      if (e.deltaY < 0) {
+        targetScrollY = currentScrollY;
+      }
+    }
+  }
+
+  // Add wheel event listener (non-passive to allow preventDefault)
+  section.addEventListener('wheel', handleWheel, { passive: false });
+
+  // Throttled scroll handler
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Update dimensions on resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      updateDimensions();
+      handleScroll(); // Recalculate position after resize
+    }, 150);
+  }, { passive: true });
+
+  // Initial setup
+  updateDimensions();
+  handleScroll(); // Set initial position
+}
+

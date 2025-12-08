@@ -21,21 +21,44 @@
 
 /* Footer Content */
 .footer-content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: var(--space-6);
   margin-bottom: var(--space-6);
   width: 100%;
+  align-items: flex-start;
+}
+
+/* Desktop: All sections in one horizontal line */
+@media (min-width: 1024px) {
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-6);
+  }
+
+  .footer-section {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .footer-section:first-child {
+    flex: 2 1 0;
+    min-width: 200px;
+  }
 }
 
 /* Footer Section */
 .footer-section {
   position: relative;
-  flex: 1 1 0;
   min-width: 0;
+}
+
+/* First section (Brand) takes 2 columns, others take 1 column each */
+.footer-section:first-child {
+  grid-column: span 2;
 }
 
 /* Quick Links, Connect, Services, Contact Info - uniform styling */
@@ -43,7 +66,6 @@
 .footer-section:nth-child(3),
 .footer-section:nth-child(4),
 .footer-section:nth-child(5) {
-  flex: 0 1 16%;
   min-width: 120px;
 }
 

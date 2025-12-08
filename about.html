@@ -15,7 +15,7 @@
     <!-- Content Security Policy (basic - enhance via server headers) -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com; frame-src https://www.google.com;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https:; frame-src 'self' https://www.google.com https://maps.google.com https://maps.googleapis.com; media-src 'self' data: https: blob:; object-src 'none'; base-uri 'self';"
     />
 
     <script>
@@ -32,7 +32,7 @@
     />
     <meta
       name="keywords"
-      content="about logi-ink, digital agency team, company mission, digital innovation team"
+      content="about Logi-Ink, digital agency team, company mission, digital innovation team"
     />
     <meta name="author" content="Logi-Ink" />
     <meta name="robots" content="index, follow" />
@@ -737,7 +737,13 @@
         "description": "Learn about Logi-Ink, our mission, values, and approach to digital innovation.",
         "publisher": {
           "@type": "Organization",
-          "name": "Logi-Ink"
+          "name": "Logi-Ink",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://logi-ink.co.za/logo-150x150.png",
+            "width": 150,
+            "height": 150
+          }
         },
         "breadcrumb": {
           "@type": "BreadcrumbList",
@@ -1045,30 +1051,40 @@
       </section>
 
       <!-- Team Members Section -->
-      <section class="featured-projects">
+      <section class="featured-projects team-section">
         <div class="container">
           <div class="section-header">
             <h2 class="section-title">Meet Our Team</h2>
             <p class="section-subtitle">The creative minds behind Logi-Ink</p>
           </div>
-          <div class="services-grid">
+          <div class="services-grid team-grid">
             <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
               <div
+                class="profile-image-wrapper"
+                data-profile-image="./assets/images/people/person_1.png"
+                data-profile-name="John Doe"
+                data-profile-role="Lead Developer"
+                data-profile-description="10+ years of experience in full-stack development and architecture design."
+                data-profile-color="var(--accent-cyan)"
                 style="
                   width: 120px;
                   height: 120px;
                   margin: 0 auto 1.5rem;
                   border-radius: 50%;
-                  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 3rem;
-                  font-family: 'Orbitron', sans-serif;
-                  font-weight: 900;
+                  overflow: hidden;
+                  border: 2px solid var(--accent-cyan);
+                  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
                 "
               >
-                JD
+                <img
+                  src="./assets/images/people/person_1.png"
+                  alt="John Doe - Lead Developer"
+                  loading="lazy"
+                  decoding="async"
+                  width="120"
+                  height="120"
+                  style="width: 100%; height: 100%; object-fit: cover; display: block;"
+                />
               </div>
               <h3>John Doe</h3>
               <p style="color: var(--accent-cyan); margin-bottom: 1rem">Lead Developer</p>
@@ -1078,21 +1094,31 @@
             </div>
             <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
               <div
+                class="profile-image-wrapper"
+                data-profile-image="./assets/images/people/person_2.png"
+                data-profile-name="Jane Smith"
+                data-profile-role="Creative Director"
+                data-profile-description="Expert in UX/UI design with a passion for creating intuitive digital experiences."
+                data-profile-color="var(--accent-magenta)"
                 style="
                   width: 120px;
                   height: 120px;
                   margin: 0 auto 1.5rem;
                   border-radius: 50%;
-                  background: linear-gradient(135deg, var(--accent-magenta), var(--accent-pink));
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 3rem;
-                  font-family: 'Orbitron', sans-serif;
-                  font-weight: 900;
+                  overflow: hidden;
+                  border: 2px solid var(--accent-magenta);
+                  box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
                 "
               >
-                JS
+                <img
+                  src="./assets/images/people/person_2.png"
+                  alt="Jane Smith - Creative Director"
+                  loading="lazy"
+                  decoding="async"
+                  width="120"
+                  height="120"
+                  style="width: 100%; height: 100%; object-fit: cover; display: block;"
+                />
               </div>
               <h3>Jane Smith</h3>
               <p style="color: var(--accent-magenta); margin-bottom: 1rem">Creative Director</p>
@@ -1102,21 +1128,31 @@
             </div>
             <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
               <div
+                class="profile-image-wrapper"
+                data-profile-image="./assets/images/people/person_3.png"
+                data-profile-name="Mike Wilson"
+                data-profile-role="Project Manager"
+                data-profile-description="Ensures smooth project execution with excellent communication and organization skills."
+                data-profile-color="var(--accent-green)"
                 style="
                   width: 120px;
                   height: 120px;
                   margin: 0 auto 1.5rem;
                   border-radius: 50%;
-                  background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 3rem;
-                  font-family: 'Orbitron', sans-serif;
-                  font-weight: 900;
+                  overflow: hidden;
+                  border: 2px solid var(--accent-green);
+                  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
                 "
               >
-                MW
+                <img
+                  src="./assets/images/people/person_3.png"
+                  alt="Mike Wilson - Project Manager"
+                  loading="lazy"
+                  decoding="async"
+                  width="120"
+                  height="120"
+                  style="width: 100%; height: 100%; object-fit: cover; display: block;"
+                />
               </div>
               <h3>Mike Wilson</h3>
               <p style="color: var(--accent-green); margin-bottom: 1rem">Project Manager</p>
@@ -1127,26 +1163,104 @@
             </div>
             <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
               <div
+                class="profile-image-wrapper"
+                data-profile-image="./assets/images/people/person_4.png"
+                data-profile-name="Sarah Davis"
+                data-profile-role="Marketing Specialist"
+                data-profile-description="Drives growth through data-driven strategies and creative marketing campaigns."
+                data-profile-color="var(--accent-blue)"
                 style="
                   width: 120px;
                   height: 120px;
                   margin: 0 auto 1.5rem;
                   border-radius: 50%;
-                  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 3rem;
-                  font-family: 'Orbitron', sans-serif;
-                  font-weight: 900;
+                  overflow: hidden;
+                  border: 2px solid var(--accent-blue);
+                  box-shadow: 0 0 20px rgba(0, 102, 255, 0.3);
                 "
               >
-                SD
+                <img
+                  src="./assets/images/people/person_4.png"
+                  alt="Sarah Davis - Marketing Specialist"
+                  loading="lazy"
+                  decoding="async"
+                  width="120"
+                  height="120"
+                  style="width: 100%; height: 100%; object-fit: cover; display: block;"
+                />
               </div>
               <h3>Sarah Davis</h3>
               <p style="color: var(--accent-blue); margin-bottom: 1rem">Marketing Specialist</p>
               <p style="color: var(--text-secondary)">
                 Drives growth through data-driven strategies and creative marketing campaigns.
+              </p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div
+                class="profile-image-wrapper"
+                data-profile-image="./assets/images/people/person_5.png"
+                data-profile-name="Alex Johnson"
+                data-profile-role="DevOps Engineer"
+                data-profile-description="Specializes in cloud infrastructure, CI/CD pipelines, and scalable system architecture."
+                data-profile-color="var(--accent-pink)"
+                style="
+                  width: 120px;
+                  height: 120px;
+                  margin: 0 auto 1.5rem;
+                  border-radius: 50%;
+                  overflow: hidden;
+                  border: 2px solid var(--accent-pink);
+                  box-shadow: 0 0 20px rgba(255, 0, 128, 0.3);
+                "
+              >
+                <img
+                  src="./assets/images/people/person_5.png"
+                  alt="Alex Johnson - DevOps Engineer"
+                  loading="lazy"
+                  decoding="async"
+                  width="120"
+                  height="120"
+                  style="width: 100%; height: 100%; object-fit: cover; display: block;"
+                />
+              </div>
+              <h3>Alex Johnson</h3>
+              <p style="color: var(--accent-pink); margin-bottom: 1rem">DevOps Engineer</p>
+              <p style="color: var(--text-secondary)">
+                Specializes in cloud infrastructure, CI/CD pipelines, and scalable system architecture.
+              </p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div
+                class="profile-image-wrapper"
+                data-profile-image="./assets/images/people/person_6.png"
+                data-profile-name="Emily Chen"
+                data-profile-role="UX Researcher"
+                data-profile-description="Conducts user research and usability testing to create data-driven design solutions."
+                data-profile-color="var(--accent-yellow)"
+                style="
+                  width: 120px;
+                  height: 120px;
+                  margin: 0 auto 1.5rem;
+                  border-radius: 50%;
+                  overflow: hidden;
+                  border: 2px solid var(--accent-yellow);
+                  box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+                "
+              >
+                <img
+                  src="./assets/images/people/person_6.png"
+                  alt="Emily Chen - UX Researcher"
+                  loading="lazy"
+                  decoding="async"
+                  width="120"
+                  height="120"
+                  style="width: 100%; height: 100%; object-fit: cover; display: block;"
+                />
+              </div>
+              <h3>Emily Chen</h3>
+              <p style="color: var(--accent-yellow); margin-bottom: 1rem">UX Researcher</p>
+              <p style="color: var(--text-secondary)">
+                Conducts user research and usability testing to create data-driven design solutions.
               </p>
             </div>
           </div>
@@ -1358,6 +1472,48 @@
                 Python, TensorFlow, PyTorch, NLP, Computer Vision, Predictive Analytics, Automation
               </p>
             </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4H6zM3 6h18M16 10a4 4 0 0 1-8 0" />
+                </svg>
+              </div>
+              <h3>E-Commerce Solutions</h3>
+              <p>WooCommerce, Shopify, Magento, Payment Gateways, Inventory Management, Cart Systems</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
+              <h3>Security & Compliance</h3>
+              <p>SSL/TLS, GDPR, OWASP, Penetration Testing, Security Audits, Data Protection</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              </div>
+              <h3>Performance Optimization</h3>
+              <p>Core Web Vitals, Caching Strategies, CDN, Code Splitting, Lazy Loading, Bundle Optimization</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+              </div>
+              <h3>API Integration</h3>
+              <p>REST, GraphQL, Webhooks, Third-party APIs, API Gateway, Microservices Architecture</p>
+            </div>
           </div>
         </div>
       </section>
@@ -1411,8 +1567,103 @@
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" aria-label="Back to top"></a>
 
+    <!-- Profile Image Modal -->
+    <div class="profile-modal" id="profile-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="profile-modal-name">
+      <button class="profile-modal-close" type="button" aria-label="Close profile modal">×</button>
+      <div class="profile-modal-content">
+        <div class="profile-modal-image-wrapper" id="profile-modal-image-wrapper">
+          <img id="profile-modal-image" src="" alt="" loading="eager" decoding="sync" />
+        </div>
+        <div class="profile-modal-info">
+          <h3 id="profile-modal-name"></h3>
+          <p id="profile-modal-role"></p>
+          <p id="profile-modal-description"></p>
+        </div>
+      </div>
+    </div>
+
     <!-- Three.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script type="module" src="js/main.js"></script>
+    <script>
+      // Profile Image Modal Handler
+      document.addEventListener('DOMContentLoaded', () => {
+        const profileModals = document.querySelectorAll('.profile-image-wrapper');
+        const modal = document.getElementById('profile-modal');
+        const modalImage = document.getElementById('profile-modal-image');
+        const modalImageWrapper = document.getElementById('profile-modal-image-wrapper');
+        const modalName = document.getElementById('profile-modal-name');
+        const modalRole = document.getElementById('profile-modal-role');
+        const modalDescription = document.getElementById('profile-modal-description');
+        const modalClose = document.querySelector('.profile-modal-close');
+
+        // Helper function to get CSS variable value
+        const getCSSVariable = (varName) => {
+          const root = document.documentElement;
+          return getComputedStyle(root).getPropertyValue(varName.trim()).trim();
+        };
+
+        // Open modal on profile image click
+        profileModals.forEach((wrapper) => {
+          wrapper.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const imageSrc = wrapper.getAttribute('data-profile-image');
+            const name = wrapper.getAttribute('data-profile-name');
+            const role = wrapper.getAttribute('data-profile-role');
+            const description = wrapper.getAttribute('data-profile-description');
+            const colorVar = wrapper.getAttribute('data-profile-color');
+
+            // Get computed color value from CSS variable
+            let computedColor = colorVar;
+            if (colorVar && colorVar.startsWith('var(')) {
+              const varName = colorVar.replace('var(', '').replace(')', '').trim();
+              computedColor = getCSSVariable(varName) || colorVar;
+            }
+
+            // Set modal content
+            modalImage.src = imageSrc;
+            modalImage.alt = `${name} - ${role}`;
+            modalName.textContent = name;
+            modalRole.textContent = role;
+            modalDescription.textContent = description;
+
+            // Set border color dynamically
+            modalImageWrapper.style.borderColor = computedColor;
+            modalImageWrapper.style.boxShadow = `0 0 50px ${computedColor}66`;
+
+            // Set role text color to match person's accent color
+            modalRole.style.color = computedColor;
+
+            // Show modal
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+          });
+        });
+
+        // Close modal
+        const closeModal = () => {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        };
+
+        modalClose.addEventListener('click', closeModal);
+
+        // Close on backdrop click
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+          }
+        });
+      });
+    </script>
   </body>
 </html>

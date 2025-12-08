@@ -37,10 +37,8 @@
   Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 
   # Content Security Policy
-  # Note: Nonces are generated at build time and injected into HTML files
-  # Server headers should match the CSP in HTML meta tags (nonces will be in HTML)
-  # For static sites, nonces are generated per build (same for all users)
-  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'nonce-*' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'nonce-*'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none';"
+  # Relaxed CSP for static sites - allows inline scripts/styles and common sources
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https:; frame-src 'self' https://www.google.com https://maps.google.com https://maps.googleapis.com https://www.youtube.com; media-src 'self' data: https: blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
 
   # Remove server information
   Header unset Server

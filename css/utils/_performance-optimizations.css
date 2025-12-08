@@ -35,10 +35,26 @@ section,
    ============================================ */
 
 @media (max-width: 768px) {
-  /* Reduce animation complexity on mobile */
-  *,
-  *::before,
-  *::after {
+  /* Selective animation optimization for UI/interactive elements only
+   * Preserves ambient background animations (hero, CTA, decorative)
+   */
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline,
+  .service-card,
+  .project-card,
+  .project-card-large,
+  .modal,
+  .modal-content,
+  .toast,
+  .fade-in-up,
+  .scroll-reveal-3d,
+  .text-reveal,
+  .skeleton,
+  .skeleton-text,
+  .skeleton-title,
+  .skeleton-image {
     animation-duration: 0.3s !important;
     transition-duration: 0.2s !important;
   }

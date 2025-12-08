@@ -559,7 +559,15 @@ assets/
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebPage",
+        "@type": "Organization",
+        "name": "Logi-Ink",
+        "url": "https://logi-ink.co.za/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://logi-ink.co.za/logo-150x150.png",
+          "width": 150,
+          "height": 150
+        },
         ...
       }
     </script>
@@ -1115,13 +1123,13 @@ If new code introduces a new pattern, update the documentation and architecture 
 ### SEO Optimization
 
 - ✅ **Meta Tags** - Open Graph, Twitter Cards, descriptions on all pages
-- ✅ **Structured Data** - JSON-LD schemas (Organization with logo.svg, WebSite, Service, BreadcrumbList, FAQPage, ContactPage)
+- ✅ **Structured Data** - JSON-LD schemas (Organization with ImageObject logo format using logo-150x150.png for Google search results, WebSite, Service, BreadcrumbList, FAQPage, ContactPage)
 - ✅ **Canonical URLs** - Added to all pages for SEO
 - ✅ **Sitemap** - Auto-generated `sitemap.xml` (run `npm run generate-sitemap`)
 - ✅ **Robots.txt** - Search engine crawling rules
 - ✅ **Plausible Analytics** - Privacy-first analytics script loaded after page load event (reduces Core Web Vitals impact), with preconnect for early connection
 - ✅ **Favicons** - Comprehensive favicon implementation with SVG, multiple PNG sizes (16x16, 32x32, 48x48, 64x64, 96x96), ICO fallback, Apple Touch Icon, Windows Tiles (browserconfig.xml), Safari Pinned Tab, and Web App Manifest integration. All favicon files are automatically copied to dist root during builds.
-- ✅ **Logos** - Logo files (logo.svg, logo-1024x1024.png, logo-150x150.png) are automatically copied to dist root during builds. Structured data references logo.svg.
+- ✅ **Logos** - Logo files (logo.svg, logo-1024x1024.png, logo-150x150.png) are automatically copied to dist root during builds. Structured data uses ImageObject format with logo-150x150.png for optimal Google search results display.
 - ✅ **Documentation** - See `docs/SEO_AND_SECURITY_IMPLEMENTATION.md` for details
 
 ### Accessibility
@@ -1253,7 +1261,7 @@ If new code introduces a new pattern, update the documentation and architecture 
 **Migration Status:** ✅ Complete - All CSS/JS migrated, build system configured, HTML includes implemented
 **Component Count:** 20 CSS components, 9 core JS modules (including three-hero), 11 JS utils (accessibility.js, env.js, error-handler.js, interactions.js, performance.js, ripples-lazyload.js, three-loader.js, toast.js, dynamic-prefetch.js, web-worker-helper.js, lazy-background-images.js), 1 JS easter-egg folder (13 modules: easter-egg.js, runtime.js, celestial-textures.js, texture-wrapping.js, procedural-noise.js, celestial-mechanics.js, camera-controls.js, galaxy-generator.js, star-field.js, lighting-atmosphere.js, nebula-clouds.js, particle-effects.js, post-processing.js), 4 JS pages, 4 CSS pages, 9 utility CSS files, 1 CSS easter-egg folder, 2 HTML partials (navbar, footer)
 **Performance:** ✅ Service Worker (optimized cache strategy: stale-while-revalidate for hashed assets, cache-first for static), Self-Hosted Fonts (optimized font-display: swap for critical, optional for non-critical), Critical CSS, Image Optimization (fetchpriority, decoding attributes), Code Splitting, CSS Purging (disabled), CSS Minification (disabled), CSS Code Splitting (disabled), Compression (Gzip/Brotli), Web Vitals Tracking (LCP, CLS, INP via `web-vitals` → Plausible), Dynamic Three.js Loading (pre-loaded), Error Handling, Mobile Performance, Texture Loading Optimization, Optimized Particle Generation, Dynamic Resource Hints (prefetch on hover/focus), Modulepreload for critical ES modules, Analytics loaded after page load, Video lazy loading
-**Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact, Organization logo.svg), Canonical URLs, Accessibility Features, Sitemap, Robots.txt, Comprehensive Favicon Implementation (SVG, PNG sizes including extras, ICO, Apple Touch, Windows Tiles, Safari Pinned Tab), Logo Files (logo.svg, logo-1024x1024.png, logo-150x150.png)
+**Security & SEO:** ✅ Security Headers, CSP, SRI Infrastructure, SEO Meta Tags, Structured Data (FAQ, Contact, Organization with ImageObject logo format using logo-150x150.png for Google search results), Canonical URLs, Accessibility Features, Sitemap, Robots.txt, Comprehensive Favicon Implementation (SVG, PNG sizes including extras, ICO, Apple Touch, Windows Tiles, Safari Pinned Tab), Logo Files (logo.svg, logo-1024x1024.png, logo-150x150.png)
 **Configuration Files:** ✅ ESLint v9 (flat config), Prettier, EditorConfig, Git Attributes, VS Code Settings, browserconfig.xml
 **Recent Updates:** ✅ **Ruler/Guides System Hookup Fix** (2025-01-30: removed old DOM-based ruler/guides implementation from main.js, properly hooked up Canvas-based ruler-guides.js module with initRulerGuides() call, fixed indentation issues that were breaking JavaScript structure), **Generate Folder Documentation** (generate/ folder added to project structure, documentation aligned with implementation, export library updated to html-to-image v1.11.11, CLS prevention improvements documented, redundant docs consolidated to archive/), **Clean URLs** (all internal links use clean URLs without .html extensions, Vite middleware for dev/preview, .htaccess for Apache, GitHub Pages native support, updated sitemap and SEO metadata), **CSS import syntax modernization** (changed from `@import url()` to `@import` for Vite compatibility), **CSS import in JS** (added `import '../css/main.css'` to js/main.js to ensure Vite processes nested imports), **CSS variables fix** (removed circular references, all accent colors now have actual hex values), **Component modularization** (cards, forms, contact, and projects pages now use subdirectories with index.css files for better organization), **HTML include plugin** (removed verbose logging for cleaner dev output), HTML include system (Vite plugin for processing `<!-- include partials/... -->` comments at build time), modularized navbar and footer partials, comprehensive favicon implementation, sessionStorage-backed page transitions, error handling, performance tracking, Three.js optimization, CSP, SRI, accessibility enhancements, mobile performance, texture modularization, galaxy loading optimizations, orbital inclinations, improved seamless texture wrapping, easter egg organization, celestial texture improvements, celestial mechanics improvements, runtime improvements, post-processing improvements, lighting improvements, particle effects improvements, camera controls improvements, audio assets support, performance optimizations
 **Remember:** Always update this file when making structural changes to the project!

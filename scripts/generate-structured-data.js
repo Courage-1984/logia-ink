@@ -28,7 +28,7 @@ export const organizationSchema = {
   },
   sameAs: [
     // Add social media links here
-    // 'https://www.facebook.com/logiink',
+    // 'https://www.facebook.com/profile.php?id=61584223810824',
     // 'https://www.twitter.com/logiink',
     // 'https://www.linkedin.com/company/logiink',
   ],

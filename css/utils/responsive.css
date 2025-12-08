@@ -138,6 +138,10 @@
     gap: var(--space-8);
   }
 
+  .footer-section:first-child {
+    grid-column: span 2;
+  }
+
   .cta-content h2 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
   }
@@ -177,7 +181,11 @@
   }
 
   .footer-content {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  }
+
+  .footer-section:first-child {
+    grid-column: span 2;
   }
 }
 
@@ -246,14 +254,18 @@
     left: -100%;
     top: 70px;
     flex-direction: column;
-    background: rgba(10, 10, 10, 0.98);
+    background: var(--bg-primary) !important;
+    backdrop-filter: none !important;
     width: 100%;
+    height: calc(100vh - 70px);
     text-align: center;
     transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.5);
     padding: var(--space-8) 0;
     border-top: 1px solid rgba(0, 255, 255, 0.1);
     gap: 0;
+    z-index: 999;
+    overflow-y: auto;
   }
 
   .nav-menu.active {
@@ -278,12 +290,34 @@
 
   .nav-item-dropdown > .nav-link {
     justify-content: center;
+    position: relative;
+    padding-right: var(--space-8);
+  }
+
+  /* Mobile dropdown toggle button */
+  .nav-item-dropdown > .nav-link::after {
+    content: '';
+    position: absolute;
+    right: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--accent-cyan);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 8px var(--glow-cyan);
+  }
+
+  .nav-item-dropdown.active > .nav-link::after {
+    transform: translateY(-50%) rotate(180deg);
   }
 
   .dropdown-menu {
     position: static;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
     transform: none;
     margin-top: 0;
     margin-left: var(--space-4);
@@ -293,10 +327,12 @@
     box-shadow: none;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
   }
 
   .nav-item-dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
     max-height: 200px;
     margin-top: var(--space-2);
   }
@@ -306,8 +342,13 @@
     font-size: 0.9rem;
   }
 
-  .hamburger {
+  .hamburger,
+  #hamburger {
     display: flex;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .hamburger.active span:nth-child(1) {
@@ -520,21 +561,42 @@
   }
 
   .footer-content {
-    flex-direction: column;
-    gap: var(--space-4);
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
     margin-bottom: var(--space-4);
     text-align: center;
   }
 
   .footer-section {
     margin-bottom: var(--space-4);
-    flex: 1 1 auto !important;
-    min-width: auto !important;
+    grid-column: span 1 !important;
+    width: 100%;
   }
 
-  /* Social icons stay 2x2 on mobile */
+  .footer-section:first-child {
+    grid-column: span 1;
+  }
+
+  /* Social icons inline horizontal on mobile - centered in viewport */
+  .footer-section:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
   .footer-social-list {
-    justify-items: center;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .footer-section h3 {
@@ -827,13 +889,9 @@
   }
 
   /* Mobile Performance Optimizations */
-  /* Reduce animation complexity on mobile */
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.3s !important;
-    transition-duration: 0.2s !important;
-  }
+  /* Note: Selective animation optimizations are handled in _performance-optimizations.css
+   * to avoid global overrides that break ambient background animations
+   */
 
   /* Disable 3D transforms on mobile for better performance */
   .card-3d,

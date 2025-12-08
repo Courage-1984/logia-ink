@@ -85,12 +85,12 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 ${pages
   .map(page => {
     // Build URL: baseUrl + normalizedBasePath + page.url
-    // If page.url is empty, it's the homepage - don't add trailing slash
+    // Homepage should always have trailing slash for consistency with canonical URLs
     let url = baseUrl + normalizedBasePath;
     if (page.url) {
       url += '/' + page.url;
-    } else if (normalizedBasePath) {
-      // If basePath exists and page.url is empty, add trailing slash for homepage
+    } else {
+      // Homepage: always add trailing slash for consistency
       url += '/';
     }
     return `  <url>

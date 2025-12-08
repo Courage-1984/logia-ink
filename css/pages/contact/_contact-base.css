@@ -138,6 +138,9 @@
   margin-top: var(--space-4);
   justify-content: flex-start;
   align-items: center;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
 }
 
 .social-link {
@@ -154,25 +157,34 @@
   transition: all 0.3s ease;
   min-width: 44px;
   min-height: 44px;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
-.social-link:hover {
+.social-link:hover,
+.social-link:focus {
   color: var(--accent-cyan);
   background: rgba(0, 255, 255, 0.15);
   border-color: var(--accent-cyan);
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
   transform: translateY(-2px);
+  outline: none;
 }
 
 .social-link svg {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+  pointer-events: none;
 }
 
 .social-link span {
   font-family: var(--font-body);
   font-weight: var(--font-weight-semibold);
+  pointer-events: none;
 }
 
 /* Section Divider */

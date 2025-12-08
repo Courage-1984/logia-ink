@@ -15,7 +15,7 @@
     <!-- Content Security Policy (basic - enhance via server headers) -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com; frame-src https://www.google.com;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https:; frame-src 'self' https://www.google.com https://maps.google.com https://maps.googleapis.com; media-src 'self' data: https: blob:; object-src 'none'; base-uri 'self';"
     />
 
     <script>
@@ -737,7 +737,13 @@
         "description": "Explore our portfolio of successful digital projects. See how we transform ideas into exceptional digital experiences.",
         "publisher": {
           "@type": "Organization",
-          "name": "Logi-Ink"
+          "name": "Logi-Ink",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://logi-ink.co.za/logo-150x150.png",
+            "width": 150,
+            "height": 150
+          }
         },
         "breadcrumb": {
           "@type": "BreadcrumbList",
@@ -1354,6 +1360,51 @@
               <p>
                 MongoDB, PostgreSQL, Redis, and cloud storage solutions for robust data management
               </p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              <h3>TypeScript & JavaScript</h3>
+              <p>Modern JavaScript ES6+, TypeScript for type-safe development and enhanced productivity</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <h3>Testing & QA Tools</h3>
+              <p>Jest, Cypress, Playwright, Selenium, Unit Testing, E2E Testing, Quality Assurance</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <h3>Version Control & Git</h3>
+              <p>Git, GitHub, GitLab, Bitbucket, Branching Strategies, Code Reviews, CI/CD Integration</p>
+            </div>
+            <div class="service-card mouse-tilt-container card-3d" style="text-align: center">
+              <div class="service-icon">
+                <div class="icon-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <line x1="18" y1="20" x2="18" y2="10" />
+                  <line x1="12" y1="20" x2="12" y2="4" />
+                  <line x1="6" y1="20" x2="6" y2="14" />
+                </svg>
+              </div>
+              <h3>Analytics & Monitoring</h3>
+              <p>Google Analytics, Plausible, Sentry, Performance Monitoring, User Behavior Tracking</p>
             </div>
           </div>
         </div>

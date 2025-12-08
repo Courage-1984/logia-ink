@@ -4,6 +4,8 @@
 
 This guide documents the mobile-specific optimizations implemented to improve performance and reduce glitchy/fast animations on mobile devices. Heavy animations, WebGL effects, and complex CSS animations are disabled or reduced on mobile devices to ensure smooth performance.
 
+**Important:** Animation duration optimizations are **selective** - only UI/interactive animations are sped up on mobile (0.3s), while ambient background animations (hero backgrounds, decorative effects) preserve their intended slow durations (26s, 32s, etc.) for a natural, non-jarring experience.
+
 ## Mobile Detection
 
 The site uses a mobile detection utility (`js/utils/env.js`) that combines:
@@ -103,6 +105,46 @@ The ripple wave animation on hero backgrounds is disabled on mobile.
 
 **Rationale:** Eliminates unnecessary background animations that can cause performance issues.
 
+### 5. Selective Animation Duration Optimization
+
+**Location:** `css/utils/_performance-optimizations.css`
+
+**Problem Fixed (2025-01-30):** Previously, a global override forced ALL animations to 0.3s on mobile, making slow ambient animations (hero backgrounds at 26-32s) appear fast and jarring.
+
+**Solution:** Selective optimization that only speeds up UI/interactive animations while preserving ambient background animations.
+
+**Implementation:**
+```css
+@media (max-width: 768px) {
+  /* Only UI/interactive animations are optimized */
+  .btn,
+  .service-card,
+  .project-card,
+  .modal,
+  .toast,
+  .fade-in-up,
+  .scroll-reveal-3d,
+  .text-reveal,
+  .skeleton {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
+  }
+
+  /* Ambient animations preserve original durations */
+  /* .liquid-background, .hero-background, .portal-glow, etc. */
+}
+```
+
+**Rationale:** 
+- UI animations should be fast (0.3s) for responsive feel
+- Ambient background animations should remain slow (26-32s) for natural, subtle effect
+- Prevents jarring fast animations on decorative elements
+- Maintains performance benefits while preserving UX
+
+**Affected Animations:**
+- ✅ **Optimized (0.3s):** Buttons, cards, modals, toasts, scroll reveals, fade-ins
+- ✅ **Preserved (original):** Hero liquid backgrounds (26s, 32s, 30s), CTA portal glow (8s), fluid gradients (15s)
+
 ## Performance Benefits
 
 ### Before Optimizations
@@ -180,6 +222,16 @@ Potential future optimizations:
 - `js/easter-egg/star-field.js` - Star twinkling effects
 - `css/components/cta.css` - CTA section animations
 - `css/components/hero.css` - Hero section animations
-- `css/utils/_performance-optimizations.css` - General mobile performance optimizations
+- `css/utils/_performance-optimizations.css` - General mobile performance optimizations (selective animation durations)
+- `css/utils/responsive.css` - Responsive breakpoints and optimizations
+- `css/utils/animations.css` - Animation utilities and mobile-specific overrides
 - `tests/e2e/mobile-optimizations.spec.js` - E2E tests
+
+## Changelog
+
+**2025-01-30:** Fixed animation duration issue on mobile
+- Removed global `* { animation-duration: 0.3s !important; }` override
+- Implemented selective optimization targeting only UI/interactive animations
+- Preserved ambient background animation durations (26s, 32s, etc.)
+- See `docs/ANIMATION_DURATION_FIX_REPORT.md` for detailed analysis
 

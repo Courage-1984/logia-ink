@@ -1,0 +1,69 @@
+/**
+ * Horizontal Scroll Component
+ * Styles for sections that convert vertical scroll to horizontal scroll
+ */
+
+/* Horizontal scroll section wrapper */
+.expertise-section,
+.services-preview.horizontal-scroll-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cards container for horizontal scrolling */
+.expertise-section .services-grid,
+.horizontal-scroll-section .services-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-8);
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+.expertise-section .services-grid .service-card,
+.horizontal-scroll-section .services-grid .service-card {
+  flex: 0 0 auto;
+  min-width: 280px;
+  width: 280px;
+  max-width: 100%;
+}
+
+/* Desktop: Allow horizontal scroll */
+@media (min-width: 1025px) {
+  .expertise-section .services-grid .service-card,
+  .horizontal-scroll-section .services-grid .service-card {
+    min-width: 320px;
+    width: 320px;
+  }
+}
+
+/* Mobile: Keep grid layout (horizontal scroll disabled) */
+@media (max-width: 1024px) {
+  .expertise-section .services-grid,
+  .horizontal-scroll-section .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .expertise-section .services-grid .service-card,
+  .horizontal-scroll-section .services-grid .service-card {
+    min-width: auto;
+    width: auto;
+    max-width: none;
+  }
+}
+
+/* Active state - when horizontal scrolling is happening */
+.expertise-section.horizontal-scroll-active,
+.horizontal-scroll-section.horizontal-scroll-active {
+  /* Add any visual indicators if needed */
+}
+
+/* Ensure smooth scrolling performance */
+.expertise-section .services-grid,
+.horizontal-scroll-section .services-grid {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}

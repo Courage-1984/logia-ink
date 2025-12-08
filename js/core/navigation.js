@@ -81,10 +81,28 @@ export function initNavigation() {
 
     navLinks.forEach(link => {
       link.addEventListener('click', (e) => {
-        // Allow all nav links (including dropdown parents) to navigate
-        // Dropdown parent links now navigate to their href (e.g., services.html)
-        // Dropdown menu still works on hover (desktop) via CSS
+        // Check if this is a dropdown parent link on mobile
+        const dropdownItem = link.closest('.nav-item-dropdown');
+        const isMobile = window.innerWidth <= 767;
 
+        if (dropdownItem && isMobile) {
+          // On mobile, toggle dropdown instead of navigating
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Close other dropdowns
+          document.querySelectorAll('.nav-item-dropdown').forEach(item => {
+            if (item !== dropdownItem) {
+              item.classList.remove('active');
+            }
+          });
+
+          // Toggle this dropdown
+          dropdownItem.classList.toggle('active');
+          return;
+        }
+
+        // For non-dropdown links or desktop, navigate normally
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
         // Update ARIA attributes
@@ -96,12 +114,22 @@ export function initNavigation() {
   }
 
   // Dropdown Menu Toggle (Desktop & Mobile)
-  // Note: Dropdown parent links now navigate on click (e.g., Services -> services.html)
-  // Dropdown menu is shown on hover (desktop) via CSS
-  // On mobile, the dropdown can be accessed via the dropdown links themselves
+  // Desktop: Dropdown shows on hover via CSS
+  // Mobile: Dropdown toggles on click (handled above in navLinks click handler)
   const dropdownItems = document.querySelectorAll('.nav-item-dropdown');
-  // Dropdown functionality is handled by CSS hover on desktop
-  // No additional JavaScript needed - parent link navigates, dropdown shows on hover
+
+  // Close dropdowns when clicking outside on mobile
+  document.addEventListener('click', (e) => {
+    const isMobile = window.innerWidth <= 767;
+    if (!isMobile) return;
+
+    const clickedDropdown = e.target.closest('.nav-item-dropdown');
+    if (!clickedDropdown) {
+      dropdownItems.forEach(item => {
+        item.classList.remove('active');
+      });
+    }
+  });
 
   // Set active nav link based on current page
   const setActiveNavLinkByPage = () => {

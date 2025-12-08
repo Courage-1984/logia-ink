@@ -15,7 +15,7 @@
     <!-- Content Security Policy (basic - enhance via server headers) -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com; frame-src 'self' https://www.google.com https://maps.google.com https://maps.googleapis.com https://maps.app.goo.gl;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https:; frame-src 'self' https://www.google.com https://maps.google.com https://maps.googleapis.com https://maps.app.goo.gl; media-src 'self' data: https: blob:; object-src 'none'; base-uri 'self';"
     />
 
     <script>
@@ -32,7 +32,7 @@
     />
     <meta
       name="keywords"
-      content="contact logi-ink, get in touch, digital agency contact, project inquiry"
+      content="contact Logi-Ink, get in touch, digital agency contact, project inquiry"
     />
     <meta name="author" content="Logi-Ink" />
     <meta name="robots" content="index, follow" />
@@ -735,7 +735,13 @@
         "description": "Get in touch with Logi-Ink to discuss your digital project. We are here to help bring your vision to life.",
         "publisher": {
           "@type": "Organization",
-          "name": "Logi-Ink"
+          "name": "Logi-Ink",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://logi-ink.co.za/logo-150x150.png",
+            "width": 150,
+            "height": 150
+          }
         },
         "breadcrumb": {
           "@type": "BreadcrumbList",
@@ -766,6 +772,12 @@
         "mainEntity": {
           "@type": "Organization",
           "name": "Logi-Ink",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://logi-ink.co.za/logo-150x150.png",
+            "width": 150,
+            "height": 150
+          },
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "Customer Service",
@@ -951,7 +963,7 @@
               </div>
               <p>533 Andries Strydom St<br />Constantia Park<br />Pretoria, South Africa<br />Office Hours: Mon-Fri 9AM-5PM</p>
               <a
-                href="https://maps.app.goo.gl/LxbQUQxCa3b6b7Jm6"
+                href="https://maps.app.goo.gl/kCMd8eXtQ2mzvgB39"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="contact-quick-action"
@@ -979,7 +991,7 @@
               </div>
               <div class="social-links">
                 <a
-                  href="https://www.facebook.com/logiink"
+                  href="https://www.facebook.com/profile.php?id=61584223810824"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Visit our Facebook"
@@ -1005,7 +1017,7 @@
                   <span class="sr-only">Twitter</span>
                 </a>
                 <a
-                  href="https://www.instagram.com/logiink"
+                  href="https://www.instagram.com/logi.ink/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Visit our Instagram"

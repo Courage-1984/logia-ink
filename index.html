@@ -15,7 +15,7 @@
     <!-- Content Security Policy (basic - enhance via server headers) -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com; frame-src https://www.google.com;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https:; frame-src 'self' https://www.google.com https://maps.google.com https://maps.googleapis.com; media-src 'self' data: https: blob:; object-src 'none'; base-uri 'self';"
     />
 
     <script>
@@ -180,10 +180,16 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "https://logi-ink.co.za/#organization",
         "name": "Logi-Ink",
         "alternateName": "Logi Ink",
         "url": "https://logi-ink.co.za/",
-        "logo": "https://logi-ink.co.za/logo.svg",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://logi-ink.co.za/logo-150x150.png",
+          "width": 150,
+          "height": 150
+        },
         "description": "Digital Innovation & Creative Solutions - A digital agency specializing in web development, design, and digital transformation.",
         "address": {
           "@type": "PostalAddress",
@@ -200,9 +206,10 @@
           "areaServed": "Worldwide"
         },
         "sameAs": [
+          "https://www.facebook.com/profile.php?id=61584223810824",
           "https://www.linkedin.com/company/logi-ink",
           "https://twitter.com/logiink",
-          "https://www.instagram.com/logiink"
+          "https://www.instagram.com/logi.ink/"
         ]
       }
     </script>
@@ -214,8 +221,7 @@
         "url": "https://logi-ink.co.za/",
         "description": "Digital Innovation & Creative Solutions - A digital agency specializing in web development, design, and digital transformation.",
         "publisher": {
-          "@type": "Organization",
-          "name": "Logi-Ink"
+          "@id": "https://logi-ink.co.za/#organization"
         },
         "potentialAction": {
           "@type": "SearchAction",

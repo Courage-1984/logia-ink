@@ -15,7 +15,7 @@
     <!-- Content Security Policy (basic - enhance via server headers) -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com; frame-src https://www.google.com;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https:; frame-src 'self' https://www.google.com https://maps.google.com https://maps.googleapis.com; media-src 'self' data: https: blob:; object-src 'none'; base-uri 'self';"
     />
 
     <script>
@@ -737,7 +737,13 @@
         "description": "Discover our comprehensive range of digital services including web development, design, branding, and digital strategy.",
         "publisher": {
           "@type": "Organization",
-          "name": "Logi-Ink"
+          "name": "Logi-Ink",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://logi-ink.co.za/logo-150x150.png",
+            "width": 150,
+            "height": 150
+          }
         },
         "breadcrumb": {
           "@type": "BreadcrumbList",
@@ -765,7 +771,13 @@
         "serviceType": "Digital Agency Services",
         "provider": {
           "@type": "Organization",
-          "name": "Logi-Ink"
+          "name": "Logi-Ink",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://logi-ink.co.za/logo-150x150.png",
+            "width": 150,
+            "height": 150
+          }
         },
         "areaServed": {
           "@type": "Country",
