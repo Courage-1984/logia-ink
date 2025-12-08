@@ -18,12 +18,6 @@
       content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https://plausible.io https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https:; frame-src 'self' https://www.google.com https://maps.google.com https://maps.googleapis.com; media-src 'self' data: https: blob:; object-src 'none'; base-uri 'self';"
     />
 
-    <script>
-      if (sessionStorage.getItem('logiInk:pendingTransition')) {
-        document.documentElement.classList.add('page-transition-preload');
-        sessionStorage.removeItem('logiInk:pendingTransition');
-      }
-    </script>
 
     <!-- SEO Meta Tags -->
     <meta
@@ -94,6 +88,13 @@
 
     <!-- Stylesheet (includes self-hosted fonts via @font-face) -->
     <link rel="stylesheet" href="css/main.css" />
+
+    <!-- View Transitions API - Enable smooth page transitions -->
+    <style>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
 
     <!-- Content Link Styling -->
     <style>

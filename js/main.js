@@ -211,6 +211,12 @@ deferNonCritical(async () => {
 const initThreeHeroWhenIdle = async () => {
   // Only load if page is loaded and visible
   if (document.readyState === 'complete' && document.visibilityState === 'visible') {
+    // Wait for active view transition to complete (if any)
+    // This prevents Three.js from initializing during page transitions
+    if (document.activeViewTransition) {
+      await document.activeViewTransition.finished;
+    }
+
     const { initThreeHero, pauseThreeHero, resumeThreeHero } = await import('./core/three-hero.js');
     initThreeHero();
 

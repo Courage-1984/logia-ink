@@ -22,36 +22,20 @@ body {
   transition: opacity 0.3s ease;
 }
 
-html.page-transition-preload body {
-  opacity: 0;
-  filter: blur(14px);
-  transition: none;
+/* View Transitions API - Customize transition animations */
+/* The browser handles transitions automatically with @view-transition { navigation: auto; } */
+/* We can customize the default cross-fade animation here */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Page Transitions - Enhanced with blur and scale effects */
-.page-transition-in {
-  animation: pageFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  /* will-change removed - animation handles optimization */
-}
-
-.page-transition-out {
-  opacity: 0;
-  filter: blur(10px);
-  transition:
-    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes pageFadeIn {
-  from {
-    opacity: 0;
-    filter: blur(10px);
-  }
-
-  to {
-    opacity: 1;
-    filter: blur(0);
-  }
+/* Optional: Customize transition for smoother experience */
+::view-transition-group(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Typography */
