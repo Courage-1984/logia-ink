@@ -5,6 +5,7 @@
 
 import { showToast } from '../utils/toast.js';
 import { isDevelopmentEnv } from '../utils/env.js';
+import { trackContactFormSubmission } from '../utils/analytics.js';
 
 // Form state
 const formData = {};
@@ -275,6 +276,13 @@ async function handleSubmit(e) {
   try {
     // Submit form to Formspree
     await submitForm(formData);
+
+    // Track form submission
+    const subject = formData.get('subject') || 'unknown';
+    trackContactFormSubmission({
+      subject,
+      source: 'contact-page',
+    });
 
     // Success
     showToast('Thank you for your message! We will get back to you soon.', 'success', 5000);

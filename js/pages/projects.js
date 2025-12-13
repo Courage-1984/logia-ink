@@ -3,6 +3,8 @@
  * Handles project detail modal lifecycle and dynamic content population
  */
 
+import { trackProjectView } from '../utils/analytics.js';
+
 // Mapping of project IDs to their video file paths
 const projectVideoPaths = {
   'ecommerce-platform': './assets/video/video-e-commerce-platform.mp4',
@@ -372,6 +374,9 @@ export function initProjectsPage() {
     requestAnimationFrame(() => {
       modalContent.focus();
     });
+
+    // Track project view
+    trackProjectView(details.title || projectId, 'projects-page');
 
     activeProjectId = projectId;
   };

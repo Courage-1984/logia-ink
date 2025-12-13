@@ -23,6 +23,7 @@ import { registerServiceWorker, autoUnregisterServiceWorkers } from './core/serv
 import { initAccessibility } from './utils/accessibility.js';
 import { initErrorHandler } from './utils/error-handler.js';
 import { initDynamicPrefetch } from './utils/dynamic-prefetch.js';
+import { initCTATracking } from './utils/analytics.js';
 
 // CRITICAL: Auto-unregister service workers immediately (before page loads)
 // This prevents service worker from interfering with CSS loading and causing FOUC
@@ -71,6 +72,7 @@ const initOnReady = () => {
 
   // Critical: Initialize accessibility features
   initAccessibility();
+  initCTATracking();
 
   // Critical: Initialize background video lazy loading
   initBackgroundVideoLazyLoad();

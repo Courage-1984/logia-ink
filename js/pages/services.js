@@ -3,6 +3,8 @@
  * Handles service modal open/close functionality
  */
 
+import { trackServiceModalOpen } from '../utils/analytics.js';
+
 export function initServiceModals() {
   const offerPanels = document.querySelectorAll('.offer-panel');
   const introObserver = new IntersectionObserver(
@@ -40,6 +42,10 @@ export function initServiceModals() {
         if (modal) {
           modal.classList.add('active');
           document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+          // Track service modal open
+          const serviceName = card.querySelector('.service-title, h3, h2')?.textContent?.trim() || modalId;
+          trackServiceModalOpen(serviceName, 'services-page');
         }
       }
     });

@@ -182,7 +182,17 @@
           function (i) {
             plausible.o = i || {};
           }));
-      plausible.init();
+      // Initialize with page-level custom properties
+      plausible.init({
+        customProperties: function (eventName) {
+          const path = window.location.pathname;
+          return {
+            pageType: 'about',
+            pageName: 'About',
+            path: path,
+          };
+        },
+      });
     </script>
 
     <!-- Google tag (gtag.js) - Optimized loading using requestIdleCallback to avoid blocking main thread -->
